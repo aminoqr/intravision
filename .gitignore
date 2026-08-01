@@ -1,0 +1,42 @@
+# File: .gitignore
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+
+# Next.js
+.next/
+out/
+
+# Environment — never commit secrets or local overrides
+.env
+.env.local
+.env.production
+.env.development.local
+.env*.local
+
+# Python / dashboard store
+data/
+*.db
+*.db-wal
+*.db-shm
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Build / tooling
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs & OS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+
+# Generated probe output
+docs/api-probe-results.md
