@@ -1,129 +1,223 @@
 <!-- File: docs/architecture.md -->
 
-# Technical architecture
+# Technical architecture — Intra-Vision
 
-Hackathon deliverable #2 — Intra-Vision (42 Warsaw Hacks). Updated **Saturday 1 Aug 2026**
-after a successful live Warsaw fetch and `POST /refresh` verification.
+**Deliverable 2.** Realistic plan to run “Learning Progress Insights” on the 42 Warsaw Social
+Space TV. Updated **1 Aug 2026** to match the opening brief and the shipped PoC.
 
-## The constraint that determines the design
+This document answers the four grading prompts in order:
 
-The 42 API allows **2 requests/second and 1200 requests/hour**. A campus dashboard on a TV runs
-continuously, so a naive design — fetch on page render — fails in three separate ways:
+1. What is the solution, and how is it used?  
+2. How will it display on the Social Space TV?  
+3. Why this tech stack?  
+4. Architecture diagram — services + data flow  
 
-1. Every browser refresh costs quota; an accidental reload loop takes the display down for an hour.
-2. Every 42 API hiccup blanks the TV.
-3. Per-student fan-out over hundreds of students burns the hourly budget in one refresh.
+---
 
-So the system is split in two, and **the renderer never touches the 42 API**.
+## 1. What it is / how it is used
+
+**Intra-Vision** is a **read-only campus dashboard**: a single FullHD webpage that celebrates
+Common Core progress (recent validations, who’s on campus, coalition standings, level shape).
+
+| Actor | How they use it |
+|---|---|
+| **Students in the Social Space** | Look at the TV — no login, no mouse, no Intra app. Content rotates by itself. |
+| **Operators / staff** | Point MagicInfo at our URL (or open `localhost:8000` for a demo). Optional: `POST /refresh` to force a data update. |
+| **Developers** | `make fetch-live` / `make demo` → SQLite → `make serve`. Secrets stay in `.env.local`. |
+
+It is **not** an admin console, not a personal “my progress” app, and not a site that calls the
+42 API from the browser. Viewers only ever talk to **our** server; our server talks to Intra on a
+slow schedule and caches processed metrics.
+
+**Hackathon judging:** we demo the same app from a laptop at `http://localhost:8000` (1920×1080).
+Organizers confirmed a live public deploy is **not** required for submission — only a realistic
+deployment *plan* for the TV (below).
+
+---
+
+## 2. Deployment target — Social Space TV
+
+### Confirmed TV facts (opening presentation)
+
+| Fact | Implication for us |
+|---|---|
+| MagicInfo signage system | Content is **scheduled** — a “web content” slot points at a URL; nobody manually opens a browser on the TV |
+| Displays live websites (also pptx/mp4/images) | We ship a **normal HTTPS webpage**, not a custom kiosk binary |
+| **1920×1080 @ 30Hz**, has internet | Layout and motion designed for that exact canvas; avoid sub-200ms flicker |
+| May be hosted on campus LAN **or** a public URL | Same FastAPI app either way |
+
+### Path A — planned production (post-win / when staff deploy)
+
+Organizers: only the **1st-place** team is paid to deploy for real (`umowa o dzieło`). Our plan:
+
+```mermaid
+flowchart TB
+  subgraph host [Hosting]
+    Render[Render_Python_web_service]
+    Cron[Cron_every_10_min_ft.fetch]
+    DB[(SQLite_on_persistent_disk)]
+    Cron --> Render
+    Render --> DB
+  end
+  Intra[api.intra.42.fr] -->|OAuth_plus_campus_scoped_GETs| Cron
+  Magic[MagicInfo_scheduler] -->|web_content_slot_HTTPS_URL| TV[Social_Space_TV_1920x1080_30Hz]
+  TV -->|GET_slash_and_poll_api_metrics| Render
+```
+
+**Steps to go live:**
+
+1. Create a **Render** Web Service from this GitHub repo (Python, start command  
+   `PYTHONPATH=src uvicorn ft.app:app --host 0.0.0.0 --port $PORT`).
+2. Set env vars: `FORTYTWO_APP_UID`, `FORTYTWO_APP_SECRET`, `FT_CAMPUS_ID=67`, `FT_CURSUS_ID=21`.
+3. Attach a **persistent disk** for `data/dashboard.db` (survives restarts).
+4. Add a cron job (Render Cron or external): every 10 minutes run `python -m ft.fetch`.
+5. In **MagicInfo**, create a web-content playlist item → paste the Render HTTPS URL → assign to
+   the Social Space display on the usual schedule.
+6. Verify once at FullHD: rotating views, readable from across the room, stamp updating.
+
+No special packaging, Electron, or Chromium flags required — MagicInfo’s browser loads the URL.
+
+### Path B — campus-local host (also realistic)
+
+Same app on a small always-on machine on campus wifi (Pi / mini PC):
+
+- `systemd` unit for `uvicorn`
+- `cron` for `ft.fetch`
+- MagicInfo points at `http://dash.local:8000` or a campus-public IP
+
+Useful if staff prefer not to depend on an external PaaS.
+
+### Path C — hackathon demo (what we show today)
+
+```bash
+make setup
+make fetch          # or make fetch-live / make demo
+make serve          # http://localhost:8000
+```
+
+Browser window fixed at 1920×1080. Identical HTML/JS as production.
+
+---
+
+## 3. Tech-stack justification
+
+| Layer | Choice | Why this, not the alternative |
+|---|---|---|
+| App server + HTML | **Python 3 + FastAPI + Jinja2** | One process for OAuth, fetch orchestration, and TV HTML. Faster to debug solo in 24h than a split Next.js frontend/backend. |
+| Cache | **SQLite (WAL)** | Zero extra infra; last-good data when Intra dies (organizers warned about outages); fixtures rebuild the same store offline. |
+| Intra HTTP | **httpx** + client-credentials OAuth | Server-only secret; no user login for a passive TV. |
+| Display updates | **Vanilla JS** polling `/api/metrics` every 30s | In-place DOM updates — no full reload flicker on 30Hz. |
+| Offline / pitch safety | **`fixtures/` + `make demo`** | Demo still works if Intra is down mid-pitch. |
+| Planned host | **Render** (Python web service) | Push-from-GitHub, env secrets, cron-friendly; fits a single always-on URL for MagicInfo. |
+| Not used for PoC | Next.js / Vercel / Framer Motion | Kept only as optional stubs; we pivoted mid-hackathon for speed + offline resilience — an honest jury story. |
+
+**Dominant constraint:** Intra allows **2 req/s** and **1200 req/hour**. Therefore the TV browser
+**never** calls `api.intra.42.fr`. Only the fetcher does, about every 10 minutes (~11 requests ≈
+5.5% of the hourly budget).
+
+---
+
+## 4. Architecture diagram — services + data flow
+
+### Services
 
 ```mermaid
 flowchart LR
-    API[42_API] -->|every_10_min_about_11_req| F[Fetcher_ft.fetch]
-    F -->|processed_metrics| S[(SQLite_WAL)]
-    S -->|read_only| R[Renderer_FastAPI]
-    R -->|HTTP| TV[TV_kiosk_browser]
-    TV -.->|poll_api_metrics_30s_zero_quota| R
-    OP[Manual_or_demo_refresh] -->|POST_refresh_202| F
+  subgraph external [External]
+    IntraAPI[42_Intra_API]
+  end
+  subgraph intraVision [Intra_Vision_service]
+    Client[ft.client_OAuth_rate_limit]
+    Fetch[ft.fetch_job]
+    Metrics[ft.metrics_pure]
+    Store[(SQLite_store)]
+    App[ft.app_FastAPI]
+    HTML[dashboard.html_Jinja_plus_JS]
+    Client --> Fetch
+    Fetch --> Metrics
+    Metrics --> Store
+    Store --> App
+    App --> HTML
+  end
+  IntraAPI --> Client
+  Display[TV_or_laptop_browser] -->|GET_slash| App
+  Display -->|GET_api_metrics_30s| App
+  Operator[Operator] -->|POST_refresh_202| App
+  App -->|background| Fetch
 ```
 
-Consequences, all demoable:
+### Data flow (one refresh cycle)
 
-- Page loads cost **zero** API quota.
-- If the 42 API is down, the TV keeps rendering the last good data with an honest
-  "updated … ago" timestamp (amber after 30 minutes).
-- Offline path: `make demo` / `make fetch` from `fixtures/` — works with wifi unplugged.
+```mermaid
+sequenceDiagram
+  participant Cron as Fetcher_cron_or_POST_refresh
+  participant Intra as api.intra.42.fr
+  participant DB as SQLite
+  participant App as FastAPI
+  participant TV as MagicInfo_TV_browser
 
-## Components
+  Cron->>Intra: OAuth token if needed
+  Cron->>Intra: projects_users cursus_users locations blocs
+  Note over Cron,Intra: about 11 requests campus scoped
+  Cron->>Cron: build_metrics pure transforms
+  Cron->>DB: write metrics snapshot plus last_refresh
+  TV->>App: GET /
+  App->>DB: read metrics
+  App->>TV: HTML first paint
+  loop every 30s
+    TV->>App: GET /api_metrics
+    App->>DB: read only
+    App->>TV: JSON update DOM no reload
+  end
+```
 
-| Component | File | Responsibility |
+**Invariant:** arrows from **TV → Intra** do not exist.
+
+### Module map
+
+| Service piece | Path | Role |
 |---|---|---|
-| API client | [src/ft/client.py](../src/ft/client.py) | OAuth2 client-credentials, token refresh at 90% of 7200s, 2/s + 1200/hr limiter, pagination, retry/backoff |
-| Fetch job | [src/ft/fetch.py](../src/ft/fetch.py) | Four collections → metrics → store; `--fixtures` / `--save-fixtures` |
-| Metrics | [src/ft/metrics.py](../src/ft/metrics.py) | Pure transforms; unit-tested in `tests/test_metrics.py` |
-| Store | [src/ft/store.py](../src/ft/store.py) | SQLite WAL; latest snapshot + bounded history for level-up diffs |
-| Renderer | [src/ft/app.py](../src/ft/app.py) | FastAPI: `GET /`, `GET /api/metrics`, `POST /refresh`, `GET /healthz` |
-| TV view | [src/ft/templates/dashboard.html](../src/ft/templates/dashboard.html) | 1920×1080-oriented rotating views; local poll only |
-| Probe | [src/ft/probe.py](../src/ft/probe.py) | Measured API behaviour → `docs/api-probe-results.md` |
-| Optional shell | `app/` + `components/` | Next.js carousel stubs — **not** on the critical path |
+| API client | `src/ft/client.py` | Token, 2/s + 1200/hr, pagination, retries |
+| Fetch job | `src/ft/fetch.py` | Pull 4 collections → metrics → store |
+| Metrics | `src/ft/metrics.py` | Pure JSON → display numbers (unit-tested) |
+| Store | `src/ft/store.py` | SQLite WAL |
+| HTTP API + page | `src/ft/app.py` | `/`, `/api/metrics`, `/refresh`, `/healthz` |
+| TV UI | `src/ft/templates/dashboard.html` | Rotating FullHD views |
 
-Pinned ids: **campus 67 (Warsaw)**, **cursus 21 (`42cursus`)**.
+Pinned: campus **67**, cursus **21**.
 
-## Request budget (measured)
+### What the viewer sees (product surface)
 
-Live refresh on 1 Aug 2026 used **11 requests** end-to-end (plus 1 token POST when cold):
+1. Recently validated (celebration feed)  
+2. Campus pulse (on campus / validated this week / active students / median level)  
+3. Coalitions (Lunaria / Orionis / Uniterrax)  
+4. Level distribution (anonymous histogram)  
 
-| Collection | Requests (approx) | Notes |
-|---|---|---|
-| `projects_users` (14d `marked_at`, campus 67) | 2 | `X-Total=174` |
-| `cursus/21/cursus_users` | 6 | `X-Total=575` at `page[size]=100` |
-| `blocs` → coalitions | 1 | 3 Warsaw coalitions |
-| `locations?active=true` | 1 | 27 open sessions |
-| **Total** | **~11** | |
+Header: honest **updated … ago** (amber after 30 minutes).
 
-At a 10-minute cadence: **~66 requests/hour ≈ 5.5% of 1200**. Manual `POST /refresh` during a
-demo is cheap. `FT_MAX_PAGES` caps runaway pagination.
+---
 
-## Refresh mechanism (brief requirement)
+## 5. Failure + ops (realistic deploy concerns)
 
-1. **Scheduled / CLI:** `python -m ft.fetch` or cron every 10 minutes.
-2. **On demand:** `POST /refresh` → **202** `{ "status": "refresh scheduled" }`; fetch runs in a
-   background task with a lock so overlapping presses do not stack.
-3. **TV polling:** browser `GET /api/metrics` every 30s — SQLite only, **zero** Intra quota.
-
-Verified 1 Aug 2026: `last_refresh` advanced after `POST /refresh` (~20s for a full live cycle).
-
-## Failure behaviour
-
-| Failure | Response |
+| Situation | Behaviour |
 |---|---|
-| One endpoint errors | `_safe()` logs it, returns `[]`, other panels still update |
-| API returns 429 | Honours `Retry-After`, exponential backoff |
-| API fully down | Cache served; stamp turns amber past 30 min; never blank |
-| Token expired | Proactive refresh at 90% lifetime; 401 forces re-acquire |
-| Empty results | Panels render an explicit empty message |
-| Poll fails | Browser keeps last paint; stamp ages honestly |
-| `/v2/campus/:id/stats` | **403** on public token — panel not built |
-| Bare `/graph/.../by/day` for projects/cursus | **422** — lists used instead |
+| Intra endpoint fails | That panel degrades; others still refresh |
+| Intra fully down | Last SQLite snapshot kept; stamp ages; fixtures for cold start |
+| Render / box restarts | `uvicorn` comes back; DB on disk still has last metrics |
+| Overlapping refresh | Lock in `ft.app` skips duplicate `POST /refresh` |
+| Rate limit 429 | Client backs off; next cron retries |
 
-## TV display contract
+Secrets: environment only (Render dashboard or `/etc/…` env file mode 600). Never in git, never in
+HTML/JS sent to MagicInfo.
 
-- Target **1920×1080**, passive kiosk, no hover-only content.
-- Large type (`vh`-based), high contrast on near-black.
-- Rotation: validations (30s) → pulse → coalitions → levels (20s each).
-- Motion: slow fade / 3.2s opacity breathe on fresh rows — no sub-200ms flicker.
+---
 
-## Deployment
+## 6. Deliberate limitations
 
-Recommended: small VPS or Pi behind the TV.
+- Data up to ~10 minutes stale by design  
+- `/campus/:id/stats` → 403 on public token — not shipped  
+- Some `/graph` paths → 422 — lists + local metrics instead  
+- Single SQLite instance — correct for **one** Social Space TV  
+- Live Render deploy optional during the hackathon; plan above is what staff would execute post-win  
 
-```
-[Unit]
-Description=42 Warsaw Intra-Vision
-After=network.target
-
-[Service]
-WorkingDirectory=/opt/42dash
-EnvironmentFile=/opt/42dash/.env
-ExecStart=/opt/42dash/.venv/bin/uvicorn ft.app:app --host 0.0.0.0 --port 8000
-Environment=PYTHONPATH=/opt/42dash/src
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Fetcher cron: `*/10 * * * * cd /opt/42dash && PYTHONPATH=src .venv/bin/python -m ft.fetch`
-
-Kiosk: `chromium --kiosk --noerrdialogs --disable-session-crashed-bubble http://dash.local:8000`
-
-Secrets in `/opt/42dash/.env` mode 600 — never in the repo. Browser receives metrics JSON only.
-
-## Deliberate limitations (pitch-ready)
-
-- Data up to ~10 minutes stale by design; stamp always visible.
-- `campus/:id/stats` blocked (403); coalitions come from `blocs`.
-- Bare `/graph` paths for projects_users / cursus_users returned 422; not relied on.
-- Level-ups need a prior SQLite snapshot — empty on cold start.
-- Single instance, single SQLite file — correct for one Social Space TV.
-- Next.js UI in-repo is a stub; production PoC path is FastAPI + Jinja.
+See also: [42-api.md](42-api.md) (API research), [pitch.md](pitch.md), [screenshots/](screenshots/).

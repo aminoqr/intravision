@@ -77,10 +77,33 @@ def main() -> None:
             }
         )
 
+    # Real Warsaw coalition names/colours (ids/scores are synthetic for offline demo).
+    # Never invent campus coalition brands — they show on the Social Space TV.
     coalitions = [
-        {"id": 1, "name": "The Federation", "score": 41200, "color": "#4C9F70", "image_url": None},
-        {"id": 2, "name": "The Order", "score": 38750, "color": "#C0392B", "image_url": None},
-        {"id": 3, "name": "The Assembly", "score": 35980, "color": "#2E86C1", "image_url": None},
+        {
+            "id": 459,
+            "name": "Lunaria",
+            "slug": "lunaria",
+            "score": 41200,
+            "color": "#52BDFF",
+            "image_url": None,
+        },
+        {
+            "id": 458,
+            "name": "Orionis",
+            "slug": "orionis",
+            "score": 38750,
+            "color": "#BE2AD1",
+            "image_url": None,
+        },
+        {
+            "id": 460,
+            "name": "Uniterrax",
+            "slug": "uniterrax",
+            "score": 35980,
+            "color": "#FFCD5A",
+            "image_url": None,
+        },
     ]
 
     locations = [

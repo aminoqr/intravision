@@ -1,4 +1,4 @@
-.PHONY: help setup test demo fetch fetch-live probe serve campus cursus resolve-ids clean
+.PHONY: help setup test demo sample-fixtures fetch fetch-live probe serve campus cursus resolve-ids clean
 
 PY := .venv/bin/python
 PIP := .venv/bin/pip
@@ -17,10 +17,12 @@ setup: ## Create venv and install dependencies
 test: ## Run unit tests (no network, no credentials needed)
 	$(PY) -m pytest tests/ -q
 
-demo: ## Build the dashboard from sample fixtures and serve it - works with no credentials
-	$(PY) scripts/make_sample_fixtures.py
+demo: ## Serve dashboard from fixtures/ (no API). Does NOT overwrite live Warsaw fixtures.
 	$(PY) -m ft.fetch --fixtures
 	$(PY) -m uvicorn ft.app:app --host 0.0.0.0 --port 8000
+
+sample-fixtures: ## Regenerate synthetic fixtures (Warsaw coalition names). Prefer live fixtures for demos.
+	$(PY) scripts/make_sample_fixtures.py
 
 fetch: ## Rebuild metrics from fixtures/ (costs no API quota)
 	$(PY) -m ft.fetch --fixtures
