@@ -50,7 +50,6 @@ EMPTY: dict[str, Any] = {
     "evals_completed": 0,
     "zombies": [],
     "active_project_data": [],
-    "top_evaluators_by_scope": {"today": [], "week": [], "piscine": []},
     "top_evaluators": [],
     "weekly_logtime_data": [],
 }

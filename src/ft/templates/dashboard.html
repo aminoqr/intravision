@@ -18,12 +18,19 @@
     --canvas-to: #C2C7D0;
 
     /* ── Glass chassis (the unified floating board) ───────────────── */
-    --console-bg: rgba(255, 255, 255, 0.28);
-    --console-border: rgba(255, 255, 255, 0.55);
+    --console-bg: rgba(255, 255, 255, 0.26);
+    --console-border: rgba(255, 255, 255, 0.58);
 
     /* ── Liquid glass widget panes ───────────────────────────────── */
-    --shell-bg: rgba(255, 255, 255, 0.45);
-    --shell-border: rgba(255, 255, 255, 0.70);
+    --shell-bg: rgba(255, 255, 255, 0.38);
+    --shell-border: rgba(255, 255, 255, 0.72);
+
+    /* ── iOS Control Center–style continuous / squircle radii ─────── */
+    --radius-console: max(40px, 3.8vw);
+    --radius-pane: max(34px, 3.2vw);
+    --radius-tile: max(26px, 2.4vw);
+    --radius-chip: max(20px, 1.8vw);
+    --radius-squircle: 38%;
 
     /* ── Typography on light backgrounds ──────────────────────────── */
     --title: #0f172a;
@@ -32,7 +39,7 @@
     --muted: #94a3b8;
 
     /* ── Gauge / data tracks ─────────────────────────────────────── */
-    --track: #D1D5DB;
+    --track: rgba(209, 213, 219, 0.72);
 
     /* ── Accent palette for gauges & indicators ───────────────────── */
     --accent-blue: #0A84FF;
@@ -43,10 +50,10 @@
 
     /* ── Glass bevel shadow (per-widget floating effect) ──────────── */
     --glass-bevel:
-      inset 1px 1px 0px rgba(255, 255, 255, 0.85),
-      inset -1px -1px 0px rgba(0, 0, 0, 0.03),
-      0 14px 36px rgba(80, 90, 120, 0.18),
-      0 6px 12px rgba(80, 90, 120, 0.10);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.92),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.025),
+      0 18px 42px rgba(80, 90, 120, 0.16),
+      0 8px 16px rgba(80, 90, 120, 0.08);
 
     /* ── Floating title capsule shadow ────────────────────────────── */
     --title-float:
@@ -116,15 +123,18 @@
 
   /* ── Multi-Layered Floating Glass Chassis ────────────────────── */
   .console {
-    background: var(--console-bg);
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
+    background:
+      linear-gradient(155deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.18) 100%),
+      var(--console-bg);
+    backdrop-filter: blur(72px) saturate(1.15);
+    -webkit-backdrop-filter: blur(72px) saturate(1.15);
     border: 1px solid var(--console-border);
-    border-radius: 2.5rem;
+    border-radius: var(--radius-console);
     padding: 2rem;
     box-shadow:
-      0 20px 50px rgba(100, 110, 140, 0.15),
-      0 8px 16px rgba(100, 110, 140, 0.08);
+      inset 0 1px 0 rgba(255, 255, 255, 0.75),
+      0 24px 56px rgba(100, 110, 140, 0.14),
+      0 10px 20px rgba(100, 110, 140, 0.07);
     display: flex; gap: 1.5rem;
     flex: 1; height: 100%;
     min-height: 0;
@@ -132,14 +142,19 @@
 
   /* ── Floating Glass Widget Panes — each with independent shadow ─ */
   .glass {
-    background: var(--shell-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    position: relative;
+    isolation: isolate;
+    background:
+      linear-gradient(150deg, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.22) 46%, rgba(255, 255, 255, 0.30) 100%),
+      var(--shell-bg);
+    backdrop-filter: blur(36px) saturate(1.2);
+    -webkit-backdrop-filter: blur(36px) saturate(1.2);
     border: 1px solid var(--shell-border);
     box-shadow: var(--glass-bevel);
-    border-radius: 2rem;
+    border-radius: var(--radius-pane);
     transform: translate3d(0, 0, 0);
     transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    overflow: hidden;
   }
 
   /* ── Floating Title Capsules with Independent Elevation Shadows ─ */
@@ -263,15 +278,16 @@
   }
   .avatar-frame {
     position: relative;
-    padding: 0.6vh;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.85);
+    padding: 0.55vh;
+    border-radius: var(--radius-squircle);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.70) 100%);
     border: 2px solid rgba(255, 255, 255, 0.95);
     box-shadow:
       inset 1px 1px 0 rgba(255, 255, 255, 0.95),
       inset -1px -1px 0 rgba(0, 0, 0, 0.04),
-      0 12px 28px rgba(80, 90, 120, 0.22),
-      0 4px 10px rgba(80, 90, 120, 0.12);
+      0 12px 28px rgba(80, 90, 120, 0.20),
+      0 4px 10px rgba(80, 90, 120, 0.10);
     transition: transform 700ms ease-out, box-shadow 700ms ease-out;
     transform: translate3d(0, 0, 0);
   }
@@ -292,14 +308,15 @@
   }
   .avatar-wrap {
     position: relative; width: 14vh; height: 14vh;
-    border-radius: 50%; overflow: visible;
+    border-radius: var(--radius-squircle); overflow: visible;
     transition: transform 700ms ease-out;
   }
   .avatar-wrap img {
-    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    width: 100%; height: 100%; border-radius: var(--radius-squircle); object-fit: cover;
     background: var(--track);
-    border: 3px solid rgba(255, 255, 255, 0.95);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.88);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.06);
+    display: block;
   }
   .avatar-name {
     font-size: 2.3vh; font-weight: 800; color: var(--title);
@@ -321,17 +338,36 @@
   }
   .gauge-wrap {
     position: relative; width: 20vh; height: 20vh;
+    border-radius: 42%;
+    background:
+      radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.18) 55%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      0 10px 24px rgba(80, 90, 120, 0.12);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
   }
   .radial-svg {
-    width: 100%; height: 100%;
+    width: 88%; height: 88%;
     transform: rotate(-90deg);
+    filter: drop-shadow(0 2px 6px rgba(80, 90, 120, 0.12));
   }
   .radial-track {
-    fill: none; stroke: var(--track); stroke-width: 10;
+    fill: none;
+    stroke: var(--track);
+    stroke-width: 9.5;
+    stroke-linecap: round;
+    opacity: 0.85;
   }
   .radial-fill {
-    fill: none; stroke-width: 10; stroke-linecap: round;
+    fill: none;
+    stroke-width: 9.5;
+    stroke-linecap: round;
     transition: stroke-dashoffset 1.2s ease-out;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
   }
   .gauge-center {
     position: absolute; inset: 0;
@@ -370,24 +406,25 @@
     padding: 0 1.2vw 2vh; flex: 1; justify-content: center;
   }
   .sub-card {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.80);
-    border-radius: 1.2rem;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.38) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: var(--radius-tile);
     padding: 2.2vh 1.4vw;
     display: flex; align-items: center; gap: 1.2vw;
     box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
-      0 8px 24px rgba(80, 90, 120, 0.14);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
+      0 10px 26px rgba(80, 90, 120, 0.12);
     transition: transform 700ms ease-out, box-shadow 700ms ease-out;
     transform: translate3d(0, 0, 0);
   }
   .sub-avatar {
-    width: 10vh; height: 10vh; border-radius: 50%; object-fit: cover;
+    width: 10vh; height: 10vh; border-radius: var(--radius-squircle); object-fit: cover;
     background: var(--track); flex-shrink: 0;
-    border: 3px solid rgba(255, 255, 255, 0.90);
-    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.16);
   }
   .sub-info {
     flex: 1; min-width: 0;
@@ -417,16 +454,17 @@
     align-content: center;
   }
   .metric-tile {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.80);
-    border-radius: 1.2rem;
+    background:
+      linear-gradient(150deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.36) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: var(--radius-tile);
     padding: 3.5vh 1.2vw;
     text-align: center;
     box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
-      0 8px 24px rgba(80, 90, 120, 0.14);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
+      0 10px 26px rgba(80, 90, 120, 0.12);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
   }
@@ -448,19 +486,20 @@
   .zombie-row {
     display: flex; align-items: center; gap: 1vw;
     padding: 1.6vh 1.2vw;
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.80);
-    border-radius: 1rem;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.38) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: var(--radius-tile);
     box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
-      0 8px 24px rgba(80, 90, 120, 0.14);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
+      0 10px 26px rgba(80, 90, 120, 0.12);
     transition: transform 700ms ease-out, box-shadow 700ms ease-out;
     transform: translate3d(0, 0, 0);
   }
   .zombie-rank {
-    width: 5.5vh; height: 5.5vh; border-radius: 50%;
+    width: 5.5vh; height: 5.5vh; border-radius: var(--radius-squircle);
     display: flex; align-items: center; justify-content: center;
     font-size: 2.2vh; font-weight: 900; color: #ffffff;
     flex-shrink: 0;
@@ -473,10 +512,10 @@
   .zombie-rank.r4 { background: #86efac; color: var(--title); }
   .zombie-rank.r5 { background: #bbf7d0; color: var(--title); }
   .zombie-avatar {
-    width: 8vh; height: 8vh; border-radius: 50%; object-fit: cover;
+    width: 8vh; height: 8vh; border-radius: var(--radius-squircle); object-fit: cover;
     background: var(--track); flex-shrink: 0;
-    border: 3px solid rgba(255, 255, 255, 0.90);
-    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.16);
   }
   .zombie-name {
     font-size: 2.4vh; font-weight: 700; color: var(--title);
@@ -580,15 +619,16 @@
     min-height: 7.2vh;
     padding: 0 1.5rem 0 0;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.40);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.60);
-    border-radius: 999px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.28) 100%);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    border-radius: var(--radius-tile);
     box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.88),
       inset -1px -1px 0 rgba(0, 0, 0, 0.03),
-      0 8px 20px rgba(80, 90, 120, 0.12),
+      0 10px 24px rgba(80, 90, 120, 0.12),
       0 2px 6px rgba(80, 90, 120, 0.06);
     transition: transform 500ms ease-out, background 500ms ease-out, box-shadow 500ms ease-out;
     transform: translate3d(0, 0, 0);
@@ -643,59 +683,7 @@
       0 0 12px rgba(52, 211, 153, 0.16);
   }
 
-  /* ── Page 3: Evaluators — passive TV podium + scope cycle ─────── */
-  .evaluators-card-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1vw;
-    margin: 2.4vh 1.8vw 2.0vh;
-    flex-shrink: 0;
-  }
-  .evaluators-card-header .pill-header {
-    margin: 0;
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-  .eval-scope-toggle {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
-    flex-shrink: 0;
-    padding: 0.35vh 0.35vw;
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.75);
-    border-radius: 999px;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.85),
-      0 4px 12px rgba(80, 90, 120, 0.10);
-    pointer-events: none;
-    user-select: none;
-  }
-  .eval-scope-btn {
-    appearance: none;
-    border: none;
-    background: transparent;
-    cursor: default;
-    padding: 0.7vh 0.85vw;
-    font-size: 1.45vh;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #64748b;
-    border-radius: 999px;
-    transition: color 700ms ease-out, background 700ms ease-out, box-shadow 700ms ease-out;
-    pointer-events: none;
-  }
-  .eval-scope-btn.on {
-    color: #0f172a;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 8px rgba(80, 90, 120, 0.14);
-  }
+  /* ── Page 3: Evaluators — fixed weekly podium (TV, no filters) ── */
   .evaluators-grid {
     display: flex;
     gap: 1.4vw;
@@ -704,11 +692,6 @@
     align-items: center;
     justify-content: center;
     min-width: 0;
-    transition: opacity 700ms ease-out;
-    transform: translate3d(0, 0, 0);
-  }
-  .evaluators-grid.is-swapping {
-    opacity: 0.35;
   }
   .evaluator-cell {
     display: flex;
@@ -844,8 +827,8 @@
     width: 55%;
     max-width: 2.6vw;
     min-width: 1.4vw;
-    border-radius: 0.5rem 0.5rem 0 0;
-    background: #f43f5e;
+    border-radius: 1.1rem 1.1rem 0.55rem 0.55rem;
+    background: linear-gradient(180deg, #fb7185 0%, #f43f5e 55%, #e11d48 100%);
     box-shadow: 0 0 15px rgba(244, 63, 94, 0.40);
     /* transition-all duration-1000 ease-out — slow rise for 30Hz TV */
     transition: height 1000ms ease-out, box-shadow 1000ms ease-out;
@@ -973,14 +956,7 @@
       </div>
       <div class="analytics-right">
         <div class="analytics-right-top glass">
-          <div class="evaluators-card-header">
-            <div class="pill-header">Evaluations Given</div>
-            <div class="eval-scope-toggle" aria-label="Evaluation timeline (auto-cycling)">
-              <span class="eval-scope-btn" data-scope="today" aria-current="false">Today</span>
-              <span class="eval-scope-btn on" data-scope="week" aria-current="true">Week</span>
-              <span class="eval-scope-btn" data-scope="piscine" aria-current="false">Piscine</span>
-            </div>
-          </div>
+          <div class="pill-header">Evaluations Given</div>
           <div class="evaluators-grid" id="evaluators"></div>
         </div>
         <div class="analytics-right-bottom glass">
@@ -1206,25 +1182,11 @@
       <div class="project-pill-grid">${pills}</div>`;
   }
 
-  /* ── Page 3: Top evaluators — passive TV auto-cycle podium ──── */
-  const EVAL_SCOPES = ['week', 'piscine', 'today'];
-  const EVAL_SCOPE_MS = 10000;
-  let evalScope = 'week';
-  let evalScopeTimer = null;
-  let latestMetrics = INITIAL;
-
-  function evaluatorRowsFromMetrics(metrics) {
-    const scopes = (metrics && metrics.top_evaluators_by_scope) || {};
-    if (Object.prototype.hasOwnProperty.call(scopes, evalScope)) {
-      return scopes[evalScope] || [];
-    }
-    return metrics.top_evaluators || [];
-  }
-
+  /* ── Page 3: Top evaluators — fixed weekly podium ───────────── */
   function renderEvaluators(rows) {
     const el = document.getElementById('evaluators');
     if (!rows.length) {
-      el.innerHTML = '<div class="empty">No evaluations given in this window.</div>';
+      el.innerHTML = '<div class="empty">No evaluations given this week.</div>';
       return;
     }
 
@@ -1254,53 +1216,6 @@
         <div class="evaluator-rank-label">#${rank || '—'}</div>
       </div>`;
     }).join('');
-  }
-
-  function setEvalScope(scope, withFade) {
-    if (scope) {
-      evalScope = scope;
-    }
-    document.querySelectorAll('.eval-scope-btn').forEach((btn) => {
-      const on = btn.getAttribute('data-scope') === evalScope;
-      btn.classList.toggle('on', on);
-      btn.setAttribute('aria-current', on ? 'true' : 'false');
-    });
-
-    const grid = document.getElementById('evaluators');
-    const paint = () => {
-      renderEvaluators(evaluatorRowsFromMetrics(latestMetrics));
-      if (grid) {
-        grid.classList.remove('is-swapping');
-      }
-    };
-
-    if (withFade && grid) {
-      grid.classList.add('is-swapping');
-      window.setTimeout(paint, 350);
-    } else {
-      paint();
-    }
-  }
-
-  function advanceEvalScope() {
-    const i = EVAL_SCOPES.indexOf(evalScope);
-    const next = EVAL_SCOPES[(i + 1) % EVAL_SCOPES.length];
-    setEvalScope(next, true);
-  }
-
-  function startEvalScopeCycle() {
-    if (evalScopeTimer !== null) {
-      return;
-    }
-    evalScopeTimer = window.setInterval(advanceEvalScope, EVAL_SCOPE_MS);
-  }
-
-  function stopEvalScopeCycle() {
-    if (evalScopeTimer === null) {
-      return;
-    }
-    window.clearInterval(evalScopeTimer);
-    evalScopeTimer = null;
   }
 
   /* ── Page 3: Weekly logtime bars — precomputed height_pct ───── */
@@ -1343,7 +1258,6 @@
   /* ── Orchestrator ───────────────────────────────────────────── */
   function render(metrics, lastRefresh) {
     const validations = metrics.recent_validations || [];
-    latestMetrics = metrics;
 
     renderAvatarGrid(metrics.active_on_campus || []);
     renderRadials(metrics.cluster_capacity || []);
@@ -1351,7 +1265,7 @@
     renderMetricGrid(metrics);
     renderZombies(metrics.zombies || []);
     renderActiveProjects(metrics.active_project_data || []);
-    renderEvaluators(evaluatorRowsFromMetrics(metrics));
+    renderEvaluators(metrics.top_evaluators || []);
     renderLogtime(metrics.weekly_logtime_data || []);
 
     if (lastRefresh) latestRefresh = lastRefresh;
@@ -1368,17 +1282,7 @@
     index = (index + 1) % views.length;
     views[index].classList.add('active');
     renderDots();
-    syncEvalCycleToView();
     setTimeout(advance, DWELL[views[index].dataset.view] || 20000);
-  }
-
-  function syncEvalCycleToView() {
-    const view = views[index] && views[index].dataset.view;
-    if (view === 'analytics') {
-      startEvalScopeCycle();
-    } else {
-      stopEvalScopeCycle();
-    }
   }
 
   async function poll() {
@@ -1393,8 +1297,6 @@
 
   render(INITIAL, LAST_REFRESH);
   renderDots();
-  setEvalScope('week', false);
-  syncEvalCycleToView();
   setTimeout(advance, DWELL[views[0].dataset.view]);
   setInterval(poll, POLL_MS);
   setInterval(() => renderStamp(latestRefresh), 60000);
