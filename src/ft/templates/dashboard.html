@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>42 Warsaw</title>
+<style>
+  /* TV display: 1920x1080, viewed from 3-6 metres, no pointer.
+     Everything is sized in vw/vh so it scales to whatever the TV actually is. */
+  :root {
+    --bg: #0b0d10;
+    --fg: #f2f4f7;
+    --dim: #8b94a3;
+    --line: #1c2129;
+    --accent: #00d4aa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    overflow: hidden;
+    font-variant-numeric: tabular-nums;
+  }
+  header {
+    position: fixed; top: 0; left: 0; right: 0; height: 8vh;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3vw; border-bottom: 1px solid var(--line); z-index: 10;
+  }
+  .brand { font-size: 2.2vh; font-weight: 700; letter-spacing: .3em; color: var(--dim); }
+  .stamp { font-size: 1.8vh; color: var(--dim); }
+  .stamp.stale { color: #ffb020; }
+
+  main { height: 100%; padding: 10vh 3vw 6vh; }
+  .view { display: none; height: 100%; animation: fade .6s ease; }
+  .view.active { display: flex; flex-direction: column; }
+  @keyframes fade { from { opacity: 0; transform: translateY(1vh); } to { opacity: 1; } }
+
+  h1 { font-size: 3.4vh; font-weight: 600; margin-bottom: 3vh; color: var(--dim);
+       letter-spacing: .04em; }
+
+  /* --- validations feed --- */
+  .feed { display: flex; flex-direction: column; gap: 1.4vh; }
+  .row { display: flex; align-items: center; gap: 2vw; }
+  .avatar { width: 7vh; height: 7vh; border-radius: 50%; object-fit: cover;
+            background: var(--line); flex-shrink: 0; }
+  .who { font-size: 3.4vh; font-weight: 600; min-width: 22vw; }
+  .what { font-size: 3.4vh; color: var(--accent); font-weight: 500; flex: 1; }
+  .mark { font-size: 3.4vh; font-weight: 700; min-width: 8vw; text-align: right; }
+  .ago { font-size: 2.4vh; color: var(--dim); min-width: 10vw; text-align: right; }
+  .fresh .who, .fresh .what { color: #fff; }
+  .fresh { animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .72; } }
+  .attempt { font-size: 2vh; color: var(--dim); margin-left: .8vw; }
+
+  /* --- pulse numbers --- */
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4vh 4vw; flex: 1;
+           align-content: center; }
+  .stat .n { font-size: 15vh; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
+  .stat .l { font-size: 2.6vh; color: var(--dim); margin-top: 1vh; text-transform: uppercase;
+             letter-spacing: .12em; }
+
+  /* --- coalitions --- */
+  .bars { display: flex; flex-direction: column; gap: 3vh; justify-content: center; flex: 1; }
+  .bar-label { display: flex; justify-content: space-between; font-size: 3.2vh;
+               margin-bottom: 1vh; font-weight: 600; }
+  .track { height: 4vh; background: var(--line); border-radius: 2vh; overflow: hidden; }
+  .fill { height: 100%; border-radius: 2vh; transition: width 1s ease; }
+
+  /* --- histogram --- */
+  .hist { display: flex; align-items: flex-end; gap: 1vw; flex: 1; padding-bottom: 4vh; }
+  .col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+         align-items: center; height: 100%; }
+  .col .b { width: 100%; background: var(--accent); border-radius: .6vh .6vh 0 0;
+            transition: height 1s ease; min-height: .4vh; }
+  .col .c { font-size: 2.2vh; font-weight: 700; margin-bottom: .8vh; }
+  .col .x { font-size: 2vh; color: var(--dim); margin-top: 1.2vh; }
+
+  .empty { font-size: 3vh; color: var(--dim); margin: auto; }
+
+  /* progress dots for the rotation */
+  .dots { position: fixed; bottom: 2.5vh; left: 0; right: 0; display: flex;
+          justify-content: center; gap: 1.2vw; }
+  .dot { width: 1vh; height: 1vh; border-radius: 50%; background: var(--line); }
+  .dot.on { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">42 WARSAW</div>
+  <div class="stamp" id="stamp">—</div>
+</header>
+
+<main>
+  <section class="view active" data-view="validations">
+    <h1>Recently validated</h1>
+    <div class="feed" id="feed"></div>
+  </section>
+
+  <section class="view" data-view="pulse">
+    <h1>Campus right now</h1>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="view" data-view="coalitions">
+    <h1>Coalitions</h1>
+    <div class="bars" id="bars"></div>
+  </section>
+
+  <section class="view" data-view="levels">
+    <h1>Level distribution</h1>
+    <div class="hist" id="hist"></div>
+  </section>
+</main>
+
+<div class="dots" id="dots"></div>
+
+<script>
+  const INITIAL = {{ metrics | tojson }};
+  const LAST_REFRESH = {{ (last_refresh or "") | tojson }};
+
+  // Dwell time per view. The validations feed is the hero, so it gets the longest.
+  const DWELL = { validations: 30000, pulse: 20000, coalitions: 20000, levels: 20000 };
+  const POLL_MS = 30000;   // polls local SQLite, costs no API quota
+  const STALE_MS = 30 * 60 * 1000;
+
+  const views = [...document.querySelectorAll('.view')];
+  let index = 0;
+
+  function ago(seconds) {
+    if (seconds < 60) return 'just now';
+    if (seconds < 3600) return Math.floor(seconds / 60) + 'm ago';
+    if (seconds < 86400) return Math.floor(seconds / 3600) + 'h ago';
+    return Math.floor(seconds / 86400) + 'd ago';
+  }
+
+  function esc(s) {
+    return String(s ?? '').replace(/[&<>"']/g, c =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function renderFeed(rows) {
+    const el = document.getElementById('feed');
+    if (!rows.length) {
+      el.innerHTML = '<div class="empty">No validations in the last two weeks.</div>';
+      return;
+    }
+    el.innerHTML = rows.slice(0, 9).map(r => `
+      <div class="row ${r.age_seconds < 3600 ? 'fresh' : ''}">
+        ${r.user.image ? `<img class="avatar" src="${esc(r.user.image)}" alt="">`
+                       : '<div class="avatar"></div>'}
+        <div class="who">${esc(r.user.name)}</div>
+        <div class="what">${esc(r.project)}${
+          r.attempt > 1 ? `<span class="attempt">attempt ${r.attempt}</span>` : ''}</div>
+        <div class="mark">${r.mark ?? ''}</div>
+        <div class="ago">${ago(r.age_seconds)}</div>
+      </div>`).join('');
+  }
+
+  function renderStats(p) {
+    document.getElementById('stats').innerHTML = [
+      [p.on_campus, 'on campus now'],
+      [p.validated_this_week, 'validated this week'],
+      [p.active_students, 'active students'],
+      [p.median_level, 'median level'],
+    ].map(([n, l]) => `<div class="stat"><div class="n">${esc(n)}</div><div class="l">${l}</div></div>`).join('');
+  }
+
+  function renderBars(rows) {
+    const el = document.getElementById('bars');
+    if (!rows.length) { el.innerHTML = '<div class="empty">No coalition data.</div>'; return; }
+    el.innerHTML = rows.slice(0, 5).map(c => `
+      <div>
+        <div class="bar-label"><span>${esc(c.name)}</span><span>${esc(c.score)}</span></div>
+        <div class="track"><div class="fill" style="width:${c.pct}%;background:${esc(c.color)}"></div></div>
+      </div>`).join('');
+  }
+
+  function renderHist(rows) {
+    const el = document.getElementById('hist');
+    if (!rows.length) { el.innerHTML = '<div class="empty">No level data.</div>'; return; }
+    const max = Math.max(...rows.map(r => r.count), 1);
+    el.innerHTML = rows.map(r => `
+      <div class="col">
+        <div class="c">${r.count || ''}</div>
+        <div class="b" style="height:${(r.count / max) * 100}%"></div>
+        <div class="x">${esc(r.label)}</div>
+      </div>`).join('');
+  }
+
+  function renderStamp(iso) {
+    const el = document.getElementById('stamp');
+    if (!iso) { el.textContent = 'no data yet'; el.classList.add('stale'); return; }
+    const age = Date.now() - new Date(iso).getTime();
+    el.textContent = 'updated ' + ago(Math.floor(age / 1000));
+    // Never lie about freshness: if the fetcher has died, say so quietly.
+    el.classList.toggle('stale', age > STALE_MS);
+  }
+
+  function render(metrics, lastRefresh) {
+    renderFeed(metrics.recent_validations || []);
+    renderStats(metrics.pulse || {});
+    renderBars(metrics.coalitions || []);
+    renderHist(metrics.level_distribution || []);
+    renderStamp(lastRefresh);
+  }
+
+  function renderDots() {
+    document.getElementById('dots').innerHTML =
+      views.map((_, i) => `<div class="dot ${i === index ? 'on' : ''}"></div>`).join('');
+  }
+
+  function advance() {
+    views[index].classList.remove('active');
+    index = (index + 1) % views.length;
+    views[index].classList.add('active');
+    renderDots();
+    setTimeout(advance, DWELL[views[index].dataset.view] || 20000);
+  }
+
+  async function poll() {
+    try {
+      const res = await fetch('/api/metrics', { cache: 'no-store' });
+      const data = await res.json();
+      render(data.metrics, data.last_refresh);
+    } catch (e) {
+      // Offline or server restarting: keep showing what's on screen, let the
+      // timestamp go stale on its own. Never blank the TV.
+      console.warn('poll failed', e);
+    }
+  }
+
+  render(INITIAL, LAST_REFRESH);
+  renderDots();
+  setTimeout(advance, DWELL[views[0].dataset.view]);
+  setInterval(poll, POLL_MS);
+  setInterval(() => renderStamp(LAST_REFRESH), 60000);
+</script>
+</body>
+</html>

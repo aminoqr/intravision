@@ -1,0 +1,3782 @@
+[
+  {
+    "id": 10000,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-19T19:16:18.633474+00:00",
+    "project": {
+      "id": 0,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10001,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-24T15:39:18.633474+00:00",
+    "project": {
+      "id": 1,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10002,
+    "occurrence": 0,
+    "final_mark": 125,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-12T23:24:18.633474+00:00",
+    "project": {
+      "id": 2,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10003,
+    "occurrence": 0,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-21T17:49:18.633474+00:00",
+    "project": {
+      "id": 3,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10004,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 4,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10005,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 5,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10006,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "finished",
+    "validated?": false,
+    "marked_at": "2026-07-16T18:17:18.633474+00:00",
+    "project": {
+      "id": 6,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10007,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 7,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10008,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 8,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10009,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 9,
+      "name": "NetPractice"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10010,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 10,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10011,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 11,
+      "name": "minitalk"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10012,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 12,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10013,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 13,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10014,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 14,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10015,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 15,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10016,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 16,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10017,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 17,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10018,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 18,
+      "name": "push_swap"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10019,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 19,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10020,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 20,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10021,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 21,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10022,
+    "occurrence": 1,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-13T03:45:18.633474+00:00",
+    "project": {
+      "id": 22,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 45370,
+      "login": "amaciej",
+      "displayname": "Amaciej",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10023,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 23,
+      "name": "libft"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10024,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 24,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10025,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 25,
+      "name": "minitalk"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10026,
+    "occurrence": 0,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-14T06:10:18.633474+00:00",
+    "project": {
+      "id": 26,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10027,
+    "occurrence": 2,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-12T11:09:18.633474+00:00",
+    "project": {
+      "id": 27,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10028,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 28,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10029,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 29,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10030,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 30,
+      "name": "NetPractice"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10031,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 31,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10032,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-20T03:20:18.633474+00:00",
+    "project": {
+      "id": 32,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10033,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 33,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10034,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 34,
+      "name": "so_long"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10035,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 35,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10036,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 36,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10037,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 37,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 69836,
+      "login": "lwieczo",
+      "displayname": "Lwieczo",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10038,
+    "occurrence": 1,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-17T15:42:18.633474+00:00",
+    "project": {
+      "id": 38,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10039,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 39,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10040,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 40,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10041,
+    "occurrence": 1,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-13T01:47:18.633474+00:00",
+    "project": {
+      "id": 41,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10042,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 42,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10043,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 43,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10044,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 44,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10045,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 45,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10046,
+    "occurrence": 0,
+    "final_mark": 125,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-24T01:47:18.633474+00:00",
+    "project": {
+      "id": 46,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 31603,
+      "login": "cdabrow",
+      "displayname": "Cdabrow",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10047,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 47,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10048,
+    "occurrence": 0,
+    "final_mark": 85,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-20T00:33:18.633474+00:00",
+    "project": {
+      "id": 48,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10049,
+    "occurrence": 0,
+    "final_mark": 85,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-15T20:03:18.633474+00:00",
+    "project": {
+      "id": 49,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 31603,
+      "login": "cdabrow",
+      "displayname": "Cdabrow",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10050,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 50,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10051,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 51,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10052,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 52,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10053,
+    "occurrence": 0,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-13T20:44:18.633474+00:00",
+    "project": {
+      "id": 53,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10054,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 54,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10055,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-12T18:07:18.633474+00:00",
+    "project": {
+      "id": 55,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10056,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 56,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10057,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 57,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10058,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 58,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10059,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 59,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10060,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 60,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10061,
+    "occurrence": 0,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-21T23:36:18.633474+00:00",
+    "project": {
+      "id": 61,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 48885,
+      "login": "owalcza",
+      "displayname": "Owalcza",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10062,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 62,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10063,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "finished",
+    "validated?": false,
+    "marked_at": "2026-07-20T14:17:18.633474+00:00",
+    "project": {
+      "id": 63,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 69836,
+      "login": "lwieczo",
+      "displayname": "Lwieczo",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10064,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 64,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 69836,
+      "login": "lwieczo",
+      "displayname": "Lwieczo",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10065,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 65,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10066,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 66,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 48885,
+      "login": "owalcza",
+      "displayname": "Owalcza",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10067,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "finished",
+    "validated?": false,
+    "marked_at": "2026-07-20T07:32:18.633474+00:00",
+    "project": {
+      "id": 67,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10068,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 68,
+      "name": "so_long"
+    },
+    "user": {
+      "id": 69836,
+      "login": "lwieczo",
+      "displayname": "Lwieczo",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10069,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 69,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10070,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 70,
+      "name": "libft"
+    },
+    "user": {
+      "id": 69836,
+      "login": "lwieczo",
+      "displayname": "Lwieczo",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10071,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 71,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10072,
+    "occurrence": 1,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-17T12:13:18.633474+00:00",
+    "project": {
+      "id": 72,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10073,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-12T06:07:18.633474+00:00",
+    "project": {
+      "id": 73,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10074,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 74,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 45370,
+      "login": "amaciej",
+      "displayname": "Amaciej",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10075,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 75,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10076,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 76,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10077,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 77,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10078,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 78,
+      "name": "libft"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10079,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 79,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10080,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 80,
+      "name": "so_long"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10081,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 81,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10082,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 82,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10083,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 83,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10084,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 84,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10085,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 85,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10086,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 86,
+      "name": "libft"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10087,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 87,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10088,
+    "occurrence": 0,
+    "final_mark": 125,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-22T14:44:18.633474+00:00",
+    "project": {
+      "id": 88,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10089,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 89,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10090,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 90,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 48885,
+      "login": "owalcza",
+      "displayname": "Owalcza",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10091,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 91,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10092,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 92,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10093,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 93,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10094,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 94,
+      "name": "push_swap"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10095,
+    "occurrence": 0,
+    "final_mark": 125,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-17T20:18:18.633474+00:00",
+    "project": {
+      "id": 95,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10096,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 96,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10097,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 97,
+      "name": "NetPractice"
+    },
+    "user": {
+      "id": 45370,
+      "login": "amaciej",
+      "displayname": "Amaciej",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10098,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 98,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10099,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 99,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10100,
+    "occurrence": 1,
+    "final_mark": 125,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-16T04:12:18.633474+00:00",
+    "project": {
+      "id": 100,
+      "name": "push_swap"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10101,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "finished",
+    "validated?": false,
+    "marked_at": "2026-07-11T21:45:18.633474+00:00",
+    "project": {
+      "id": 101,
+      "name": "libft"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10102,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 102,
+      "name": "minitalk"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10103,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 103,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10104,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 104,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10105,
+    "occurrence": 0,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-13T02:25:18.633474+00:00",
+    "project": {
+      "id": 105,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10106,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-19T17:58:18.633474+00:00",
+    "project": {
+      "id": 106,
+      "name": "push_swap"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10107,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 107,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10108,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 108,
+      "name": "minitalk"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10109,
+    "occurrence": 2,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-21T15:34:18.633474+00:00",
+    "project": {
+      "id": 109,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10110,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 110,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 45370,
+      "login": "amaciej",
+      "displayname": "Amaciej",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10111,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 111,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10112,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 112,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10113,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 113,
+      "name": "NetPractice"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10114,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 114,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10115,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 115,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10116,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 116,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10117,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 117,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10118,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 118,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10119,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 119,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10120,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 120,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10121,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 121,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10122,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 122,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10123,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-21T00:40:18.633474+00:00",
+    "project": {
+      "id": 123,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10124,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 124,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10125,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-20T07:59:18.633474+00:00",
+    "project": {
+      "id": 125,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10126,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 126,
+      "name": "NetPractice"
+    },
+    "user": {
+      "id": 31603,
+      "login": "cdabrow",
+      "displayname": "Cdabrow",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10127,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 127,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 48885,
+      "login": "owalcza",
+      "displayname": "Owalcza",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10128,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 128,
+      "name": "so_long"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10129,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-21T03:54:18.633474+00:00",
+    "project": {
+      "id": 129,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10130,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 130,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10131,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 131,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10132,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 132,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10133,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 133,
+      "name": "libft"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10134,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 134,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 31603,
+      "login": "cdabrow",
+      "displayname": "Cdabrow",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10135,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-14T12:06:18.633474+00:00",
+    "project": {
+      "id": 135,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10136,
+    "occurrence": 0,
+    "final_mark": 85,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-24T03:44:18.633474+00:00",
+    "project": {
+      "id": 136,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10137,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 137,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10138,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 138,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10139,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 139,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10140,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "finished",
+    "validated?": false,
+    "marked_at": "2026-07-20T15:32:18.633474+00:00",
+    "project": {
+      "id": 140,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10141,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 141,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10142,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-11T20:42:18.633474+00:00",
+    "project": {
+      "id": 142,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10143,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 143,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10144,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 144,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10145,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 145,
+      "name": "minitalk"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10146,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 146,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10147,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 147,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10148,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "finished",
+    "validated?": false,
+    "marked_at": "2026-07-18T00:59:18.633474+00:00",
+    "project": {
+      "id": 148,
+      "name": "libft"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10149,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 149,
+      "name": "libft"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10150,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-21T09:20:18.633474+00:00",
+    "project": {
+      "id": 150,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10151,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 151,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10152,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 152,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10153,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 153,
+      "name": "ft_irc"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10154,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 154,
+      "name": "get_next_line"
+    },
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10155,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 155,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10156,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-13T00:41:18.633474+00:00",
+    "project": {
+      "id": 156,
+      "name": "so_long"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10157,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 157,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10158,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 158,
+      "name": "philosophers"
+    },
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10159,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 159,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10160,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 160,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10161,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 161,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10162,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 162,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10163,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 163,
+      "name": "Inception"
+    },
+    "user": {
+      "id": 48885,
+      "login": "owalcza",
+      "displayname": "Owalcza",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10164,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 164,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10165,
+    "occurrence": 0,
+    "final_mark": 85,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-15T22:24:18.633474+00:00",
+    "project": {
+      "id": 165,
+      "name": "FdF"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10166,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 166,
+      "name": "ft_transcendence"
+    },
+    "user": {
+      "id": 45370,
+      "login": "amaciej",
+      "displayname": "Amaciej",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10167,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 167,
+      "name": "NetPractice"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10168,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 168,
+      "name": "so_long"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10169,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 169,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10170,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 170,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10171,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 171,
+      "name": "push_swap"
+    },
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10172,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 172,
+      "name": "CPP Module 00"
+    },
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10173,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 173,
+      "name": "miniRT"
+    },
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10174,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-19T08:16:18.633474+00:00",
+    "project": {
+      "id": 174,
+      "name": "cub3d"
+    },
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10175,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 175,
+      "name": "minishell"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10176,
+    "occurrence": 0,
+    "final_mark": 110,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-20T00:48:18.633474+00:00",
+    "project": {
+      "id": 176,
+      "name": "pipex"
+    },
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10177,
+    "occurrence": 1,
+    "final_mark": null,
+    "status": "waiting_for_correction",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 177,
+      "name": "Born2beroot"
+    },
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10178,
+    "occurrence": 2,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": false,
+    "marked_at": null,
+    "project": {
+      "id": 178,
+      "name": "ft_printf"
+    },
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 10179,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "marked_at": "2026-07-16T20:18:18.633474+00:00",
+    "project": {
+      "id": 179,
+      "name": "webserv"
+    },
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  }
+]

@@ -1,0 +1,3842 @@
+[
+  {
+    "id": 20000,
+    "level": 5.32,
+    "grade": null,
+    "begin_at": "2024-04-05T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45370,
+      "login": "amaciej",
+      "displayname": "Amaciej",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20001,
+    "level": 3.57,
+    "grade": null,
+    "begin_at": "2025-05-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 3343,
+      "login": "kwrona",
+      "displayname": "Kwrona",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20002,
+    "level": 4.11,
+    "grade": null,
+    "begin_at": "2026-01-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 60901,
+      "login": "jnowak",
+      "displayname": "Jnowak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20003,
+    "level": 7.19,
+    "grade": "Member",
+    "begin_at": "2025-10-07T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 29696,
+      "login": "mlewand",
+      "displayname": "Mlewand",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20004,
+    "level": 10.4,
+    "grade": "Member",
+    "begin_at": "2025-09-04T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 57772,
+      "login": "azielin",
+      "displayname": "Azielin",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20005,
+    "level": 3.42,
+    "grade": "Member",
+    "begin_at": "2025-07-07T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 90004,
+      "login": "pkowals",
+      "displayname": "Pkowals",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20006,
+    "level": 4.52,
+    "grade": "Member",
+    "begin_at": "2024-07-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 49656,
+      "login": "twojcik",
+      "displayname": "Twojcik",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20007,
+    "level": 9.55,
+    "grade": "Learner",
+    "begin_at": "2025-05-28T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 71517,
+      "login": "skaczma",
+      "displayname": "Skaczma",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20008,
+    "level": 2.9,
+    "grade": "Member",
+    "begin_at": "2024-11-17T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 21526,
+      "login": "bmazur",
+      "displayname": "Bmazur",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20009,
+    "level": 4.5,
+    "grade": null,
+    "begin_at": "2025-08-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 11917,
+      "login": "dkrawcz",
+      "displayname": "Dkrawcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20010,
+    "level": 9.33,
+    "grade": "Member",
+    "begin_at": "2025-09-17T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42086,
+      "login": "gszymcz",
+      "displayname": "Gszymcz",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20011,
+    "level": 9.84,
+    "grade": null,
+    "begin_at": "2026-05-06T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 69836,
+      "login": "lwieczo",
+      "displayname": "Lwieczo",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20012,
+    "level": 8.28,
+    "grade": "Member",
+    "begin_at": "2024-04-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 13025,
+      "login": "nsobier",
+      "displayname": "Nsobier",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20013,
+    "level": 6.9,
+    "grade": "Member",
+    "begin_at": "2025-11-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 48885,
+      "login": "owalcza",
+      "displayname": "Owalcza",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20014,
+    "level": 7.03,
+    "grade": null,
+    "begin_at": "2024-05-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 19171,
+      "login": "rjablon",
+      "displayname": "Rjablon",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20015,
+    "level": 7.39,
+    "grade": "Learner",
+    "begin_at": "2024-09-20T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 86084,
+      "login": "ustanis",
+      "displayname": "Ustanis",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20016,
+    "level": 7.09,
+    "grade": "Learner",
+    "begin_at": "2025-08-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 48411,
+      "login": "wkubiak",
+      "displayname": "Wkubiak",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20017,
+    "level": 1.84,
+    "grade": "Member",
+    "begin_at": "2024-06-06T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 99915,
+      "login": "zbaranо",
+      "displayname": "Zbaranо",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20018,
+    "level": 10.6,
+    "grade": "Member",
+    "begin_at": "2024-05-21T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 31603,
+      "login": "cdabrow",
+      "displayname": "Cdabrow",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20019,
+    "level": 3.79,
+    "grade": null,
+    "begin_at": "2025-06-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 26472,
+      "login": "fmichal",
+      "displayname": "Fmichal",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20020,
+    "level": 10.67,
+    "grade": "Learner",
+    "begin_at": "2025-10-05T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 25311,
+      "login": "amaciej1",
+      "displayname": "Amaciej1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20021,
+    "level": 11.32,
+    "grade": "Member",
+    "begin_at": "2024-05-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 54904,
+      "login": "kwrona1",
+      "displayname": "Kwrona1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20022,
+    "level": 8.99,
+    "grade": "Member",
+    "begin_at": "2026-04-09T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 34955,
+      "login": "jnowak1",
+      "displayname": "Jnowak1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20023,
+    "level": 11.93,
+    "grade": null,
+    "begin_at": "2024-06-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 36814,
+      "login": "mlewand1",
+      "displayname": "Mlewand1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20024,
+    "level": 5.21,
+    "grade": null,
+    "begin_at": "2025-06-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45864,
+      "login": "azielin1",
+      "displayname": "Azielin1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20025,
+    "level": 5.19,
+    "grade": "Member",
+    "begin_at": "2024-12-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 91426,
+      "login": "pkowals1",
+      "displayname": "Pkowals1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20026,
+    "level": 5.0,
+    "grade": null,
+    "begin_at": "2024-08-06T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 15145,
+      "login": "twojcik1",
+      "displayname": "Twojcik1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20027,
+    "level": 5.09,
+    "grade": null,
+    "begin_at": "2025-06-10T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 40077,
+      "login": "skaczma1",
+      "displayname": "Skaczma1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20028,
+    "level": 4.05,
+    "grade": "Learner",
+    "begin_at": "2024-09-29T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 47972,
+      "login": "bmazur1",
+      "displayname": "Bmazur1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20029,
+    "level": 6.5,
+    "grade": null,
+    "begin_at": "2025-11-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 89964,
+      "login": "dkrawcz1",
+      "displayname": "Dkrawcz1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20030,
+    "level": 7.16,
+    "grade": "Member",
+    "begin_at": "2024-07-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 15951,
+      "login": "gszymcz1",
+      "displayname": "Gszymcz1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20031,
+    "level": 5.29,
+    "grade": "Learner",
+    "begin_at": "2026-05-10T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 86982,
+      "login": "lwieczo1",
+      "displayname": "Lwieczo1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20032,
+    "level": 4.55,
+    "grade": "Member",
+    "begin_at": "2026-02-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 59597,
+      "login": "nsobier1",
+      "displayname": "Nsobier1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20033,
+    "level": 10.2,
+    "grade": "Learner",
+    "begin_at": "2025-05-24T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45837,
+      "login": "owalcza1",
+      "displayname": "Owalcza1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20034,
+    "level": 7.5,
+    "grade": null,
+    "begin_at": "2024-07-12T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 19155,
+      "login": "rjablon1",
+      "displayname": "Rjablon1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20035,
+    "level": 5.37,
+    "grade": null,
+    "begin_at": "2024-06-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 49417,
+      "login": "ustanis1",
+      "displayname": "Ustanis1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20036,
+    "level": 5.34,
+    "grade": "Learner",
+    "begin_at": "2024-02-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 61290,
+      "login": "wkubiak1",
+      "displayname": "Wkubiak1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20037,
+    "level": 5.29,
+    "grade": "Member",
+    "begin_at": "2026-05-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 94755,
+      "login": "zbaranо1",
+      "displayname": "Zbaranо1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20038,
+    "level": 3.93,
+    "grade": "Member",
+    "begin_at": "2025-10-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 5152,
+      "login": "cdabrow1",
+      "displayname": "Cdabrow1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20039,
+    "level": 2.82,
+    "grade": null,
+    "begin_at": "2025-06-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 51139,
+      "login": "fmichal1",
+      "displayname": "Fmichal1",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20040,
+    "level": 12.31,
+    "grade": "Member",
+    "begin_at": "2026-04-24T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 32156,
+      "login": "amaciej2",
+      "displayname": "Amaciej2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20041,
+    "level": 3.7,
+    "grade": "Learner",
+    "begin_at": "2024-02-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 63463,
+      "login": "kwrona2",
+      "displayname": "Kwrona2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20042,
+    "level": 2.72,
+    "grade": "Learner",
+    "begin_at": "2024-09-06T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 32021,
+      "login": "jnowak2",
+      "displayname": "Jnowak2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20043,
+    "level": 12.07,
+    "grade": "Learner",
+    "begin_at": "2024-04-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 69209,
+      "login": "mlewand2",
+      "displayname": "Mlewand2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20044,
+    "level": 12.8,
+    "grade": null,
+    "begin_at": "2025-11-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 82908,
+      "login": "azielin2",
+      "displayname": "Azielin2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20045,
+    "level": 8.51,
+    "grade": "Learner",
+    "begin_at": "2024-11-02T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 2396,
+      "login": "pkowals2",
+      "displayname": "Pkowals2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20046,
+    "level": 9.91,
+    "grade": "Member",
+    "begin_at": "2024-04-24T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 49911,
+      "login": "twojcik2",
+      "displayname": "Twojcik2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20047,
+    "level": 10.43,
+    "grade": "Learner",
+    "begin_at": "2025-09-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 57153,
+      "login": "skaczma2",
+      "displayname": "Skaczma2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20048,
+    "level": 3.3,
+    "grade": "Learner",
+    "begin_at": "2024-12-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 11762,
+      "login": "bmazur2",
+      "displayname": "Bmazur2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20049,
+    "level": 3.57,
+    "grade": null,
+    "begin_at": "2026-05-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 92811,
+      "login": "dkrawcz2",
+      "displayname": "Dkrawcz2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20050,
+    "level": 4.93,
+    "grade": "Learner",
+    "begin_at": "2024-10-31T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 91673,
+      "login": "gszymcz2",
+      "displayname": "Gszymcz2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20051,
+    "level": 3.57,
+    "grade": "Learner",
+    "begin_at": "2026-02-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 78803,
+      "login": "lwieczo2",
+      "displayname": "Lwieczo2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20052,
+    "level": 6.2,
+    "grade": null,
+    "begin_at": "2026-04-21T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 65470,
+      "login": "nsobier2",
+      "displayname": "Nsobier2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20053,
+    "level": 8.66,
+    "grade": null,
+    "begin_at": "2024-10-26T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 91741,
+      "login": "owalcza2",
+      "displayname": "Owalcza2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20054,
+    "level": 6.02,
+    "grade": null,
+    "begin_at": "2026-05-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 52366,
+      "login": "rjablon2",
+      "displayname": "Rjablon2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20055,
+    "level": 10.58,
+    "grade": null,
+    "begin_at": "2025-01-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 63581,
+      "login": "ustanis2",
+      "displayname": "Ustanis2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20056,
+    "level": 7.24,
+    "grade": "Learner",
+    "begin_at": "2026-04-24T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 49671,
+      "login": "wkubiak2",
+      "displayname": "Wkubiak2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20057,
+    "level": 9.57,
+    "grade": "Member",
+    "begin_at": "2024-07-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 15060,
+      "login": "zbaranо2",
+      "displayname": "Zbaranо2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20058,
+    "level": 7.93,
+    "grade": "Member",
+    "begin_at": "2026-04-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 27545,
+      "login": "cdabrow2",
+      "displayname": "Cdabrow2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20059,
+    "level": 4.68,
+    "grade": "Learner",
+    "begin_at": "2026-04-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 62430,
+      "login": "fmichal2",
+      "displayname": "Fmichal2",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20060,
+    "level": 7.06,
+    "grade": null,
+    "begin_at": "2024-12-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 68599,
+      "login": "amaciej3",
+      "displayname": "Amaciej3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20061,
+    "level": 5.09,
+    "grade": null,
+    "begin_at": "2024-12-29T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 20304,
+      "login": "kwrona3",
+      "displayname": "Kwrona3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20062,
+    "level": 6.04,
+    "grade": "Member",
+    "begin_at": "2026-03-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 46347,
+      "login": "jnowak3",
+      "displayname": "Jnowak3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20063,
+    "level": 2.99,
+    "grade": null,
+    "begin_at": "2024-08-28T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 43729,
+      "login": "mlewand3",
+      "displayname": "Mlewand3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20064,
+    "level": 6.41,
+    "grade": "Learner",
+    "begin_at": "2025-04-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 98669,
+      "login": "azielin3",
+      "displayname": "Azielin3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20065,
+    "level": 4.01,
+    "grade": "Member",
+    "begin_at": "2024-02-29T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 66812,
+      "login": "pkowals3",
+      "displayname": "Pkowals3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20066,
+    "level": 5.35,
+    "grade": "Learner",
+    "begin_at": "2025-08-09T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 87968,
+      "login": "twojcik3",
+      "displayname": "Twojcik3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20067,
+    "level": 7.45,
+    "grade": "Member",
+    "begin_at": "2026-01-20T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 35489,
+      "login": "skaczma3",
+      "displayname": "Skaczma3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20068,
+    "level": 5.79,
+    "grade": "Learner",
+    "begin_at": "2024-02-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 68401,
+      "login": "bmazur3",
+      "displayname": "Bmazur3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20069,
+    "level": 5.46,
+    "grade": null,
+    "begin_at": "2024-05-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 93789,
+      "login": "dkrawcz3",
+      "displayname": "Dkrawcz3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20070,
+    "level": 3.15,
+    "grade": "Learner",
+    "begin_at": "2024-11-02T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 73473,
+      "login": "gszymcz3",
+      "displayname": "Gszymcz3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20071,
+    "level": 6.5,
+    "grade": null,
+    "begin_at": "2026-02-20T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 67256,
+      "login": "lwieczo3",
+      "displayname": "Lwieczo3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20072,
+    "level": 9.97,
+    "grade": "Member",
+    "begin_at": "2024-06-17T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 14653,
+      "login": "nsobier3",
+      "displayname": "Nsobier3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20073,
+    "level": 4.44,
+    "grade": "Member",
+    "begin_at": "2025-06-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 36295,
+      "login": "owalcza3",
+      "displayname": "Owalcza3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20074,
+    "level": 6.05,
+    "grade": "Learner",
+    "begin_at": "2024-08-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 86440,
+      "login": "rjablon3",
+      "displayname": "Rjablon3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20075,
+    "level": 9.57,
+    "grade": "Member",
+    "begin_at": "2024-02-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 357,
+      "login": "ustanis3",
+      "displayname": "Ustanis3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20076,
+    "level": 2.99,
+    "grade": "Member",
+    "begin_at": "2024-11-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 26712,
+      "login": "wkubiak3",
+      "displayname": "Wkubiak3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20077,
+    "level": 5.44,
+    "grade": null,
+    "begin_at": "2024-05-01T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 95321,
+      "login": "zbaranо3",
+      "displayname": "Zbaranо3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20078,
+    "level": 6.96,
+    "grade": null,
+    "begin_at": "2024-12-02T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 7878,
+      "login": "cdabrow3",
+      "displayname": "Cdabrow3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20079,
+    "level": 10.98,
+    "grade": null,
+    "begin_at": "2025-09-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 65322,
+      "login": "fmichal3",
+      "displayname": "Fmichal3",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20080,
+    "level": 4.34,
+    "grade": "Member",
+    "begin_at": "2025-07-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 72996,
+      "login": "amaciej4",
+      "displayname": "Amaciej4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20081,
+    "level": 3.63,
+    "grade": "Learner",
+    "begin_at": "2024-11-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 49235,
+      "login": "kwrona4",
+      "displayname": "Kwrona4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20082,
+    "level": 2.44,
+    "grade": null,
+    "begin_at": "2024-09-15T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 98639,
+      "login": "jnowak4",
+      "displayname": "Jnowak4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20083,
+    "level": 2.73,
+    "grade": null,
+    "begin_at": "2025-11-17T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 51881,
+      "login": "mlewand4",
+      "displayname": "Mlewand4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20084,
+    "level": 5.63,
+    "grade": "Learner",
+    "begin_at": "2025-06-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 43970,
+      "login": "azielin4",
+      "displayname": "Azielin4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20085,
+    "level": 4.69,
+    "grade": null,
+    "begin_at": "2024-10-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 79747,
+      "login": "pkowals4",
+      "displayname": "Pkowals4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20086,
+    "level": 2.19,
+    "grade": "Learner",
+    "begin_at": "2024-05-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 7298,
+      "login": "twojcik4",
+      "displayname": "Twojcik4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20087,
+    "level": 7.53,
+    "grade": "Member",
+    "begin_at": "2025-03-29T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 46649,
+      "login": "skaczma4",
+      "displayname": "Skaczma4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20088,
+    "level": 5.88,
+    "grade": "Member",
+    "begin_at": "2025-04-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 72985,
+      "login": "bmazur4",
+      "displayname": "Bmazur4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20089,
+    "level": 8.39,
+    "grade": "Learner",
+    "begin_at": "2025-07-07T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 4578,
+      "login": "dkrawcz4",
+      "displayname": "Dkrawcz4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20090,
+    "level": 4.41,
+    "grade": null,
+    "begin_at": "2024-10-26T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77281,
+      "login": "gszymcz4",
+      "displayname": "Gszymcz4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20091,
+    "level": 7.47,
+    "grade": "Learner",
+    "begin_at": "2025-11-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 28160,
+      "login": "lwieczo4",
+      "displayname": "Lwieczo4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20092,
+    "level": 6.83,
+    "grade": "Learner",
+    "begin_at": "2025-11-28T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 96814,
+      "login": "nsobier4",
+      "displayname": "Nsobier4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20093,
+    "level": 3.88,
+    "grade": "Learner",
+    "begin_at": "2024-05-04T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 84106,
+      "login": "owalcza4",
+      "displayname": "Owalcza4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20094,
+    "level": 4.72,
+    "grade": "Learner",
+    "begin_at": "2025-02-01T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 15550,
+      "login": "rjablon4",
+      "displayname": "Rjablon4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20095,
+    "level": 3.58,
+    "grade": "Member",
+    "begin_at": "2024-12-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 93146,
+      "login": "ustanis4",
+      "displayname": "Ustanis4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20096,
+    "level": 5.99,
+    "grade": null,
+    "begin_at": "2024-03-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 10213,
+      "login": "wkubiak4",
+      "displayname": "Wkubiak4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20097,
+    "level": 5.21,
+    "grade": null,
+    "begin_at": "2026-05-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 23591,
+      "login": "zbaranо4",
+      "displayname": "Zbaranо4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20098,
+    "level": 5.68,
+    "grade": "Learner",
+    "begin_at": "2025-08-09T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 63609,
+      "login": "cdabrow4",
+      "displayname": "Cdabrow4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20099,
+    "level": 6.6,
+    "grade": null,
+    "begin_at": "2024-09-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45836,
+      "login": "fmichal4",
+      "displayname": "Fmichal4",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20100,
+    "level": 2.99,
+    "grade": "Learner",
+    "begin_at": "2025-07-28T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 29364,
+      "login": "amaciej5",
+      "displayname": "Amaciej5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20101,
+    "level": 11.41,
+    "grade": "Member",
+    "begin_at": "2024-02-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 40947,
+      "login": "kwrona5",
+      "displayname": "Kwrona5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20102,
+    "level": 4.95,
+    "grade": "Member",
+    "begin_at": "2024-02-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 73058,
+      "login": "jnowak5",
+      "displayname": "Jnowak5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20103,
+    "level": 5.49,
+    "grade": "Member",
+    "begin_at": "2025-01-05T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 41595,
+      "login": "mlewand5",
+      "displayname": "Mlewand5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20104,
+    "level": 9.93,
+    "grade": null,
+    "begin_at": "2025-07-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 4326,
+      "login": "azielin5",
+      "displayname": "Azielin5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20105,
+    "level": 8.68,
+    "grade": "Learner",
+    "begin_at": "2025-01-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 56806,
+      "login": "pkowals5",
+      "displayname": "Pkowals5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20106,
+    "level": 6.24,
+    "grade": "Learner",
+    "begin_at": "2024-04-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 30148,
+      "login": "twojcik5",
+      "displayname": "Twojcik5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20107,
+    "level": 8.09,
+    "grade": null,
+    "begin_at": "2024-03-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 17078,
+      "login": "skaczma5",
+      "displayname": "Skaczma5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20108,
+    "level": 2.86,
+    "grade": "Member",
+    "begin_at": "2025-12-05T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 13258,
+      "login": "bmazur5",
+      "displayname": "Bmazur5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20109,
+    "level": 3.37,
+    "grade": null,
+    "begin_at": "2026-04-09T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 80417,
+      "login": "dkrawcz5",
+      "displayname": "Dkrawcz5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20110,
+    "level": 8.6,
+    "grade": "Member",
+    "begin_at": "2025-03-07T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 4085,
+      "login": "gszymcz5",
+      "displayname": "Gszymcz5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20111,
+    "level": 8.45,
+    "grade": "Member",
+    "begin_at": "2024-07-28T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 74274,
+      "login": "lwieczo5",
+      "displayname": "Lwieczo5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20112,
+    "level": 6.53,
+    "grade": null,
+    "begin_at": "2024-09-24T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 47888,
+      "login": "nsobier5",
+      "displayname": "Nsobier5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20113,
+    "level": 12.07,
+    "grade": "Member",
+    "begin_at": "2026-01-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 19423,
+      "login": "owalcza5",
+      "displayname": "Owalcza5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20114,
+    "level": 5.75,
+    "grade": null,
+    "begin_at": "2025-08-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42864,
+      "login": "rjablon5",
+      "displayname": "Rjablon5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20115,
+    "level": 6.76,
+    "grade": "Member",
+    "begin_at": "2025-01-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 12080,
+      "login": "ustanis5",
+      "displayname": "Ustanis5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20116,
+    "level": 5.69,
+    "grade": "Learner",
+    "begin_at": "2026-04-28T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 20050,
+      "login": "wkubiak5",
+      "displayname": "Wkubiak5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20117,
+    "level": 4.44,
+    "grade": null,
+    "begin_at": "2026-03-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 43018,
+      "login": "zbaranо5",
+      "displayname": "Zbaranо5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20118,
+    "level": 6.05,
+    "grade": "Member",
+    "begin_at": "2024-11-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 80338,
+      "login": "cdabrow5",
+      "displayname": "Cdabrow5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20119,
+    "level": 8.83,
+    "grade": "Learner",
+    "begin_at": "2025-03-22T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 6530,
+      "login": "fmichal5",
+      "displayname": "Fmichal5",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20120,
+    "level": 6.59,
+    "grade": "Learner",
+    "begin_at": "2025-07-31T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 46967,
+      "login": "amaciej6",
+      "displayname": "Amaciej6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20121,
+    "level": 6.0,
+    "grade": "Learner",
+    "begin_at": "2025-03-21T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 92065,
+      "login": "kwrona6",
+      "displayname": "Kwrona6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20122,
+    "level": 10.4,
+    "grade": "Member",
+    "begin_at": "2024-06-24T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 13641,
+      "login": "jnowak6",
+      "displayname": "Jnowak6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20123,
+    "level": 7.26,
+    "grade": "Learner",
+    "begin_at": "2025-10-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 27015,
+      "login": "mlewand6",
+      "displayname": "Mlewand6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20124,
+    "level": 12.92,
+    "grade": null,
+    "begin_at": "2025-01-06T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 52812,
+      "login": "azielin6",
+      "displayname": "Azielin6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20125,
+    "level": 4.97,
+    "grade": "Member",
+    "begin_at": "2025-05-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 62464,
+      "login": "pkowals6",
+      "displayname": "Pkowals6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20126,
+    "level": 4.79,
+    "grade": null,
+    "begin_at": "2026-05-03T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 60854,
+      "login": "twojcik6",
+      "displayname": "Twojcik6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20127,
+    "level": 7.27,
+    "grade": "Learner",
+    "begin_at": "2025-07-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 92110,
+      "login": "skaczma6",
+      "displayname": "Skaczma6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20128,
+    "level": 7.58,
+    "grade": "Member",
+    "begin_at": "2025-10-10T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 32634,
+      "login": "bmazur6",
+      "displayname": "Bmazur6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20129,
+    "level": 7.36,
+    "grade": null,
+    "begin_at": "2026-01-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 51094,
+      "login": "dkrawcz6",
+      "displayname": "Dkrawcz6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20130,
+    "level": 6.68,
+    "grade": "Learner",
+    "begin_at": "2025-07-02T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 39388,
+      "login": "gszymcz6",
+      "displayname": "Gszymcz6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20131,
+    "level": 7.36,
+    "grade": null,
+    "begin_at": "2025-05-20T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 80617,
+      "login": "lwieczo6",
+      "displayname": "Lwieczo6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20132,
+    "level": 7.89,
+    "grade": "Learner",
+    "begin_at": "2025-08-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 36827,
+      "login": "nsobier6",
+      "displayname": "Nsobier6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20133,
+    "level": 7.24,
+    "grade": "Member",
+    "begin_at": "2024-03-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 71905,
+      "login": "owalcza6",
+      "displayname": "Owalcza6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20134,
+    "level": 7.83,
+    "grade": null,
+    "begin_at": "2024-07-24T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 23821,
+      "login": "rjablon6",
+      "displayname": "Rjablon6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20135,
+    "level": 2.75,
+    "grade": null,
+    "begin_at": "2025-04-18T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 59960,
+      "login": "ustanis6",
+      "displayname": "Ustanis6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20136,
+    "level": 1.49,
+    "grade": "Member",
+    "begin_at": "2025-12-23T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 2417,
+      "login": "wkubiak6",
+      "displayname": "Wkubiak6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20137,
+    "level": 4.81,
+    "grade": "Member",
+    "begin_at": "2025-12-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 24740,
+      "login": "zbaranо6",
+      "displayname": "Zbaranо6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20138,
+    "level": 3.23,
+    "grade": "Learner",
+    "begin_at": "2025-08-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 19196,
+      "login": "cdabrow6",
+      "displayname": "Cdabrow6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20139,
+    "level": 2.84,
+    "grade": null,
+    "begin_at": "2024-02-21T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45240,
+      "login": "fmichal6",
+      "displayname": "Fmichal6",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20140,
+    "level": 6.21,
+    "grade": null,
+    "begin_at": "2025-07-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 9317,
+      "login": "amaciej7",
+      "displayname": "Amaciej7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20141,
+    "level": 7.0,
+    "grade": null,
+    "begin_at": "2025-06-05T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45192,
+      "login": "kwrona7",
+      "displayname": "Kwrona7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20142,
+    "level": 3.63,
+    "grade": null,
+    "begin_at": "2024-04-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 7836,
+      "login": "jnowak7",
+      "displayname": "Jnowak7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20143,
+    "level": 10.47,
+    "grade": null,
+    "begin_at": "2025-04-03T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 84952,
+      "login": "mlewand7",
+      "displayname": "Mlewand7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20144,
+    "level": 4.97,
+    "grade": null,
+    "begin_at": "2025-10-25T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 16079,
+      "login": "azielin7",
+      "displayname": "Azielin7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20145,
+    "level": 6.93,
+    "grade": null,
+    "begin_at": "2024-04-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 76489,
+      "login": "pkowals7",
+      "displayname": "Pkowals7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20146,
+    "level": 6.27,
+    "grade": "Member",
+    "begin_at": "2024-03-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 76950,
+      "login": "twojcik7",
+      "displayname": "Twojcik7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20147,
+    "level": 10.49,
+    "grade": "Learner",
+    "begin_at": "2025-06-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 2474,
+      "login": "skaczma7",
+      "displayname": "Skaczma7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20148,
+    "level": 6.58,
+    "grade": "Member",
+    "begin_at": "2025-03-10T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 80556,
+      "login": "bmazur7",
+      "displayname": "Bmazur7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20149,
+    "level": 8.67,
+    "grade": null,
+    "begin_at": "2025-01-01T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42698,
+      "login": "dkrawcz7",
+      "displayname": "Dkrawcz7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20150,
+    "level": 3.46,
+    "grade": "Learner",
+    "begin_at": "2024-03-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45160,
+      "login": "gszymcz7",
+      "displayname": "Gszymcz7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20151,
+    "level": 9.96,
+    "grade": "Learner",
+    "begin_at": "2024-09-07T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 95724,
+      "login": "lwieczo7",
+      "displayname": "Lwieczo7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20152,
+    "level": 5.02,
+    "grade": "Learner",
+    "begin_at": "2024-06-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77653,
+      "login": "nsobier7",
+      "displayname": "Nsobier7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20153,
+    "level": 9.63,
+    "grade": "Member",
+    "begin_at": "2026-04-01T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 56899,
+      "login": "owalcza7",
+      "displayname": "Owalcza7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20154,
+    "level": 4.34,
+    "grade": null,
+    "begin_at": "2026-01-26T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 47819,
+      "login": "rjablon7",
+      "displayname": "Rjablon7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20155,
+    "level": 2.73,
+    "grade": "Learner",
+    "begin_at": "2024-03-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 67705,
+      "login": "ustanis7",
+      "displayname": "Ustanis7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20156,
+    "level": 4.87,
+    "grade": "Learner",
+    "begin_at": "2025-04-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 98360,
+      "login": "wkubiak7",
+      "displayname": "Wkubiak7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20157,
+    "level": 6.01,
+    "grade": "Learner",
+    "begin_at": "2025-05-26T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 50767,
+      "login": "zbaranо7",
+      "displayname": "Zbaranо7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20158,
+    "level": 5.05,
+    "grade": "Learner",
+    "begin_at": "2025-08-03T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 27627,
+      "login": "cdabrow7",
+      "displayname": "Cdabrow7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20159,
+    "level": 9.46,
+    "grade": null,
+    "begin_at": "2025-07-17T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 90178,
+      "login": "fmichal7",
+      "displayname": "Fmichal7",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20160,
+    "level": 3.23,
+    "grade": "Member",
+    "begin_at": "2024-02-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 8558,
+      "login": "amaciej8",
+      "displayname": "Amaciej8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20161,
+    "level": 9.35,
+    "grade": null,
+    "begin_at": "2025-03-02T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 56464,
+      "login": "kwrona8",
+      "displayname": "Kwrona8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20162,
+    "level": 1.03,
+    "grade": "Learner",
+    "begin_at": "2026-06-06T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 5588,
+      "login": "jnowak8",
+      "displayname": "Jnowak8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20163,
+    "level": 9.4,
+    "grade": null,
+    "begin_at": "2024-06-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 44408,
+      "login": "mlewand8",
+      "displayname": "Mlewand8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20164,
+    "level": 5.4,
+    "grade": "Member",
+    "begin_at": "2025-10-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 45091,
+      "login": "azielin8",
+      "displayname": "Azielin8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20165,
+    "level": 2.11,
+    "grade": "Member",
+    "begin_at": "2024-09-09T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 76560,
+      "login": "pkowals8",
+      "displayname": "Pkowals8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20166,
+    "level": 5.66,
+    "grade": "Learner",
+    "begin_at": "2024-02-20T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 63783,
+      "login": "twojcik8",
+      "displayname": "Twojcik8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20167,
+    "level": 6.81,
+    "grade": "Learner",
+    "begin_at": "2024-09-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 80445,
+      "login": "skaczma8",
+      "displayname": "Skaczma8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20168,
+    "level": 4.11,
+    "grade": "Learner",
+    "begin_at": "2025-08-31T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77656,
+      "login": "bmazur8",
+      "displayname": "Bmazur8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20169,
+    "level": 6.97,
+    "grade": "Learner",
+    "begin_at": "2024-11-18T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 19343,
+      "login": "dkrawcz8",
+      "displayname": "Dkrawcz8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20170,
+    "level": 7.44,
+    "grade": "Learner",
+    "begin_at": "2025-01-05T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 98360,
+      "login": "gszymcz8",
+      "displayname": "Gszymcz8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20171,
+    "level": 2.41,
+    "grade": null,
+    "begin_at": "2024-12-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 86058,
+      "login": "lwieczo8",
+      "displayname": "Lwieczo8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20172,
+    "level": 12.78,
+    "grade": null,
+    "begin_at": "2026-06-05T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 59728,
+      "login": "nsobier8",
+      "displayname": "Nsobier8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20173,
+    "level": 5.76,
+    "grade": null,
+    "begin_at": "2025-05-25T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 6661,
+      "login": "owalcza8",
+      "displayname": "Owalcza8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20174,
+    "level": 4.2,
+    "grade": "Learner",
+    "begin_at": "2025-06-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77338,
+      "login": "rjablon8",
+      "displayname": "Rjablon8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20175,
+    "level": 4.83,
+    "grade": null,
+    "begin_at": "2024-08-22T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 10929,
+      "login": "ustanis8",
+      "displayname": "Ustanis8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20176,
+    "level": 8.59,
+    "grade": null,
+    "begin_at": "2024-05-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 72752,
+      "login": "wkubiak8",
+      "displayname": "Wkubiak8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20177,
+    "level": 2.05,
+    "grade": null,
+    "begin_at": "2025-07-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 47359,
+      "login": "zbaranо8",
+      "displayname": "Zbaranо8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20178,
+    "level": 3.57,
+    "grade": null,
+    "begin_at": "2025-03-07T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 56296,
+      "login": "cdabrow8",
+      "displayname": "Cdabrow8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20179,
+    "level": 5.82,
+    "grade": "Learner",
+    "begin_at": "2024-03-17T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 37036,
+      "login": "fmichal8",
+      "displayname": "Fmichal8",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20180,
+    "level": 7.97,
+    "grade": "Member",
+    "begin_at": "2026-05-19T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 83723,
+      "login": "amaciej9",
+      "displayname": "Amaciej9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20181,
+    "level": 2.04,
+    "grade": "Learner",
+    "begin_at": "2026-05-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 33719,
+      "login": "kwrona9",
+      "displayname": "Kwrona9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20182,
+    "level": 4.59,
+    "grade": "Member",
+    "begin_at": "2024-03-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 12321,
+      "login": "jnowak9",
+      "displayname": "Jnowak9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20183,
+    "level": 4.2,
+    "grade": null,
+    "begin_at": "2025-12-12T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 62505,
+      "login": "mlewand9",
+      "displayname": "Mlewand9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20184,
+    "level": 9.8,
+    "grade": "Learner",
+    "begin_at": "2024-08-23T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 5488,
+      "login": "azielin9",
+      "displayname": "Azielin9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20185,
+    "level": 3.09,
+    "grade": "Member",
+    "begin_at": "2025-04-04T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 58827,
+      "login": "pkowals9",
+      "displayname": "Pkowals9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20186,
+    "level": 8.26,
+    "grade": "Member",
+    "begin_at": "2025-07-13T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 67609,
+      "login": "twojcik9",
+      "displayname": "Twojcik9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20187,
+    "level": 5.96,
+    "grade": "Member",
+    "begin_at": "2025-06-14T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 39873,
+      "login": "skaczma9",
+      "displayname": "Skaczma9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20188,
+    "level": 6.15,
+    "grade": "Learner",
+    "begin_at": "2024-06-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 19715,
+      "login": "bmazur9",
+      "displayname": "Bmazur9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20189,
+    "level": 5.45,
+    "grade": "Learner",
+    "begin_at": "2024-12-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 96259,
+      "login": "dkrawcz9",
+      "displayname": "Dkrawcz9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20190,
+    "level": 2.85,
+    "grade": "Member",
+    "begin_at": "2024-08-18T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 34169,
+      "login": "gszymcz9",
+      "displayname": "Gszymcz9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20191,
+    "level": 5.57,
+    "grade": null,
+    "begin_at": "2025-04-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 48172,
+      "login": "lwieczo9",
+      "displayname": "Lwieczo9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20192,
+    "level": 5.55,
+    "grade": "Member",
+    "begin_at": "2026-05-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 65621,
+      "login": "nsobier9",
+      "displayname": "Nsobier9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20193,
+    "level": 10.63,
+    "grade": null,
+    "begin_at": "2025-04-06T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 22362,
+      "login": "owalcza9",
+      "displayname": "Owalcza9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20194,
+    "level": 12.4,
+    "grade": "Learner",
+    "begin_at": "2026-04-10T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 63876,
+      "login": "rjablon9",
+      "displayname": "Rjablon9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20195,
+    "level": 5.27,
+    "grade": null,
+    "begin_at": "2024-03-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42406,
+      "login": "ustanis9",
+      "displayname": "Ustanis9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20196,
+    "level": 3.44,
+    "grade": "Learner",
+    "begin_at": "2026-01-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42286,
+      "login": "wkubiak9",
+      "displayname": "Wkubiak9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20197,
+    "level": 7.57,
+    "grade": "Member",
+    "begin_at": "2026-05-21T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 18216,
+      "login": "zbaranо9",
+      "displayname": "Zbaranо9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20198,
+    "level": 4.07,
+    "grade": null,
+    "begin_at": "2025-06-15T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 92298,
+      "login": "cdabrow9",
+      "displayname": "Cdabrow9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20199,
+    "level": 11.45,
+    "grade": "Learner",
+    "begin_at": "2024-10-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 36374,
+      "login": "fmichal9",
+      "displayname": "Fmichal9",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20200,
+    "level": 5.6,
+    "grade": "Member",
+    "begin_at": "2025-06-10T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 92048,
+      "login": "amaciej10",
+      "displayname": "Amaciej10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20201,
+    "level": 2.54,
+    "grade": "Learner",
+    "begin_at": "2024-12-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 38482,
+      "login": "kwrona10",
+      "displayname": "Kwrona10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20202,
+    "level": 4.62,
+    "grade": "Member",
+    "begin_at": "2025-10-13T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 42561,
+      "login": "jnowak10",
+      "displayname": "Jnowak10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20203,
+    "level": 1.68,
+    "grade": "Learner",
+    "begin_at": "2025-01-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 52944,
+      "login": "mlewand10",
+      "displayname": "Mlewand10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20204,
+    "level": 10.67,
+    "grade": "Learner",
+    "begin_at": "2025-09-30T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 28459,
+      "login": "azielin10",
+      "displayname": "Azielin10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20205,
+    "level": 7.84,
+    "grade": "Learner",
+    "begin_at": "2024-10-07T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 5926,
+      "login": "pkowals10",
+      "displayname": "Pkowals10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20206,
+    "level": 10.73,
+    "grade": "Member",
+    "begin_at": "2025-12-03T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 453,
+      "login": "twojcik10",
+      "displayname": "Twojcik10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20207,
+    "level": 9.66,
+    "grade": "Member",
+    "begin_at": "2025-12-31T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 7079,
+      "login": "skaczma10",
+      "displayname": "Skaczma10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20208,
+    "level": 5.56,
+    "grade": "Learner",
+    "begin_at": "2024-03-18T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 96294,
+      "login": "bmazur10",
+      "displayname": "Bmazur10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20209,
+    "level": 9.55,
+    "grade": "Member",
+    "begin_at": "2024-08-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 17616,
+      "login": "dkrawcz10",
+      "displayname": "Dkrawcz10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20210,
+    "level": 2.37,
+    "grade": null,
+    "begin_at": "2025-09-01T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 38101,
+      "login": "gszymcz10",
+      "displayname": "Gszymcz10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20211,
+    "level": 9.63,
+    "grade": null,
+    "begin_at": "2024-06-29T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 20601,
+      "login": "lwieczo10",
+      "displayname": "Lwieczo10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20212,
+    "level": 7.18,
+    "grade": "Member",
+    "begin_at": "2025-01-21T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77818,
+      "login": "nsobier10",
+      "displayname": "Nsobier10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20213,
+    "level": 12.62,
+    "grade": "Learner",
+    "begin_at": "2025-10-26T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 18612,
+      "login": "owalcza10",
+      "displayname": "Owalcza10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20214,
+    "level": 1.69,
+    "grade": null,
+    "begin_at": "2024-11-16T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 43980,
+      "login": "rjablon10",
+      "displayname": "Rjablon10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20215,
+    "level": 8.98,
+    "grade": null,
+    "begin_at": "2026-02-13T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 32338,
+      "login": "ustanis10",
+      "displayname": "Ustanis10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20216,
+    "level": 2.66,
+    "grade": "Member",
+    "begin_at": "2025-05-14T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 22937,
+      "login": "wkubiak10",
+      "displayname": "Wkubiak10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20217,
+    "level": 8.0,
+    "grade": null,
+    "begin_at": "2025-05-01T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77534,
+      "login": "zbaranо10",
+      "displayname": "Zbaranо10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20218,
+    "level": 9.24,
+    "grade": "Learner",
+    "begin_at": "2026-02-17T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 21056,
+      "login": "cdabrow10",
+      "displayname": "Cdabrow10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20219,
+    "level": 7.23,
+    "grade": "Member",
+    "begin_at": "2025-03-05T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 34629,
+      "login": "fmichal10",
+      "displayname": "Fmichal10",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20220,
+    "level": 4.83,
+    "grade": null,
+    "begin_at": "2024-09-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 37819,
+      "login": "amaciej11",
+      "displayname": "Amaciej11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20221,
+    "level": 8.54,
+    "grade": "Learner",
+    "begin_at": "2025-04-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 90535,
+      "login": "kwrona11",
+      "displayname": "Kwrona11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20222,
+    "level": 9.89,
+    "grade": "Learner",
+    "begin_at": "2025-01-11T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 46414,
+      "login": "jnowak11",
+      "displayname": "Jnowak11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20223,
+    "level": 3.48,
+    "grade": "Member",
+    "begin_at": "2024-06-29T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 54095,
+      "login": "mlewand11",
+      "displayname": "Mlewand11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20224,
+    "level": 11.4,
+    "grade": null,
+    "begin_at": "2025-09-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 91560,
+      "login": "azielin11",
+      "displayname": "Azielin11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20225,
+    "level": 4.18,
+    "grade": null,
+    "begin_at": "2024-12-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42832,
+      "login": "pkowals11",
+      "displayname": "Pkowals11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20226,
+    "level": 7.07,
+    "grade": null,
+    "begin_at": "2024-12-26T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 35033,
+      "login": "twojcik11",
+      "displayname": "Twojcik11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20227,
+    "level": 7.21,
+    "grade": null,
+    "begin_at": "2024-11-08T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 77814,
+      "login": "skaczma11",
+      "displayname": "Skaczma11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20228,
+    "level": 7.38,
+    "grade": null,
+    "begin_at": "2024-10-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 42427,
+      "login": "bmazur11",
+      "displayname": "Bmazur11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20229,
+    "level": 10.88,
+    "grade": "Learner",
+    "begin_at": "2024-03-02T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 5799,
+      "login": "dkrawcz11",
+      "displayname": "Dkrawcz11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20230,
+    "level": 2.59,
+    "grade": null,
+    "begin_at": "2024-04-27T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 36841,
+      "login": "gszymcz11",
+      "displayname": "Gszymcz11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20231,
+    "level": 7.31,
+    "grade": null,
+    "begin_at": "2025-04-25T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 91673,
+      "login": "lwieczo11",
+      "displayname": "Lwieczo11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20232,
+    "level": 1.78,
+    "grade": null,
+    "begin_at": "2024-12-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 11521,
+      "login": "nsobier11",
+      "displayname": "Nsobier11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20233,
+    "level": 11.64,
+    "grade": "Member",
+    "begin_at": "2025-10-18T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 91843,
+      "login": "owalcza11",
+      "displayname": "Owalcza11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20234,
+    "level": 7.64,
+    "grade": "Member",
+    "begin_at": "2025-03-18T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 97527,
+      "login": "rjablon11",
+      "displayname": "Rjablon11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20235,
+    "level": 2.3,
+    "grade": "Member",
+    "begin_at": "2025-04-26T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 54762,
+      "login": "ustanis11",
+      "displayname": "Ustanis11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20236,
+    "level": 3.82,
+    "grade": null,
+    "begin_at": "2026-01-29T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 74603,
+      "login": "wkubiak11",
+      "displayname": "Wkubiak11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20237,
+    "level": 7.99,
+    "grade": null,
+    "begin_at": "2025-07-07T09:02:18.633474+00:00",
+    "blackholed_at": "2026-07-25T09:02:18.633474+00:00",
+    "user": {
+      "id": 33833,
+      "login": "zbaranо11",
+      "displayname": "Zbaranо11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20238,
+    "level": 3.16,
+    "grade": "Member",
+    "begin_at": "2025-01-14T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 69275,
+      "login": "cdabrow11",
+      "displayname": "Cdabrow11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  },
+  {
+    "id": 20239,
+    "level": 4.66,
+    "grade": "Member",
+    "begin_at": "2026-02-20T09:02:18.633474+00:00",
+    "blackholed_at": null,
+    "user": {
+      "id": 61317,
+      "login": "fmichal11",
+      "displayname": "Fmichal11",
+      "image_url": null,
+      "image": {
+        "link": null
+      }
+    }
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "The Federation",
+    "score": 41200,
+    "color": "#4C9F70",
+    "image_url": null
+  },
+  {
+    "id": 2,
+    "name": "The Order",
+    "score": 38750,
+    "color": "#C0392B",
+    "image_url": null
+  },
+  {
+    "id": 3,
+    "name": "The Assembly",
+    "score": 35980,
+    "color": "#2E86C1",
+    "image_url": null
+  }
+]
