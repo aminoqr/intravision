@@ -1,10 +1,11 @@
+<!-- File: docs/42-api.md -->
+
 # Using the 42 API
 
 Practical guide for this project. Official reference: https://api.intra.42.fr/apidoc
 
-Everything below marked **[verified]** comes from the official guides. Anything marked **[probe]**
-is an assumption that needs testing against the live API before it's relied on — and the results of
-that probing are the substance of the API research deliverable.
+Everything below marked **[verified]** comes from the official guides or from our live probe on
+**1 Aug 2026**. Earlier draft assumptions that we measured are updated in place.
 
 Base URL: `https://api.intra.42.fr` · RESTful, JSON over HTTPS, OAuth 2.0.
 
@@ -175,13 +176,21 @@ until an empty array comes back works but wastes a request every time, and at 12
 Also present: `X-Application-Id`, `X-Application-Name`, `X-Application-Roles`, `X-Request-Id`
 (quote this if you need to ask 42 staff about a specific failure).
 
-### Filtering and sorting [probe]
+### Filtering and sorting [verified 1 Aug 2026]
 
-The 42 API commonly supports `filter[field]=value`, `range[field]=a,b`, and `sort=field` /
-`sort=-field` on list endpoints, but this is **not** covered in the official getting-started guide
-and support varies per endpoint. Test before depending on it — server-side filtering that works
-saves enormous numbers of requests, and one that silently returns unfiltered data is a correctness
-bug that looks like success.
+On our public client-credentials token these work as used by `ft.fetch`:
+
+| Parameter | Endpoint | Result |
+|---|---|---|
+| `filter[name]=Warsaw` | `/v2/campus` | OK → campus **id 67** |
+| `filter[campus_id]=67` | `/v2/cursus/21/cursus_users` | OK · `X-Total=575` · `page[size]=100` honoured |
+| `filter[campus]=67` | `/v2/projects_users` | OK |
+| `sort=-marked_at` | `/v2/projects_users` | OK |
+| `range[marked_at]=a,b` | `/v2/projects_users` | OK (keeps the 14-day window cheap) |
+| `filter[active]=true` | `/v2/campus/67/locations` | OK · 27 open sessions at probe time |
+| `filter[campus_id]=67` | `/v2/blocs` | OK · Warsaw coalitions embedded |
+
+**Caveat:** unscoped `GET /v2/projects_users?sort=-marked_at` reports millions in `X-Total` — always pair sort/range with campus filter.
 
 ---
 
@@ -194,12 +203,16 @@ bug that looks like success.
 Most collections have a `/v2/campus/:campus_id/...` variant. **Use it.** Unscoped queries return
 every 42 campus worldwide — wrong data and a rate-limit disaster simultaneously.
 
-Resolve once, then hard-code:
+Resolve once, then hard-code (confirmed **1 Aug 2026**):
 
 ```bash
+# Warsaw → id 67
 curl -H "Authorization: Bearer $TOKEN" "https://api.intra.42.fr/v2/campus?filter[name]=Warsaw"
-curl -H "Authorization: Bearer $TOKEN" "https://api.intra.42.fr/v2/cursus"   # find slug "42"
+# Common Core slug 42cursus → id 21 (legacy slug "42" is id 1)
+curl -H "Authorization: Bearer $TOKEN" "https://api.intra.42.fr/v2/cursus?page[size]=100"
 ```
+
+Or: `make resolve-ids`
 
 ### By dashboard goal
 
@@ -222,33 +235,32 @@ curl -H "Authorization: Bearer $TOKEN" "https://api.intra.42.fr/v2/cursus"   # f
 **Lookups (fetch once, cache, never per-render)**
 - `GET /v2/cursus`, `GET /v2/campus`, `GET /v2/projects`, `GET /v2/cursus/:cursus_id/projects`
 
-### `/graph` endpoints [probe] — check these first
+### `/graph` endpoints [verified 1 Aug 2026]
 
-Many resources expose `/graph(/on/:field(/by/:interval))`: `cursus_users`, `projects_users`,
-`scale_teams`, `teams`, `locations`, `users`, `quests_users`, `events`, `dashes_users`,
-`languages_users`, `patronages_reports`.
+Many resources expose `/graph(/on/:field(/by/:interval))`. We probed four:
 
-These aggregate **server-side**. One `/graph` call replacing a thousand-request client-side rollup
-is the difference between a dashboard that refreshes within budget and one that doesn't.
+| Path | Result |
+|---|---|
+| `/v2/projects_users/graph/on/marked_at/by/day` | **422** Unprocessable — needs more params than the bare path |
+| `/v2/cursus_users/graph/on/level/by/day` | **422** same |
+| `/v2/locations/graph/on/begin_at/by/day` | **200** OK |
+| `/v2/scale_teams/graph/on/created_at/by/day` | **200** OK (huge `X-Total`; not used in PoC) |
 
-Their response shape is not documented in the guides. Probe them early:
+So `/graph` is **not** a free win for our two main panels without further parameter discovery.
+The PoC stays on paginated list endpoints + local metrics, which already fit the hourly budget
+(~11 requests per live refresh).
 
-```bash
-curl -H "Authorization: Bearer $TOKEN" \
-  "https://api.intra.42.fr/v2/projects_users/graph/on/marked_at/by/day"
-```
+Raw probe table: regenerate anytime with `make probe` → `docs/api-probe-results.md` (gitignored,
+regenerable).
 
-Recording what these actually return is one of the more valuable things the API research doc can
-contain — it's original work rather than a paraphrase of published docs.
+### Elevated / blocked endpoints [verified]
 
-### Endpoints needing elevated access
+| Endpoint | Result |
+|---|---|
+| `GET /v2/campus/67/stats` | **403** Forbidden on public client-credentials |
+| `GET /v2/achievements` | **200** OK (usable if we want a panel later) |
 
-Endpoints marked with a person icon in the apidoc need more than a client-credentials `public`
-token — a user-authorized token, extra scopes, or an app role. Notably `exams`, `notes`,
-`achievements` list endpoints, and all write operations.
-
-Test access to anything you're planning a panel around **early**. Discovering at 3am that a metric
-requires `Basic Staff` is a scope problem; discovering it Tuesday is a design input.
+App roles header observed: `X-Application-Roles: None`.
 
 ---
 
@@ -293,17 +305,18 @@ Full detail requires following `url`, which is a per-user request. Prefer `cursu
 ## 7. Working checklist
 
 ```
-[ ] App created; uid + secret in env vars, secret never client-side
-[ ] Client-credentials token obtained
-[ ] Token refresh before 7200s expiry
-[ ] Rate limiter: 2 req/s, running counter against 1200/hr
-[ ] Pagination via X-Total / Link, page[size]=100
-[ ] Warsaw campus id and 42 cursus id resolved and pinned
-[ ] /graph response shapes probed and written down
-[ ] Elevated-access endpoints identified
-[ ] Fixtures dumped for offline development
-[ ] Cache layer between fetch and render; render makes zero API calls
-[ ] Stale-cache fallback with visible timestamp for API outages
+[x] App created; uid + secret in env vars, secret never client-side
+[x] Client-credentials token obtained
+[x] Token refresh before 7200s expiry (ft.client @ 90% lifetime)
+[x] Rate limiter: 2 req/s, running counter against 1200/hr
+[x] Pagination via X-Total / Link, page[size]=100
+[x] Warsaw campus id (67) and 42cursus id (21) resolved and pinned
+[x] /graph response shapes probed — 2×422, 2×200; lists used instead for main panels
+[x] Elevated-access endpoints identified (campus stats → 403)
+[x] Fixtures dumped for offline development (live Warsaw snapshot committed)
+[x] Cache layer between fetch and render; render makes zero API calls
+[x] Stale-cache fallback with visible timestamp for API outages
+[x] POST /refresh returns 202 and updates last_refresh (verified 1 Aug 2026)
 ```
 
 ---
@@ -313,3 +326,5 @@ Full detail requires following `url`, which is a per-user request. Prefer `cursu
 - API docs — https://api.intra.42.fr/apidoc
 - Register an app — https://profile.intra.42.fr/oauth/applications
 - OAuth2 RFC, token endpoint — RFC 6749 §3.2
+- Architecture — [architecture.md](architecture.md)
+- Regenerable probe dump — `make probe` → `docs/api-probe-results.md`

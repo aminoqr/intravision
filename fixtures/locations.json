@@ -1,902 +1,1163 @@
 [
   {
-    "id": 30000,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
     "end_at": null,
-    "host": "w2r1p2",
+    "id": 39851070,
+    "begin_at": "2026-08-01T13:20:39.011Z",
+    "primary": true,
+    "host": "c2r9s2",
+    "campus_id": 67,
     "user": {
-      "id": 11917,
-      "login": "dkrawcz",
-      "displayname": "Dkrawcz",
-      "image_url": null,
+      "id": 253650,
+      "email": "gaoficja@student.42warsaw.pl",
+      "login": "gaoficja",
+      "first_name": "Gaweł",
+      "last_name": "Oficjalski",
+      "usual_full_name": "Gaweł Oficjalski",
+      "usual_first_name": "Gaweł",
+      "url": "https://api.intra.42.fr/v2/users/gaoficja",
+      "phone": "hidden",
+      "displayname": "Gaweł Oficjalski",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/f5bab4acf6dabfb0faa5ddc030e05e9c/gaoficja.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/a56b435fa89372bd7957e0b1d5eeb109/large_gaoficja.jpg",
+          "medium": "https://cdn.intra.42.fr/users/cdc2dc3a88e66f574440206813f69028/medium_gaoficja.jpg",
+          "small": "https://cdn.intra.42.fr/users/c3d8e7ffc07520c041df56acc34d3818/small_gaoficja.jpg",
+          "micro": "https://cdn.intra.42.fr/users/a777e17a5f61e0eb55aae51779458e68/micro_gaoficja.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 1,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c2r9s2",
+      "wallet": 10,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-19T15:34:01.460Z",
+      "updated_at": "2026-08-01T13:20:39.453Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30001,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r2p6",
+    "id": 39850986,
+    "begin_at": "2026-08-01T13:14:37.917Z",
+    "primary": true,
+    "host": "c3r16s2",
+    "campus_id": 67,
     "user": {
-      "id": 42086,
-      "login": "gszymcz",
-      "displayname": "Gszymcz",
-      "image_url": null,
+      "id": 228040,
+      "email": "cbogale@student.42warsaw.pl",
+      "login": "cbogale",
+      "first_name": "Cheguvera",
+      "last_name": "Bogale",
+      "usual_full_name": "Cheguvera Bogale",
+      "usual_first_name": "Cheguvera",
+      "url": "https://api.intra.42.fr/v2/users/cbogale",
+      "phone": "hidden",
+      "displayname": "Cheguvera Bogale",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/982242ace6fe9271c798ba3c2ff689ea/cbogale.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/54473ec1529661b31769c364b7aed363/large_cbogale.jpg",
+          "medium": "https://cdn.intra.42.fr/users/f3b081206a301a50a9e858a958832675/medium_cbogale.jpg",
+          "small": "https://cdn.intra.42.fr/users/3d339591bc414fb2e96f65992f8b5d40/small_cbogale.jpg",
+          "micro": "https://cdn.intra.42.fr/users/68be9309d2582635b480e16218ea73a8/micro_cbogale.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 23,
+      "pool_month": "july",
+      "pool_year": "2025",
+      "location": "c3r16s2",
+      "wallet": 380,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2025-06-16T10:30:25.604Z",
+      "updated_at": "2026-08-01T13:14:38.997Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30002,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
     "end_at": null,
-    "host": "w2r2p16",
+    "id": 39850799,
+    "begin_at": "2026-08-01T12:59:37.889Z",
+    "primary": true,
+    "host": "c2r4s3",
+    "campus_id": 67,
     "user": {
-      "id": 48411,
-      "login": "wkubiak",
-      "displayname": "Wkubiak",
-      "image_url": null,
+      "id": 199499,
+      "email": "gkryszcz@student.42warsaw.pl",
+      "login": "gkryszcz",
+      "first_name": "Grzegorz",
+      "last_name": "Kryszczuk",
+      "usual_full_name": "Grzegorz Kryszczuk",
+      "usual_first_name": "Grzegorz",
+      "url": "https://api.intra.42.fr/v2/users/gkryszcz",
+      "phone": "hidden",
+      "displayname": "Grzegorz Kryszczuk",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/0421123174620e5cd2f624e4d14a5c58/gkryszcz.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/3975e13a818072537dd77c2d590ed234/large_gkryszcz.jpg",
+          "medium": "https://cdn.intra.42.fr/users/431bcf31745e4a42c65cb9dd7bd559cb/medium_gkryszcz.jpg",
+          "small": "https://cdn.intra.42.fr/users/0f942ca8156f57dd916f81fc1f1373ac/small_gkryszcz.jpg",
+          "micro": "https://cdn.intra.42.fr/users/ed7126091a4727a69e0057ef8fd21ff4/micro_gkryszcz.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 4,
+      "pool_month": "september",
+      "pool_year": "2024",
+      "location": "c2r4s3",
+      "wallet": 119,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-08-19T07:46:13.926Z",
+      "updated_at": "2026-08-01T12:59:38.324Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30003,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r3p16",
+    "id": 39850631,
+    "begin_at": "2026-08-01T12:44:38.928Z",
+    "primary": true,
+    "host": "c2r3s3",
+    "campus_id": 67,
     "user": {
-      "id": 45370,
-      "login": "amaciej",
-      "displayname": "Amaciej",
-      "image_url": null,
+      "id": 253214,
+      "email": "msowinsk@student.42warsaw.pl",
+      "login": "msowinsk",
+      "first_name": "Mateusz",
+      "last_name": "Sowiński",
+      "usual_full_name": "Mateusz Sowiński",
+      "usual_first_name": "Mateusz",
+      "url": "https://api.intra.42.fr/v2/users/msowinsk",
+      "phone": "hidden",
+      "displayname": "Mateusz Sowiński",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/5ee2607908c3502f2183bc2f9a855af4/msowinsk.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/fad58119e129378a60c5967b37afcdf7/large_msowinsk.jpg",
+          "medium": "https://cdn.intra.42.fr/users/788207a86a55e8ed5fd9dbf1eaaf46e3/medium_msowinsk.jpg",
+          "small": "https://cdn.intra.42.fr/users/caae7e185f26a61209412e5da1a68278/small_msowinsk.jpg",
+          "micro": "https://cdn.intra.42.fr/users/5687479270652da1ea1d41b151dc7db2/micro_msowinsk.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 14,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c2r3s3",
+      "wallet": 40,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:08:53.116Z",
+      "updated_at": "2026-08-01T12:47:03.975Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30004,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r5p15",
+    "id": 39850604,
+    "begin_at": "2026-08-01T12:41:38.169Z",
+    "primary": true,
+    "host": "c3r7s3",
+    "campus_id": 67,
     "user": {
-      "id": 71517,
-      "login": "skaczma",
-      "displayname": "Skaczma",
-      "image_url": null,
+      "id": 253238,
+      "email": "szdanows@student.42warsaw.pl",
+      "login": "szdanows",
+      "first_name": "Stanisław",
+      "last_name": "Zdanowski",
+      "usual_full_name": "Stanisław Zdanowski",
+      "usual_first_name": "Stanisław",
+      "url": "https://api.intra.42.fr/v2/users/szdanows",
+      "phone": "hidden",
+      "displayname": "Stanisław Zdanowski",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/5890e7a5e981fa3a69bdc803415e193d/szdanows.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/140cfd432fc78bd83fa9f3bf944366a0/large_szdanows.jpg",
+          "medium": "https://cdn.intra.42.fr/users/8dce181b7723ceed85322e018866f479/medium_szdanows.jpg",
+          "small": "https://cdn.intra.42.fr/users/e335bc7d7b32f886abb06ad6dba87247/small_szdanows.jpg",
+          "micro": "https://cdn.intra.42.fr/users/605a958a0bb33fa5020beba888c14d74/micro_szdanows.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 10,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c3r7s3",
+      "wallet": 150,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:39:58.403Z",
+      "updated_at": "2026-08-01T12:41:38.925Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30005,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r1p2",
+    "id": 39850527,
+    "begin_at": "2026-08-01T12:35:39.730Z",
+    "primary": true,
+    "host": "c1r10s4",
+    "campus_id": 67,
     "user": {
-      "id": 11917,
-      "login": "dkrawcz",
-      "displayname": "Dkrawcz",
-      "image_url": null,
+      "id": 263845,
+      "email": "tzydorow@student.42warsaw.pl",
+      "login": "tzydorow",
+      "first_name": "Tomasz",
+      "last_name": "Zydorowicz",
+      "usual_full_name": "Tomasz Zydorowicz",
+      "usual_first_name": "Tomasz",
+      "url": "https://api.intra.42.fr/v2/users/tzydorow",
+      "phone": "hidden",
+      "displayname": "Tomasz Zydorowicz",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/f5ce47cd2e16b97e85682a426555f756/tzydorow.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/b20b3efc429730aadc2e95e7a97cfa2f/large_tzydorow.jpg",
+          "medium": "https://cdn.intra.42.fr/users/1680f149dc9d476320b3c9b66591cafa/medium_tzydorow.jpg",
+          "small": "https://cdn.intra.42.fr/users/f45e9b730c7579ddf08dc54f025936dc/small_tzydorow.jpg",
+          "micro": "https://cdn.intra.42.fr/users/1473d6284362d797e3c99fa4d0eaa09b/micro_tzydorow.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 1,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": "c1r10s4",
+      "wallet": 10,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2026-05-04T08:49:30.285Z",
+      "updated_at": "2026-08-01T12:35:40.132Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30006,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r3p18",
+    "id": 39850526,
+    "begin_at": "2026-08-01T12:35:37.891Z",
+    "primary": true,
+    "host": "c1r7s3",
+    "campus_id": 67,
     "user": {
-      "id": 45370,
-      "login": "amaciej",
-      "displayname": "Amaciej",
-      "image_url": null,
+      "id": 263154,
+      "email": "gbekur@student.42warsaw.pl",
+      "login": "gbekur",
+      "first_name": "Gedion",
+      "last_name": "Bekur",
+      "usual_full_name": "Gedion Bekur",
+      "usual_first_name": "Gedion",
+      "url": "https://api.intra.42.fr/v2/users/gbekur",
+      "phone": "hidden",
+      "displayname": "Gedion Bekur",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/17703f377c727e36be4c200c4648b5ba/gbekur.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/25e9f86aaa4c420d4e45db3557c72cb8/large_gbekur.jpg",
+          "medium": "https://cdn.intra.42.fr/users/d4ae4802e57c74840d0ec04cdc38e149/medium_gbekur.jpg",
+          "small": "https://cdn.intra.42.fr/users/0909891c15c3e61a13b01e0d2ce679a4/small_gbekur.jpg",
+          "micro": "https://cdn.intra.42.fr/users/0ae69ea6f08b1379380490d1e519dfd1/micro_gbekur.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 2,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": "c1r7s3",
+      "wallet": 10,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2026-04-24T08:52:31.123Z",
+      "updated_at": "2026-08-01T12:36:13.264Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30007,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r2p9",
+    "id": 39850452,
+    "begin_at": "2026-08-01T12:29:37.906Z",
+    "primary": true,
+    "host": "c1r4s3",
+    "campus_id": 67,
     "user": {
-      "id": 69836,
-      "login": "lwieczo",
-      "displayname": "Lwieczo",
-      "image_url": null,
+      "id": 191573,
+      "email": "albillie@student.42warsaw.pl",
+      "login": "albillie",
+      "first_name": "Alban",
+      "last_name": "Billiette",
+      "usual_full_name": "Alban Billiette",
+      "usual_first_name": "Alban",
+      "url": "https://api.intra.42.fr/v2/users/albillie",
+      "phone": "hidden",
+      "displayname": "Alban Billiette",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/993c211ea25d9501df3561f1b6a9889d/albillie.JPG",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/072f28fae4476a9519e2df7859513b61/large_albillie.JPG",
+          "medium": "https://cdn.intra.42.fr/users/6b6dbf7e29b525c5324fa9caa3b02b66/medium_albillie.JPG",
+          "small": "https://cdn.intra.42.fr/users/6af8036c5007dcd6196b99d19ab0249a/small_albillie.JPG",
+          "micro": "https://cdn.intra.42.fr/users/98e63565d99f9e3c2ee4c8b210861e8e/micro_albillie.JPG"
+        }
+      },
+      "staff?": false,
+      "correction_point": 7,
+      "pool_month": "july",
+      "pool_year": "2024",
+      "location": "c1r4s3",
+      "wallet": 143,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-06-28T13:32:43.521Z",
+      "updated_at": "2026-08-01T12:29:38.440Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30008,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r1p13",
+    "id": 39850375,
+    "begin_at": "2026-08-01T12:23:38.563Z",
+    "primary": true,
+    "host": "c3r16s4",
+    "campus_id": 67,
     "user": {
-      "id": 3343,
-      "login": "kwrona",
-      "displayname": "Kwrona",
-      "image_url": null,
+      "id": 227978,
+      "email": "dalamrew@student.42warsaw.pl",
+      "login": "dalamrew",
+      "first_name": "Dagem Tsehay",
+      "last_name": "Alamrew",
+      "usual_full_name": "Dagem Tsehay Alamrew",
+      "usual_first_name": "Dagem Tsehay",
+      "url": "https://api.intra.42.fr/v2/users/dalamrew",
+      "phone": "hidden",
+      "displayname": "Dagem Tsehay Alamrew",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/073bb9c8ec12b1c9deb3748d25bbc74f/dalamrew.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/56b8aaa40c363f34c68cdfe1bb2a1394/large_dalamrew.jpg",
+          "medium": "https://cdn.intra.42.fr/users/5aeb81c490ca250e9f09dd168638b75b/medium_dalamrew.jpg",
+          "small": "https://cdn.intra.42.fr/users/9420cbbf244eae432ccc8914ba348e0d/small_dalamrew.jpg",
+          "micro": "https://cdn.intra.42.fr/users/1664defcf984f9334a857b19a402c39e/micro_dalamrew.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 25,
+      "pool_month": "july",
+      "pool_year": "2025",
+      "location": "c3r16s4",
+      "wallet": 934,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2025-06-16T07:57:09.522Z",
+      "updated_at": "2026-08-01T12:23:39.006Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30009,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r5p10",
+    "id": 39850308,
+    "begin_at": "2026-08-01T12:17:38.812Z",
+    "primary": true,
+    "host": "c2r7s1",
+    "campus_id": 67,
     "user": {
-      "id": 60901,
-      "login": "jnowak",
-      "displayname": "Jnowak",
-      "image_url": null,
+      "id": 263818,
+      "email": "aloiko@student.42warsaw.pl",
+      "login": "aloiko",
+      "first_name": "Andrii",
+      "last_name": "Loiko",
+      "usual_full_name": "Andrii Loiko",
+      "usual_first_name": "Andrii",
+      "url": "https://api.intra.42.fr/v2/users/aloiko",
+      "phone": "hidden",
+      "displayname": "Andrii Loiko",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/af4085638d14e4feeab8949dd699e2ad/aloiko.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/05104eb2ce0524e373483c74767f4866/large_aloiko.jpg",
+          "medium": "https://cdn.intra.42.fr/users/e394723717768a13bf620c89eb92e07f/medium_aloiko.jpg",
+          "small": "https://cdn.intra.42.fr/users/4b7105ecb735983b1f9998f54d61c3cc/small_aloiko.jpg",
+          "micro": "https://cdn.intra.42.fr/users/a06d215639444b786601f061862024ef/micro_aloiko.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 15,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": "c2r7s1",
+      "wallet": 145,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-05-04T07:57:15.345Z",
+      "updated_at": "2026-08-01T12:17:40.546Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30010,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r5p9",
+    "id": 39850305,
+    "begin_at": "2026-08-01T12:17:38.251Z",
+    "primary": true,
+    "host": "c1r3s4",
+    "campus_id": 67,
     "user": {
-      "id": 26472,
-      "login": "fmichal",
-      "displayname": "Fmichal",
-      "image_url": null,
+      "id": 253630,
+      "email": "maliuten@student.42warsaw.pl",
+      "login": "maliuten",
+      "first_name": "Mariia",
+      "last_name": "Liutenko",
+      "usual_full_name": "Mariia Liutenko",
+      "usual_first_name": "Mariia",
+      "url": "https://api.intra.42.fr/v2/users/maliuten",
+      "phone": "hidden",
+      "displayname": "Mariia Liutenko",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/ffbbfce57ebec7cb36dd8003115cbf6e/maliuten.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/86bc87265a1ae4e507ae6cc40bff0947/large_maliuten.jpg",
+          "medium": "https://cdn.intra.42.fr/users/c1234e168f5015b311ae5feffd9d6231/medium_maliuten.jpg",
+          "small": "https://cdn.intra.42.fr/users/77b6a51c584244728d5e352616711f59/small_maliuten.jpg",
+          "micro": "https://cdn.intra.42.fr/users/83c99b24a246741bc5dca905c3e5d11e/micro_maliuten.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 4,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c1r3s4",
+      "wallet": 15,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-19T13:20:32.318Z",
+      "updated_at": "2026-08-01T12:17:38.707Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30011,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
     "end_at": null,
-    "host": "w2r1p13",
+    "id": 39850134,
+    "begin_at": "2026-08-01T12:05:39.569Z",
+    "primary": true,
+    "host": "c3r14s1",
+    "campus_id": 67,
     "user": {
-      "id": 69836,
-      "login": "lwieczo",
-      "displayname": "Lwieczo",
-      "image_url": null,
+      "id": 253236,
+      "email": "twloskow@student.42warsaw.pl",
+      "login": "twloskow",
+      "first_name": "Tomasz",
+      "last_name": "Włoskowicz",
+      "usual_full_name": "Tomasz Włoskowicz",
+      "usual_first_name": "Tomasz",
+      "url": "https://api.intra.42.fr/v2/users/twloskow",
+      "phone": "hidden",
+      "displayname": "Tomasz Włoskowicz",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/118f7210319f427bf8d5910c928b85ca/twloskow.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/187dcbe67d387d83292d4ad83a525d34/large_twloskow.jpg",
+          "medium": "https://cdn.intra.42.fr/users/3650aadebd13037dedc0c7571ddb09dc/medium_twloskow.jpg",
+          "small": "https://cdn.intra.42.fr/users/9d468ea7f3b3992f360d9bbb576a6e9e/small_twloskow.jpg",
+          "micro": "https://cdn.intra.42.fr/users/3ac708d2867bca811a45cfcb3966a8c5/micro_twloskow.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 14,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c3r14s1",
+      "wallet": 45,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:36:46.331Z",
+      "updated_at": "2026-08-01T12:05:40.029Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30012,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r2p7",
+    "id": 39849934,
+    "begin_at": "2026-08-01T11:50:38.976Z",
+    "primary": false,
+    "host": "c1r1s3",
+    "campus_id": 67,
     "user": {
-      "id": 26472,
-      "login": "fmichal",
-      "displayname": "Fmichal",
-      "image_url": null,
+      "id": 199031,
+      "email": "mafzal@student.42warsaw.pl",
+      "login": "mafzal",
+      "first_name": "Muhammad",
+      "last_name": "Afzal",
+      "usual_full_name": "Muhammad Afzal",
+      "usual_first_name": "Muhammad",
+      "url": "https://api.intra.42.fr/v2/users/mafzal",
+      "phone": "hidden",
+      "displayname": "Muhammad Afzal",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/b7596f035aa8fd8b9a7c16b4d2d2f7e4/mafzal.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/fcae92599da47ac68c9af6b5c581ce07/large_mafzal.jpg",
+          "medium": "https://cdn.intra.42.fr/users/a3abe982bc9a7e17d5078e48c7e7021c/medium_mafzal.jpg",
+          "small": "https://cdn.intra.42.fr/users/9e7ac6c68082772d8cc485ea775df052/small_mafzal.jpg",
+          "micro": "https://cdn.intra.42.fr/users/aaed4bed388d05751172ea9ef93f0cf2/micro_mafzal.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 19,
+      "pool_month": "september",
+      "pool_year": "2024",
+      "location": "c1r1s3",
+      "wallet": 275,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-08-14T10:34:47.927Z",
+      "updated_at": "2026-08-01T12:26:49.161Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30013,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w1r1p2",
+    "id": 39849859,
+    "begin_at": "2026-08-01T11:44:39.225Z",
+    "primary": true,
+    "host": "c3r9s3",
+    "campus_id": 67,
     "user": {
-      "id": 57772,
-      "login": "azielin",
-      "displayname": "Azielin",
-      "image_url": null,
+      "id": 224203,
+      "email": "rokaran@student.42warsaw.pl",
+      "login": "rokaran",
+      "first_name": "Rojin",
+      "last_name": "Karan",
+      "usual_full_name": "Rojin Karan",
+      "usual_first_name": "Rojin",
+      "url": "https://api.intra.42.fr/v2/users/rokaran",
+      "phone": "hidden",
+      "displayname": "Rojin Karan",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/ae6a81eee9ed3b3b334badf8e6548df8/rokaran.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/86a7299f76edc63475efaea7f455bb2f/large_rokaran.jpg",
+          "medium": "https://cdn.intra.42.fr/users/f6accdb364cd221eafd000a4b38f27bf/medium_rokaran.jpg",
+          "small": "https://cdn.intra.42.fr/users/91f2943169f31b4be512630e3ef39082/small_rokaran.jpg",
+          "micro": "https://cdn.intra.42.fr/users/6635cdff9c66c871c637a58a9ec3f5d5/micro_rokaran.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 25,
+      "pool_month": "may",
+      "pool_year": "2025",
+      "location": "c3r9s3",
+      "wallet": 175,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2025-05-09T11:23:58.503Z",
+      "updated_at": "2026-08-01T11:44:39.927Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30014,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r5p15",
+    "id": 39849813,
+    "begin_at": "2026-08-01T11:41:38.207Z",
+    "primary": true,
+    "host": "c2r1s4",
+    "campus_id": 67,
     "user": {
-      "id": 57772,
-      "login": "azielin",
-      "displayname": "Azielin",
-      "image_url": null,
+      "id": 258963,
+      "email": "dtarasov@student.42warsaw.pl",
+      "login": "dtarasov",
+      "first_name": "Dmytro",
+      "last_name": "Tarasov",
+      "usual_full_name": "Dmytro Tarasov",
+      "usual_first_name": "Dmytro",
+      "url": "https://api.intra.42.fr/v2/users/dtarasov",
+      "phone": "hidden",
+      "displayname": "Dmytro Tarasov",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/47e2df3f39301eb967ed7217bd7cb83c/dtarasov.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/8b20fd4511def0b6217ff0e3674dbe87/large_dtarasov.jpg",
+          "medium": "https://cdn.intra.42.fr/users/56964a12f33cdbe364fd8c31771fa432/medium_dtarasov.jpg",
+          "small": "https://cdn.intra.42.fr/users/01702ab50a351c35bd9e85a9520703cb/small_dtarasov.jpg",
+          "micro": "https://cdn.intra.42.fr/users/4e0d42ea34414ede976a9ff2aae140f5/micro_dtarasov.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 9,
+      "pool_month": "march",
+      "pool_year": "2026",
+      "location": "c2r1s4",
+      "wallet": 15,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-03-02T08:44:11.197Z",
+      "updated_at": "2026-08-01T11:41:38.714Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30015,
-    "begin_at": "2026-07-25T06:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r5p11",
+    "id": 39849701,
+    "begin_at": "2026-08-01T11:32:39.620Z",
+    "primary": false,
+    "host": "c1r1s1",
+    "campus_id": 67,
     "user": {
-      "id": 90004,
-      "login": "pkowals",
-      "displayname": "Pkowals",
-      "image_url": null,
+      "id": 204420,
+      "email": "eeravci@student.42warsaw.pl",
+      "login": "eeravci",
+      "first_name": "Enes Emre",
+      "last_name": "Eravcı",
+      "usual_full_name": "Enes Emre Eravcı",
+      "usual_first_name": "Enes Emre",
+      "url": "https://api.intra.42.fr/v2/users/eeravci",
+      "phone": "hidden",
+      "displayname": "Enes Emre Eravcı",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/4b3f5f92cda3fb278e15909db6b3903c/eeravci.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/02725dd9df4e934034dc803d9709f543/large_eeravci.jpg",
+          "medium": "https://cdn.intra.42.fr/users/e3674a697ddfab537e4703f88295921e/medium_eeravci.jpg",
+          "small": "https://cdn.intra.42.fr/users/888f31b50a3a18c805d07b771628a840/small_eeravci.jpg",
+          "micro": "https://cdn.intra.42.fr/users/d5634141e059ed53e52855a7ef0c4d60/micro_eeravci.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 8,
+      "pool_month": "october",
+      "pool_year": "2024",
+      "location": "c1r1s1",
+      "wallet": 307,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-09-27T12:44:52.867Z",
+      "updated_at": "2026-08-01T12:11:40.446Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30016,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r5p11",
+    "id": 39849673,
+    "begin_at": "2026-08-01T11:29:37.896Z",
+    "primary": false,
+    "host": "c2r7s2",
+    "campus_id": 67,
     "user": {
-      "id": 48411,
-      "login": "wkubiak",
-      "displayname": "Wkubiak",
-      "image_url": null,
+      "id": 263803,
+      "email": "paugusty@student.42warsaw.pl",
+      "login": "paugusty",
+      "first_name": "Przemysław",
+      "last_name": "Augustyniak",
+      "usual_full_name": "Przemysław Augustyniak",
+      "usual_first_name": "Przemysław",
+      "url": "https://api.intra.42.fr/v2/users/paugusty",
+      "phone": "hidden",
+      "displayname": "Przemysław Augustyniak",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/e583faaed0270268ade24cbc115cb19d/paugusty.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/d327291971ac98e2755e4495c10c3c42/large_paugusty.jpg",
+          "medium": "https://cdn.intra.42.fr/users/a0d5ec445cb93edfe5d35a420059fd1f/medium_paugusty.jpg",
+          "small": "https://cdn.intra.42.fr/users/02a4209805508b9f9299ab22e1e2a9fc/small_paugusty.jpg",
+          "micro": "https://cdn.intra.42.fr/users/7f1254bcb478a413ac3ddbc080ac22cf/micro_paugusty.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 12,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": "c2r7s2",
+      "wallet": 10,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-05-04T07:49:12.552Z",
+      "updated_at": "2026-08-01T11:29:40.221Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30017,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r4p1",
+    "id": 39849540,
+    "begin_at": "2026-08-01T11:14:39.614Z",
+    "primary": true,
+    "host": "c1r7s1",
+    "campus_id": 67,
     "user": {
-      "id": 69836,
-      "login": "lwieczo",
-      "displayname": "Lwieczo",
-      "image_url": null,
+      "id": 253242,
+      "email": "vijain@student.42warsaw.pl",
+      "login": "vijain",
+      "first_name": "Vineet",
+      "last_name": "Jain",
+      "usual_full_name": "Vineet Jain",
+      "usual_first_name": "Vineet",
+      "url": "https://api.intra.42.fr/v2/users/vijain",
+      "phone": "hidden",
+      "displayname": "Vineet Jain",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/2d00eb660e66943a5a7ff90ea053ebb6/vijain.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/fa84155ea14605d4a74c3e5a3c2472c1/large_vijain.jpg",
+          "medium": "https://cdn.intra.42.fr/users/c8fed54fe11a1ce94aad2839c076745d/medium_vijain.jpg",
+          "small": "https://cdn.intra.42.fr/users/258313551f0377e95a9fa12e6330ede9/small_vijain.jpg",
+          "micro": "https://cdn.intra.42.fr/users/75d0c20654a396a0b9b6fdc4e3cf2f9d/micro_vijain.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 5,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c1r7s1",
+      "wallet": 15,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T12:03:01.141Z",
+      "updated_at": "2026-08-01T11:14:40.034Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30018,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
     "end_at": null,
-    "host": "w1r4p19",
+    "id": 39849513,
+    "begin_at": "2026-08-01T11:11:39.637Z",
+    "primary": true,
+    "host": "c3r11s1",
+    "campus_id": 67,
     "user": {
-      "id": 11917,
-      "login": "dkrawcz",
-      "displayname": "Dkrawcz",
-      "image_url": null,
+      "id": 224287,
+      "email": "ssowul@student.42warsaw.pl",
+      "login": "ssowul",
+      "first_name": "Sylwester",
+      "last_name": "Sowul",
+      "usual_full_name": "Sylwester Sowul",
+      "usual_first_name": "Sylwester",
+      "url": "https://api.intra.42.fr/v2/users/ssowul",
+      "phone": "hidden",
+      "displayname": "Sylwester Sowul",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/f9bffb495711871302448530b1152d9d/ssowul.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/fa15dfd4ca9a8230807efa001718fde1/large_ssowul.jpg",
+          "medium": "https://cdn.intra.42.fr/users/4e17388889c1526ee70790ff95b96ba3/medium_ssowul.jpg",
+          "small": "https://cdn.intra.42.fr/users/a509dd58bd452d2001be84aeabf66832/small_ssowul.jpg",
+          "micro": "https://cdn.intra.42.fr/users/6a3e2cf00492e25e72cc3c62f18d2f7b/micro_ssowul.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 8,
+      "pool_month": "may",
+      "pool_year": "2025",
+      "location": "c3r11s1",
+      "wallet": 175,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2025-05-09T13:15:21.254Z",
+      "updated_at": "2026-08-01T11:11:40.589Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30019,
-    "begin_at": "2026-07-25T08:02:18.633474+00:00",
     "end_at": null,
-    "host": "w4r3p19",
+    "id": 39849462,
+    "begin_at": "2026-08-01T11:05:38.614Z",
+    "primary": true,
+    "host": "c3r12s1",
+    "campus_id": 67,
     "user": {
-      "id": 31603,
-      "login": "cdabrow",
-      "displayname": "Cdabrow",
-      "image_url": null,
+      "id": 224204,
+      "email": "skolsut@student.42warsaw.pl",
+      "login": "skolsut",
+      "first_name": "Sebastian",
+      "last_name": "Kolsut",
+      "usual_full_name": "Sebastian Kolsut",
+      "usual_first_name": "Sebastian",
+      "url": "https://api.intra.42.fr/v2/users/skolsut",
+      "phone": "hidden",
+      "displayname": "Sebastian Kolsut",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/84a19fbe7357485643cba27b0892580b/skolsut.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/4dfdfc8f884fbc528c987be22732e138/large_skolsut.jpg",
+          "medium": "https://cdn.intra.42.fr/users/ad8a9def30f680513b01d673dee489e3/medium_skolsut.jpg",
+          "small": "https://cdn.intra.42.fr/users/c8ba45401ef2787064c3c38c4623e9c4/small_skolsut.jpg",
+          "micro": "https://cdn.intra.42.fr/users/ccba77a198016bb6e052d0d358bf75b5/micro_skolsut.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 8,
+      "pool_month": "may",
+      "pool_year": "2025",
+      "location": "c3r12s1",
+      "wallet": 1970,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2025-05-09T11:26:28.255Z",
+      "updated_at": "2026-08-01T11:05:39.149Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30020,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
     "end_at": null,
-    "host": "w1r5p16",
+    "id": 39849161,
+    "begin_at": "2026-08-01T10:35:37.883Z",
+    "primary": true,
+    "host": "c3r15s4",
+    "campus_id": 67,
     "user": {
-      "id": 90004,
-      "login": "pkowals",
-      "displayname": "Pkowals",
-      "image_url": null,
+      "id": 171497,
+      "email": "dbozic@student.42warsaw.pl",
+      "login": "dbozic",
+      "first_name": "Damian",
+      "last_name": "Božič",
+      "usual_full_name": "Damian Božič",
+      "usual_first_name": "Damian",
+      "url": "https://api.intra.42.fr/v2/users/dbozic",
+      "phone": "hidden",
+      "displayname": "Damian Božič",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/f88c0f4d94e4fceb9af702972454e131/dbozic.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/ba2cd5a68148c53d0e9501331b5830cc/large_dbozic.jpg",
+          "medium": "https://cdn.intra.42.fr/users/926c7105125ead1dc6c23aa2b594b8b8/medium_dbozic.jpg",
+          "small": "https://cdn.intra.42.fr/users/4ce0a9c601aa69d1bc761db1917cdb5c/small_dbozic.jpg",
+          "micro": "https://cdn.intra.42.fr/users/b784038f38bf1a1d9a79f7c459ba8aa3/micro_dbozic.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 4,
+      "pool_month": "december",
+      "pool_year": "2023",
+      "location": "c3r15s4",
+      "wallet": 1902,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2023-11-16T12:20:33.908Z",
+      "updated_at": "2026-08-01T10:35:39.674Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30021,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w2r6p8",
+    "id": 39849044,
+    "begin_at": "2026-08-01T10:23:38.945Z",
+    "primary": true,
+    "host": "c2r2s2",
+    "campus_id": 67,
     "user": {
-      "id": 3343,
-      "login": "kwrona",
-      "displayname": "Kwrona",
-      "image_url": null,
+      "id": 253271,
+      "email": "ppalamio@student.42warsaw.pl",
+      "login": "ppalamio",
+      "first_name": "Petros",
+      "last_name": "Palamiotis",
+      "usual_full_name": "Petros Palamiotis",
+      "usual_first_name": "Petros",
+      "url": "https://api.intra.42.fr/v2/users/ppalamio",
+      "phone": "hidden",
+      "displayname": "Petros Palamiotis",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/8551c7d1e8a255a8e8daedfce0cc679c/ppalamio.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/3f16981e0fb4c9fc03c7e7e779e78645/large_ppalamio.jpg",
+          "medium": "https://cdn.intra.42.fr/users/56bc0fec04802627d8b7095342abe41f/medium_ppalamio.jpg",
+          "small": "https://cdn.intra.42.fr/users/3cd728b55f85c7212e889f84af2bc3c5/small_ppalamio.jpg",
+          "micro": "https://cdn.intra.42.fr/users/e5f4e2fc95e469c77995a1368afe7d19/micro_ppalamio.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 12,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c2r2s2",
+      "wallet": 50,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2026-01-16T14:11:43.261Z",
+      "updated_at": "2026-08-01T10:23:39.692Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30022,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
     "end_at": null,
-    "host": "w2r1p15",
+    "id": 39849010,
+    "begin_at": "2026-08-01T10:20:37.844Z",
+    "primary": true,
+    "host": "c3r14s3",
+    "campus_id": 67,
     "user": {
-      "id": 42086,
-      "login": "gszymcz",
-      "displayname": "Gszymcz",
-      "image_url": null,
+      "id": 253240,
+      "email": "kjurkows@student.42warsaw.pl",
+      "login": "kjurkows",
+      "first_name": "Krzysztof",
+      "last_name": "Jurkowski",
+      "usual_full_name": "Chris Jurkowski",
+      "usual_first_name": "Chris",
+      "url": "https://api.intra.42.fr/v2/users/kjurkows",
+      "phone": "hidden",
+      "displayname": "Krzysztof Jurkowski",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/deefc30cf5646a62052549b723a1e5a8/kjurkows.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/706576fed56ba3e221d1b754c6cc460b/large_kjurkows.jpg",
+          "medium": "https://cdn.intra.42.fr/users/d7fc261a01ffebe9d5a0b7307012ad39/medium_kjurkows.jpg",
+          "small": "https://cdn.intra.42.fr/users/93bed71236d179a70950fb8f2ebbaf41/small_kjurkows.jpg",
+          "micro": "https://cdn.intra.42.fr/users/0aa49d30b1dca33f8c2a14f544576c0b/micro_kjurkows.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 3,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": "c3r14s3",
+      "wallet": 45,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:42:24.581Z",
+      "updated_at": "2026-08-01T10:20:38.400Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30023,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w2r4p7",
+    "id": 39848989,
+    "begin_at": "2026-08-01T10:17:38.640Z",
+    "primary": true,
+    "host": "c2r7s4",
+    "campus_id": 67,
     "user": {
-      "id": 48885,
-      "login": "owalcza",
-      "displayname": "Owalcza",
-      "image_url": null,
+      "id": 263797,
+      "email": "kbartosz@student.42warsaw.pl",
+      "login": "kbartosz",
+      "first_name": "Krzysztof",
+      "last_name": "Bartoszewski",
+      "usual_full_name": "Krzysztof Bartoszewski",
+      "usual_first_name": "Krzysztof",
+      "url": "https://api.intra.42.fr/v2/users/kbartosz",
+      "phone": "hidden",
+      "displayname": "Krzysztof Bartoszewski",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/f6ffa51f8156222ff119d3f869f33ae6/kbartosz.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/4857a94f76c3b0f21c384aecbccd6a12/large_kbartosz.jpg",
+          "medium": "https://cdn.intra.42.fr/users/3273fdff748e79b458fc5882f493ce25/medium_kbartosz.jpg",
+          "small": "https://cdn.intra.42.fr/users/2c899c7756dad2cdd819bf2d86517dad/small_kbartosz.jpg",
+          "micro": "https://cdn.intra.42.fr/users/e412c909e932a091fdc8990ec83e9b03/micro_kbartosz.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 7,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": "c2r7s4",
+      "wallet": 50,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-05-04T07:47:19.115Z",
+      "updated_at": "2026-08-01T10:17:39.111Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30024,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
     "end_at": null,
-    "host": "w1r6p5",
+    "id": 39848961,
+    "begin_at": "2026-08-01T10:14:37.896Z",
+    "primary": true,
+    "host": "c1r11s1",
+    "campus_id": 67,
     "user": {
-      "id": 48411,
-      "login": "wkubiak",
-      "displayname": "Wkubiak",
-      "image_url": null,
+      "id": 199501,
+      "email": "mstawski@student.42warsaw.pl",
+      "login": "mstawski",
+      "first_name": "Miłosz",
+      "last_name": "Stawski",
+      "usual_full_name": "Miłosz Stawski",
+      "usual_first_name": "Miłosz",
+      "url": "https://api.intra.42.fr/v2/users/mstawski",
+      "phone": "hidden",
+      "displayname": "Miłosz Stawski",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/9a1314172d88954c989676b2af10f3f4/mstawski.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/e9e614f1b8ea794e226a9237d6cf0f72/large_mstawski.jpg",
+          "medium": "https://cdn.intra.42.fr/users/767a13cea249fd246f4851ed824a1e33/medium_mstawski.jpg",
+          "small": "https://cdn.intra.42.fr/users/5bf8de471bf55a4249fd8c67b8a2abd0/small_mstawski.jpg",
+          "micro": "https://cdn.intra.42.fr/users/ff2882e488327e14b680c8bed449d389/micro_mstawski.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 19,
+      "pool_month": "september",
+      "pool_year": "2024",
+      "location": "c1r11s1",
+      "wallet": 475,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-08-19T07:47:31.452Z",
+      "updated_at": "2026-08-01T10:14:38.484Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30025,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r6p16",
+    "id": 39848463,
+    "begin_at": "2026-08-01T09:23:38.232Z",
+    "primary": true,
+    "host": "c2r7s3",
+    "campus_id": 67,
     "user": {
-      "id": 48411,
-      "login": "wkubiak",
-      "displayname": "Wkubiak",
-      "image_url": null,
+      "id": 263837,
+      "email": "dswietoc@student.42warsaw.pl",
+      "login": "dswietoc",
+      "first_name": "Dominik",
+      "last_name": "Świętochowski",
+      "usual_full_name": "Dominik Świętochowski",
+      "usual_first_name": "Dominik",
+      "url": "https://api.intra.42.fr/v2/users/dswietoc",
+      "phone": "hidden",
+      "displayname": "Dominik Świętochowski",
+      "kind": "student",
       "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/8213847e2a0ff1f3599df5b6a1fadab8/dswietoc.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/f587ec6f6ed5e382286dcb1c9ce448cb/large_dswietoc.jpg",
+          "medium": "https://cdn.intra.42.fr/users/28cdfaaf2f0e4d2adb0851043342d405/medium_dswietoc.jpg",
+          "small": "https://cdn.intra.42.fr/users/66a65e6d3e41d08cca12f4976ec54c21/small_dswietoc.jpg",
+          "micro": "https://cdn.intra.42.fr/users/6704efae402a2a1db2d9f733c285733d/micro_dswietoc.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 2,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": "c2r7s3",
+      "wallet": 10,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-05-04T08:26:56.445Z",
+      "updated_at": "2026-08-01T09:23:38.753Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   },
   {
-    "id": 30026,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
     "end_at": null,
-    "host": "w3r2p15",
+    "id": 39847761,
+    "begin_at": "2026-08-01T08:20:38.269Z",
+    "primary": true,
+    "host": "c1r8s4",
+    "campus_id": 67,
     "user": {
-      "id": 99915,
-      "login": "zbaranо",
-      "displayname": "Zbaranо",
-      "image_url": null,
+      "id": 174434,
+      "email": "oostapen@student.42warsaw.pl",
+      "login": "oostapen",
+      "first_name": "Oleksiy",
+      "last_name": "Ostapenko",
+      "usual_full_name": "Oleksiy Ostapenko",
+      "usual_first_name": "Oleksiy",
+      "url": "https://api.intra.42.fr/v2/users/oostapen",
+      "phone": "hidden",
+      "displayname": "Oleksiy Ostapenko",
+      "kind": "student",
       "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30027,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w3r6p9",
-    "user": {
-      "id": 26472,
-      "login": "fmichal",
-      "displayname": "Fmichal",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30028,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w2r2p9",
-    "user": {
-      "id": 99915,
-      "login": "zbaranо",
-      "displayname": "Zbaranо",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30029,
-    "begin_at": "2026-07-25T04:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w2r3p10",
-    "user": {
-      "id": 49656,
-      "login": "twojcik",
-      "displayname": "Twojcik",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30030,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w3r4p12",
-    "user": {
-      "id": 99915,
-      "login": "zbaranо",
-      "displayname": "Zbaranо",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30031,
-    "begin_at": "2026-07-25T04:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w3r1p19",
-    "user": {
-      "id": 99915,
-      "login": "zbaranо",
-      "displayname": "Zbaranо",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30032,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w4r3p5",
-    "user": {
-      "id": 11917,
-      "login": "dkrawcz",
-      "displayname": "Dkrawcz",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30033,
-    "begin_at": "2026-07-25T08:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w3r6p3",
-    "user": {
-      "id": 69836,
-      "login": "lwieczo",
-      "displayname": "Lwieczo",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30034,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w3r6p16",
-    "user": {
-      "id": 49656,
-      "login": "twojcik",
-      "displayname": "Twojcik",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30035,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w3r5p9",
-    "user": {
-      "id": 57772,
-      "login": "azielin",
-      "displayname": "Azielin",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30036,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
-    "end_at": null,
-    "host": "w2r2p2",
-    "user": {
-      "id": 48411,
-      "login": "wkubiak",
-      "displayname": "Wkubiak",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30037,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r1p4",
-    "user": {
-      "id": 48885,
-      "login": "owalcza",
-      "displayname": "Owalcza",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30038,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w4r1p5",
-    "user": {
-      "id": 45370,
-      "login": "amaciej",
-      "displayname": "Amaciej",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30039,
-    "begin_at": "2026-07-25T06:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w4r6p16",
-    "user": {
-      "id": 86084,
-      "login": "ustanis",
-      "displayname": "Ustanis",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30040,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r3p10",
-    "user": {
-      "id": 3343,
-      "login": "kwrona",
-      "displayname": "Kwrona",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30041,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r5p2",
-    "user": {
-      "id": 90004,
-      "login": "pkowals",
-      "displayname": "Pkowals",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30042,
-    "begin_at": "2026-07-25T02:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r1p13",
-    "user": {
-      "id": 86084,
-      "login": "ustanis",
-      "displayname": "Ustanis",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30043,
-    "begin_at": "2026-07-25T06:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r1p1",
-    "user": {
-      "id": 11917,
-      "login": "dkrawcz",
-      "displayname": "Dkrawcz",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30044,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r3p15",
-    "user": {
-      "id": 99915,
-      "login": "zbaranо",
-      "displayname": "Zbaranо",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30045,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r5p15",
-    "user": {
-      "id": 21526,
-      "login": "bmazur",
-      "displayname": "Bmazur",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30046,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w1r3p6",
-    "user": {
-      "id": 19171,
-      "login": "rjablon",
-      "displayname": "Rjablon",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30047,
-    "begin_at": "2026-07-25T04:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r1p11",
-    "user": {
-      "id": 11917,
-      "login": "dkrawcz",
-      "displayname": "Dkrawcz",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30048,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r5p13",
-    "user": {
-      "id": 48885,
-      "login": "owalcza",
-      "displayname": "Owalcza",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30049,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w1r4p4",
-    "user": {
-      "id": 90004,
-      "login": "pkowals",
-      "displayname": "Pkowals",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30050,
-    "begin_at": "2026-07-25T06:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w4r3p8",
-    "user": {
-      "id": 45370,
-      "login": "amaciej",
-      "displayname": "Amaciej",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30051,
-    "begin_at": "2026-07-25T04:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w4r2p15",
-    "user": {
-      "id": 21526,
-      "login": "bmazur",
-      "displayname": "Bmazur",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30052,
-    "begin_at": "2026-07-25T03:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r5p19",
-    "user": {
-      "id": 45370,
-      "login": "amaciej",
-      "displayname": "Amaciej",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30053,
-    "begin_at": "2026-07-25T04:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r6p8",
-    "user": {
-      "id": 3343,
-      "login": "kwrona",
-      "displayname": "Kwrona",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30054,
-    "begin_at": "2026-07-25T07:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w4r3p6",
-    "user": {
-      "id": 13025,
-      "login": "nsobier",
-      "displayname": "Nsobier",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30055,
-    "begin_at": "2026-07-25T04:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w1r6p10",
-    "user": {
-      "id": 69836,
-      "login": "lwieczo",
-      "displayname": "Lwieczo",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30056,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r2p16",
-    "user": {
-      "id": 57772,
-      "login": "azielin",
-      "displayname": "Azielin",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30057,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r4p18",
-    "user": {
-      "id": 86084,
-      "login": "ustanis",
-      "displayname": "Ustanis",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30058,
-    "begin_at": "2026-07-25T05:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w2r6p20",
-    "user": {
-      "id": 60901,
-      "login": "jnowak",
-      "displayname": "Jnowak",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
-    }
-  },
-  {
-    "id": 30059,
-    "begin_at": "2026-07-25T01:02:18.633474+00:00",
-    "end_at": "2026-07-25T09:02:18.633474+00:00",
-    "host": "w3r1p19",
-    "user": {
-      "id": 29696,
-      "login": "mlewand",
-      "displayname": "Mlewand",
-      "image_url": null,
-      "image": {
-        "link": null
-      }
+        "link": "https://cdn.intra.42.fr/users/bbe620b57b9a5573bf4c52a8bf718b9a/oostapen.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/7deec1b88c30350a118564667fd9d2ae/large_oostapen.jpg",
+          "medium": "https://cdn.intra.42.fr/users/4a1b5fd25564ed37ca6da9f24fa1eae1/medium_oostapen.jpg",
+          "small": "https://cdn.intra.42.fr/users/081e020e8abdcf24429342f34e95ff66/small_oostapen.jpg",
+          "micro": "https://cdn.intra.42.fr/users/0f9f53a2e08890971c3314e558b19cdf/micro_oostapen.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 32,
+      "pool_month": "january",
+      "pool_year": "2024",
+      "location": "c1r8s4",
+      "wallet": 110,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-01-11T14:35:27.306Z",
+      "updated_at": "2026-08-01T08:20:38.741Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
     }
   }
 ]

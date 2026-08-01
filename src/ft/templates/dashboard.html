@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>42 Warsaw</title>
+<meta name="viewport" content="width=1920, height=1080, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Intra-Vision — 42 Warsaw</title>
 <style>
-  /* TV display: 1920x1080, viewed from 3-6 metres, no pointer.
-     Everything is sized in vw/vh so it scales to whatever the TV actually is. */
+  /* TV display: 1920x1080 @ 30Hz, viewed from across the room, no pointer.
+     Sized in vw/vh. Avoid sub-200ms flashes; motion stays slow. */
   :root {
     --bg: #0b0d10;
     --fg: #f2f4f7;
@@ -16,10 +16,11 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
+    width: 100%;
     height: 100%;
     background: var(--bg);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    font-family: "Segoe UI", system-ui, sans-serif;
     overflow: hidden;
     font-variant-numeric: tabular-nums;
   }
@@ -28,8 +29,9 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 3vw; border-bottom: 1px solid var(--line); z-index: 10;
   }
-  .brand { font-size: 2.2vh; font-weight: 700; letter-spacing: .3em; color: var(--dim); }
-  .stamp { font-size: 1.8vh; color: var(--dim); }
+  .brand { font-size: 2.4vh; font-weight: 700; letter-spacing: .28em; color: var(--fg); }
+  .brand span { color: var(--dim); letter-spacing: .2em; font-weight: 600; margin-left: 1.2vw; }
+  .stamp { font-size: 2vh; font-weight: 600; color: var(--dim); }
   .stamp.stale { color: #ffb020; }
 
   main { height: 100%; padding: 10vh 3vw 6vh; }
@@ -50,8 +52,9 @@
   .mark { font-size: 3.4vh; font-weight: 700; min-width: 8vw; text-align: right; }
   .ago { font-size: 2.4vh; color: var(--dim); min-width: 10vw; text-align: right; }
   .fresh .who, .fresh .what { color: #fff; }
-  .fresh { animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .72; } }
+  /* Slow opacity breathe — readable on 30Hz; not a strobe. */
+  .fresh { animation: pulse 3.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .78; } }
   .attempt { font-size: 2vh; color: var(--dim); margin-left: .8vw; }
 
   /* --- pulse numbers --- */
@@ -89,7 +92,7 @@
 <body>
 
 <header>
-  <div class="brand">42 WARSAW</div>
+  <div class="brand">INTRA-VISION <span>42 WARSAW</span></div>
   <div class="stamp" id="stamp">—</div>
 </header>
 
@@ -128,6 +131,7 @@
 
   const views = [...document.querySelectorAll('.view')];
   let index = 0;
+  let latestRefresh = LAST_REFRESH;
 
   function ago(seconds) {
     if (seconds < 60) return 'just now';
@@ -204,7 +208,8 @@
     renderStats(metrics.pulse || {});
     renderBars(metrics.coalitions || []);
     renderHist(metrics.level_distribution || []);
-    renderStamp(lastRefresh);
+    if (lastRefresh) latestRefresh = lastRefresh;
+    renderStamp(latestRefresh);
   }
 
   function renderDots() {
@@ -236,7 +241,7 @@
   renderDots();
   setTimeout(advance, DWELL[views[0].dataset.view]);
   setInterval(poll, POLL_MS);
-  setInterval(() => renderStamp(LAST_REFRESH), 60000);
+  setInterval(() => renderStamp(latestRefresh), 60000);
 </script>
 </body>
 </html>
