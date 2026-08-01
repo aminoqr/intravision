@@ -39,26 +39,63 @@ def _safe(label: str, fn: Callable[[], list[Json]]) -> list[Json]:
 def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
     campus = cfg.campus_id
     since = (datetime.now(timezone.utc) - timedelta(days=14)).date().isoformat()
+    today = datetime.now(timezone.utc).date().isoformat()
+
+    def _merge_by_id(*batches: list[Json]) -> list[Json]:
+        """Union rows from multiple projects_users queries, keyed by id."""
+        by_id: dict[Any, Json] = {}
+        for batch in batches:
+            for row in batch:
+                row_id = row.get("id")
+                if row_id is None:
+                    continue
+                by_id[row_id] = row
+        return list(by_id.values())
 
     def projects_users() -> list[Json]:
-        # range[marked_at] keeps this bounded; projects_users is a huge collection.
-        return list(
+        # Two complementary scopes:
+        # 1) Recently marked — feeds fame / validations / weekly pass panels.
+        # 2) All in_progress on campus — feeds Page 3 active-project spectrum
+        #    (the old marked_at window alone capped us at ~12 active rows).
+        # Intra uses filter[campus] (not campus_id) on this collection; see docs/42-api.md.
+        recent = list(
             client.paginate(
                 "/v2/projects_users",
                 params={
                     "filter[campus]": campus,
-                    "range[marked_at]": f"{since},{datetime.now(timezone.utc).date().isoformat()}",
+                    "range[marked_at]": f"{since},{today}",
                     "sort": "-marked_at",
                 },
+                page_size=100,
                 max_pages=cfg.max_pages,
             )
         )
+        in_progress = list(
+            client.paginate(
+                "/v2/projects_users",
+                params={
+                    "filter[campus]": campus,
+                    "filter[status]": "in_progress",
+                },
+                page_size=100,
+                max_pages=cfg.max_pages,
+            )
+        )
+        merged = _merge_by_id(recent, in_progress)
+        log.info(
+            "projects_users merge: recent=%d in_progress=%d unique=%d",
+            len(recent),
+            len(in_progress),
+            len(merged),
+        )
+        return merged
 
     def cursus_users() -> list[Json]:
         return list(
             client.paginate(
                 f"/v2/cursus/{cfg.cursus_id}/cursus_users",
                 params={"filter[campus_id]": campus},
+                page_size=100,
                 max_pages=cfg.max_pages,
             )
         )
@@ -77,25 +114,30 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
             client.paginate(
                 f"/v2/campus/{campus}/locations",
                 params={"filter[active]": "true"},
+                page_size=100,
                 max_pages=5,
             )
         )
 
     def locations_recent() -> list[Json]:
-        """All sessions in the past 7 days — both active and ended.
+        """All campus sessions whose begin_at falls in the rolling 7-day window.
 
-        Unique hosts from this set give us the real station count per cluster
-        without guessing or hardcoding seat numbers.
+        Explicit UTC midnight start → now, page[size]=100. Feeds weekly logtime
+        and sleepless-zombie totals (active-only locations are not enough).
         """
-        week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+        now_utc = datetime.now(timezone.utc)
+        window_start = (now_utc - timedelta(days=7)).replace(
+            hour=0, minute=0, second=0, microsecond=0
+        )
         return list(
             client.paginate(
                 f"/v2/campus/{campus}/locations",
                 params={
-                    "range[begin_at]": f"{week_ago},{datetime.now(timezone.utc).isoformat()}",
+                    "range[begin_at]": f"{window_start.isoformat()},{now_utc.isoformat()}",
                     "sort": "-begin_at",
                 },
-                max_pages=10,
+                page_size=100,
+                max_pages=20,
             )
         )
 

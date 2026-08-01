@@ -6,8 +6,11 @@ import pytest
 
 from ft.metrics import (
     active_now,
+    active_project_data,
+    avg_milestone,
     build_metrics,
     coalition_standings,
+    is_blackholed,
     is_validated,
     level_distribution,
     level_ups,
@@ -40,6 +43,40 @@ def cu(login="alice", level=3.5, blackholed=None):
         "blackholed_at": blackholed,
         "user": {"id": hash(login) % 1000, "login": login, "displayname": login.title()},
     }
+
+
+class TestBlackhole:
+    def test_future_deadline_is_still_active(self):
+        future = (NOW + timedelta(days=30)).isoformat()
+        assert not is_blackholed(cu(blackholed=future), now=NOW)
+
+    def test_past_deadline_is_absorbed(self):
+        past = (NOW - timedelta(days=1)).isoformat()
+        assert is_blackholed(cu(blackholed=past), now=NOW)
+
+    def test_null_deadline_is_active(self):
+        assert not is_blackholed(cu(blackholed=None), now=NOW)
+
+
+class TestAvgMilestone:
+    def test_mean_of_whole_levels(self):
+        # 3.5 → 3, 4.9 → 4, 2.1 → 2  → mean 3.0
+        rows = [cu(level=3.5), cu(level=4.9), cu(level=2.1)]
+        assert avg_milestone(rows, now=NOW) == 3.0
+
+    def test_excludes_past_blackholes_keeps_future(self):
+        past = (NOW - timedelta(days=1)).isoformat()
+        future = (NOW + timedelta(days=30)).isoformat()
+        rows = [
+            cu("gone", level=10.0, blackholed=past),
+            cu("safe", level=2.7, blackholed=future),
+            cu("open", level=4.2, blackholed=None),
+        ]
+        # milestones 2 and 4 → mean 3.0
+        assert avg_milestone(rows, now=NOW) == 3.0
+
+    def test_empty_is_zero(self):
+        assert avg_milestone([], now=NOW) == 0.0
 
 
 class TestParsing:
@@ -115,6 +152,42 @@ class TestCoalitions:
         assert all(r["pct"] == 0.0 for r in rows)
 
 
+class TestActiveProjectData:
+    def test_percentages_use_full_total_and_one_decimal(self):
+        rows = [
+            pu(project="A", status="in_progress", login="a1"),
+            pu(project="A", status="in_progress", login="a2"),
+            pu(project="B", status="in_progress", login="b1"),
+            pu(project="C", status="finished", login="c1"),
+        ]
+        nodes = active_project_data(rows)
+        assert [n["name"] for n in nodes] == ["A", "B"]
+        assert nodes[0]["count"] == 2
+        assert nodes[0]["percentage"] == "66.7%"
+        assert nodes[1]["percentage"] == "33.3%"
+        assert "color" in nodes[0]
+
+    def test_folds_tail_into_others_when_more_than_seven(self):
+        rows = []
+        # 9 unique in-progress projects, one each
+        for i in range(9):
+            rows.append(pu(project=f"P{i}", status="in_progress", login=f"u{i}"))
+        # Boost first so ordering is stable: P0 has 3, rest 1
+        rows.append(pu(project="P0", status="in_progress", login="u0b"))
+        rows.append(pu(project="P0", status="in_progress", login="u0c"))
+
+        nodes = active_project_data(rows)
+        assert len(nodes) == 8
+        assert nodes[-1]["name"] == "Others"
+        assert nodes[-1]["count"] == 2  # P7 + P8
+        assert sum(n["count"] for n in nodes) == 11
+        assert nodes[0]["name"] == "P0"
+        assert nodes[0]["count"] == 3
+
+    def test_empty_when_nothing_in_progress(self):
+        assert active_project_data([pu(status="finished")]) == []
+
+
 class TestOther:
     def test_active_now_counts_open_sessions(self):
         assert active_now([{"end_at": None}, {"end_at": "2026-08-01T10:00:00Z"}, {}]) == 2
@@ -150,8 +223,11 @@ class TestBuildMetrics:
             locations=[{"end_at": None}], now=NOW,
         )
         for key in ("pulse", "recent_validations", "project_popularity",
-                    "level_distribution", "coalitions", "level_ups", "generated_at"):
+                    "level_distribution", "coalitions", "level_ups",
+                    "average_milestone", "active_project_data", "generated_at"):
             assert key in m
+        assert "average_level" not in m
+        assert "active_projects" not in m
 
     def test_survives_all_endpoints_failing(self):
         """A refresh where every API call failed must still produce a renderable shape."""

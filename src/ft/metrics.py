@@ -24,6 +24,19 @@ def parse_dt(value: str | None) -> datetime | None:
         return None
 
 
+def is_blackholed(cu: Json, now: datetime | None = None) -> bool:
+    """True only when blackholed_at is in the past.
+
+    Intra sets blackholed_at to the *deadline* while a Cadet is still safe.
+    A future date means they are still active — only a past date is absorbed.
+    """
+    now = now or datetime.now(timezone.utc)
+    deadline = parse_dt(cu.get("blackholed_at"))
+    if deadline is None:
+        return False
+    return deadline <= now
+
+
 def _user_card(user: Json | None) -> Json:
     user = user or {}
     return {
@@ -261,16 +274,25 @@ def validations_since(
     return total
 
 
-def avg_level(cursus_users: Iterable[Json]) -> float:
-    """Mean level across active (non-blackholed) cursus users."""
-    levels = [
-        float(cu["level"])
+def avg_milestone(
+    cursus_users: Iterable[Json],
+    now: datetime | None = None,
+) -> float:
+    """Mean whole-level milestone across students not yet blackholed.
+
+    The Intra API has no separate milestone field. Common Core progress is
+    tracked via cursus `level`; whole-level crossings are the milestones we
+    already surface in level_ups (e.g. level 3.8 → milestone 3).
+    """
+    now = now or datetime.now(timezone.utc)
+    milestones = [
+        int(float(cu["level"]))
         for cu in cursus_users
-        if cu.get("level") is not None and not cu.get("blackholed_at")
+        if cu.get("level") is not None and not is_blackholed(cu, now=now)
     ]
-    if not levels:
+    if not milestones:
         return 0.0
-    return round(sum(levels) / len(levels), 1)
+    return round(sum(milestones) / len(milestones), 1)
 
 
 def avg_session_hours(
@@ -371,10 +393,27 @@ def sleepless_zombies(
     ]
 
 
-def active_projects_dist(
-    projects_users: Iterable[Json], limit: int = 10
-) -> list[Json]:
-    """Top 10 in-progress projects grouped by name with percentages for donut chart."""
+DONUT_PALETTE = [
+    "#6366f1",  # indigo
+    "#ec4899",  # pink
+    "#ef4444",  # red
+    "#f59e0b",  # amber
+    "#f97316",  # orange
+    "#8b5cf6",  # violet
+    "#06b6d4",  # cyan
+    "#64748b",  # slate — reserved for "Others"
+]
+
+
+def active_project_data(projects_users: Iterable[Json]) -> list[Json]:
+    """Truthful donut nodes for in-progress projects.
+
+    Rules:
+    1. Count each project name with Counter among status == "in_progress".
+    2. Sort descending by active count.
+    3. If more than 7 unique projects: keep top 7, fold the rest into "Others".
+    4. Percentage of each final node is (count / Total) * 100, one decimal, with "%".
+    """
     counts: Counter[str] = Counter()
     for pu in projects_users:
         if pu.get("status") != "in_progress":
@@ -388,21 +427,29 @@ def active_projects_dist(
     if not total:
         return []
 
-    palette = [
-        "#6366f1", "#ec4899", "#ef4444", "#f59e0b",
-        "#f97316", "#8b5cf6", "#06b6d4", "#10b981",
-        "#a855f7", "#14b8a6",
-    ]
-    items = counts.most_common(limit)
-    return [
-        {
-            "project": name,
-            "count": n,
-            "pct": round(100 * n / total, 1),
-            "color": palette[i % len(palette)],
-        }
-        for i, (name, n) in enumerate(items)
-    ]
+    ranked = counts.most_common()
+    if len(ranked) > 7:
+        head = ranked[:7]
+        others_count = sum(n for _, n in ranked[7:])
+        slices: list[tuple[str, int]] = list(head) + [("Others", others_count)]
+    else:
+        slices = list(ranked)
+
+    nodes: list[Json] = []
+    for i, (name, n) in enumerate(slices):
+        percentage = f"{(n / total) * 100:.1f}%"
+        color = DONUT_PALETTE[i % len(DONUT_PALETTE)]
+        if name == "Others":
+            color = DONUT_PALETTE[-1]
+        nodes.append(
+            {
+                "name": name,
+                "count": n,
+                "percentage": percentage,
+                "color": color,
+            }
+        )
+    return nodes
 
 
 def top_evaluators(
@@ -491,6 +538,8 @@ def build_metrics(
     """Assembles everything the renderer needs into one JSON blob."""
     now = now or datetime.now(timezone.utc)
     active_students = [cu for cu in cursus_users if not cu.get("blackholed_at")]
+    # 7-day location history powers weekly charts; fall back to live locations.
+    location_history = locations_recent if locations_recent else locations
 
     return {
         "generated_at": now.isoformat(),
@@ -509,13 +558,13 @@ def build_metrics(
         "coalitions": coalition_standings(coalitions),
         "level_ups": level_ups(cursus_users, previous_cursus_users),
         # Page 2 — Hall of Fame & Telemetry
-        "average_level": avg_level(cursus_users),
+        "average_milestone": avg_milestone(cursus_users, now=now),
         "average_session": avg_session_hours(locations, now=now),
         "weekly_passes": weekly_pass_count(projects_users, now=now),
         "evals_completed": evals_completed_count(projects_users, now=now),
-        "zombies": sleepless_zombies(locations, now=now),
+        "zombies": sleepless_zombies(location_history, now=now),
         # Page 3 — Projects & Peer Analytics
-        "active_projects": active_projects_dist(projects_users),
+        "active_project_data": active_project_data(projects_users),
         "top_evaluators": top_evaluators(projects_users, now=now),
         "weekly_logtime": weekly_logtime(locations, now=now),
     }

@@ -509,37 +509,67 @@
     display: flex; flex-direction: column; overflow: hidden;
   }
 
-  /* ── Page 3: Donut chart + dual-column legend ─────────────────── */
+  /* ── Page 3: Donut — balanced flex row, no left dead space ─────── */
   .donut-wrap {
-    display: flex; align-items: center; gap: 2vw;
-    padding: 0 1.5vw 2vh; flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 2rem;
+    flex: 1;
+    min-height: 0;
   }
   .donut-svg {
-    width: 42vh; height: 42vh; flex-shrink: 0;
+    width: 38vh;
+    height: 38vh;
+    flex-shrink: 0;
+    filter: drop-shadow(0 8px 20px rgba(80, 90, 120, 0.18));
   }
   .donut-legend {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1.4vh 1.5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6vh 2vw;
     align-content: center;
+    flex: 1;
+    max-width: 48%;
+    min-width: 0;
   }
   .donut-item {
-    display: flex; align-items: center; gap: 0.6vw;
+    display: flex;
+    align-items: center;
+    gap: 0.7vw;
+    min-width: 0;
   }
   .donut-swatch {
-    width: 2.2vh; height: 2.2vh; border-radius: 50%; flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    width: 2.4vh;
+    height: 2.4vh;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.20),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55);
   }
   .donut-label {
-    font-size: 2vh; font-weight: 700; color: var(--title);
+    font-size: 2.1vh;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
     white-space: nowrap;
-    overflow: hidden; text-overflow: ellipsis;
-    max-width: 10vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 14vw;
   }
   .donut-pct {
-    font-size: 1.7vh; font-weight: 500; color: var(--dim);
-    margin-left: 0.3vw;
+    font-size: 1.9vh;
+    font-weight: 600;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: #94a3b8;
+    margin-left: 0.5vw;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* ── Page 3: Evaluators — maximized avatars ───────────────────── */
@@ -868,7 +898,7 @@
   /* ── Page 2: Metric grid ────────────────────────────────────── */
   function renderMetricGrid(metrics) {
     document.getElementById('metric-grid').innerHTML = [
-      ['Average Level', metrics.average_level || 0],
+      ['Average Milestone', metrics.average_milestone || 0],
       ['Average Login', (metrics.average_session || 0) + 'h'],
       ['Total Weekly Passed', metrics.weekly_passes || 0],
       ['Total Peer Evaluation', metrics.evals_completed || 0],
@@ -902,21 +932,25 @@
     }).join('');
   }
 
-  /* ── Page 3: Donut chart (SVG) — scaled up with 2-col legend ── */
+  /* ── Page 3: Donut chart — truthful % arcs + dual-column legend ─ */
   function renderDonut(rows) {
     const el = document.getElementById('donut-wrap');
     if (!rows.length) {
       el.innerHTML = '<div class="empty">No active projects.</div>';
       return;
     }
-    const R = 42;
+
+    const total = rows.reduce((sum, r) => sum + (r.count || 0), 0) || 1;
+    const R = 40;
     const CIRC = 2 * Math.PI * R;
     let offset = 0;
+
     const arcs = rows.map(r => {
-      const dash = CIRC * (r.pct / 100);
+      const pctValue = (r.count || 0) / total;
+      const dash = CIRC * pctValue;
       const gap = CIRC - dash;
       const arc = `<circle cx="50" cy="50" r="${R}" fill="none"
-        stroke="${r.color}" stroke-width="14"
+        stroke="${esc(r.color)}" stroke-width="15" stroke-linecap="butt"
         stroke-dasharray="${dash} ${gap}"
         stroke-dashoffset="${-offset}"
         transform="rotate(-90 50 50)"/>`;
@@ -926,13 +960,16 @@
 
     const legend = rows.map(r => `
       <div class="donut-item">
-        <div class="donut-swatch" style="background:${r.color}"></div>
-        <span class="donut-label">${esc(r.project)}</span>
-        <span class="donut-pct">(${r.pct}%)</span>
+        <div class="donut-swatch" style="background:${esc(r.color)}"></div>
+        <span class="donut-label">${esc(r.name)}</span>
+        <span class="donut-pct">${esc(r.percentage)}</span>
       </div>`).join('');
 
     el.innerHTML = `
-      <svg class="donut-svg" viewBox="0 0 100 100">${arcs.join('')}</svg>
+      <svg class="donut-svg" viewBox="0 0 100 100" aria-label="Current active projects">
+        <circle cx="50" cy="50" r="${R}" fill="none" stroke="rgba(209,213,219,0.55)" stroke-width="15"/>
+        ${arcs.join('')}
+      </svg>
       <div class="donut-legend">${legend}</div>`;
   }
 
@@ -1004,7 +1041,7 @@
     renderSubmissions(validations);
     renderMetricGrid(metrics);
     renderZombies(metrics.zombies || []);
-    renderDonut(metrics.active_projects || []);
+    renderDonut(metrics.active_project_data || []);
     renderEvaluators(metrics.top_evaluators || []);
     renderLogtime(metrics.weekly_logtime || []);
 
