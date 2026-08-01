@@ -6,128 +6,643 @@
 <title>Intra-Vision — 42 Warsaw</title>
 <style>
   /* TV display: 1920x1080 @ 30Hz, viewed from across the room, no pointer.
-     Sized in vw/vh. Avoid sub-200ms flashes; motion stays slow. */
+     Apple control-center chassis: dark matte charcoal canvas, one frosted
+     slate console per view, polished light glass cards inside.
+     All motion is slow and transform-based (hardware-accelerated). */
+
   :root {
-    --bg: #0b0d10;
-    --fg: #f2f4f7;
-    --dim: #8b94a3;
-    --line: #1c2129;
-    --accent: #00d4aa;
+    --canvas: #1E2022;
+    --console-bg: rgba(44, 46, 51, 0.4);
+    --console-border: rgba(255, 255, 255, 0.1);
+    --shell-bg: rgba(245, 245, 247, 0.95);
+    --shell-border: rgba(255, 255, 255, 0.6);
+    --pill-bg: rgba(229, 229, 234, 0.5);
+    --title: #0f172a;
+    --body: #1e293b;
+    --dim: #64748b;
+    --muted: #94a3b8;
+    --track: #E5E5EA;
+    --accent-blue: #0A84FF;
+    --accent-yellow: #FFD60A;
+    --accent-green: #30D158;
+    --accent-red: #FF453A;
+    --accent-orange: #f97316;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   html, body {
-    width: 100%;
-    height: 100%;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: "Segoe UI", system-ui, sans-serif;
+    width: 100%; height: 100%;
+    background: var(--canvas);
+    color: var(--body);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
     overflow: hidden;
     font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
   }
+
+  /* ── Ambient depth glow on the dark canvas ───────────────────── */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  }
+  .blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(140px); -webkit-filter: blur(140px);
+    will-change: transform;
+  }
+  .blob-1 {
+    width: 55vh; height: 55vh;
+    background: var(--accent-blue);
+    opacity: 0.10;
+    top: -8vh; left: 5vw;
+    animation: drift1 28s ease-in-out infinite;
+  }
+  .blob-2 {
+    width: 48vh; height: 48vh;
+    background: var(--accent-yellow);
+    opacity: 0.07;
+    top: 30vh; right: -5vw;
+    animation: drift2 32s ease-in-out infinite;
+  }
+  .blob-3 {
+    width: 60vh; height: 60vh;
+    background: #6366f1;
+    opacity: 0.10;
+    bottom: -12vh; left: 35vw;
+    animation: drift3 26s ease-in-out infinite;
+  }
+  @keyframes drift1 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    33%      { transform: translate3d(6vw, 8vh, 0) scale(1.06); }
+    66%      { transform: translate3d(-4vw, 3vh, 0) scale(0.94); }
+  }
+  @keyframes drift2 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    40%      { transform: translate3d(-8vw, -6vh, 0) scale(1.08); }
+    70%      { transform: translate3d(3vw, 5vh, 0) scale(0.96); }
+  }
+  @keyframes drift3 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(5vw, -7vh, 0) scale(1.05); }
+  }
+
+  /* ── The floating console chassis (per view) ─────────────────── */
+  .console {
+    background: var(--console-bg);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--console-border);
+    border-radius: 2.5rem;
+    padding: 2.8vh 1.5vw;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex; gap: 1.3vw;
+    flex: 1; height: 100%;
+  }
+
+  /* ── Polished light glass shell (the cards) ──────────────────── */
+  .glass {
+    background: var(--shell-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--shell-border);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    border-radius: 2rem;
+  }
+
+  /* ── Pill category header inside every card ──────────────────── */
+  .pill-header {
+    background: var(--pill-bg);
+    border-radius: 999px;
+    text-align: center;
+    padding: 1.3vh 2vw;
+    font-size: 1.9vh; font-weight: 700; color: var(--body);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin: 2.2vh 1.6vw 2.4vh;
+    flex-shrink: 0;
+  }
+
+  /* ── Floating glass header strip (dark canvas zone) ──────────── */
   header {
-    position: fixed; top: 0; left: 0; right: 0; height: 8vh;
+    position: fixed; top: 1.8vh; left: 2vw; right: 2vw; height: 6.8vh;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 3vw; border-bottom: 1px solid var(--line); z-index: 10;
+    padding: 0 2.5vw;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    color: #fff;
+    z-index: 10;
   }
-  .brand { font-size: 2.4vh; font-weight: 700; letter-spacing: .28em; color: var(--fg); }
-  .brand span { color: var(--dim); letter-spacing: .2em; font-weight: 600; margin-left: 1.2vw; }
-  .stamp { font-size: 2vh; font-weight: 600; color: var(--dim); }
-  .stamp.stale { color: #ffb020; }
+  .brand {
+    font-size: 2.2vh; font-weight: 700; letter-spacing: 0.25em;
+    color: #fff; text-transform: uppercase;
+  }
+  .status-bar {
+    display: flex; align-items: center; gap: 1.2vw;
+  }
+  .sync-pill {
+    display: flex; align-items: center; gap: 0.7vw;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 0.9vh 1.4vw;
+    font-size: 1.8vh; font-weight: 600; color: rgba(255, 255, 255, 0.9);
+  }
+  .stamp { transition: color 1s ease; }
+  .stamp.stale { color: var(--accent-orange); }
+  .sync-dot {
+    width: 1.3vh; height: 1.3vh; border-radius: 50%;
+    background: #34d399;
+    animation: syncPulse 3s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .sync-dot.off { background: var(--accent-orange); animation: none; }
+  @keyframes syncPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.85); }
+  }
 
-  main { height: 100%; padding: 10vh 3vw 6vh; }
-  .view { display: none; height: 100%; animation: fade .6s ease; }
+  /* ── Main layout ─────────────────────────────────────────────── */
+  main {
+    position: relative; z-index: 1;
+    height: 100%; padding: 10.5vh 2vw 9.5vh;
+  }
+  .view {
+    display: none; height: 100%;
+    animation: viewFade 0.7s ease-out;
+  }
   .view.active { display: flex; flex-direction: column; }
-  @keyframes fade { from { opacity: 0; transform: translateY(1vh); } to { opacity: 1; } }
+  @keyframes viewFade {
+    from { opacity: 0; transform: translate3d(0, 1vh, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
 
-  h1 { font-size: 3.4vh; font-weight: 600; margin-bottom: 3vh; color: var(--dim);
-       letter-spacing: .04em; }
+  /* ── Page 1: Active Students card ────────────────────────────── */
+  .card-students {
+    flex: 3;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .card-capacity {
+    flex: 1.4;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
 
-  /* --- validations feed --- */
-  .feed { display: flex; flex-direction: column; gap: 1.4vh; }
-  .row { display: flex; align-items: center; gap: 2vw; }
-  .avatar { width: 7vh; height: 7vh; border-radius: 50%; object-fit: cover;
-            background: var(--line); flex-shrink: 0; }
-  .who { font-size: 3.4vh; font-weight: 600; min-width: 22vw; }
-  .what { font-size: 3.4vh; color: var(--accent); font-weight: 500; flex: 1; }
-  .mark { font-size: 3.4vh; font-weight: 700; min-width: 8vw; text-align: right; }
-  .ago { font-size: 2.4vh; color: var(--dim); min-width: 10vw; text-align: right; }
-  .fresh .who, .fresh .what { color: #fff; }
-  /* Slow opacity breathe — readable on 30Hz; not a strobe. */
-  .fresh { animation: pulse 3.2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .78; } }
-  .attempt { font-size: 2vh; color: var(--dim); margin-left: .8vw; }
+  /* Masked orbital-flow container: hides overflow, never scrollbars. */
+  .avatar-mask {
+    flex: 1; overflow: hidden; position: relative;
+    padding: 0 1.6vw 2vh;
+  }
+  .avatar-scroll {
+    display: flex; flex-direction: column;
+  }
+  /* Seamless infinite vertical loop — two stacked copies of the grid,
+     translated up by exactly one copy's height. Pure GPU transform,
+     40s linear, safe on a 30Hz panel. */
+  .avatar-scroll.looping {
+    animation: orbitalFlow 40s linear infinite;
+    will-change: transform;
+  }
+  @keyframes orbitalFlow {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(0, -50%, 0); }
+  }
+  .avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.4vh 1vw;
+    align-content: start;
+    padding-bottom: 2.4vh;
+  }
+  .avatar-cell {
+    display: flex; flex-direction: column; align-items: center; gap: 1vh;
+    transition: all 700ms ease-out;
+  }
+  .avatar-wrap {
+    position: relative; width: 9vh; height: 9vh;
+    border-radius: 50%; overflow: visible;
+    transition: transform 700ms ease-out;
+  }
+  .avatar-wrap img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    background: var(--track);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  }
+  .avatar-wrap.hero img {
+    border: none;
+    box-shadow:
+      0 0 0 2px #F5F5F7,
+      0 0 0 6px var(--accent-orange),
+      0 4px 14px rgba(249, 115, 22, 0.35);
+  }
+  .avatar-wrap.hero::after {
+    content: "🔥";
+    position: absolute; bottom: -0.8vh; right: -0.8vh;
+    font-size: 3vh; line-height: 1;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  }
+  .avatar-name {
+    font-size: 2vh; font-weight: 700; color: var(--title);
+    letter-spacing: -0.02em; text-transform: lowercase;
+    text-align: center; max-width: 11vw;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
 
-  /* --- pulse numbers --- */
-  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4vh 4vw; flex: 1;
-           align-content: center; }
-  .stat .n { font-size: 15vh; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
-  .stat .l { font-size: 2.6vh; color: var(--dim); margin-top: 1vh; text-transform: uppercase;
-             letter-spacing: .12em; }
+  /* ── Page 1: 2x2 control gauge matrix ────────────────────────── */
+  .radial-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3vh 1.2vw;
+    padding: 0 1.4vw 2.4vh;
+    flex: 1; align-content: center;
+  }
+  .radial-cell {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .gauge-wrap {
+    position: relative; width: 16vh; height: 16vh;
+  }
+  .radial-svg {
+    width: 100%; height: 100%;
+    transform: rotate(-90deg);
+  }
+  .radial-track {
+    fill: none; stroke: var(--track); stroke-width: 12;
+  }
+  .radial-fill {
+    fill: none; stroke-width: 12; stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease-out;
+  }
+  .gauge-center {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.6vh; font-weight: 700; color: var(--title);
+    letter-spacing: -0.02em;
+  }
+  .gauge-fraction {
+    font-size: 2.9vh; font-weight: 900; color: var(--title);
+    letter-spacing: -0.02em; margin-top: 1.6vh;
+  }
 
-  /* --- coalitions --- */
-  .bars { display: flex; flex-direction: column; gap: 3vh; justify-content: center; flex: 1; }
-  .bar-label { display: flex; justify-content: space-between; font-size: 3.2vh;
-               margin-bottom: 1vh; font-weight: 600; }
-  .track { height: 4vh; background: var(--line); border-radius: 2vh; overflow: hidden; }
-  .fill { height: 100%; border-radius: 2vh; transition: width 1s ease; }
+  .empty { font-size: 2.8vh; color: var(--dim); margin: auto; font-weight: 500; }
 
-  /* --- histogram --- */
-  .hist { display: flex; align-items: flex-end; gap: 1vw; flex: 1; padding-bottom: 4vh; }
-  .col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
-         align-items: center; height: 100%; }
-  .col .b { width: 100%; background: var(--accent); border-radius: .6vh .6vh 0 0;
-            transition: height 1s ease; min-height: .4vh; }
-  .col .c { font-size: 2.2vh; font-weight: 700; margin-bottom: .8vh; }
-  .col .x { font-size: 2vh; color: var(--dim); margin-top: 1.2vh; }
+  /* ── Page 2: Hall of Fame bento ──────────────────────────────── */
+  .fame-left {
+    flex: 1.1;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .fame-center {
+    flex: 1.2;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .fame-right {
+    flex: 1.1;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
 
-  .empty { font-size: 3vh; color: var(--dim); margin: auto; }
+  .submissions-list {
+    display: flex; flex-direction: column; gap: 1.5vh;
+    padding: 0 1.5vw 2vh; flex: 1; justify-content: center;
+  }
+  .sub-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 1.8vh 1.5vw;
+    display: flex; align-items: center; gap: 1.2vw;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: all 700ms ease-out;
+  }
+  .sub-avatar {
+    width: 7vh; height: 7vh; border-radius: 50%; object-fit: cover;
+    background: var(--track); flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+  }
+  .sub-info {
+    flex: 1; min-width: 0;
+  }
+  .sub-name {
+    font-size: 2.2vh; font-weight: 700; color: var(--title);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .sub-detail {
+    font-size: 1.7vh; color: var(--dim); margin-top: 0.3vh;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .sub-mark {
+    font-size: 3.5vh; font-weight: 900; color: var(--title);
+    flex-shrink: 0;
+  }
+  .sub-max {
+    font-size: 2vh; font-weight: 500; color: var(--dim);
+  }
 
-  /* progress dots for the rotation */
-  .dots { position: fixed; bottom: 2.5vh; left: 0; right: 0; display: flex;
-          justify-content: center; gap: 1.2vw; }
-  .dot { width: 1vh; height: 1vh; border-radius: 50%; background: var(--line); }
-  .dot.on { background: var(--accent); }
+  .metric-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5vh 1.2vw;
+    padding: 0 1.5vw 2vh; flex: 1;
+    align-content: center;
+  }
+  .metric-tile {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 3vh 1.5vw;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+  .metric-tile .mt-label {
+    font-size: 1.8vh; font-weight: 600; color: var(--dim);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 1vh;
+  }
+  .metric-tile .mt-value {
+    font-size: 7vh; font-weight: 900; line-height: 1;
+    color: var(--title); letter-spacing: -0.02em;
+  }
+
+  .zombie-list {
+    display: flex; flex-direction: column; gap: 1.4vh;
+    padding: 0 1.5vw 2vh; flex: 1; justify-content: center;
+  }
+  .zombie-row {
+    display: flex; align-items: center; gap: 1vw;
+    padding: 1.2vh 1.2vw;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: all 700ms ease-out;
+  }
+  .zombie-rank {
+    width: 4vh; height: 4vh; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2vh; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+  .zombie-rank.r1 { background: var(--accent-green); }
+  .zombie-rank.r2 { background: #22c55e; }
+  .zombie-rank.r3 { background: #4ade80; color: var(--title); }
+  .zombie-rank.r4 { background: #86efac; color: var(--title); }
+  .zombie-rank.r5 { background: #bbf7d0; color: var(--title); }
+  .zombie-avatar {
+    width: 5.5vh; height: 5.5vh; border-radius: 50%; object-fit: cover;
+    background: var(--track); flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+  }
+  .zombie-name {
+    font-size: 2.1vh; font-weight: 700; color: var(--title);
+    flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .zombie-hours {
+    font-size: 2.1vh; font-weight: 600; color: var(--dim);
+    flex-shrink: 0;
+  }
+
+  /* ── Page 3: Analytics bento ─────────────────────────────────── */
+  .analytics-left {
+    flex: 1.3;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .analytics-right {
+    flex: 1;
+    display: flex; flex-direction: column; gap: 1.5vh; overflow: visible;
+    background: none; border: none; box-shadow: none;
+  }
+  .analytics-right-top {
+    flex: 1;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .analytics-right-bottom {
+    flex: 1.1;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+
+  .donut-wrap {
+    display: flex; align-items: center; gap: 2.5vw;
+    padding: 0 2.5vw 2vh; flex: 1;
+  }
+  .donut-svg {
+    width: 32vh; height: 32vh; flex-shrink: 0;
+  }
+  .donut-legend {
+    display: flex; flex-direction: column; gap: 1.6vh;
+  }
+  .donut-item {
+    display: flex; align-items: center; gap: 0.8vw;
+  }
+  .donut-swatch {
+    width: 2vh; height: 2vh; border-radius: 50%; flex-shrink: 0;
+  }
+  .donut-label {
+    font-size: 2.1vh; font-weight: 700; color: var(--title);
+  }
+  .donut-pct {
+    font-size: 1.8vh; font-weight: 500; color: var(--dim);
+    margin-left: 0.3vw;
+  }
+
+  .evaluators-grid {
+    display: flex; gap: 1.5vw;
+    padding: 0 2vw 2vh; flex: 1;
+    align-items: center; justify-content: center;
+  }
+  .evaluator-cell {
+    display: flex; flex-direction: column; align-items: center; gap: 0.6vh;
+    flex: 1;
+  }
+  .evaluator-avatar {
+    width: 7.5vh; height: 7.5vh; border-radius: 50%; object-fit: cover;
+    background: var(--track);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  }
+  .evaluator-name {
+    font-size: 1.8vh; font-weight: 700; color: var(--title);
+    text-align: center; max-width: 10vw;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .evaluator-count {
+    font-size: 2.4vh; font-weight: 900; color: var(--accent-blue);
+  }
+
+  .logtime-chart {
+    display: flex; align-items: flex-end; gap: 1.2vw;
+    padding: 0 2.5vw 2vh; flex: 1;
+  }
+  .logtime-bar-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: center; height: 100%;
+  }
+  .logtime-val {
+    font-size: 1.7vh; font-weight: 700; color: var(--title);
+    margin-bottom: 0.5vh;
+  }
+  .logtime-bar {
+    width: 80%; border-radius: 8px 8px 0 0;
+    background: var(--accent-red);
+    transition: height 1s ease-out;
+    min-height: 3px;
+    box-shadow: 0 -2px 6px rgba(255, 69, 58, 0.2);
+  }
+  .logtime-day {
+    font-size: 1.7vh; font-weight: 600; color: var(--dim);
+    margin-top: 0.8vh;
+  }
+
+  /* ── Floating glass footer marquee (dark canvas zone) ────────── */
+  footer {
+    position: fixed; bottom: 1.8vh; left: 2vw; right: 2vw;
+    height: 5.8vh;
+    display: flex; align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+    z-index: 10;
+  }
+  .marquee-track {
+    display: flex; white-space: nowrap;
+    animation: marqueeScroll 45s linear infinite;
+  }
+  .marquee-text {
+    font-size: 2vh; font-weight: 500; color: rgba(255, 255, 255, 0.75);
+    padding: 0 4vw;
+    font-style: italic;
+  }
+  @keyframes marqueeScroll {
+    0%   { transform: translate3d(100vw, 0, 0); }
+    100% { transform: translate3d(-200vw, 0, 0); }
+  }
+
+  /* ── Progress dots ───────────────────────────────────────────── */
+  .dots {
+    position: fixed; bottom: 8.8vh; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 1vw; z-index: 10;
+  }
+  .dot {
+    width: 1vh; height: 1vh; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transition: all 700ms ease-out;
+  }
+  .dot.on {
+    background: var(--accent-blue);
+    box-shadow: 0 0 8px rgba(10, 132, 255, 0.6);
+    transform: scale(1.3);
+  }
 </style>
 </head>
 <body>
 
+<!-- Ambient depth glow behind the console -->
+<div class="ambient">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- ── Floating glass header strip ────────────────────────────── -->
 <header>
-  <div class="brand">INTRA-VISION <span>42 WARSAW</span></div>
-  <div class="stamp" id="stamp">—</div>
+  <div class="brand">42 Warsaw Intra-Vision</div>
+  <div class="status-bar">
+    <div class="sync-pill">
+      <span class="stamp" id="stamp">—</span>
+      <span class="sync-dot" id="sync-dot"></span>
+    </div>
+  </div>
 </header>
 
+<!-- ── Main content views ─────────────────────────────────────── -->
 <main>
+
+  <!-- View 1 — Page 1: Active Students + Capacity gauges -->
   <section class="view active" data-view="validations">
-    <h1>Recently validated</h1>
-    <div class="feed" id="feed"></div>
+    <div class="console">
+      <div class="card-students glass">
+        <div class="pill-header">Current Active Students (<span id="active-count">0</span>)</div>
+        <div class="avatar-mask" id="avatar-grid"></div>
+      </div>
+      <div class="card-capacity glass">
+        <div class="pill-header">Campus Capacity</div>
+        <div class="radial-grid" id="radials"></div>
+      </div>
+    </div>
   </section>
 
-  <section class="view" data-view="pulse">
-    <h1>Campus right now</h1>
-    <div class="stats" id="stats"></div>
+  <!-- View 2 — Page 2: Hall of Fame & Telemetry -->
+  <section class="view" data-view="fame">
+    <div class="console">
+      <div class="fame-left glass">
+        <div class="pill-header">Recent Submissions</div>
+        <div class="submissions-list" id="submissions"></div>
+      </div>
+      <div class="fame-center glass">
+        <div class="pill-header">Campus Telemetry</div>
+        <div class="metric-grid" id="metric-grid"></div>
+      </div>
+      <div class="fame-right glass">
+        <div class="pill-header">Top Sleepless Zombies</div>
+        <div class="zombie-list" id="zombies"></div>
+      </div>
+    </div>
   </section>
 
-  <section class="view" data-view="coalitions">
-    <h1>Coalitions</h1>
-    <div class="bars" id="bars"></div>
+  <!-- View 3 — Page 3: Projects & Peer Analytics -->
+  <section class="view" data-view="analytics">
+    <div class="console">
+      <div class="analytics-left glass">
+        <div class="pill-header">Current Active Projects</div>
+        <div class="donut-wrap" id="donut-wrap"></div>
+      </div>
+      <div class="analytics-right">
+        <div class="analytics-right-top glass">
+          <div class="pill-header">Most Evaluations Done</div>
+          <div class="evaluators-grid" id="evaluators"></div>
+        </div>
+        <div class="analytics-right-bottom glass">
+          <div class="pill-header">Weekly Cadet Log-in Hours</div>
+          <div class="logtime-chart" id="logtime"></div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="view" data-view="levels">
-    <h1>Level distribution</h1>
-    <div class="hist" id="hist"></div>
-  </section>
 </main>
 
+<!-- ── Progress dots ──────────────────────────────────────────── -->
 <div class="dots" id="dots"></div>
+
+<!-- ── Floating glass footer marquee ──────────────────────────── -->
+<footer>
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-text">"The answer to the great question… of Life, the Universe and Everything… is… forty-two." — Deep Thought</span>
+    <span class="marquee-text">42 Warsaw Hacks — 1-2 August 2026 — Social Space TV Dashboard</span>
+    <span class="marquee-text">Shoutout to the Bocals and building staff for keeping our campus running smoothly every day!</span>
+  </div>
+</footer>
 
 <script>
   const INITIAL = {{ metrics | tojson }};
   const LAST_REFRESH = {{ (last_refresh or "") | tojson }};
 
-  // Dwell time per view. The validations feed is the hero, so it gets the longest.
-  const DWELL = { validations: 30000, pulse: 20000, coalitions: 20000, levels: 20000 };
-  const POLL_MS = 30000;   // polls local SQLite, costs no API quota
+  const DWELL = { validations: 30000, fame: 25000, analytics: 25000 };
+  const POLL_MS = 30000;
   const STALE_MS = 30 * 60 * 1000;
+
+  const RADIAL_CIRC = 2 * Math.PI * 52;
+  const RADIAL_CONFIGS = [
+    { key: 'on_campus',           center: 'Total',  max: 150, color: 'var(--accent-blue)' },
+    { key: 'validated_this_week', center: 'Valid',  max: 80,  color: 'var(--accent-yellow)' },
+    { key: 'active_students',     center: 'Active', max: 500, color: 'var(--accent-green)' },
+    { key: 'median_level',        center: 'Level',  max: 21,  color: 'var(--accent-red)' },
+  ];
+
+  // Above this count the avatar grid switches to the infinite orbital loop.
+  const ORBITAL_THRESHOLD = 15;
 
   const views = [...document.querySelectorAll('.view')];
   let index = 0;
@@ -145,69 +660,230 @@
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  function renderFeed(rows) {
-    const el = document.getElementById('feed');
+  /* ── Page 1: Avatar orbital flow ─────────────────────────────── */
+  function avatarCell(u, isHero) {
+    const img = u.image
+      ? `<img src="${esc(u.image)}" alt="${esc(u.login)}" loading="lazy">`
+      : `<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect fill='%23E5E5EA' width='80' height='80'/%3E%3Ctext x='40' y='48' text-anchor='middle' fill='%2394a3b8' font-size='28' font-family='system-ui'%3E${esc((u.login[0] || '?')).toUpperCase()}%3C/text%3E%3C/svg%3E" alt="${esc(u.login)}">`;
+    return `
+      <div class="avatar-cell">
+        <div class="avatar-wrap ${isHero ? 'hero' : ''}">${img}</div>
+        <div class="avatar-name">${esc(u.login)}</div>
+      </div>`;
+  }
+
+  function renderAvatarGrid(rows, pulse) {
+    const el = document.getElementById('avatar-grid');
+    const countEl = document.getElementById('active-count');
+    countEl.textContent = pulse.on_campus || 0;
+
     if (!rows.length) {
-      el.innerHTML = '<div class="empty">No validations in the last two weeks.</div>';
+      el.innerHTML = '<div class="empty">No recent activity.</div>';
       return;
     }
-    el.innerHTML = rows.slice(0, 9).map(r => `
-      <div class="row ${r.age_seconds < 3600 ? 'fresh' : ''}">
-        ${r.user.image ? `<img class="avatar" src="${esc(r.user.image)}" alt="">`
-                       : '<div class="avatar"></div>'}
-        <div class="who">${esc(r.user.name)}</div>
-        <div class="what">${esc(r.project)}${
-          r.attempt > 1 ? `<span class="attempt">attempt ${r.attempt}</span>` : ''}</div>
-        <div class="mark">${r.mark ?? ''}</div>
-        <div class="ago">${ago(r.age_seconds)}</div>
+
+    const seen = new Set();
+    const unique = [];
+    for (const r of rows) {
+      const login = r.user.login;
+      if (!seen.has(login)) {
+        seen.add(login);
+        unique.push(r.user);
+      }
+    }
+
+    const cells = unique.map((u, i) => avatarCell(u, i === 0)).join('');
+
+    if (unique.length > ORBITAL_THRESHOLD) {
+      // Two identical copies inside a masked scroller; the keyframe
+      // shifts up by exactly one copy's height for a seamless loop.
+      el.innerHTML = `
+        <div class="avatar-scroll looping">
+          <div class="avatar-grid">${cells}</div>
+          <div class="avatar-grid" aria-hidden="true">${cells}</div>
+        </div>`;
+    } else {
+      el.innerHTML = `<div class="avatar-scroll"><div class="avatar-grid">${cells}</div></div>`;
+    }
+  }
+
+  /* ── Page 1: 2x2 control gauges ─────────────────────────────── */
+  function renderRadials(pulse) {
+    const el = document.getElementById('radials');
+    el.innerHTML = RADIAL_CONFIGS.map(cfg => {
+      const val = pulse[cfg.key] || 0;
+      const pct = Math.min(val / cfg.max, 1);
+      const offset = RADIAL_CIRC * (1 - pct);
+      const display = cfg.key === 'median_level'
+        ? (typeof val === 'number' ? val.toFixed(1) : val)
+        : val;
+      return `
+      <div class="radial-cell">
+        <div class="gauge-wrap">
+          <svg class="radial-svg" viewBox="0 0 120 120">
+            <circle class="radial-track" cx="60" cy="60" r="52"/>
+            <circle class="radial-fill" cx="60" cy="60" r="52"
+              stroke="${cfg.color}"
+              stroke-dasharray="${RADIAL_CIRC}"
+              stroke-dashoffset="${offset}"/>
+          </svg>
+          <div class="gauge-center">${cfg.center}</div>
+        </div>
+        <div class="gauge-fraction">${display}/${cfg.max}</div>
+      </div>`;
+    }).join('');
+  }
+
+  /* ── Page 2: Recent submissions ─────────────────────────────── */
+  function renderSubmissions(rows) {
+    const el = document.getElementById('submissions');
+    if (!rows.length) {
+      el.innerHTML = '<div class="empty">No recent submissions.</div>';
+      return;
+    }
+    el.innerHTML = rows.slice(0, 3).map(r => `
+      <div class="sub-card">
+        ${r.user.image
+          ? `<img class="sub-avatar" src="${esc(r.user.image)}" alt="">`
+          : '<div class="sub-avatar"></div>'}
+        <div class="sub-info">
+          <div class="sub-name">${esc(r.user.login)}</div>
+          <div class="sub-detail">${esc(r.project)} · ${ago(r.age_seconds)}</div>
+        </div>
+        <div class="sub-mark">${r.mark ?? '—'}<span class="sub-max"> / 100</span></div>
       </div>`).join('');
   }
 
-  function renderStats(p) {
-    document.getElementById('stats').innerHTML = [
-      [p.on_campus, 'on campus now'],
-      [p.validated_this_week, 'validated this week'],
-      [p.active_students, 'active students'],
-      [p.median_level, 'median level'],
-    ].map(([n, l]) => `<div class="stat"><div class="n">${esc(n)}</div><div class="l">${l}</div></div>`).join('');
-  }
-
-  function renderBars(rows) {
-    const el = document.getElementById('bars');
-    if (!rows.length) { el.innerHTML = '<div class="empty">No coalition data.</div>'; return; }
-    el.innerHTML = rows.slice(0, 5).map(c => `
-      <div>
-        <div class="bar-label"><span>${esc(c.name)}</span><span>${esc(c.score)}</span></div>
-        <div class="track"><div class="fill" style="width:${c.pct}%;background:${esc(c.color)}"></div></div>
+  /* ── Page 2: Metric grid ────────────────────────────────────── */
+  function renderMetricGrid(metrics) {
+    document.getElementById('metric-grid').innerHTML = [
+      ['Average Level', metrics.average_level || 0],
+      ['Average Login', (metrics.average_session || 0) + 'h'],
+      ['Total Weekly Passed', metrics.weekly_passes || 0],
+      ['Total Peer Evaluation', metrics.evals_completed || 0],
+    ].map(([label, val]) => `
+      <div class="metric-tile">
+        <div class="mt-label">${label}</div>
+        <div class="mt-value">${esc(val)}</div>
       </div>`).join('');
   }
 
-  function renderHist(rows) {
-    const el = document.getElementById('hist');
-    if (!rows.length) { el.innerHTML = '<div class="empty">No level data.</div>'; return; }
-    const max = Math.max(...rows.map(r => r.count), 1);
+  /* ── Page 2: Sleepless zombies ──────────────────────────────── */
+  function renderZombies(rows) {
+    const el = document.getElementById('zombies');
+    if (!rows.length) {
+      el.innerHTML = '<div class="empty">No logtime data yet.</div>';
+      return;
+    }
+    el.innerHTML = rows.slice(0, 5).map(z => `
+      <div class="zombie-row">
+        <div class="zombie-rank r${z.rank}">${z.rank}</div>
+        ${z.user.image
+          ? `<img class="zombie-avatar" src="${esc(z.user.image)}" alt="">`
+          : '<div class="zombie-avatar"></div>'}
+        <div class="zombie-name">${esc(z.user.login)}</div>
+        <div class="zombie-hours">${z.hours}h</div>
+      </div>`).join('');
+  }
+
+  /* ── Page 3: Donut chart (SVG) ──────────────────────────────── */
+  function renderDonut(rows) {
+    const el = document.getElementById('donut-wrap');
+    if (!rows.length) {
+      el.innerHTML = '<div class="empty">No active projects.</div>';
+      return;
+    }
+    const R = 44;
+    const CIRC = 2 * Math.PI * R;
+    let offset = 0;
+    const arcs = rows.map(r => {
+      const dash = CIRC * (r.pct / 100);
+      const gap = CIRC - dash;
+      const arc = `<circle cx="50" cy="50" r="${R}" fill="none"
+        stroke="${r.color}" stroke-width="12"
+        stroke-dasharray="${dash} ${gap}"
+        stroke-dashoffset="${-offset}"
+        transform="rotate(-90 50 50)"/>`;
+      offset += dash;
+      return arc;
+    });
+
+    const legend = rows.map(r => `
+      <div class="donut-item">
+        <div class="donut-swatch" style="background:${r.color}"></div>
+        <span class="donut-label">${esc(r.project)}</span>
+        <span class="donut-pct">(${r.pct}%)</span>
+      </div>`).join('');
+
+    el.innerHTML = `
+      <svg class="donut-svg" viewBox="0 0 100 100">${arcs.join('')}</svg>
+      <div class="donut-legend">${legend}</div>`;
+  }
+
+  /* ── Page 3: Top evaluators ─────────────────────────────────── */
+  function renderEvaluators(rows) {
+    const el = document.getElementById('evaluators');
+    if (!rows.length) {
+      el.innerHTML = '<div class="empty">No evaluation data.</div>';
+      return;
+    }
+    el.innerHTML = rows.slice(0, 4).map(e => `
+      <div class="evaluator-cell">
+        ${e.user.image
+          ? `<img class="evaluator-avatar" src="${esc(e.user.image)}" alt="">`
+          : '<div class="evaluator-avatar"></div>'}
+        <div class="evaluator-name">${esc(e.user.login)}</div>
+        <div class="evaluator-count">${e.count}</div>
+      </div>`).join('');
+  }
+
+  /* ── Page 3: Weekly logtime bars ────────────────────────────── */
+  function renderLogtime(rows) {
+    const el = document.getElementById('logtime');
+    if (!rows.length) {
+      el.innerHTML = '<div class="empty">No logtime data.</div>';
+      return;
+    }
+    const max = Math.max(...rows.map(r => r.hours), 1);
     el.innerHTML = rows.map(r => `
-      <div class="col">
-        <div class="c">${r.count || ''}</div>
-        <div class="b" style="height:${(r.count / max) * 100}%"></div>
-        <div class="x">${esc(r.label)}</div>
+      <div class="logtime-bar-wrap">
+        <div class="logtime-val">${r.hours || ''}</div>
+        <div class="logtime-bar" style="height:${(r.hours / max) * 100}%"></div>
+        <div class="logtime-day">${esc(r.day)}</div>
       </div>`).join('');
   }
 
+  /* ── Stamp / sync indicator ─────────────────────────────────── */
   function renderStamp(iso) {
     const el = document.getElementById('stamp');
-    if (!iso) { el.textContent = 'no data yet'; el.classList.add('stale'); return; }
+    const dot = document.getElementById('sync-dot');
+    if (!iso) {
+      el.textContent = 'no data yet';
+      el.classList.add('stale');
+      dot.classList.add('off');
+      return;
+    }
     const age = Date.now() - new Date(iso).getTime();
-    el.textContent = 'updated ' + ago(Math.floor(age / 1000));
-    // Never lie about freshness: if the fetcher has died, say so quietly.
-    el.classList.toggle('stale', age > STALE_MS);
+    const stale = age > STALE_MS;
+    el.textContent = 'Synced · ' + ago(Math.floor(age / 1000));
+    el.classList.toggle('stale', stale);
+    dot.classList.toggle('off', stale);
   }
 
+  /* ── Orchestrator ───────────────────────────────────────────── */
   function render(metrics, lastRefresh) {
-    renderFeed(metrics.recent_validations || []);
-    renderStats(metrics.pulse || {});
-    renderBars(metrics.coalitions || []);
-    renderHist(metrics.level_distribution || []);
+    const pulse = metrics.pulse || {};
+    const validations = metrics.recent_validations || [];
+
+    renderAvatarGrid(validations, pulse);
+    renderRadials(pulse);
+    renderSubmissions(validations);
+    renderMetricGrid(metrics);
+    renderZombies(metrics.zombies || []);
+    renderDonut(metrics.active_projects || []);
+    renderEvaluators(metrics.top_evaluators || []);
+    renderLogtime(metrics.weekly_logtime || []);
+
     if (lastRefresh) latestRefresh = lastRefresh;
     renderStamp(latestRefresh);
   }
@@ -231,8 +907,6 @@
       const data = await res.json();
       render(data.metrics, data.last_refresh);
     } catch (e) {
-      // Offline or server restarting: keep showing what's on screen, let the
-      // timestamp go stale on its own. Never blank the TV.
       console.warn('poll failed', e);
     }
   }

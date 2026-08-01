@@ -207,6 +207,222 @@ def validations_since(
     return total
 
 
+def avg_level(cursus_users: Iterable[Json]) -> float:
+    """Mean level across active (non-blackholed) cursus users."""
+    levels = [
+        float(cu["level"])
+        for cu in cursus_users
+        if cu.get("level") is not None and not cu.get("blackholed_at")
+    ]
+    if not levels:
+        return 0.0
+    return round(sum(levels) / len(levels), 1)
+
+
+def avg_session_hours(
+    locations: Iterable[Json], now: datetime | None = None
+) -> float:
+    """Mean session duration in hours.
+
+    Active sessions (no end_at) measure begin_at → now.
+    """
+    now = now or datetime.now(timezone.utc)
+    durations: list[float] = []
+    for loc in locations:
+        begin = parse_dt(loc.get("begin_at"))
+        if begin is None:
+            continue
+        end = parse_dt(loc.get("end_at")) or now
+        hours = max(0.0, (end - begin).total_seconds()) / 3600
+        durations.append(hours)
+    if not durations:
+        return 0.0
+    return round(sum(durations) / len(durations), 1)
+
+
+def weekly_pass_count(
+    projects_users: Iterable[Json],
+    days: int = 7,
+    now: datetime | None = None,
+) -> int:
+    """Count finished projects with mark >= 75 in the last N days."""
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=days)
+    count = 0
+    for pu in projects_users:
+        if pu.get("status") != "finished":
+            continue
+        if (pu.get("final_mark") or 0) < 75:
+            continue
+        marked = parse_dt(pu.get("marked_at"))
+        if marked and marked >= cutoff:
+            count += 1
+    return count
+
+
+def evals_completed_count(
+    projects_users: Iterable[Json],
+    days: int = 7,
+    now: datetime | None = None,
+) -> int:
+    """Peer evaluation count approximated from validated projects.
+
+    Without scale_teams (needs elevated access or returns 422 via /graph),
+    each validated project implies at least one completed peer review.
+    """
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=days)
+    count = 0
+    for pu in projects_users:
+        if not is_validated(pu):
+            continue
+        marked = parse_dt(pu.get("marked_at"))
+        if marked and marked >= cutoff:
+            count += 1
+    return count
+
+
+def sleepless_zombies(
+    locations: Iterable[Json],
+    days: int = 7,
+    limit: int = 5,
+    now: datetime | None = None,
+) -> list[Json]:
+    """Top N users by total campus hours in the last N days."""
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=days)
+    hours_by_user: dict[str, float] = defaultdict(float)
+    user_cards: dict[str, Json] = {}
+
+    for loc in locations:
+        begin = parse_dt(loc.get("begin_at"))
+        if begin is None:
+            continue
+        end = parse_dt(loc.get("end_at")) or now
+        if end < cutoff:
+            continue
+        effective_begin = max(begin, cutoff)
+        hours = max(0.0, (end - effective_begin).total_seconds()) / 3600
+
+        user = loc.get("user") or {}
+        login = user.get("login", "unknown")
+        hours_by_user[login] += hours
+        if login not in user_cards:
+            user_cards[login] = _user_card(user)
+
+    ranked = sorted(hours_by_user.items(), key=lambda x: x[1], reverse=True)[:limit]
+    return [
+        {"user": user_cards[login], "hours": round(h, 1), "rank": i + 1}
+        for i, (login, h) in enumerate(ranked)
+    ]
+
+
+def active_projects_dist(
+    projects_users: Iterable[Json], limit: int = 8
+) -> list[Json]:
+    """In-progress projects grouped by name with percentages for donut chart."""
+    counts: Counter[str] = Counter()
+    for pu in projects_users:
+        if pu.get("status") != "in_progress":
+            continue
+        project = pu.get("project") or {}
+        name = project.get("name") or project.get("slug")
+        if name:
+            counts[name] += 1
+
+    total = sum(counts.values())
+    if not total:
+        return []
+
+    palette = [
+        "#6366f1", "#ec4899", "#ef4444", "#f59e0b",
+        "#f97316", "#8b5cf6", "#06b6d4", "#10b981",
+    ]
+    items = counts.most_common(limit)
+    return [
+        {
+            "project": name,
+            "count": n,
+            "pct": round(100 * n / total, 1),
+            "color": palette[i % len(palette)],
+        }
+        for i, (name, n) in enumerate(items)
+    ]
+
+
+def top_evaluators(
+    projects_users: Iterable[Json],
+    days: int = 14,
+    limit: int = 4,
+    now: datetime | None = None,
+) -> list[Json]:
+    """Top N users by validated project count (proxy for evaluations given).
+
+    Without direct scale_teams access, the best available signal for
+    "who contributes most evaluations" is how many projects they completed.
+    """
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=days)
+    eval_counts: Counter[str] = Counter()
+    user_cards: dict[str, Json] = {}
+
+    for pu in projects_users:
+        if not is_validated(pu):
+            continue
+        marked = parse_dt(pu.get("marked_at"))
+        if not marked or marked < cutoff:
+            continue
+        user = pu.get("user") or {}
+        login = user.get("login", "unknown")
+        eval_counts[login] += 1
+        if login not in user_cards:
+            user_cards[login] = _user_card(user)
+
+    return [
+        {"user": user_cards[login], "count": n}
+        for login, n in eval_counts.most_common(limit)
+    ]
+
+
+def weekly_logtime(
+    locations: Iterable[Json],
+    days: int = 7,
+    now: datetime | None = None,
+) -> list[Json]:
+    """Cumulative campus hours by day of week for a bar chart.
+
+    Long sessions are split at midnight boundaries so each day gets
+    its correct share of the hours.
+    """
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=days)
+    day_names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    hours_by_day: dict[int, float] = defaultdict(float)
+
+    for loc in locations:
+        begin = parse_dt(loc.get("begin_at"))
+        if begin is None:
+            continue
+        end = parse_dt(loc.get("end_at")) or now
+        if end < cutoff:
+            continue
+
+        cursor = max(begin, cutoff)
+        while cursor < end:
+            next_midnight = (cursor + timedelta(days=1)).replace(
+                hour=0, minute=0, second=0, microsecond=0
+            )
+            segment_end = min(end, next_midnight)
+            hours = max(0.0, (segment_end - cursor).total_seconds()) / 3600
+            hours_by_day[cursor.weekday()] += hours
+            cursor = segment_end
+
+    return [
+        {"day": day_names[i], "hours": round(hours_by_day.get(i, 0), 1)}
+        for i in range(7)
+    ]
+
+
 def build_metrics(
     *,
     projects_users: list[Json],
@@ -222,6 +438,7 @@ def build_metrics(
 
     return {
         "generated_at": now.isoformat(),
+        # Page 1
         "pulse": {
             "on_campus": active_now(locations),
             "validated_this_week": validations_since(projects_users, days=7, now=now),
@@ -233,4 +450,14 @@ def build_metrics(
         "level_distribution": level_distribution(cursus_users),
         "coalitions": coalition_standings(coalitions),
         "level_ups": level_ups(cursus_users, previous_cursus_users),
+        # Page 2 — Hall of Fame & Telemetry
+        "average_level": avg_level(cursus_users),
+        "average_session": avg_session_hours(locations, now=now),
+        "weekly_passes": weekly_pass_count(projects_users, now=now),
+        "evals_completed": evals_completed_count(projects_users, now=now),
+        "zombies": sleepless_zombies(locations, now=now),
+        # Page 3 — Projects & Peer Analytics
+        "active_projects": active_projects_dist(projects_users),
+        "top_evaluators": top_evaluators(projects_users, now=now),
+        "weekly_logtime": weekly_logtime(locations, now=now),
     }

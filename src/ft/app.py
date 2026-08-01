@@ -42,6 +42,14 @@ EMPTY: dict[str, Any] = {
     "level_distribution": [],
     "coalitions": [],
     "level_ups": [],
+    "average_level": 0,
+    "average_session": 0,
+    "weekly_passes": 0,
+    "evals_completed": 0,
+    "zombies": [],
+    "active_projects": [],
+    "top_evaluators": [],
+    "weekly_logtime": [],
 }
 
 
