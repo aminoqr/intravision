@@ -37,6 +37,8 @@ EMPTY: dict[str, Any] = {
         "active_students": 0,
         "median_level": 0,
     },
+    "active_on_campus": [],
+    "cluster_capacity": [],
     "recent_validations": [],
     "project_popularity": [],
     "level_distribution": [],

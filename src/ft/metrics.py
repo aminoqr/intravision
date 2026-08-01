@@ -9,6 +9,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from typing import Any, Iterable
+import re
 
 Json = dict[str, Any]
 
@@ -151,6 +152,59 @@ def active_now(locations: Iterable[Json]) -> int:
     Drifts high when students forget to log out. Present as approximate.
     """
     return sum(1 for loc in locations if not loc.get("end_at"))
+
+
+def active_on_campus(locations: Iterable[Json]) -> list[Json]:
+    """Every cadet currently logged into a campus host (from locations).
+
+    No length cap — the TV carousel loops the full list when it overflows.
+    """
+    seen: set[str] = set()
+    rows: list[Json] = []
+    for loc in locations:
+        if loc.get("end_at"):
+            continue
+        user = loc.get("user") or {}
+        login = user.get("login")
+        if not login or login in seen:
+            continue
+        seen.add(login)
+        card = _user_card(user)
+        card["host"] = loc.get("host") or ""
+        rows.append(card)
+    return rows
+
+
+WARSAW_CLUSTER_SEATS = {"C1": 52, "C2": 36, "C3": 64}
+
+
+def cluster_capacity(locations: Iterable[Json]) -> list[Json]:
+    """Occupied seats vs physical station count per cluster (C1/C2/C3).
+
+    Parses the ``host`` field (e.g. ``c1r8s4``) — the first two characters
+    tell which cluster the student is sitting in right now.
+
+    Max stations are the real 42 Warsaw campus counts:
+    C1 = 52, C2 = 36, C3 = 64, Total = 152.
+    """
+    occupied: dict[str, int] = {"C1": 0, "C2": 0, "C3": 0}
+    for loc in locations:
+        if loc.get("end_at"):
+            continue
+        host = (loc.get("host") or "").lower()
+        match = re.match(r"^c([123])", host)
+        if match:
+            occupied[f"C{match.group(1)}"] += 1
+
+    occupied_total = sum(occupied.values())
+    max_total = sum(WARSAW_CLUSTER_SEATS.values())
+
+    return [
+        {"key": "Total", "value": occupied_total, "max": max_total, "color": "#0A84FF"},
+        {"key": "C1", "value": occupied["C1"], "max": WARSAW_CLUSTER_SEATS["C1"], "color": "#FFD60A"},
+        {"key": "C2", "value": occupied["C2"], "max": WARSAW_CLUSTER_SEATS["C2"], "color": "#30D158"},
+        {"key": "C3", "value": occupied["C3"], "max": WARSAW_CLUSTER_SEATS["C3"], "color": "#FF453A"},
+    ]
 
 
 def level_ups(
@@ -318,9 +372,9 @@ def sleepless_zombies(
 
 
 def active_projects_dist(
-    projects_users: Iterable[Json], limit: int = 8
+    projects_users: Iterable[Json], limit: int = 10
 ) -> list[Json]:
-    """In-progress projects grouped by name with percentages for donut chart."""
+    """Top 10 in-progress projects grouped by name with percentages for donut chart."""
     counts: Counter[str] = Counter()
     for pu in projects_users:
         if pu.get("status") != "in_progress":
@@ -337,6 +391,7 @@ def active_projects_dist(
     palette = [
         "#6366f1", "#ec4899", "#ef4444", "#f59e0b",
         "#f97316", "#8b5cf6", "#06b6d4", "#10b981",
+        "#a855f7", "#14b8a6",
     ]
     items = counts.most_common(limit)
     return [
@@ -429,6 +484,7 @@ def build_metrics(
     cursus_users: list[Json],
     coalitions: list[Json],
     locations: list[Json],
+    locations_recent: list[Json] | None = None,
     previous_cursus_users: list[Json] | None = None,
     now: datetime | None = None,
 ) -> Json:
@@ -445,6 +501,8 @@ def build_metrics(
             "active_students": len(active_students),
             "median_level": median_level(cursus_users),
         },
+        "active_on_campus": active_on_campus(locations),
+        "cluster_capacity": cluster_capacity(locations),
         "recent_validations": recent_validations(projects_users, limit=12, now=now),
         "project_popularity": project_popularity(projects_users),
         "level_distribution": level_distribution(cursus_users),

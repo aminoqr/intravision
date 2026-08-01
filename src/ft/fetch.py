@@ -72,7 +72,7 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
             rows = list(client.paginate("/v2/coalitions", max_pages=2))
         return rows
 
-    def locations() -> list[Json]:
+    def locations_active() -> list[Json]:
         return list(
             client.paginate(
                 f"/v2/campus/{campus}/locations",
@@ -81,11 +81,30 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
             )
         )
 
+    def locations_recent() -> list[Json]:
+        """All sessions in the past 7 days — both active and ended.
+
+        Unique hosts from this set give us the real station count per cluster
+        without guessing or hardcoding seat numbers.
+        """
+        week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+        return list(
+            client.paginate(
+                f"/v2/campus/{campus}/locations",
+                params={
+                    "range[begin_at]": f"{week_ago},{datetime.now(timezone.utc).isoformat()}",
+                    "sort": "-begin_at",
+                },
+                max_pages=10,
+            )
+        )
+
     return {
         "projects_users": _safe("projects_users", projects_users),
         "cursus_users": _safe("cursus_users", cursus_users),
         "coalitions": _safe("coalitions", coalitions),
-        "locations": _safe("locations", locations),
+        "locations": _safe("locations_active", locations_active),
+        "locations_recent": _safe("locations_recent", locations_recent),
     }
 
 
@@ -100,7 +119,7 @@ def dump_fixtures(raw: dict[str, list[Json]], directory: Path = FIXTURES_DIR) ->
 
 def load_fixtures(directory: Path = FIXTURES_DIR) -> dict[str, list[Json]]:
     raw: dict[str, list[Json]] = {}
-    for name in ("projects_users", "cursus_users", "coalitions", "locations"):
+    for name in ("projects_users", "cursus_users", "coalitions", "locations", "locations_recent"):
         path = directory / f"{name}.json"
         raw[name] = json.loads(path.read_text()) if path.exists() else []
     return raw
@@ -131,6 +150,7 @@ def refresh(cfg: Config, use_fixtures: bool = False, save_fixtures: bool = False
         cursus_users=raw["cursus_users"],
         coalitions=raw["coalitions"],
         locations=raw["locations"],
+        locations_recent=raw.get("locations_recent", []),
         previous_cursus_users=previous,
     )
     metrics["source"] = source

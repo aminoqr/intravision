@@ -4,154 +4,191 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1920, height=1080, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Intra-Vision — 42 Warsaw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   /* TV display: 1920x1080 @ 30Hz, viewed from across the room, no pointer.
-     Apple control-center chassis: dark matte charcoal canvas, one frosted
-     slate console per view, polished light glass cards inside.
+     Premium moody dark atmospheric canvas + multi-layered liquid glass system.
      All motion is slow and transform-based (hardware-accelerated). */
 
   :root {
-    --canvas: #1E2022;
-    --console-bg: rgba(44, 46, 51, 0.4);
-    --console-border: rgba(255, 255, 255, 0.1);
-    --shell-bg: rgba(245, 245, 247, 0.95);
-    --shell-border: rgba(255, 255, 255, 0.6);
-    --pill-bg: rgba(229, 229, 234, 0.5);
+    /* ── Soft warm-gray gradient canvas ────────────────────────────── */
+    --canvas-from: #D8DCE3;
+    --canvas-to: #C2C7D0;
+
+    /* ── Glass chassis (the unified floating board) ───────────────── */
+    --console-bg: rgba(255, 255, 255, 0.28);
+    --console-border: rgba(255, 255, 255, 0.55);
+
+    /* ── Liquid glass widget panes ───────────────────────────────── */
+    --shell-bg: rgba(255, 255, 255, 0.45);
+    --shell-border: rgba(255, 255, 255, 0.70);
+
+    /* ── Typography on light backgrounds ──────────────────────────── */
     --title: #0f172a;
     --body: #1e293b;
     --dim: #64748b;
     --muted: #94a3b8;
-    --track: #E5E5EA;
+
+    /* ── Gauge / data tracks ─────────────────────────────────────── */
+    --track: #D1D5DB;
+
+    /* ── Accent palette for gauges & indicators ───────────────────── */
     --accent-blue: #0A84FF;
-    --accent-yellow: #FFD60A;
+    --accent-yellow: #FFB300;
     --accent-green: #30D158;
     --accent-red: #FF453A;
     --accent-orange: #f97316;
+
+    /* ── Glass bevel shadow (per-widget floating effect) ──────────── */
+    --glass-bevel:
+      inset 1px 1px 0px rgba(255, 255, 255, 0.85),
+      inset -1px -1px 0px rgba(0, 0, 0, 0.03),
+      0 14px 36px rgba(80, 90, 120, 0.18),
+      0 6px 12px rgba(80, 90, 120, 0.10);
+
+    /* ── Floating title capsule shadow ────────────────────────────── */
+    --title-float:
+      0 8px 18px rgba(80, 90, 120, 0.14),
+      0 3px 6px rgba(80, 90, 120, 0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
     width: 100%; height: 100%;
-    background: var(--canvas);
+    background: linear-gradient(135deg, var(--canvas-from) 0%, var(--canvas-to) 100%);
     color: var(--body);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
     overflow: hidden;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     user-select: none;
   }
 
-  /* ── Ambient depth glow on the dark canvas ───────────────────── */
+  /* ── High-Contrast Atmospheric Backplane ─────────────────────── */
+  /* Three massive blurred ambient glow circles for dynamic multi-tone depth */
   .ambient {
     position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
   }
   .blob {
     position: absolute; border-radius: 50%;
-    filter: blur(140px); -webkit-filter: blur(140px);
+    filter: blur(160px); -webkit-filter: blur(160px);
+    opacity: 0.45;
     will-change: transform;
   }
   .blob-1 {
-    width: 55vh; height: 55vh;
-    background: var(--accent-blue);
-    opacity: 0.10;
-    top: -8vh; left: 5vw;
-    animation: drift1 28s ease-in-out infinite;
+    width: 80vh; height: 80vh;
+    background: #FFFFFF;
+    top: -25vh; left: -10vw;
+    animation: drift1 34s ease-in-out infinite;
   }
   .blob-2 {
-    width: 48vh; height: 48vh;
-    background: var(--accent-yellow);
-    opacity: 0.07;
-    top: 30vh; right: -5vw;
-    animation: drift2 32s ease-in-out infinite;
+    width: 65vh; height: 65vh;
+    background: #A8C4E0;
+    top: 15vh; right: -8vw;
+    animation: drift2 40s ease-in-out infinite;
   }
   .blob-3 {
-    width: 60vh; height: 60vh;
-    background: #6366f1;
-    opacity: 0.10;
-    bottom: -12vh; left: 35vw;
-    animation: drift3 26s ease-in-out infinite;
+    width: 75vh; height: 75vh;
+    background: #B8BEC8;
+    bottom: -28vh; left: 30vw;
+    animation: drift3 36s ease-in-out infinite;
   }
   @keyframes drift1 {
     0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    33%      { transform: translate3d(6vw, 8vh, 0) scale(1.06); }
+    33%      { transform: translate3d(5vw, 7vh, 0) scale(1.08); }
     66%      { transform: translate3d(-4vw, 3vh, 0) scale(0.94); }
   }
   @keyframes drift2 {
     0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    40%      { transform: translate3d(-8vw, -6vh, 0) scale(1.08); }
-    70%      { transform: translate3d(3vw, 5vh, 0) scale(0.96); }
+    40%      { transform: translate3d(-7vw, -5vh, 0) scale(1.07); }
+    70%      { transform: translate3d(4vw, 4vh, 0) scale(0.95); }
   }
   @keyframes drift3 {
     0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    50%      { transform: translate3d(5vw, -7vh, 0) scale(1.05); }
+    50%      { transform: translate3d(5vw, -7vh, 0) scale(1.06); }
   }
 
-  /* ── The floating console chassis (per view) ─────────────────── */
+  /* ── Multi-Layered Floating Glass Chassis ────────────────────── */
   .console {
     background: var(--console-bg);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
     border: 1px solid var(--console-border);
     border-radius: 2.5rem;
-    padding: 2.8vh 1.5vw;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    display: flex; gap: 1.3vw;
+    padding: 2rem;
+    box-shadow:
+      0 20px 50px rgba(100, 110, 140, 0.15),
+      0 8px 16px rgba(100, 110, 140, 0.08);
+    display: flex; gap: 1.5rem;
     flex: 1; height: 100%;
+    min-height: 0;
   }
 
-  /* ── Polished light glass shell (the cards) ──────────────────── */
+  /* ── Floating Glass Widget Panes — each with independent shadow ─ */
   .glass {
     background: var(--shell-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid var(--shell-border);
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    box-shadow: var(--glass-bevel);
     border-radius: 2rem;
+    transform: translate3d(0, 0, 0);
+    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
   }
 
-  /* ── Pill category header inside every card ──────────────────── */
+  /* ── Floating Title Capsules with Independent Elevation Shadows ─ */
   .pill-header {
-    background: var(--pill-bg);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ffffff;
     border-radius: 999px;
     text-align: center;
-    padding: 1.3vh 2vw;
-    font-size: 1.9vh; font-weight: 700; color: var(--body);
-    letter-spacing: 0.06em; text-transform: uppercase;
-    margin: 2.2vh 1.6vw 2.4vh;
+    padding: 1.4vh 1.8vw;
+    font-size: 2vh; font-weight: 800; color: #1e293b;
+    letter-spacing: 0.02em; text-transform: uppercase;
+    margin: 2.4vh 1.8vw 2.6vh;
     flex-shrink: 0;
+    box-shadow: var(--title-float);
   }
 
-  /* ── Floating glass header strip (dark canvas zone) ──────────── */
+  /* ── Floating glass header strip (dark atmospheric) ──────────── */
   header {
     position: fixed; top: 1.8vh; left: 2vw; right: 2vw; height: 6.8vh;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 2.5vw;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.80);
     border-radius: 999px;
-    color: #fff;
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.80),
+      0 10px 30px rgba(100, 110, 140, 0.12);
+    color: var(--title);
     z-index: 10;
   }
   .brand {
     font-size: 2.2vh; font-weight: 700; letter-spacing: 0.25em;
-    color: #fff; text-transform: uppercase;
+    color: var(--title); text-transform: uppercase;
   }
   .status-bar {
     display: flex; align-items: center; gap: 1.2vw;
   }
   .sync-pill {
     display: flex; align-items: center; gap: 0.7vw;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.95);
     border-radius: 999px;
     padding: 0.9vh 1.4vw;
-    font-size: 1.8vh; font-weight: 600; color: rgba(255, 255, 255, 0.9);
+    font-size: 1.8vh; font-weight: 600; color: var(--dim);
+    box-shadow: var(--title-float);
   }
-  .stamp { transition: color 1s ease; }
+  .stamp { transition: color 1s ease; color: var(--body); }
   .stamp.stale { color: var(--accent-orange); }
   .sync-dot {
     width: 1.3vh; height: 1.3vh; border-radius: 50%;
@@ -184,25 +221,28 @@
   .card-students {
     flex: 3;
     display: flex; flex-direction: column; overflow: hidden;
+    min-height: 0;
+    position: relative;
   }
   .card-capacity {
     flex: 1.4;
     display: flex; flex-direction: column; overflow: hidden;
+    min-height: 0;
   }
 
-  /* Masked orbital-flow container: hides overflow, never scrollbars. */
+  /* Absolute overflow-hidden mask — chassis never grows or clips. */
   .avatar-mask {
-    flex: 1; overflow: hidden; position: relative;
-    padding: 0 1.6vw 2vh;
+    position: absolute;
+    top: 9.5vh; left: 0; right: 0; bottom: 0;
+    overflow: hidden;
+    padding: 0 1.4vw 2vh;
   }
   .avatar-scroll {
     display: flex; flex-direction: column;
   }
-  /* Seamless infinite vertical loop — two stacked copies of the grid,
-     translated up by exactly one copy's height. Pure GPU transform,
-     40s linear, safe on a 30Hz panel. */
+  /* Seamless infinite vertical carousel — 45s GPU translateY loop. */
   .avatar-scroll.looping {
-    animation: orbitalFlow 40s linear infinite;
+    animation: orbitalFlow 45s linear infinite;
     will-change: transform;
   }
   @keyframes orbitalFlow {
@@ -211,84 +251,106 @@
   }
   .avatar-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2.4vh 1vw;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3.2vh 1vw;
     align-content: start;
-    padding-bottom: 2.4vh;
+    padding-bottom: 3.2vh;
   }
   .avatar-cell {
-    display: flex; flex-direction: column; align-items: center; gap: 1vh;
-    transition: all 700ms ease-out;
+    display: flex; flex-direction: column; align-items: center;
+    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+  .avatar-frame {
+    position: relative;
+    padding: 0.6vh;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.95),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.04),
+      0 12px 28px rgba(80, 90, 120, 0.22),
+      0 4px 10px rgba(80, 90, 120, 0.12);
+    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+  .avatar-frame.hero {
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.95),
+      0 0 0 3px #ffffff,
+      0 0 0 6px var(--accent-orange),
+      0 14px 32px rgba(249, 115, 22, 0.28),
+      0 6px 14px rgba(80, 90, 120, 0.16);
+  }
+  .avatar-frame.hero .avatar-wrap::after {
+    content: "🔥";
+    position: absolute; bottom: -0.4vh; right: -0.6vh;
+    font-size: 3.6vh; line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+    z-index: 2;
   }
   .avatar-wrap {
-    position: relative; width: 9vh; height: 9vh;
+    position: relative; width: 14vh; height: 14vh;
     border-radius: 50%; overflow: visible;
     transition: transform 700ms ease-out;
   }
   .avatar-wrap img {
     width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
     background: var(--track);
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
-  }
-  .avatar-wrap.hero img {
-    border: none;
-    box-shadow:
-      0 0 0 2px #F5F5F7,
-      0 0 0 6px var(--accent-orange),
-      0 4px 14px rgba(249, 115, 22, 0.35);
-  }
-  .avatar-wrap.hero::after {
-    content: "🔥";
-    position: absolute; bottom: -0.8vh; right: -0.8vh;
-    font-size: 3vh; line-height: 1;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+    border: 3px solid rgba(255, 255, 255, 0.95);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
   }
   .avatar-name {
-    font-size: 2vh; font-weight: 700; color: var(--title);
+    font-size: 2.3vh; font-weight: 800; color: var(--title);
     letter-spacing: -0.02em; text-transform: lowercase;
-    text-align: center; max-width: 11vw;
+    text-align: center; max-width: 14vw;
+    margin-top: 1.4vh;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
 
-  /* ── Page 1: 2x2 control gauge matrix ────────────────────────── */
+  /* ── Page 1: Clusters Capacity 2x2 matrix ────────────────────── */
   .radial-grid {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 3vh 1.2vw;
-    padding: 0 1.4vw 2.4vh;
+    gap: 2vh 1vw;
+    padding: 0 1vw 2vh;
     flex: 1; align-content: center;
   }
   .radial-cell {
     display: flex; flex-direction: column; align-items: center;
   }
   .gauge-wrap {
-    position: relative; width: 16vh; height: 16vh;
+    position: relative; width: 20vh; height: 20vh;
   }
   .radial-svg {
     width: 100%; height: 100%;
     transform: rotate(-90deg);
   }
   .radial-track {
-    fill: none; stroke: var(--track); stroke-width: 12;
+    fill: none; stroke: var(--track); stroke-width: 10;
   }
   .radial-fill {
-    fill: none; stroke-width: 12; stroke-linecap: round;
-    transition: stroke-dashoffset 1s ease-out;
+    fill: none; stroke-width: 10; stroke-linecap: round;
+    transition: stroke-dashoffset 1.2s ease-out;
   }
   .gauge-center {
     position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.6vh; font-weight: 700; color: var(--title);
-    letter-spacing: -0.02em;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.3vh;
   }
-  .gauge-fraction {
-    font-size: 2.9vh; font-weight: 900; color: var(--title);
-    letter-spacing: -0.02em; margin-top: 1.6vh;
+  .gauge-label {
+    font-size: 2.4vh; font-weight: 800; color: var(--title);
+    letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .gauge-sub-fraction {
+    font-size: 2.8vh; font-weight: 900; color: var(--title);
+    letter-spacing: -0.02em; margin-top: 1.4vh;
   }
 
   .empty { font-size: 2.8vh; color: var(--dim); margin: auto; font-weight: 500; }
 
-  /* ── Page 2: Hall of Fame bento ──────────────────────────────── */
+  /* ── Page 2: Column layout ────────────────────────────────────── */
   .fame-left {
     flex: 1.1;
     display: flex; flex-direction: column; overflow: hidden;
@@ -302,85 +364,108 @@
     display: flex; flex-direction: column; overflow: hidden;
   }
 
+  /* ── Page 2: Recent Submissions floating capsules ─────────────── */
   .submissions-list {
-    display: flex; flex-direction: column; gap: 1.5vh;
-    padding: 0 1.5vw 2vh; flex: 1; justify-content: center;
+    display: flex; flex-direction: column; gap: 2vh;
+    padding: 0 1.2vw 2vh; flex: 1; justify-content: center;
   }
   .sub-card {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 16px;
-    padding: 1.8vh 1.5vw;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    border-radius: 1.2rem;
+    padding: 2.2vh 1.4vw;
     display: flex; align-items: center; gap: 1.2vw;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-    transition: all 700ms ease-out;
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
+      0 8px 24px rgba(80, 90, 120, 0.14);
+    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    transform: translate3d(0, 0, 0);
   }
   .sub-avatar {
-    width: 7vh; height: 7vh; border-radius: 50%; object-fit: cover;
+    width: 10vh; height: 10vh; border-radius: 50%; object-fit: cover;
     background: var(--track); flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    border: 3px solid rgba(255, 255, 255, 0.90);
+    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.18);
   }
   .sub-info {
     flex: 1; min-width: 0;
   }
   .sub-name {
-    font-size: 2.2vh; font-weight: 700; color: var(--title);
+    font-size: 2.6vh; font-weight: 700; color: var(--title);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    letter-spacing: -0.01em;
   }
   .sub-detail {
-    font-size: 1.7vh; color: var(--dim); margin-top: 0.3vh;
+    font-size: 1.8vh; color: var(--dim); margin-top: 0.5vh;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .sub-mark {
-    font-size: 3.5vh; font-weight: 900; color: var(--title);
-    flex-shrink: 0;
+    font-size: 4vh; font-weight: 900; color: #059669;
+    flex-shrink: 0; letter-spacing: -0.03em;
   }
   .sub-max {
-    font-size: 2vh; font-weight: 500; color: var(--dim);
+    font-size: 2.2vh; font-weight: 500; color: var(--dim);
   }
 
+  /* ── Page 2: Campus Telemetry bento 2x2 ───────────────────────── */
   .metric-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 1.5vh 1.2vw;
-    padding: 0 1.5vw 2vh; flex: 1;
+    padding: 0 1.2vw 2vh; flex: 1;
     align-content: center;
   }
   .metric-tile {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 16px;
-    padding: 3vh 1.5vw;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    border-radius: 1.2rem;
+    padding: 3.5vh 1.2vw;
     text-align: center;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
+      0 8px 24px rgba(80, 90, 120, 0.14);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
   }
   .metric-tile .mt-label {
-    font-size: 1.8vh; font-weight: 600; color: var(--dim);
+    font-size: 1.9vh; font-weight: 700; color: var(--dim);
     text-transform: uppercase; letter-spacing: 0.08em;
-    margin-bottom: 1vh;
+    margin-bottom: 1.5vh;
   }
   .metric-tile .mt-value {
-    font-size: 7vh; font-weight: 900; line-height: 1;
-    color: var(--title); letter-spacing: -0.02em;
+    font-size: 7.5vh; font-weight: 900; line-height: 1;
+    color: var(--title); letter-spacing: -0.04em;
   }
 
+  /* ── Page 2: Sleepless Zombies leaderboard ─────────────────────── */
   .zombie-list {
-    display: flex; flex-direction: column; gap: 1.4vh;
-    padding: 0 1.5vw 2vh; flex: 1; justify-content: center;
+    display: flex; flex-direction: column; gap: 1.6vh;
+    padding: 0 1.2vw 2vh; flex: 1; justify-content: center;
   }
   .zombie-row {
     display: flex; align-items: center; gap: 1vw;
-    padding: 1.2vh 1.2vw;
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: 14px;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-    transition: all 700ms ease-out;
+    padding: 1.6vh 1.2vw;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    border-radius: 1rem;
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
+      0 8px 24px rgba(80, 90, 120, 0.14);
+    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    transform: translate3d(0, 0, 0);
   }
   .zombie-rank {
-    width: 4vh; height: 4vh; border-radius: 8px;
+    width: 5.5vh; height: 5.5vh; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 2vh; font-weight: 700; color: #fff;
+    font-size: 2.2vh; font-weight: 900; color: #ffffff;
     flex-shrink: 0;
+    background: var(--accent-green);
+    box-shadow: 0 4px 12px rgba(48, 209, 88, 0.25);
   }
   .zombie-rank.r1 { background: var(--accent-green); }
   .zombie-rank.r2 { background: #22c55e; }
@@ -388,20 +473,24 @@
   .zombie-rank.r4 { background: #86efac; color: var(--title); }
   .zombie-rank.r5 { background: #bbf7d0; color: var(--title); }
   .zombie-avatar {
-    width: 5.5vh; height: 5.5vh; border-radius: 50%; object-fit: cover;
+    width: 8vh; height: 8vh; border-radius: 50%; object-fit: cover;
     background: var(--track); flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    border: 3px solid rgba(255, 255, 255, 0.90);
+    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.18);
   }
   .zombie-name {
-    font-size: 2.1vh; font-weight: 700; color: var(--title);
+    font-size: 2.4vh; font-weight: 700; color: var(--title);
     flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    margin-left: 0.5vw;
   }
   .zombie-hours {
-    font-size: 2.1vh; font-weight: 600; color: var(--dim);
+    font-size: 2.6vh; font-weight: 900; color: var(--dim);
     flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
   }
 
-  /* ── Page 3: Analytics bento ─────────────────────────────────── */
+  /* ── Page 3: Column layout ────────────────────────────────────── */
   .analytics-left {
     flex: 1.3;
     display: flex; flex-direction: column; overflow: hidden;
@@ -409,99 +498,119 @@
   .analytics-right {
     flex: 1;
     display: flex; flex-direction: column; gap: 1.5vh; overflow: visible;
-    background: none; border: none; box-shadow: none;
+    background: none !important; border: none !important; box-shadow: none !important;
   }
   .analytics-right-top {
     flex: 1;
     display: flex; flex-direction: column; overflow: hidden;
   }
   .analytics-right-bottom {
-    flex: 1.1;
+    flex: 1.2;
     display: flex; flex-direction: column; overflow: hidden;
   }
 
+  /* ── Page 3: Donut chart + dual-column legend ─────────────────── */
   .donut-wrap {
-    display: flex; align-items: center; gap: 2.5vw;
-    padding: 0 2.5vw 2vh; flex: 1;
+    display: flex; align-items: center; gap: 2vw;
+    padding: 0 1.5vw 2vh; flex: 1;
   }
   .donut-svg {
-    width: 32vh; height: 32vh; flex-shrink: 0;
+    width: 42vh; height: 42vh; flex-shrink: 0;
   }
   .donut-legend {
-    display: flex; flex-direction: column; gap: 1.6vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.4vh 1.5vw;
+    align-content: center;
   }
   .donut-item {
-    display: flex; align-items: center; gap: 0.8vw;
+    display: flex; align-items: center; gap: 0.6vw;
   }
   .donut-swatch {
-    width: 2vh; height: 2vh; border-radius: 50%; flex-shrink: 0;
+    width: 2.2vh; height: 2.2vh; border-radius: 50%; flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   }
   .donut-label {
-    font-size: 2.1vh; font-weight: 700; color: var(--title);
+    font-size: 2vh; font-weight: 700; color: var(--title);
+    white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+    max-width: 10vw;
   }
   .donut-pct {
-    font-size: 1.8vh; font-weight: 500; color: var(--dim);
+    font-size: 1.7vh; font-weight: 500; color: var(--dim);
     margin-left: 0.3vw;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
 
+  /* ── Page 3: Evaluators — maximized avatars ───────────────────── */
   .evaluators-grid {
-    display: flex; gap: 1.5vw;
+    display: flex; gap: 2vw;
     padding: 0 2vw 2vh; flex: 1;
     align-items: center; justify-content: center;
   }
   .evaluator-cell {
-    display: flex; flex-direction: column; align-items: center; gap: 0.6vh;
+    display: flex; flex-direction: column; align-items: center;
     flex: 1;
   }
   .evaluator-avatar {
-    width: 7.5vh; height: 7.5vh; border-radius: 50%; object-fit: cover;
+    width: 10vh; height: 10vh; border-radius: 50%; object-fit: cover;
     background: var(--track);
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    border: 3px solid rgba(255, 255, 255, 0.90);
+    box-shadow: 0 4px 14px rgba(80, 90, 120, 0.18);
   }
   .evaluator-name {
-    font-size: 1.8vh; font-weight: 700; color: var(--title);
+    font-size: 2.2vh; font-weight: 700; color: var(--title);
     text-align: center; max-width: 10vw;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    margin-top: 1.2vh;
+    letter-spacing: -0.01em;
   }
   .evaluator-count {
-    font-size: 2.4vh; font-weight: 900; color: var(--accent-blue);
+    font-size: 3vh; font-weight: 900; color: var(--accent-blue);
+    margin-top: 0.6vh;
   }
 
+  /* ── Page 3: Weekly logtime bar chart — coral/rose bars ────────── */
   .logtime-chart {
     display: flex; align-items: flex-end; gap: 1.2vw;
-    padding: 0 2.5vw 2vh; flex: 1;
+    padding: 0 2vw 2vh; flex: 1;
   }
   .logtime-bar-wrap {
     flex: 1; display: flex; flex-direction: column;
     justify-content: flex-end; align-items: center; height: 100%;
   }
   .logtime-val {
-    font-size: 1.7vh; font-weight: 700; color: var(--title);
-    margin-bottom: 0.5vh;
+    font-size: 1.8vh; font-weight: 900; color: var(--title);
+    margin-bottom: 0.6vh;
+    font-variant-numeric: tabular-nums;
   }
   .logtime-bar {
-    width: 80%; border-radius: 8px 8px 0 0;
-    background: var(--accent-red);
+    width: 75%; border-radius: 10px 10px 0 0;
+    background: linear-gradient(180deg, #f43f5e 0%, #e11d48 100%);
     transition: height 1s ease-out;
-    min-height: 3px;
-    box-shadow: 0 -2px 6px rgba(255, 69, 58, 0.2);
+    min-height: 4px;
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.25);
   }
   .logtime-day {
-    font-size: 1.7vh; font-weight: 600; color: var(--dim);
-    margin-top: 0.8vh;
+    font-size: 1.9vh; font-weight: 800; color: var(--dim);
+    margin-top: 1vh;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
-  /* ── Floating glass footer marquee (dark canvas zone) ────────── */
+  /* ── Floating glass footer marquee (dark atmospheric) ────────── */
   footer {
     position: fixed; bottom: 1.8vh; left: 2vw; right: 2vw;
     height: 5.8vh;
     display: flex; align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.70);
     border-radius: 999px;
+    box-shadow:
+      0 10px 30px rgba(80, 90, 120, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85);
     overflow: hidden;
     z-index: 10;
   }
@@ -510,7 +619,7 @@
     animation: marqueeScroll 45s linear infinite;
   }
   .marquee-text {
-    font-size: 2vh; font-weight: 500; color: rgba(255, 255, 255, 0.75);
+    font-size: 2vh; font-weight: 500; color: var(--dim);
     padding: 0 4vw;
     font-style: italic;
   }
@@ -526,19 +635,19 @@
   }
   .dot {
     width: 1vh; height: 1vh; border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(100, 116, 139, 0.30);
     transition: all 700ms ease-out;
   }
   .dot.on {
     background: var(--accent-blue);
-    box-shadow: 0 0 8px rgba(10, 132, 255, 0.6);
+    box-shadow: 0 0 8px rgba(10, 132, 255, 0.45);
     transform: scale(1.3);
   }
 </style>
 </head>
 <body>
 
-<!-- Ambient depth glow behind the console -->
+<!-- Atmospheric depth glow behind the console -->
 <div class="ambient">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
@@ -559,7 +668,7 @@
 <!-- ── Main content views ─────────────────────────────────────── -->
 <main>
 
-  <!-- View 1 — Page 1: Active Students + Capacity gauges -->
+  <!-- View 1 — Page 1: Active Students + Clusters Capacity -->
   <section class="view active" data-view="validations">
     <div class="console">
       <div class="card-students glass">
@@ -567,7 +676,7 @@
         <div class="avatar-mask" id="avatar-grid"></div>
       </div>
       <div class="card-capacity glass">
-        <div class="pill-header">Campus Capacity</div>
+        <div class="pill-header">Clusters Capacity</div>
         <div class="radial-grid" id="radials"></div>
       </div>
     </div>
@@ -633,16 +742,18 @@
   const POLL_MS = 30000;
   const STALE_MS = 30 * 60 * 1000;
 
-  const RADIAL_CIRC = 2 * Math.PI * 52;
-  const RADIAL_CONFIGS = [
-    { key: 'on_campus',           center: 'Total',  max: 150, color: 'var(--accent-blue)' },
-    { key: 'validated_this_week', center: 'Valid',  max: 80,  color: 'var(--accent-yellow)' },
-    { key: 'active_students',     center: 'Active', max: 500, color: 'var(--accent-green)' },
-    { key: 'median_level',        center: 'Level',  max: 21,  color: 'var(--accent-red)' },
+  const RADIAL_R = 40;
+  const RADIAL_CIRC = 251.2;
+  // Fallback cluster display if metrics.cluster_capacity is empty (no data yet).
+  const CLUSTER_FALLBACK = [
+    { key: 'Total', value: 0, max: 1, color: '#0A84FF' },
+    { key: 'C1', value: 0, max: 1, color: '#FFB300' },
+    { key: 'C2', value: 0, max: 1, color: '#30D158' },
+    { key: 'C3', value: 0, max: 1, color: '#FF453A' },
   ];
 
   // Above this count the avatar grid switches to the infinite orbital loop.
-  const ORBITAL_THRESHOLD = 15;
+  const ORBITAL_THRESHOLD = 8;
 
   const views = [...document.querySelectorAll('.view')];
   let index = 0;
@@ -660,43 +771,37 @@
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  /* ── Page 1: Avatar orbital flow ─────────────────────────────── */
+  /* ── Page 1: Avatar orbital flow (full locations list) ────────── */
   function avatarCell(u, isHero) {
+    const login = u.login || '?';
+    const initial = (login[0] || '?').toUpperCase();
     const img = u.image
-      ? `<img src="${esc(u.image)}" alt="${esc(u.login)}" loading="lazy">`
-      : `<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect fill='%23E5E5EA' width='80' height='80'/%3E%3Ctext x='40' y='48' text-anchor='middle' fill='%2394a3b8' font-size='28' font-family='system-ui'%3E${esc((u.login[0] || '?')).toUpperCase()}%3C/text%3E%3C/svg%3E" alt="${esc(u.login)}">`;
+      ? `<img src="${esc(u.image)}" alt="${esc(login)}" loading="lazy">`
+      : `<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
     return `
       <div class="avatar-cell">
-        <div class="avatar-wrap ${isHero ? 'hero' : ''}">${img}</div>
-        <div class="avatar-name">${esc(u.login)}</div>
+        <div class="avatar-frame ${isHero ? 'hero' : ''}">
+          <div class="avatar-wrap">${img}</div>
+        </div>
+        <div class="avatar-name">${esc(login)}</div>
       </div>`;
   }
 
-  function renderAvatarGrid(rows, pulse) {
+  function renderAvatarGrid(cadets) {
     const el = document.getElementById('avatar-grid');
     const countEl = document.getElementById('active-count');
-    countEl.textContent = pulse.on_campus || 0;
+    const list = Array.isArray(cadets) ? cadets : [];
+    countEl.textContent = list.length;
 
-    if (!rows.length) {
-      el.innerHTML = '<div class="empty">No recent activity.</div>';
+    if (!list.length) {
+      el.innerHTML = '<div class="empty">Nobody on campus right now.</div>';
       return;
     }
 
-    const seen = new Set();
-    const unique = [];
-    for (const r of rows) {
-      const login = r.user.login;
-      if (!seen.has(login)) {
-        seen.add(login);
-        unique.push(r.user);
-      }
-    }
+    // Full locations payload — do not truncate the source array.
+    const cells = list.map((u, i) => avatarCell(u, i === 0)).join('');
 
-    const cells = unique.map((u, i) => avatarCell(u, i === 0)).join('');
-
-    if (unique.length > ORBITAL_THRESHOLD) {
-      // Two identical copies inside a masked scroller; the keyframe
-      // shifts up by exactly one copy's height for a seamless loop.
+    if (list.length > ORBITAL_THRESHOLD) {
       el.innerHTML = `
         <div class="avatar-scroll looping">
           <div class="avatar-grid">${cells}</div>
@@ -707,29 +812,30 @@
     }
   }
 
-  /* ── Page 1: 2x2 control gauges ─────────────────────────────── */
-  function renderRadials(pulse) {
+  /* ── Page 1: Clusters Capacity gauges (r=40, circ≈251.2) ───── */
+  function renderRadials(clusters) {
     const el = document.getElementById('radials');
-    el.innerHTML = RADIAL_CONFIGS.map(cfg => {
-      const val = pulse[cfg.key] || 0;
-      const pct = Math.min(val / cfg.max, 1);
+    const rows = (clusters && clusters.length) ? clusters : CLUSTER_FALLBACK;
+    el.innerHTML = rows.map(cfg => {
+      const val = cfg.value || 0;
+      const max = cfg.max || 1;
+      const pct = Math.min(val / max, 1);
       const offset = RADIAL_CIRC * (1 - pct);
-      const display = cfg.key === 'median_level'
-        ? (typeof val === 'number' ? val.toFixed(1) : val)
-        : val;
       return `
       <div class="radial-cell">
         <div class="gauge-wrap">
-          <svg class="radial-svg" viewBox="0 0 120 120">
-            <circle class="radial-track" cx="60" cy="60" r="52"/>
-            <circle class="radial-fill" cx="60" cy="60" r="52"
-              stroke="${cfg.color}"
+          <svg class="radial-svg" viewBox="0 0 100 100">
+            <circle class="radial-track" cx="50" cy="50" r="${RADIAL_R}"/>
+            <circle class="radial-fill" cx="50" cy="50" r="${RADIAL_R}"
+              stroke="${esc(cfg.color)}"
               stroke-dasharray="${RADIAL_CIRC}"
               stroke-dashoffset="${offset}"/>
           </svg>
-          <div class="gauge-center">${cfg.center}</div>
+          <div class="gauge-center">
+            <span class="gauge-label">${esc(cfg.key)}</span>
+          </div>
         </div>
-        <div class="gauge-fraction">${display}/${cfg.max}</div>
+        <div class="gauge-sub-fraction">${val}/${max}</div>
       </div>`;
     }).join('');
   }
@@ -741,17 +847,22 @@
       el.innerHTML = '<div class="empty">No recent submissions.</div>';
       return;
     }
-    el.innerHTML = rows.slice(0, 3).map(r => `
+    el.innerHTML = rows.slice(0, 4).map(r => {
+      const login = r.user.login || '?';
+      const initial = (login[0] || '?').toUpperCase();
+      const avatarImg = r.user.image
+        ? `<img class="sub-avatar" src="${esc(r.user.image)}" alt="${esc(login)}" loading="lazy">`
+        : `<img class="sub-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
+      return `
       <div class="sub-card">
-        ${r.user.image
-          ? `<img class="sub-avatar" src="${esc(r.user.image)}" alt="">`
-          : '<div class="sub-avatar"></div>'}
+        ${avatarImg}
         <div class="sub-info">
-          <div class="sub-name">${esc(r.user.login)}</div>
+          <div class="sub-name">${esc(login)}</div>
           <div class="sub-detail">${esc(r.project)} · ${ago(r.age_seconds)}</div>
         </div>
         <div class="sub-mark">${r.mark ?? '—'}<span class="sub-max"> / 100</span></div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
 
   /* ── Page 2: Metric grid ────────────────────────────────────── */
@@ -775,32 +886,37 @@
       el.innerHTML = '<div class="empty">No logtime data yet.</div>';
       return;
     }
-    el.innerHTML = rows.slice(0, 5).map(z => `
+    el.innerHTML = rows.slice(0, 5).map(z => {
+      const login = z.user.login || '?';
+      const initial = (login[0] || '?').toUpperCase();
+      const avatarImg = z.user.image
+        ? `<img class="zombie-avatar" src="${esc(z.user.image)}" alt="${esc(login)}" loading="lazy">`
+        : `<img class="zombie-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
+      return `
       <div class="zombie-row">
         <div class="zombie-rank r${z.rank}">${z.rank}</div>
-        ${z.user.image
-          ? `<img class="zombie-avatar" src="${esc(z.user.image)}" alt="">`
-          : '<div class="zombie-avatar"></div>'}
-        <div class="zombie-name">${esc(z.user.login)}</div>
+        ${avatarImg}
+        <div class="zombie-name">${esc(login)}</div>
         <div class="zombie-hours">${z.hours}h</div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
 
-  /* ── Page 3: Donut chart (SVG) ──────────────────────────────── */
+  /* ── Page 3: Donut chart (SVG) — scaled up with 2-col legend ── */
   function renderDonut(rows) {
     const el = document.getElementById('donut-wrap');
     if (!rows.length) {
       el.innerHTML = '<div class="empty">No active projects.</div>';
       return;
     }
-    const R = 44;
+    const R = 42;
     const CIRC = 2 * Math.PI * R;
     let offset = 0;
     const arcs = rows.map(r => {
       const dash = CIRC * (r.pct / 100);
       const gap = CIRC - dash;
       const arc = `<circle cx="50" cy="50" r="${R}" fill="none"
-        stroke="${r.color}" stroke-width="12"
+        stroke="${r.color}" stroke-width="14"
         stroke-dasharray="${dash} ${gap}"
         stroke-dashoffset="${-offset}"
         transform="rotate(-90 50 50)"/>`;
@@ -820,24 +936,29 @@
       <div class="donut-legend">${legend}</div>`;
   }
 
-  /* ── Page 3: Top evaluators ─────────────────────────────────── */
+  /* ── Page 3: Top evaluators — maximized avatars ────────────── */
   function renderEvaluators(rows) {
     const el = document.getElementById('evaluators');
     if (!rows.length) {
       el.innerHTML = '<div class="empty">No evaluation data.</div>';
       return;
     }
-    el.innerHTML = rows.slice(0, 4).map(e => `
+    el.innerHTML = rows.slice(0, 4).map(e => {
+      const login = e.user.login || '?';
+      const initial = (login[0] || '?').toUpperCase();
+      const avatarImg = e.user.image
+        ? `<img class="evaluator-avatar" src="${esc(e.user.image)}" alt="${esc(login)}" loading="lazy">`
+        : `<img class="evaluator-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
+      return `
       <div class="evaluator-cell">
-        ${e.user.image
-          ? `<img class="evaluator-avatar" src="${esc(e.user.image)}" alt="">`
-          : '<div class="evaluator-avatar"></div>'}
-        <div class="evaluator-name">${esc(e.user.login)}</div>
+        ${avatarImg}
+        <div class="evaluator-name">${esc(login)}</div>
         <div class="evaluator-count">${e.count}</div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
 
-  /* ── Page 3: Weekly logtime bars ────────────────────────────── */
+  /* ── Page 3: Weekly logtime bars — coral/rose fill ─────────── */
   function renderLogtime(rows) {
     const el = document.getElementById('logtime');
     if (!rows.length) {
@@ -845,12 +966,16 @@
       return;
     }
     const max = Math.max(...rows.map(r => r.hours), 1);
-    el.innerHTML = rows.map(r => `
+    el.innerHTML = rows.map(r => {
+      const pct = (r.hours / max) * 100;
+      const valText = r.hours > 0 ? r.hours : '';
+      return `
       <div class="logtime-bar-wrap">
-        <div class="logtime-val">${r.hours || ''}</div>
-        <div class="logtime-bar" style="height:${(r.hours / max) * 100}%"></div>
+        <div class="logtime-val">${valText}</div>
+        <div class="logtime-bar" style="height:${pct}%"></div>
         <div class="logtime-day">${esc(r.day)}</div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
 
   /* ── Stamp / sync indicator ─────────────────────────────────── */
@@ -872,11 +997,10 @@
 
   /* ── Orchestrator ───────────────────────────────────────────── */
   function render(metrics, lastRefresh) {
-    const pulse = metrics.pulse || {};
     const validations = metrics.recent_validations || [];
 
-    renderAvatarGrid(validations, pulse);
-    renderRadials(pulse);
+    renderAvatarGrid(metrics.active_on_campus || []);
+    renderRadials(metrics.cluster_capacity || []);
     renderSubmissions(validations);
     renderMetricGrid(metrics);
     renderZombies(metrics.zombies || []);

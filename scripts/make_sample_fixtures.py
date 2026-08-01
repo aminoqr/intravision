@@ -106,23 +106,60 @@ def main() -> None:
         },
     ]
 
-    locations = [
-        {
-            "id": 30000 + i,
-            "begin_at": (now - timedelta(hours=random.randint(1, 8))).isoformat(),
-            "end_at": None if i < 37 else now.isoformat(),
-            "host": f"w{random.randint(1,4)}r{random.randint(1,6)}p{random.randint(1,20)}",
-            "user": user(random.choice(LOGINS)),
-        }
-        for i in range(60)
-    ]
+    # 42 Warsaw cluster layout: c{cluster}r{row}s{seat}
+    # C1: rows 1-11, seats 1-4 = 44 stations
+    # C2: rows 1-7, seats 1-4  = 28 stations
+    # C3: rows 1-15, seats 1-4 = 60 stations
+    # Total: 132 stations
+
+    all_hosts: list[str] = []
+    for c, max_row in [(1, 11), (2, 7), (3, 15)]:
+        for r in range(1, max_row + 1):
+            for s in range(1, 5):
+                all_hosts.append(f"c{c}r{r}s{s}")
+
+    # Active locations: ~30 students currently logged in (end_at = None)
+    active_hosts = random.sample(all_hosts, min(30, len(all_hosts)))
+    locations_active: list[dict] = []
+    for i, host in enumerate(active_hosts):
+        locations_active.append(
+            {
+                "id": 30000 + i,
+                "begin_at": (now - timedelta(hours=random.randint(1, 8))).isoformat(),
+                "end_at": None,
+                "host": host,
+                "campus_id": 67,
+                "user": user(random.choice(LOGINS)),
+            }
+        )
+
+    # Recent locations (past 7 days): ~200 ended sessions across diverse hosts
+    # This lets cluster_capacity discover the real station count per cluster
+    locations_recent: list[dict] = []
+    for i in range(200):
+        host = random.choice(all_hosts)
+        begin = now - timedelta(hours=random.randint(2, 168))
+        end = begin + timedelta(hours=random.uniform(0.5, 12))
+        if end > now:
+            end = now
+        locations_recent.append(
+            {
+                "id": 40000 + i,
+                "begin_at": begin.isoformat(),
+                "end_at": end.isoformat(),
+                "host": host,
+                "campus_id": 67,
+                "user": user(random.choice(LOGINS)),
+            }
+        )
 
     FIXTURES.mkdir(exist_ok=True)
     for name, rows in [
         ("projects_users", projects_users),
         ("cursus_users", cursus_users),
         ("coalitions", coalitions),
-        ("locations", locations),
+        ("locations", locations_active),
+        ("locations_recent", locations_active + locations_recent),
     ]:
         (FIXTURES / f"{name}.json").write_text(json.dumps(rows, indent=2, ensure_ascii=False))
         print(f"{name}: {len(rows)} rows")
