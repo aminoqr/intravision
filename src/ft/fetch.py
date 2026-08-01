@@ -53,11 +53,22 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
         return list(by_id.values())
 
     def projects_users() -> list[Json]:
-        # Two complementary scopes:
+        """Campus-wide projects_users with no artificial row cap.
+
+        Page 3 active-project spectrum must see EVERY in_progress row on
+        campus — not just the ~12 that happen to fall inside a 14-day
+        marked_at window.
+
+        Intra filter note (see docs/42-api.md + probe results):
+          /v2/projects_users uses filter[campus]=<id>  (NOT filter[campus_id]).
+          Equivalent target URL shape:
+            /v2/projects_users?filter[campus]=67&filter[status]=in_progress&page[size]=100
+
+        There is no SQL projects_users table and no LIMIT 12 anywhere in the
+        store path — metrics are built in Python from this full JSON payload
+        with `status == "in_progress"` and zero row caps on that filter.
+        """
         # 1) Recently marked — feeds fame / validations / weekly pass panels.
-        # 2) All in_progress on campus — feeds Page 3 active-project spectrum
-        #    (the old marked_at window alone capped us at ~12 active rows).
-        # Intra uses filter[campus] (not campus_id) on this collection; see docs/42-api.md.
         recent = list(
             client.paginate(
                 "/v2/projects_users",
@@ -65,17 +76,20 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
                     "filter[campus]": campus,
                     "range[marked_at]": f"{since},{today}",
                     "sort": "-marked_at",
+                    "page[size]": 100,
                 },
                 page_size=100,
                 max_pages=cfg.max_pages,
             )
         )
+        # 2) All in_progress on campus — feeds Page 3 active-project spectrum.
         in_progress = list(
             client.paginate(
                 "/v2/projects_users",
                 params={
                     "filter[campus]": campus,
                     "filter[status]": "in_progress",
+                    "page[size]": 100,
                 },
                 page_size=100,
                 max_pages=cfg.max_pages,
@@ -83,7 +97,7 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
         )
         merged = _merge_by_id(recent, in_progress)
         log.info(
-            "projects_users merge: recent=%d in_progress=%d unique=%d",
+            "projects_users merge: recent=%d in_progress=%d unique=%d (no LIMIT)",
             len(recent),
             len(in_progress),
             len(merged),
@@ -94,7 +108,7 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
         return list(
             client.paginate(
                 f"/v2/cursus/{cfg.cursus_id}/cursus_users",
-                params={"filter[campus_id]": campus},
+                params={"filter[campus_id]": campus, "page[size]": 100},
                 page_size=100,
                 max_pages=cfg.max_pages,
             )
@@ -113,17 +127,24 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
         return list(
             client.paginate(
                 f"/v2/campus/{campus}/locations",
-                params={"filter[active]": "true"},
+                params={"filter[active]": "true", "page[size]": 100},
                 page_size=100,
                 max_pages=5,
             )
         )
 
     def locations_recent() -> list[Json]:
-        """All campus sessions whose begin_at falls in the rolling 7-day window.
+        """Campus location history for the rolling absolute past 7 days.
 
-        Explicit UTC midnight start → now, page[size]=100. Feeds weekly logtime
-        and sleepless-zombie totals (active-only locations are not enough).
+        Target shape (dates computed dynamically via datetime.now(UTC)):
+          GET /v2/campus/{id}/locations
+            ?range[begin_at]=<UTC-midnight-7d>,<now>
+            &sort=-begin_at
+            &page[size]=100
+
+        Feeds Page 3 weekly_logtime_data and Page 2 sleepless zombies.
+        Active-only locations are NOT enough — they collapse the chart to
+        "today only" (e.g. Saturday-only bars).
         """
         now_utc = datetime.now(timezone.utc)
         window_start = (now_utc - timedelta(days=7)).replace(
@@ -133,11 +154,37 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
             client.paginate(
                 f"/v2/campus/{campus}/locations",
                 params={
-                    "range[begin_at]": f"{window_start.isoformat()},{now_utc.isoformat()}",
+                    "range[begin_at]": (
+                        f"{window_start.strftime('%Y-%m-%dT%H:%M:%S.000Z')},"
+                        f"{now_utc.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3]}Z"
+                    ),
                     "sort": "-begin_at",
+                    "page[size]": 100,
                 },
                 page_size=100,
                 max_pages=20,
+            )
+        )
+
+    def scale_teams() -> list[Json]:
+        """Filled peer evaluations (corrector → evaluatee) when the app role allows.
+
+        Soft-fails via `_safe` on many unprivileged apps (400/timeout). Empty
+        list triggers the metrics fallback that still credits evaluations given
+        to OTHER cadets (never self).
+        """
+        since = (datetime.now(timezone.utc) - timedelta(days=45)).date().isoformat()
+        return list(
+            client.paginate(
+                "/v2/scale_teams",
+                params={
+                    "filter[campus_id]": campus,
+                    "filter[filled]": "true",
+                    "range[filled_at]": f"{since},{today}",
+                    "page[size]": 100,
+                },
+                page_size=100,
+                max_pages=min(cfg.max_pages, 10),
             )
         )
 
@@ -147,6 +194,7 @@ def fetch_raw(client: FtClient, cfg: Config) -> dict[str, list[Json]]:
         "coalitions": _safe("coalitions", coalitions),
         "locations": _safe("locations_active", locations_active),
         "locations_recent": _safe("locations_recent", locations_recent),
+        "scale_teams": _safe("scale_teams", scale_teams),
     }
 
 
@@ -161,7 +209,14 @@ def dump_fixtures(raw: dict[str, list[Json]], directory: Path = FIXTURES_DIR) ->
 
 def load_fixtures(directory: Path = FIXTURES_DIR) -> dict[str, list[Json]]:
     raw: dict[str, list[Json]] = {}
-    for name in ("projects_users", "cursus_users", "coalitions", "locations", "locations_recent"):
+    for name in (
+        "projects_users",
+        "cursus_users",
+        "coalitions",
+        "locations",
+        "locations_recent",
+        "scale_teams",
+    ):
         path = directory / f"{name}.json"
         raw[name] = json.loads(path.read_text()) if path.exists() else []
     return raw
@@ -193,6 +248,7 @@ def refresh(cfg: Config, use_fixtures: bool = False, save_fixtures: bool = False
         coalitions=raw["coalitions"],
         locations=raw["locations"],
         locations_recent=raw.get("locations_recent", []),
+        scale_teams=raw.get("scale_teams", []),
         previous_cursus_users=previous,
     )
     metrics["source"] = source

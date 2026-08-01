@@ -509,123 +509,357 @@
     display: flex; flex-direction: column; overflow: hidden;
   }
 
-  /* ── Page 3: Donut — balanced flex row, no left dead space ─────── */
-  .donut-wrap {
+  /* ── Page 3: Active projects — light glass L→R control capsules ─ */
+  /* Symmetrical vertical fill: spectrum on top, pill grid stretches ~80%.
+     Light frosted pills (bg-white/40) + slate-900 titles for TV glare.
+     Thick left accent rails (w-4) clip cleanly inside rounded-full. */
+  .projects-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    min-height: 0;
+    padding: 2.5vh 2.2vw 3vh;
+    gap: 2.5vh;
+    box-sizing: border-box;
+  }
+  .spectrum-bar {
+    width: 100%;
+    height: 4vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.40);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    box-shadow:
+      inset 0 2px 6px rgba(15, 23, 42, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65),
+      0 8px 20px rgba(80, 90, 120, 0.10);
+  }
+  .spectrum-segment {
+    height: 100%;
+    flex-shrink: 0;
+    transition: width 700ms ease-out;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.40);
+  }
+  .spectrum-segment:first-child {
+    border-radius: 999px 0 0 999px;
+  }
+  .spectrum-segment:last-child {
+    border-radius: 0 999px 999px 0;
+  }
+  .spectrum-segment:only-child {
+    border-radius: 999px;
+  }
+  /* grid-cols-2; flex 1 1 80% fills lower void with even row stretch */
+  .project-pill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    gap: 1.8vh 1.6vw;
+    width: 100%;
+    flex: 1 1 80%;
+    align-content: stretch;
+    align-items: stretch;
+    min-height: 0;
+    margin-top: 0.5vh;
+  }
+  /* bg-white/40 backdrop-blur-md border-white/60 rounded-full shadow-sm */
+  .project-pill {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    min-height: 7.2vh;
+    padding: 0 1.5rem 0 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.60);
+    border-radius: 999px;
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.85),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.03),
+      0 8px 20px rgba(80, 90, 120, 0.12),
+      0 2px 6px rgba(80, 90, 120, 0.06);
+    transition: transform 500ms ease-out, background 500ms ease-out, box-shadow 500ms ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+  /* w-4 h-full flex-shrink-0 — molds to curved left edge via overflow-hidden */
+  .project-pill-rail {
+    width: 1rem;
+    flex-shrink: 0;
+    align-self: stretch;
+  }
+  .project-pill-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 1.6vh 0 1.6vh 0;
+  }
+  /* pl-4 text-slate-900 font-black — full names, never ellipsis */
+  .project-pill-name {
+    padding-left: 1rem;
+    color: #0f172a;
+    font-weight: 900;
+    font-size: 2.25vh;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  /* bg-slate-950/80 + text-emerald-400 font-mono font-black */
+  .project-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.75vh 1.15vw;
+    border-radius: 999px;
+    background: rgba(2, 6, 23, 0.80);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 2vh;
+    font-weight: 900;
+    color: #34d399;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      0 2px 8px rgba(15, 23, 42, 0.18),
+      0 0 12px rgba(52, 211, 153, 0.16);
+  }
+
+  /* ── Page 3: Evaluators — passive TV podium + scope cycle ─────── */
+  .evaluators-card-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    gap: 2rem;
-    padding: 2rem;
-    flex: 1;
-    min-height: 0;
-  }
-  .donut-svg {
-    width: 38vh;
-    height: 38vh;
+    justify-content: space-between;
+    gap: 1vw;
+    margin: 2.4vh 1.8vw 2.0vh;
     flex-shrink: 0;
-    filter: drop-shadow(0 8px 20px rgba(80, 90, 120, 0.18));
   }
-  .donut-legend {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.6vh 2vw;
-    align-content: center;
-    flex: 1;
-    max-width: 48%;
+  .evaluators-card-header .pill-header {
+    margin: 0;
+    flex: 1 1 auto;
     min-width: 0;
   }
-  .donut-item {
-    display: flex;
+  .eval-scope-toggle {
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
-    gap: 0.7vw;
-    min-width: 0;
-  }
-  .donut-swatch {
-    width: 2.4vh;
-    height: 2.4vh;
-    border-radius: 50%;
+    gap: 0;
     flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.95);
+    padding: 0.35vh 0.35vw;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 999px;
     box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.20),
-      inset 0 1px 0 rgba(255, 255, 255, 0.55);
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      0 4px 12px rgba(80, 90, 120, 0.10);
+    pointer-events: none;
+    user-select: none;
   }
-  .donut-label {
-    font-size: 2.1vh;
+  .eval-scope-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    cursor: default;
+    padding: 0.7vh 0.85vw;
+    font-size: 1.45vh;
     font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #64748b;
+    border-radius: 999px;
+    transition: color 700ms ease-out, background 700ms ease-out, box-shadow 700ms ease-out;
+    pointer-events: none;
+  }
+  .eval-scope-btn.on {
     color: #0f172a;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 14vw;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(80, 90, 120, 0.14);
   }
-  .donut-pct {
-    font-size: 1.9vh;
-    font-weight: 600;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    color: #94a3b8;
-    margin-left: 0.5vw;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* ── Page 3: Evaluators — maximized avatars ───────────────────── */
   .evaluators-grid {
-    display: flex; gap: 2vw;
-    padding: 0 2vw 2vh; flex: 1;
-    align-items: center; justify-content: center;
+    display: flex;
+    gap: 1.4vw;
+    padding: 0 1.6vw 2vh;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    transition: opacity 700ms ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+  .evaluators-grid.is-swapping {
+    opacity: 0.35;
   }
   .evaluator-cell {
-    display: flex; flex-direction: column; align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1;
+    min-width: 0;
+    max-width: 12vw;
+    pointer-events: none;
+  }
+  .evaluator-avatar-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vh;
+    height: 10vh;
+    flex-shrink: 0;
   }
   .evaluator-avatar {
-    width: 10vh; height: 10vh; border-radius: 50%; object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
     background: var(--track);
     border: 3px solid rgba(255, 255, 255, 0.90);
     box-shadow: 0 4px 14px rgba(80, 90, 120, 0.18);
+    display: block;
+  }
+  .evaluator-cell.rank-1 .evaluator-avatar {
+    border-color: #f5d76e;
+    box-shadow:
+      0 0 0 3px rgba(245, 215, 110, 0.45),
+      0 6px 18px rgba(180, 140, 40, 0.28);
+  }
+  .evaluator-cell.rank-2 .evaluator-avatar {
+    border-color: #c0c7d1;
+    box-shadow:
+      0 0 0 3px rgba(192, 199, 209, 0.50),
+      0 6px 16px rgba(100, 110, 130, 0.22);
+  }
+  .evaluator-cell.rank-3 .evaluator-avatar {
+    border-color: #cd7f32;
+    box-shadow:
+      0 0 0 3px rgba(205, 127, 50, 0.40),
+      0 6px 16px rgba(160, 90, 30, 0.22);
+  }
+  .evaluator-crown {
+    position: absolute;
+    top: -1.1vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8vh;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.25));
+    pointer-events: none;
+    z-index: 2;
   }
   .evaluator-name {
-    font-size: 2.2vh; font-weight: 700; color: var(--title);
-    text-align: center; max-width: 10vw;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    margin-top: 1.2vh;
+    font-size: 2.0vh;
+    font-weight: 700;
+    color: var(--title);
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     letter-spacing: -0.01em;
+    margin-top: 1.2vh;
   }
   .evaluator-count {
-    font-size: 3vh; font-weight: 900; color: var(--accent-blue);
-    margin-top: 0.6vh;
+    font-size: 2.8vh;
+    font-weight: 900;
+    color: var(--accent-blue);
+    margin-top: 0.5vh;
   }
+  .evaluator-count-label {
+    font-size: 1.25vh;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-top: 0.15vh;
+  }
+  .evaluator-rank-label {
+    font-size: 1.3vh;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-top: 0.3vh;
+  }
+  .evaluator-cell.rank-1 .evaluator-rank-label { color: #b45309; }
+  .evaluator-cell.rank-2 .evaluator-rank-label { color: #64748b; }
+  .evaluator-cell.rank-3 .evaluator-rank-label { color: #9a3412; }
 
-  /* ── Page 3: Weekly logtime bar chart — coral/rose bars ────────── */
+  /* ── Page 3: Weekly logtime — full-width rose bars ─────────────── */
+  /* flex flex-row items-end justify-between w-full; precomputed height_pct */
   .logtime-chart {
-    display: flex; align-items: flex-end; gap: 1.2vw;
-    padding: 0 2vw 2vh; flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    flex: 1;
+    min-height: 22vh;
+    padding: 1.5vh 1.5vw 2vh;
+    gap: 0.6vw;
+    box-sizing: border-box;
   }
   .logtime-bar-wrap {
-    flex: 1; display: flex; flex-direction: column;
-    justify-content: flex-end; align-items: center; height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    min-width: 0;
   }
   .logtime-val {
-    font-size: 1.8vh; font-weight: 900; color: var(--title);
-    margin-bottom: 0.6vh;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 1.7vh;
+    font-weight: 900;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 0.8vh;
     font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
   }
   .logtime-bar {
-    width: 75%; border-radius: 10px 10px 0 0;
-    background: linear-gradient(180deg, #f43f5e 0%, #e11d48 100%);
-    transition: height 1s ease-out;
+    width: 55%;
+    max-width: 2.6vw;
+    min-width: 1.4vw;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background: #f43f5e;
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.40);
+    /* transition-all duration-1000 ease-out — slow rise for 30Hz TV */
+    transition: height 1000ms ease-out, box-shadow 1000ms ease-out;
     min-height: 4px;
-    box-shadow: 0 0 12px rgba(244, 63, 94, 0.25);
+    transform: translate3d(0, 0, 0);
   }
   .logtime-day {
-    font-size: 1.9vh; font-weight: 800; color: var(--dim);
-    margin-top: 1vh;
+    font-size: 1.85vh;
+    font-weight: 900;
+    color: #0f172a;
+    margin-top: 1.2vh;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
+    text-align: center;
   }
 
   /* ── Floating glass footer marquee (dark atmospheric) ────────── */
@@ -735,11 +969,18 @@
     <div class="console">
       <div class="analytics-left glass">
         <div class="pill-header">Current Active Projects</div>
-        <div class="donut-wrap" id="donut-wrap"></div>
+        <div class="projects-panel" id="projects-panel"></div>
       </div>
       <div class="analytics-right">
         <div class="analytics-right-top glass">
-          <div class="pill-header">Most Evaluations Done</div>
+          <div class="evaluators-card-header">
+            <div class="pill-header">Evaluations Given</div>
+            <div class="eval-scope-toggle" aria-label="Evaluation timeline (auto-cycling)">
+              <span class="eval-scope-btn" data-scope="today" aria-current="false">Today</span>
+              <span class="eval-scope-btn on" data-scope="week" aria-current="true">Week</span>
+              <span class="eval-scope-btn" data-scope="piscine" aria-current="false">Piscine</span>
+            </div>
+          </div>
           <div class="evaluators-grid" id="evaluators"></div>
         </div>
         <div class="analytics-right-bottom glass">
@@ -764,9 +1005,11 @@
   </div>
 </footer>
 
+<script type="application/json" id="boot-metrics">{{ metrics | tojson }}</script>
+<script type="application/json" id="boot-refresh">{{ (last_refresh or "") | tojson }}</script>
 <script>
-  const INITIAL = {{ metrics | tojson }};
-  const LAST_REFRESH = {{ (last_refresh or "") | tojson }};
+  const INITIAL = JSON.parse(document.getElementById('boot-metrics').textContent);
+  const LAST_REFRESH = JSON.parse(document.getElementById('boot-refresh').textContent);
 
   const DWELL = { validations: 30000, fame: 25000, analytics: 25000 };
   const POLL_MS = 30000;
@@ -932,85 +1175,150 @@
     }).join('');
   }
 
-  /* ── Page 3: Donut chart — truthful % arcs + dual-column legend ─ */
-  function renderDonut(rows) {
-    const el = document.getElementById('donut-wrap');
+  /* ── Page 3: Spectrum bar + L→R pill rails (same data order) ─── */
+  function renderActiveProjects(rows) {
+    const el = document.getElementById('projects-panel');
     if (!rows.length) {
       el.innerHTML = '<div class="empty">No active projects.</div>';
       return;
     }
 
     const total = rows.reduce((sum, r) => sum + (r.count || 0), 0) || 1;
-    const R = 40;
-    const CIRC = 2 * Math.PI * R;
-    let offset = 0;
 
-    const arcs = rows.map(r => {
-      const pctValue = (r.count || 0) / total;
-      const dash = CIRC * pctValue;
-      const gap = CIRC - dash;
-      const arc = `<circle cx="50" cy="50" r="${R}" fill="none"
-        stroke="${esc(r.color)}" stroke-width="15" stroke-linecap="butt"
-        stroke-dasharray="${dash} ${gap}"
-        stroke-dashoffset="${-offset}"
-        transform="rotate(-90 50 50)"/>`;
-      offset += dash;
-      return arc;
-    });
+    const segments = rows.map(r => {
+      const widthPct = ((r.count || 0) / total) * 100;
+      return `<div class="spectrum-segment"
+        style="width:${widthPct}%;background:${esc(r.color)};"
+        title="${esc(r.name)} · ${esc(r.percentage)}"></div>`;
+    }).join('');
 
-    const legend = rows.map(r => `
-      <div class="donut-item">
-        <div class="donut-swatch" style="background:${esc(r.color)}"></div>
-        <span class="donut-label">${esc(r.name)}</span>
-        <span class="donut-pct">${esc(r.percentage)}</span>
+    const pills = rows.map(r => `
+      <div class="project-pill">
+        <div class="project-pill-rail" style="background:${esc(r.color)}"></div>
+        <div class="project-pill-body">
+          <span class="project-pill-name">${esc(r.name)}</span>
+          <span class="project-pill-badge">${esc(r.percentage)}</span>
+        </div>
       </div>`).join('');
 
     el.innerHTML = `
-      <svg class="donut-svg" viewBox="0 0 100 100" aria-label="Current active projects">
-        <circle cx="50" cy="50" r="${R}" fill="none" stroke="rgba(209,213,219,0.55)" stroke-width="15"/>
-        ${arcs.join('')}
-      </svg>
-      <div class="donut-legend">${legend}</div>`;
+      <div class="spectrum-bar" aria-label="Active projects spectrum">${segments}</div>
+      <div class="project-pill-grid">${pills}</div>`;
   }
 
-  /* ── Page 3: Top evaluators — maximized avatars ────────────── */
+  /* ── Page 3: Top evaluators — passive TV auto-cycle podium ──── */
+  const EVAL_SCOPES = ['week', 'piscine', 'today'];
+  const EVAL_SCOPE_MS = 10000;
+  let evalScope = 'week';
+  let evalScopeTimer = null;
+  let latestMetrics = INITIAL;
+
+  function evaluatorRowsFromMetrics(metrics) {
+    const scopes = (metrics && metrics.top_evaluators_by_scope) || {};
+    if (Object.prototype.hasOwnProperty.call(scopes, evalScope)) {
+      return scopes[evalScope] || [];
+    }
+    return metrics.top_evaluators || [];
+  }
+
   function renderEvaluators(rows) {
     const el = document.getElementById('evaluators');
     if (!rows.length) {
-      el.innerHTML = '<div class="empty">No evaluation data.</div>';
+      el.innerHTML = '<div class="empty">No evaluations given in this window.</div>';
       return;
     }
-    el.innerHTML = rows.slice(0, 4).map(e => {
-      const login = e.user.login || '?';
+
+    el.innerHTML = rows.map((e) => {
+      const login = e.login || (e.user && e.user.login) || '?';
+      const rank = Number(e.rank) || 0;
+      const count = e.count || 0;
+      const avatarUrl = e.avatar_url || (e.user && e.user.image) || '';
       const initial = (login[0] || '?').toUpperCase();
-      const avatarImg = e.user.image
-        ? `<img class="evaluator-avatar" src="${esc(e.user.image)}" alt="${esc(login)}" loading="lazy">`
+      const rankClass = rank >= 1 && rank <= 3 ? ` rank-${rank}` : '';
+      const crown = rank === 1
+        ? '<span class="evaluator-crown" aria-hidden="true">♛</span>'
+        : '';
+      const avatarImg = avatarUrl
+        ? `<img class="evaluator-avatar" src="${esc(avatarUrl)}" alt="${esc(login)}" loading="lazy">`
         : `<img class="evaluator-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
+
       return `
-      <div class="evaluator-cell">
-        ${avatarImg}
+      <div class="evaluator-cell${rankClass}">
+        <div class="evaluator-avatar-wrap">
+          ${crown}
+          ${avatarImg}
+        </div>
         <div class="evaluator-name">${esc(login)}</div>
-        <div class="evaluator-count">${e.count}</div>
+        <div class="evaluator-count">${count}</div>
+        <div class="evaluator-count-label">given</div>
+        <div class="evaluator-rank-label">#${rank || '—'}</div>
       </div>`;
     }).join('');
   }
 
-  /* ── Page 3: Weekly logtime bars — coral/rose fill ─────────── */
+  function setEvalScope(scope, withFade) {
+    if (scope) {
+      evalScope = scope;
+    }
+    document.querySelectorAll('.eval-scope-btn').forEach((btn) => {
+      const on = btn.getAttribute('data-scope') === evalScope;
+      btn.classList.toggle('on', on);
+      btn.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+
+    const grid = document.getElementById('evaluators');
+    const paint = () => {
+      renderEvaluators(evaluatorRowsFromMetrics(latestMetrics));
+      if (grid) {
+        grid.classList.remove('is-swapping');
+      }
+    };
+
+    if (withFade && grid) {
+      grid.classList.add('is-swapping');
+      window.setTimeout(paint, 350);
+    } else {
+      paint();
+    }
+  }
+
+  function advanceEvalScope() {
+    const i = EVAL_SCOPES.indexOf(evalScope);
+    const next = EVAL_SCOPES[(i + 1) % EVAL_SCOPES.length];
+    setEvalScope(next, true);
+  }
+
+  function startEvalScopeCycle() {
+    if (evalScopeTimer !== null) {
+      return;
+    }
+    evalScopeTimer = window.setInterval(advanceEvalScope, EVAL_SCOPE_MS);
+  }
+
+  function stopEvalScopeCycle() {
+    if (evalScopeTimer === null) {
+      return;
+    }
+    window.clearInterval(evalScopeTimer);
+    evalScopeTimer = null;
+  }
+
+  /* ── Page 3: Weekly logtime bars — precomputed height_pct ───── */
   function renderLogtime(rows) {
     const el = document.getElementById('logtime');
     if (!rows.length) {
       el.innerHTML = '<div class="empty">No logtime data.</div>';
       return;
     }
-    const max = Math.max(...rows.map(r => r.hours), 1);
     el.innerHTML = rows.map(r => {
-      const pct = (r.hours / max) * 100;
-      const valText = r.hours > 0 ? r.hours : '';
+      const pct = Math.max(0, Math.min(100, Number(r.height_pct) || 0));
+      const hoursLabel = (r.hours > 0) ? `${r.hours}h` : '0h';
+      const dayLabel = String(r.day || '').toUpperCase();
       return `
       <div class="logtime-bar-wrap">
-        <div class="logtime-val">${valText}</div>
+        <div class="logtime-val">${esc(hoursLabel)}</div>
         <div class="logtime-bar" style="height:${pct}%"></div>
-        <div class="logtime-day">${esc(r.day)}</div>
+        <div class="logtime-day">${esc(dayLabel)}</div>
       </div>`;
     }).join('');
   }
@@ -1035,15 +1343,16 @@
   /* ── Orchestrator ───────────────────────────────────────────── */
   function render(metrics, lastRefresh) {
     const validations = metrics.recent_validations || [];
+    latestMetrics = metrics;
 
     renderAvatarGrid(metrics.active_on_campus || []);
     renderRadials(metrics.cluster_capacity || []);
     renderSubmissions(validations);
     renderMetricGrid(metrics);
     renderZombies(metrics.zombies || []);
-    renderDonut(metrics.active_project_data || []);
-    renderEvaluators(metrics.top_evaluators || []);
-    renderLogtime(metrics.weekly_logtime || []);
+    renderActiveProjects(metrics.active_project_data || []);
+    renderEvaluators(evaluatorRowsFromMetrics(metrics));
+    renderLogtime(metrics.weekly_logtime_data || []);
 
     if (lastRefresh) latestRefresh = lastRefresh;
     renderStamp(latestRefresh);
@@ -1059,7 +1368,17 @@
     index = (index + 1) % views.length;
     views[index].classList.add('active');
     renderDots();
+    syncEvalCycleToView();
     setTimeout(advance, DWELL[views[index].dataset.view] || 20000);
+  }
+
+  function syncEvalCycleToView() {
+    const view = views[index] && views[index].dataset.view;
+    if (view === 'analytics') {
+      startEvalScopeCycle();
+    } else {
+      stopEvalScopeCycle();
+    }
   }
 
   async function poll() {
@@ -1074,6 +1393,8 @@
 
   render(INITIAL, LAST_REFRESH);
   renderDots();
+  setEvalScope('week', false);
+  syncEvalCycleToView();
   setTimeout(advance, DWELL[views[0].dataset.view]);
   setInterval(poll, POLL_MS);
   setInterval(() => renderStamp(latestRefresh), 60000);

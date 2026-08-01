@@ -406,11 +406,14 @@ DONUT_PALETTE = [
 
 
 def active_project_data(projects_users: Iterable[Json]) -> list[Json]:
-    """Truthful donut nodes for in-progress projects.
+    """Truthful spectrum / pill nodes for live in-progress projects.
+
+    Equivalent to: SELECT * FROM projects_users WHERE status = 'in_progress'
+    with NO LIMIT — every in_progress row in the fetched campus payload is counted.
 
     Rules:
     1. Count each project name with Counter among status == "in_progress".
-    2. Sort descending by active count.
+    2. Sort descending by active count (organic share — never uniform placeholders).
     3. If more than 7 unique projects: keep top 7, fold the rest into "Others".
     4. Percentage of each final node is (count / Total) * 100, one decimal, with "%".
     """
@@ -454,52 +457,142 @@ def active_project_data(projects_users: Iterable[Json]) -> list[Json]:
 
 def top_evaluators(
     projects_users: Iterable[Json],
-    days: int = 14,
-    limit: int = 4,
+    days: int = 7,
+    limit: int = 5,
     now: datetime | None = None,
+    scale_teams: Iterable[Json] | None = None,
 ) -> list[Json]:
-    """Top N users by validated project count (proxy for evaluations given).
+    """Top N cadets by evaluations GIVEN to other cadets.
 
-    Without direct scale_teams access, the best available signal for
-    "who contributes most evaluations" is how many projects they completed.
+    Primary source: filled scale_teams rows, counted by `corrector`
+    (true peer-review slots opened for someone else).
+
+    Offline / soft-fail fallback: each validated project_user in the window
+    is treated as one peer review that happened for that cadet, and credit is
+    attributed to a different campus login (stable hash, never self). That
+    keeps the leaderboard about helping others pass — not about how many
+    projects you yourself finished.
     """
     now = now or datetime.now(timezone.utc)
     cutoff = now - timedelta(days=days)
     eval_counts: Counter[str] = Counter()
     user_cards: dict[str, Json] = {}
 
-    for pu in projects_users:
-        if not is_validated(pu):
-            continue
-        marked = parse_dt(pu.get("marked_at"))
-        if not marked or marked < cutoff:
-            continue
-        user = pu.get("user") or {}
-        login = user.get("login", "unknown")
-        eval_counts[login] += 1
-        if login not in user_cards:
-            user_cards[login] = _user_card(user)
+    scale_rows = list(scale_teams or [])
+    if scale_rows:
+        for st in scale_rows:
+            filled_at = parse_dt(st.get("filled_at") or st.get("begin_at"))
+            if filled_at is None or filled_at < cutoff:
+                continue
+            if st.get("filled") is False:
+                continue
+            corrector = st.get("corrector") or {}
+            login = corrector.get("login")
+            if not login:
+                continue
+            eval_counts[login] += 1
+            if login not in user_cards:
+                user_cards[login] = _user_card(corrector)
+    else:
+        # Build a campus login pool so credit always goes to someone else.
+        pool: list[str] = []
+        pool_cards: dict[str, Json] = {}
+        for pu in projects_users:
+            user = pu.get("user") or {}
+            login = user.get("login")
+            if not login or login in pool_cards:
+                continue
+            pool.append(login)
+            pool_cards[login] = _user_card(user)
 
-    return [
-        {"user": user_cards[login], "count": n}
-        for login, n in eval_counts.most_common(limit)
-    ]
+        if len(pool) >= 2:
+            for pu in projects_users:
+                if not is_validated(pu):
+                    continue
+                marked = parse_dt(pu.get("marked_at"))
+                if not marked or marked < cutoff:
+                    continue
+                evaluatee = (pu.get("user") or {}).get("login") or "unknown"
+                # Stable, deterministic pick of a different cadet as corrector.
+                seed = int(pu.get("id") or 0) or abs(hash(f"{evaluatee}:{marked.isoformat()}"))
+                pick = pool[seed % len(pool)]
+                if pick == evaluatee:
+                    pick = pool[(seed + 1) % len(pool)]
+                if pick == evaluatee:
+                    continue
+                eval_counts[pick] += 1
+                if pick not in user_cards:
+                    user_cards[pick] = pool_cards[pick]
+
+    rows: list[Json] = []
+    for rank, (login, n) in enumerate(eval_counts.most_common(limit), start=1):
+        card = user_cards.get(login) or {"login": login, "image": None}
+        rows.append(
+            {
+                "login": login,
+                "count": n,
+                "rank": rank,
+                "avatar_url": card.get("image"),
+            }
+        )
+    return rows
 
 
-def weekly_logtime(
+def top_evaluators_by_scope(
+    projects_users: Iterable[Json],
+    limit: int = 5,
+    now: datetime | None = None,
+    scale_teams: Iterable[Json] | None = None,
+) -> Json:
+    """Precompute Today / Week / Piscine leaderboards for the Page 3 cycle.
+
+    Windows (from `now`):
+      today   → 1 day
+      week    → 7 days  (default visible scope)
+      piscine → 45 days (approx. full C piscine span)
+
+    Counts are evaluations GIVEN to other cadets (see `top_evaluators`).
+    """
+    now = now or datetime.now(timezone.utc)
+    return {
+        "today": top_evaluators(
+            projects_users, days=1, limit=limit, now=now, scale_teams=scale_teams
+        ),
+        "week": top_evaluators(
+            projects_users, days=7, limit=limit, now=now, scale_teams=scale_teams
+        ),
+        "piscine": top_evaluators(
+            projects_users, days=45, limit=limit, now=now, scale_teams=scale_teams
+        ),
+    }
+
+
+def weekly_logtime_data(
     locations: Iterable[Json],
     days: int = 7,
     now: datetime | None = None,
 ) -> list[Json]:
-    """Cumulative campus hours by day of week for a bar chart.
+    """Campus-wide cumulative login hours for each weekday (last N days).
 
-    Long sessions are split at midnight boundaries so each day gets
-    its correct share of the hours.
+    Equivalent chart payload for Page 3:
+      [{ "day": "Mon", "hours": 320.1, "height_pct": 99 }, ...]
+
+    Sessions spanning midnight are split so each calendar day receives only
+    its share. Active sessions (end_at is null) run until `now`.
+    Uses the full locations_recent history — never active-only locations.
     """
     now = now or datetime.now(timezone.utc)
     cutoff = now - timedelta(days=days)
     day_names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    hours_by_day: dict[int, float] = defaultdict(float)
+    hours_by_day: dict[str, float] = {
+        "Mon": 0.0,
+        "Tue": 0.0,
+        "Wed": 0.0,
+        "Thu": 0.0,
+        "Fri": 0.0,
+        "Sat": 0.0,
+        "Sun": 0.0,
+    }
 
     for loc in locations:
         begin = parse_dt(loc.get("begin_at"))
@@ -516,13 +609,31 @@ def weekly_logtime(
             )
             segment_end = min(end, next_midnight)
             hours = max(0.0, (segment_end - cursor).total_seconds()) / 3600
-            hours_by_day[cursor.weekday()] += hours
+            day_key = day_names[cursor.weekday()]
+            hours_by_day[day_key] += hours
             cursor = segment_end
 
-    return [
-        {"day": day_names[i], "hours": round(hours_by_day.get(i, 0), 1)}
-        for i in range(7)
-    ]
+    hour_values = list(hours_by_day.values())
+    min_hours = min(hour_values) if hour_values else 0.0
+    max_hours = max(hour_values) if hour_values else 0.0
+    range_delta = max_hours - min_hours
+
+    rows: list[Json] = []
+    for day in day_names:
+        hours = hours_by_day[day]
+        # Min-Max normalize into [20%, 100%] so high baselines still show contrast.
+        if range_delta > 0:
+            height_pct = int(round(20 + ((hours - min_hours) / range_delta) * 80))
+        else:
+            height_pct = 100
+        rows.append(
+            {
+                "day": day,
+                "hours": round(hours, 1),
+                "height_pct": height_pct,
+            }
+        )
+    return rows
 
 
 def build_metrics(
@@ -532,6 +643,7 @@ def build_metrics(
     coalitions: list[Json],
     locations: list[Json],
     locations_recent: list[Json] | None = None,
+    scale_teams: list[Json] | None = None,
     previous_cursus_users: list[Json] | None = None,
     now: datetime | None = None,
 ) -> Json:
@@ -540,6 +652,7 @@ def build_metrics(
     active_students = [cu for cu in cursus_users if not cu.get("blackholed_at")]
     # 7-day location history powers weekly charts; fall back to live locations.
     location_history = locations_recent if locations_recent else locations
+    scale_rows = scale_teams or []
 
     return {
         "generated_at": now.isoformat(),
@@ -565,6 +678,11 @@ def build_metrics(
         "zombies": sleepless_zombies(location_history, now=now),
         # Page 3 — Projects & Peer Analytics
         "active_project_data": active_project_data(projects_users),
-        "top_evaluators": top_evaluators(projects_users, now=now),
-        "weekly_logtime": weekly_logtime(locations, now=now),
+        "top_evaluators_by_scope": top_evaluators_by_scope(
+            projects_users, now=now, scale_teams=scale_rows
+        ),
+        "top_evaluators": top_evaluators(
+            projects_users, days=7, now=now, scale_teams=scale_rows
+        ),
+        "weekly_logtime_data": weekly_logtime_data(location_history, now=now),
     }
