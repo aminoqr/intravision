@@ -1,13 +1,8 @@
 # File: .gitignore
 
 # Dependencies
-node_modules/
 .venv/
 venv/
-
-# Next.js
-.next/
-out/
 
 # Environment — never commit secrets or local overrides
 .env
@@ -29,13 +24,9 @@ __pycache__/
 # Build / tooling
 dist/
 build/
-*.tsbuildinfo
-next-env.d.ts
 
 # Logs & OS
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log
 .DS_Store
 
 # Generated probe output

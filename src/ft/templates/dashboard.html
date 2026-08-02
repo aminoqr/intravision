@@ -8,7 +8,7 @@
 <title>Intra-Vision — 42 Warsaw</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   /* TV display: 1920x1080 @ 30Hz, viewed from across the room, no pointer.
      Patterned glass texture canvas + frosted liquid-glass panes.
@@ -125,14 +125,30 @@
     position: relative;
     isolation: isolate;
     background: var(--shell-bg);
-    backdrop-filter: blur(15px) saturate(140%);
-    -webkit-backdrop-filter: blur(15px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
     border: 1px solid var(--shell-border);
     box-shadow: var(--glass-bevel);
     border-radius: var(--radius-pane);
     transform: translate3d(0, 0, 0);
-    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition:
+      box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+  }
+  /* Quiet content dissolve while liquid shells morph */
+  .glass > .pill-header,
+  .glass > .avatar-mask,
+  .glass > .radial-grid,
+  .glass > .submissions-list,
+  .glass > .metric-grid,
+  .glass > .zombie-list,
+  .glass > .projects-panel,
+  .glass > .evaluators-grid,
+  .glass > .logtime-chart {
+    transition: opacity 0.2s ease;
   }
 
   /* ── Floating Title Capsules with Independent Elevation Shadows ─ */
@@ -301,21 +317,70 @@
     50%      { opacity: 0.55; transform: scale(0.88); }
   }
 
-  /* ── Main layout ─────────────────────────────────────────────── */
+  /* ── Main layout — slides stay discrete; morph via View Transitions ─ */
   main {
     position: relative; z-index: 1;
     height: 100%;
     padding: 10.5vh var(--stage-inline) 9.5vh;
     box-sizing: border-box;
+    isolation: isolate;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   .view {
-    display: none; height: 100%;
-    animation: viewFade 0.7s ease-out;
+    display: none;
+    height: 100%;
+    isolation: isolate;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
   }
-  .view.active { display: flex; flex-direction: column; }
-  @keyframes viewFade {
-    from { opacity: 0; transform: translate3d(0, 1vh, 0); }
-    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  .view.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*
+   * Liquid glass morph — View Transitions API.
+   * Named .glass shells interpolate size/position; root/header/footer stay put.
+   * Avoid opacity fades on live backdrop-filter parents (that flattens frost).
+   */
+  html {
+    view-transition-name: none;
+  }
+  ::view-transition-group(*) {
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* Soft cross-fade of panel bitmaps while geometry morphs */
+  ::view-transition-old(liquid-panel-0),
+  ::view-transition-old(liquid-panel-1),
+  ::view-transition-old(liquid-panel-2),
+  ::view-transition-old(liquid-panel-3) {
+    animation:
+      vt-panel-out 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  ::view-transition-new(liquid-panel-0),
+  ::view-transition-new(liquid-panel-1),
+  ::view-transition-new(liquid-panel-2),
+  ::view-transition-new(liquid-panel-3) {
+    animation:
+      vt-panel-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  @keyframes vt-panel-out {
+    0%   { opacity: 1; }
+    35%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes vt-panel-in {
+    0%   { opacity: 0; }
+    35%  { opacity: 0; }
+    100% { opacity: 1; }
   }
 
   /* ── Page 1: Active Students card ────────────────────────────── */
@@ -520,19 +585,24 @@
   }
   .sub-card {
     border-radius: var(--radius-tile);
-    padding: 1.8vh 1.3vw;
-    display: flex; align-items: center; gap: 1.1vw;
+    padding: 1.6vh 1.0vw;
+    display: flex; align-items: center; gap: 0.75vw;
     transform: translate3d(0, 0, 0);
     flex-shrink: 0;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
   .sub-avatar {
-    width: 10vh; height: 10vh; border-radius: var(--radius-squircle); object-fit: cover;
+    width: 8.5vh; height: 8.5vh; border-radius: var(--radius-squircle); object-fit: cover;
     background: var(--track); flex-shrink: 0;
     border: 2px solid rgba(255, 255, 255, 0.92);
     box-shadow: 0 4px 14px rgba(80, 90, 120, 0.16);
   }
   .sub-info {
-    flex: 1; min-width: 0;
+    flex: 1 1 0%;
+    min-width: 0;
+    overflow: hidden;
   }
   .sub-name {
     font-size: 2.6vh; font-weight: 700; color: var(--title);
@@ -540,15 +610,26 @@
     letter-spacing: -0.01em;
   }
   .sub-detail {
-    font-size: 1.8vh; color: var(--dim); margin-top: 0.5vh;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 1.7vh; color: var(--dim); margin-top: 0.45vh;
+    line-height: 1.35;
+    /* Prefer full project + time; wrap instead of early ellipsis */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-break: break-word;
   }
   .sub-mark {
-    font-size: 4vh; font-weight: 900; color: #059669;
-    flex-shrink: 0; letter-spacing: -0.03em;
+    font-size: 3.4vh; font-weight: 900; color: #059669;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0;
+    padding: 0 0 0 0.15vw;
+    white-space: nowrap;
   }
   .sub-max {
-    font-size: 2.2vh; font-weight: 500; color: var(--dim);
+    font-size: 1.7vh; font-weight: 500; color: var(--dim);
   }
 
   /* ── Page 2: Campus Telemetry — clean 2×2 with centered crosshair ─ */
@@ -612,17 +693,15 @@
     z-index: 2;
   }
   #metric-grid .metric-tile .mt-value {
-    font-size: 9.4vh;
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.045em;
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', ui-monospace,
+                 SFMono-Regular, Menlo, Consolas, monospace;
+    /* 3.5rem floor, but scales up on the 1080p TV so it stays legible across the room. */
+    font-size: max(3.5rem, 7.4vh);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #1e293b;
     margin: 0;
-    background: linear-gradient(180deg, #0052D4 0%, #4364F7 48%, #6FB1FC 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
   }
   #metric-grid .metric-tile .mt-label {
     font-size: max(0.75rem, 1.45vh);
@@ -1124,11 +1203,11 @@
   <section class="view active" data-view="validations">
     <div class="console rail-2col">
       <div class="card-students glass">
-        <div class="pill-header">Current Active Students (<span id="active-count">0</span>)</div>
+        <div class="pill-header">Who's Cooking? (<span id="active-count">0</span>)</div>
         <div class="avatar-mask" id="avatar-grid"></div>
       </div>
       <div class="card-capacity glass">
-        <div class="pill-header">Clusters Capacity</div>
+        <div class="pill-header">Clusters Occupancy</div>
         <div class="radial-grid" id="radials"></div>
       </div>
     </div>
@@ -1138,15 +1217,15 @@
   <section class="view" data-view="fame">
     <div class="console">
       <div class="fame-left glass">
-        <div class="pill-header">Recent Submissions</div>
+        <div class="pill-header">Recent Conquests</div>
         <div class="submissions-list" id="submissions"></div>
       </div>
       <div class="fame-center glass">
-        <div class="pill-header">Campus Telemetry</div>
+        <div class="pill-header">Campus Stats</div>
         <div class="metric-grid" id="metric-grid"></div>
       </div>
       <div class="fame-right glass">
-        <div class="pill-header">Top Sleepless Zombies</div>
+        <div class="pill-header">The Cluster Residents</div>
         <div class="zombie-list" id="zombies"></div>
       </div>
     </div>
@@ -1161,11 +1240,11 @@
       </div>
       <div class="analytics-right">
         <div class="analytics-right-top glass">
-          <div class="pill-header">Evaluations Given</div>
+          <div class="pill-header">Top Evaluators</div>
           <div class="evaluators-grid" id="evaluators"></div>
         </div>
         <div class="analytics-right-bottom glass">
-          <div class="pill-header">Weekly Cadet Log-in Hours</div>
+          <div class="pill-header">Daily Grind Log</div>
           <div class="logtime-chart" id="logtime"></div>
         </div>
       </div>
@@ -1606,13 +1685,67 @@
       views.map((_, i) => `<div class="dot ${i === index ? 'on' : ''}"></div>`).join('');
   }
 
+  /* Pair glass shells across slides so View Transitions can morph them. */
+  function glassShells(viewEl) {
+    return [...viewEl.querySelectorAll('.glass')];
+  }
+
+  function assignLiquidNames(fromView, toView) {
+    const fromShells = glassShells(fromView);
+    const toShells = glassShells(toView);
+    const count = Math.max(fromShells.length, toShells.length);
+    for (let i = 0; i < count; i++) {
+      const name = 'liquid-panel-' + i;
+      if (fromShells[i]) fromShells[i].style.viewTransitionName = name;
+      if (toShells[i]) toShells[i].style.viewTransitionName = name;
+    }
+  }
+
+  function clearLiquidNames() {
+    document.querySelectorAll('.glass').forEach((el) => {
+      el.style.viewTransitionName = 'none';
+    });
+  }
+
+  let slideAdvanceLock = false;
+
   function advance() {
-    views[index].classList.remove('active');
-    index = (index + 1) % views.length;
-    views[index].classList.add('active');
-    renderDots();
-    renderFooterForSlide(index);
-    setTimeout(advance, DWELL[views[index].dataset.view] || 20000);
+    if (slideAdvanceLock) return;
+    const fromView = views[index];
+    const nextIndex = (index + 1) % views.length;
+    const toView = views[nextIndex];
+
+    const swap = () => {
+      fromView.classList.remove('active');
+      toView.classList.add('active');
+      index = nextIndex;
+      renderDots();
+      renderFooterForSlide(index);
+    };
+
+    const scheduleNext = () => {
+      setTimeout(advance, DWELL[views[index].dataset.view] || 20000);
+    };
+
+    assignLiquidNames(fromView, toView);
+
+    if (typeof document.startViewTransition === 'function') {
+      slideAdvanceLock = true;
+      const transition = document.startViewTransition(swap);
+      Promise.resolve(transition.finished)
+        .catch(() => {})
+        .finally(() => {
+          clearLiquidNames();
+          slideAdvanceLock = false;
+          scheduleNext();
+        });
+      return;
+    }
+
+    /* Fallback: instant swap (no cheap whole-slide opacity fade — protects frost). */
+    swap();
+    clearLiquidNames();
+    scheduleNext();
   }
 
   async function poll() {

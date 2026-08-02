@@ -2,117 +2,90 @@
 
 # Intra-Vision — 42 Warsaw Hacks
 
-Passive **Social Space TV** dashboard for celebrating Common Core progress at 42 Warsaw.
+Passive TV dashboard for the 42 Warsaw Social Space: live campus progress from the Intra API,
+rendered for a 1920×1080 screen nobody touches.
 
-**Target display:** 1920×1080 @ 30Hz · no hover-only UI · MagicInfo-compatible web page.
+## Screens
 
-Judging mindset (organizers): working code + honest pitch over polish. This PoC prioritizes a
-real API → cache → screen path, with an offline fixture mode if Intra is down during the demo.
+**Page 1 — Who's cooking / Clusters occupancy**
 
-## What works
+![Page 1](docs/screenshots/page1.png)
 
-| Piece | Status |
-|---|---|
-| OAuth2 client-credentials + rate limiter | Yes (`src/ft/client.py`) |
-| Live Warsaw fetch (≥2 endpoints) | Yes — projects_users, cursus_users, locations, blocs |
-| Processed metrics (not raw dumps) | Yes — validations feed, campus pulse, coalitions, levels |
-| SQLite cache; render costs **0** API quota | Yes |
-| `POST /refresh` (brief requirement) | Yes — 202, background fetch |
-| Offline demo (`make demo`) | Yes — fixtures, 0 external requests |
-| Unit tests | `make test` — 24 passing |
+**Page 2 — Recent conquests / Campus stats / Cluster residents**
 
-## What’s not done / limitations
+![Page 2](docs/screenshots/page2.png)
 
-- **No live deploy required for judging** — demo from `localhost:8000`. Post-win hosting plan
-  (Render → MagicInfo) is described in [docs/architecture.md](docs/architecture.md).
-- `/v2/campus/:id/stats` returns **403** on our public token — not used.
-- Bare `/graph/.../by/day` for projects/cursus returned **422** — lists + local metrics instead.
-- Next.js files under `app/` / `components/` are optional stubs, **not** the PoC path.
-- Level-up diffs need a prior SQLite snapshot (empty on cold start).
+**Page 3 — Active projects / Top evaluators / Daily grind log**
 
-## Stack
+![Page 3](docs/screenshots/page3.png)
 
-- **Python 3** + **FastAPI** + **Jinja2** — one process for fetch orchestration + TV HTML
-- **SQLite** — processed metrics cache
-- **httpx** — 42 API client
-- Secrets stay in `.env.local` (gitignored) — never `NEXT_PUBLIC_*` for UID/SECRET
-
-## Quick start
+## Setup
 
 ```bash
-make setup
+make setup          # creates .venv, installs httpx / fastapi / uvicorn / jinja2 / pytest
 ```
 
-Create `.env.local` (never commit it):
+Create `.env.local` in the repo root (gitignored):
 
 ```bash
 FORTYTWO_APP_UID=...
 FORTYTWO_APP_SECRET=...
-FT_CAMPUS_ID=67
-FT_CURSUS_ID=21
+FT_CAMPUS_ID=67     # Warsaw
+FT_CURSUS_ID=21     # 42cursus (Common Core)
 ```
 
-Confirm ids anytime: `make resolve-ids` (Warsaw **67**, `42cursus` **21**).
+The ids are read from `FT_CAMPUS_ID` / `FT_CURSUS_ID`. Credentials are also accepted as
+`FT_UID` / `FT_SECRET` or `FORTYTWO_UID` / `FORTYTWO_SECRET`. Re-resolve the ids with
+`make resolve-ids` (needs credentials).
 
-### Offline demo (recommended for pitch backup)
+## Running
 
 ```bash
-make demo
-# → http://localhost:8000
+make demo           # rebuilds metrics from fixtures/ and serves on :8000 — zero API calls
+make serve          # serves on :8000 and re-fetches live Intra data every 120s in the background
+make fetch-live     # one live fetch (~40 API requests), saves fixtures/
+make fetch          # rebuild metrics from fixtures/ only, no server, no API
+make test           # 39 unit tests, no network, no credentials
 ```
 
-Rebuild metrics from committed fixtures without hitting the API:
+`make demo` is the offline path — safe if Intra is down or quota is gone.
+`make serve` is the live path — it spends quota continuously until you Ctrl+C.
+
+Force a refresh while the server is up:
 
 ```bash
-make fetch
-make serve
+curl -X POST http://localhost:8000/refresh    # 202, fetch runs in the background
 ```
 
-### Live data (spend quota carefully — ~11 requests per refresh)
+## What works
 
-```bash
-make fetch-live
-make serve
-```
+- OAuth2 client credentials + a serialized request queue: 2 req/s, 1200 req/hr, 429 handled via `Retry-After`.
+- Live Warsaw fetch across 6 collections (projects_users ×2 queries, cursus_users, locations ×2,
+  blocs/coalitions, scale_teams). Last live run: 40 requests.
+- Processed metrics, not raw API echoes — validations feed, cluster occupancy, active projects,
+  top evaluators, weekly logtime, median level.
+- SQLite cache; page renders cost zero API quota.
+- `POST /refresh` → 202 + background fetch, with a lock against overlapping runs.
+- Offline mode from committed `fixtures/` (`make demo`).
+- Three rotating TV views with a stale-data stamp that goes amber after 30 minutes.
+- 39 tests passing (`make test`).
 
-### Tests
+## Not done / limitations
 
-```bash
-make test
-```
+- **Nothing is deployed.** Demo is `localhost:8000`. Render + MagicInfo is a plan only —
+  see [docs/architecture.md](docs/architecture.md).
+- The 120 s refresh loop in `make serve` sits at ~1200 req/hr, i.e. exactly the hourly cap.
+  Production needs 10 minutes.
+- `/v2/campus/:id/stats` returns 403 and two `/graph` paths return 422 on my token tier —
+  those panels don't exist.
+- Coalition scores are fetched and stored, but no view shows them.
+- Retry count (`occurrence + 1`) is computed but not shown in the UI.
+- No genuinely anonymised account showed up in the data I pulled, so that fallback is unit-tested only.
+- Never run on the real Social Space TV or through MagicInfo.
+- I started on Next.js and pivoted to FastAPI on day one — that scaffold is gone from the repo.
 
-### Manual refresh while the server is up
+## Docs
 
-```bash
-curl -X POST http://localhost:8000/refresh
-```
-
-## Screens (TV rotation)
-
-Served from [src/ft/templates/dashboard.html](src/ft/templates/dashboard.html):
-
-1. **Recently validated** — who finished what (celebration feed)
-2. **Campus right now** — on campus, validations this week, active students, median level
-3. **Coalitions** — Warsaw standings
-4. **Level distribution** — anonymous histogram
-
-Header shows an honest **updated … ago** stamp (amber when older than 30 minutes).
-
-Screenshots of working views: [docs/screenshots/](docs/screenshots/).
-
-## Docs (hackathon deliverables)
-
-- [docs/42-api.md](docs/42-api.md) — API research (endpoints, rate limits, quirks, errors)
-- [docs/architecture.md](docs/architecture.md) — technical architecture + deployment plan
-- [docs/pitch.md](docs/pitch.md) — 5-minute pitch outline
-- [plan.md](plan.md) — foundation decisions + official brief notes
-
-## Repo layout (essentials)
-
-```
-src/ft/          client, fetch, metrics, store, FastAPI app, TV template
-fixtures/        offline / last-known live snapshots
-tests/           metrics unit tests (no network)
-docs/            deliverables + screenshots
-Makefile         setup, demo, fetch, serve, probe, resolve-ids
-```
+- [docs/42-api.md](docs/42-api.md) — endpoints, rate limits, data quirks, failure behaviour
+- [docs/architecture.md](docs/architecture.md) — services, data flow, deployment plan
+- [docs/pitch.md](docs/pitch.md) — 5-minute pitch script + expected Q&A
