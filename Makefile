@@ -1,3 +1,4 @@
+# File: Makefile
 .PHONY: help setup test demo sample-fixtures fetch fetch-live probe serve campus cursus resolve-ids clean
 
 PY := .venv/bin/python
@@ -33,8 +34,8 @@ fetch-live: ## Fetch from the real 42 API and save fixtures
 probe: ## Probe the API and write docs/api-probe-results.md (~25 requests)
 	$(PY) -m ft.probe
 
-serve: ## Run the dashboard server
-	$(PY) -m uvicorn ft.app:app --host 0.0.0.0 --port 8000 --reload
+serve: ## Run dashboard immediately + live API refresh in background every 120s
+	@bash scripts/serve_with_refresh.sh
 
 campus: ## Find the Warsaw campus id
 	@$(PY) -c "from ft.client import FtClient; from ft.config import Config; \

@@ -13,6 +13,7 @@ from typing import Any
 
 from fastapi import BackgroundTasks, FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .config import Config
@@ -22,9 +23,11 @@ log = logging.getLogger("ft.app")
 
 cfg = Config.from_env()
 store = Store(cfg.db_path)
-templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
+_PKG = Path(__file__).parent
+templates = Jinja2Templates(directory=str(_PKG / "templates"))
 
 app = FastAPI(title="42 Warsaw Dashboard", docs_url=None, redoc_url=None)
+app.mount("/static", StaticFiles(directory=str(_PKG / "static")), name="static")
 
 # Guards against overlapping refreshes if someone leans on the button.
 _refresh_lock = threading.Lock()
@@ -81,6 +84,41 @@ def api_metrics() -> JSONResponse:
             "last_refresh": store.get_meta("last_refresh"),
         }
     )
+
+
+@app.get("/api/weather")
+def api_weather() -> JSONResponse:
+    """Warsaw temperature via Open-Meteo — no API key, zero Intra quota."""
+    try:
+        import httpx
+
+        # Warsaw Social Space coordinates (approx. campus).
+        url = (
+            "https://api.open-meteo.com/v1/forecast"
+            "?latitude=52.2297&longitude=21.0122"
+            "&current=temperature_2m"
+            "&timezone=Europe%2FWarsaw"
+        )
+        with httpx.Client(timeout=8.0) as client:
+            payload = client.get(url).json()
+        temp = (payload.get("current") or {}).get("temperature_2m")
+        if temp is None:
+            return JSONResponse({"ok": False, "temp_c": None, "label": "—°C"})
+        rounded = int(round(float(temp)))
+        return JSONResponse(
+            {
+                "ok": True,
+                "temp_c": rounded,
+                "label": f"{rounded}°C",
+                "city": "Warsaw",
+            }
+        )
+    except Exception as exc:  # noqa: BLE001 — weather must never break the TV
+        log.warning("weather fetch failed: %s", exc)
+        return JSONResponse(
+            {"ok": False, "temp_c": None, "label": "—°C", "city": "Warsaw"},
+            status_code=200,
+        )
 
 
 def _run_refresh() -> None:

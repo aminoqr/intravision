@@ -574,127 +574,6 @@
     ]
   },
   {
-    "id": 4715985,
-    "occurrence": 1,
-    "final_mark": 84,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7538451,
-    "project": {
-      "id": 1471,
-      "name": "push_swap",
-      "slug": "42cursus-push_swap",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T15:16:00.945Z",
-    "marked": true,
-    "retriable_at": "2026-07-20T15:16:01.168Z",
-    "created_at": "2026-01-07T17:18:56.374Z",
-    "updated_at": "2026-07-18T15:16:01.183Z",
-    "user": {
-      "id": 228032,
-      "email": "wgulinsk@student.42warsaw.pl",
-      "login": "wgulinsk",
-      "first_name": "Władysław",
-      "last_name": "Gulinski",
-      "usual_full_name": "Władysław Gulinski",
-      "usual_first_name": "Władysław",
-      "url": "https://api.intra.42.fr/v2/users/wgulinsk",
-      "phone": "hidden",
-      "displayname": "Władysław Gulinski",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/859726db75ccf75def1efa87bfbf83e1/wgulinsk.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/3185709031d8f6b8e76e9515472c547f/large_wgulinsk.jpg",
-          "medium": "https://cdn.intra.42.fr/users/5d1d8681a7db42a4f2262efdd44a2e28/medium_wgulinsk.jpg",
-          "small": "https://cdn.intra.42.fr/users/9025308e796685475d0c235e5f40a3a5/small_wgulinsk.jpg",
-          "micro": "https://cdn.intra.42.fr/users/8d54e89baac52531f371731a543fb4c6/micro_wgulinsk.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 6,
-      "pool_month": "july",
-      "pool_year": "2025",
-      "location": null,
-      "wallet": 45,
-      "anonymize_date": "2029-07-20T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-20T00:00:00.000+02:00",
-      "created_at": "2025-06-16T09:46:18.843Z",
-      "updated_at": "2026-07-18T15:32:39.766Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7158633,
-        "name": "wgulinsk's group",
-        "url": "https://api.intra.42.fr/v2/teams/7158633",
-        "final_mark": 0,
-        "project_id": 1471,
-        "created_at": "2026-01-07T17:18:56.397Z",
-        "updated_at": "2026-07-07T17:11:22.896Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 228032,
-            "login": "wgulinsk",
-            "url": "https://api.intra.42.fr/v2/users/wgulinsk",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4715985
-          }
-        ],
-        "locked?": true,
-        "validated?": false,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-401ff549-5e15-470d-9e60-5055ed26fbe4-7158633-wgulinsk",
-        "repo_uuid": "intra-uuid-401ff549-5e15-470d-9e60-5055ed26fbe4-7158633-wgulinsk",
-        "locked_at": "2026-01-07T17:18:56.434Z",
-        "closed_at": "2026-07-07T15:35:52.710Z",
-        "project_session_id": 11797,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
-      },
-      {
-        "id": 7538451,
-        "name": "wgulinsk's group-1",
-        "url": "https://api.intra.42.fr/v2/teams/7538451",
-        "final_mark": 84,
-        "project_id": 1471,
-        "created_at": "2026-07-17T12:27:15.773Z",
-        "updated_at": "2026-07-18T15:16:01.229Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 228032,
-            "login": "wgulinsk",
-            "url": "https://api.intra.42.fr/v2/users/wgulinsk",
-            "leader": true,
-            "occurrence": 1,
-            "validated": true,
-            "projects_user_id": 4715985
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-e73b4f20-4458-4d1f-b6b1-669e996699b7-7538451-wgulinsk",
-        "repo_uuid": "intra-uuid-e73b4f20-4458-4d1f-b6b1-669e996699b7-7538451-wgulinsk",
-        "locked_at": "2026-07-17T12:27:15.811Z",
-        "closed_at": "2026-07-17T14:13:34.949Z",
-        "project_session_id": 11797,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
-      }
-    ]
-  },
-  {
     "id": 4739260,
     "occurrence": 1,
     "final_mark": 105,
@@ -1141,8 +1020,8 @@
       "pool_year": "2025",
       "location": null,
       "wallet": 115,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2025-06-16T10:12:30.881Z",
       "updated_at": "2026-07-26T16:11:39.962Z",
       "alumnized_at": null,
@@ -1260,12 +1139,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -1539,96 +1418,6 @@
         "closed_at": "2026-07-21T13:38:41.831Z",
         "project_session_id": 11817,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/inception"
-      }
-    ]
-  },
-  {
-    "id": 4848376,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7326390,
-    "project": {
-      "id": 1343,
-      "name": "CPP Module 05",
-      "slug": "cpp-module-05",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T17:47:23.077Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T17:47:23.134Z",
-    "created_at": "2026-03-20T20:34:48.443Z",
-    "updated_at": "2026-07-18T17:47:23.148Z",
-    "user": {
-      "id": 174927,
-      "email": "faikhan@student.42warsaw.pl",
-      "login": "faikhan",
-      "first_name": "Faizan",
-      "last_name": "Khan",
-      "usual_full_name": "Faizan Khan",
-      "usual_first_name": "Faizan",
-      "url": "https://api.intra.42.fr/v2/users/faikhan",
-      "phone": "hidden",
-      "displayname": "Faizan Khan",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/b7d077f89c15af53bdc50185da904d6d/faikhan.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/68a928af9236875151131a4fdd7a0e26/large_faikhan.jpg",
-          "medium": "https://cdn.intra.42.fr/users/c19bc0bb85a08812777bdfce24ddc765/medium_faikhan.jpg",
-          "small": "https://cdn.intra.42.fr/users/eadff280360fc85269053b8e3923b73b/small_faikhan.jpg",
-          "micro": "https://cdn.intra.42.fr/users/e29c4164f56d483a6947052591f83304/micro_faikhan.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 18,
-      "pool_month": "january",
-      "pool_year": "2024",
-      "location": "c1r10s2",
-      "wallet": 1552,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
-      "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7326390,
-        "name": "faikhan's group",
-        "url": "https://api.intra.42.fr/v2/teams/7326390",
-        "final_mark": 100,
-        "project_id": 1343,
-        "created_at": "2026-03-20T20:34:48.466Z",
-        "updated_at": "2026-07-18T17:47:23.185Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 174927,
-            "login": "faikhan",
-            "url": "https://api.intra.42.fr/v2/users/faikhan",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4848376
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-ac4e5e95-e806-46cb-bfa2-d46bb4e5f9a7-7326390-faikhan",
-        "repo_uuid": "intra-uuid-ac4e5e95-e806-46cb-bfa2-d46bb4e5f9a7-7326390-faikhan",
-        "locked_at": "2026-03-20T20:34:48.507Z",
-        "closed_at": "2026-07-18T11:51:26.837Z",
-        "project_session_id": 11813,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/cpp-05"
       }
     ]
   },
@@ -2711,7 +2500,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2023-11-16T12:20:33.908Z",
-      "updated_at": "2026-08-01T10:35:39.674Z",
+      "updated_at": "2026-08-02T03:05:38.975Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -4376,96 +4165,6 @@
     ]
   },
   {
-    "id": 4961953,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7470290,
-    "project": {
-      "id": 1314,
-      "name": "Libft",
-      "slug": "42cursus-libft",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T18:23:13.596Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T18:23:13.790Z",
-    "created_at": "2026-06-15T12:10:37.610Z",
-    "updated_at": "2026-07-18T18:23:13.805Z",
-    "user": {
-      "id": 263837,
-      "email": "dswietoc@student.42warsaw.pl",
-      "login": "dswietoc",
-      "first_name": "Dominik",
-      "last_name": "Świętochowski",
-      "usual_full_name": "Dominik Świętochowski",
-      "usual_first_name": "Dominik",
-      "url": "https://api.intra.42.fr/v2/users/dswietoc",
-      "phone": "hidden",
-      "displayname": "Dominik Świętochowski",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/8213847e2a0ff1f3599df5b6a1fadab8/dswietoc.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/f587ec6f6ed5e382286dcb1c9ce448cb/large_dswietoc.jpg",
-          "medium": "https://cdn.intra.42.fr/users/28cdfaaf2f0e4d2adb0851043342d405/medium_dswietoc.jpg",
-          "small": "https://cdn.intra.42.fr/users/66a65e6d3e41d08cca12f4976ec54c21/small_dswietoc.jpg",
-          "micro": "https://cdn.intra.42.fr/users/6704efae402a2a1db2d9f733c285733d/micro_dswietoc.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 3,
-      "pool_month": "may",
-      "pool_year": "2026",
-      "location": null,
-      "wallet": 15,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
-      "created_at": "2026-05-04T08:26:56.445Z",
-      "updated_at": "2026-08-01T18:17:39.237Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7470290,
-        "name": "dswietoc's group",
-        "url": "https://api.intra.42.fr/v2/teams/7470290",
-        "final_mark": 100,
-        "project_id": 1314,
-        "created_at": "2026-06-15T12:10:37.626Z",
-        "updated_at": "2026-07-18T18:23:13.199Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 263837,
-            "login": "dswietoc",
-            "url": "https://api.intra.42.fr/v2/users/dswietoc",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4961953
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-4fefc251-67a0-4b00-ae39-617dcbae7540-7470290-dswietoc",
-        "repo_uuid": "intra-uuid-4fefc251-67a0-4b00-ae39-617dcbae7540-7470290-dswietoc",
-        "locked_at": "2026-06-15T12:10:37.669Z",
-        "closed_at": "2026-07-18T14:59:56.989Z",
-        "project_session_id": 11787,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/libft"
-      }
-    ]
-  },
-  {
     "id": 4962027,
     "occurrence": 2,
     "final_mark": 100,
@@ -5335,6 +5034,96 @@
         "repo_uuid": "intra-uuid-e8ecbd73-d6e0-4dd9-8254-00915e2a65b5-7471184-rwichary",
         "locked_at": "2026-06-15T19:37:22.307Z",
         "closed_at": "2026-07-20T19:31:32.291Z",
+        "project_session_id": 11787,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/libft"
+      }
+    ]
+  },
+  {
+    "id": 4962708,
+    "occurrence": 0,
+    "final_mark": 0,
+    "status": "finished",
+    "validated?": false,
+    "current_team_id": 7471185,
+    "project": {
+      "id": 1314,
+      "name": "Libft",
+      "slug": "42cursus-libft",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T15:11:28.743Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T15:11:28.797Z",
+    "created_at": "2026-06-15T19:37:36.576Z",
+    "updated_at": "2026-08-01T15:11:28.808Z",
+    "user": {
+      "id": 253192,
+      "email": "iismail-@student.42warsaw.pl",
+      "login": "iismail-",
+      "first_name": "Ismail Mahgoub",
+      "last_name": "Ismail Abdalla",
+      "usual_full_name": "Ismail Mahgoub Ismail Abdalla",
+      "usual_first_name": "Ismail Mahgoub",
+      "url": "https://api.intra.42.fr/v2/users/iismail-",
+      "phone": "hidden",
+      "displayname": "Ismail Mahgoub Ismail Abdalla",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/16bc4e1313841a19ebf2b618fdab505a/iismail-.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/b6b2dd48b03b69916a239d3c24df7e40/large_iismail-.jpg",
+          "medium": "https://cdn.intra.42.fr/users/bba1a269d439b0b2ebb457e33aad12e6/medium_iismail-.jpg",
+          "small": "https://cdn.intra.42.fr/users/e9a592611cf89c35b6c045b5c2443f20/small_iismail-.jpg",
+          "micro": "https://cdn.intra.42.fr/users/48e5012c6af1c33a02d2bd14f15b03e5/micro_iismail-.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 2,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": null,
+      "wallet": 35,
+      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
+      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
+      "created_at": "2026-01-16T10:14:43.487Z",
+      "updated_at": "2026-08-01T15:27:07.863Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7471185,
+        "name": "iismail-'s group",
+        "url": "https://api.intra.42.fr/v2/teams/7471185",
+        "final_mark": 0,
+        "project_id": 1314,
+        "created_at": "2026-06-15T19:37:36.593Z",
+        "updated_at": "2026-08-01T15:11:28.631Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 253192,
+            "login": "iismail-",
+            "url": "https://api.intra.42.fr/v2/users/iismail-",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 4962708
+          }
+        ],
+        "locked?": true,
+        "validated?": false,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-e4e515b9-68b4-49ae-bcef-b89220703ea1-7471185-iismail-",
+        "repo_uuid": "intra-uuid-e4e515b9-68b4-49ae-bcef-b89220703ea1-7471185-iismail-",
+        "locked_at": "2026-06-15T19:37:36.624Z",
+        "closed_at": "2026-07-30T11:44:40.190Z",
         "project_session_id": 11787,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/libft"
       }
@@ -6458,6 +6247,96 @@
     ]
   },
   {
+    "id": 4971682,
+    "occurrence": 0,
+    "final_mark": 0,
+    "status": "finished",
+    "validated?": false,
+    "current_team_id": 7482162,
+    "project": {
+      "id": 1314,
+      "name": "Libft",
+      "slug": "42cursus-libft",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T23:18:10.114Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T23:18:10.162Z",
+    "created_at": "2026-06-22T21:07:13.730Z",
+    "updated_at": "2026-08-01T23:18:10.181Z",
+    "user": {
+      "id": 263875,
+      "email": "paukowal@student.42warsaw.pl",
+      "login": "paukowal",
+      "first_name": "Paulina",
+      "last_name": "Kowalska-Soto",
+      "usual_full_name": "Paulina Kowalska Soto",
+      "usual_first_name": "Paulina",
+      "url": "https://api.intra.42.fr/v2/users/paukowal",
+      "phone": "hidden",
+      "displayname": "Paulina Kowalska Soto",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/0e0ce3d4d67319a01cf90aa1de7c9a39/paukowal.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/d21f62440ae8454d5f0715e0cc600be8/large_paukowal.jpg",
+          "medium": "https://cdn.intra.42.fr/users/a51fb1fdb8a9b8f4e09bd84267902e57/medium_paukowal.jpg",
+          "small": "https://cdn.intra.42.fr/users/162660c492f14fc061f48aa927e9884e/small_paukowal.jpg",
+          "micro": "https://cdn.intra.42.fr/users/0413f299fab25ff63955b51b987e70c0/micro_paukowal.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 6,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": null,
+      "wallet": 5,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-05-04T09:54:47.565Z",
+      "updated_at": "2026-08-02T00:02:42.634Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7482162,
+        "name": "paukowal's group",
+        "url": "https://api.intra.42.fr/v2/teams/7482162",
+        "final_mark": 0,
+        "project_id": 1314,
+        "created_at": "2026-06-22T21:07:13.753Z",
+        "updated_at": "2026-08-01T23:18:09.650Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 263875,
+            "login": "paukowal",
+            "url": "https://api.intra.42.fr/v2/users/paukowal",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 4971682
+          }
+        ],
+        "locked?": true,
+        "validated?": false,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-5c9eacba-c82b-40de-b7a8-5495c5b17cae-7482162-paukowal",
+        "repo_uuid": "intra-uuid-5c9eacba-c82b-40de-b7a8-5495c5b17cae-7482162-paukowal",
+        "locked_at": "2026-06-22T21:07:13.793Z",
+        "closed_at": "2026-08-01T20:44:14.178Z",
+        "project_session_id": 11787,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/libft"
+      }
+    ]
+  },
+  {
     "id": 4974083,
     "occurrence": 0,
     "final_mark": 100,
@@ -6505,10 +6384,10 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 275,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-14T10:34:47.927Z",
-      "updated_at": "2026-08-01T23:08:39.796Z",
+      "updated_at": "2026-08-02T03:02:40.800Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -6784,8 +6663,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T09:52:38.449Z",
       "updated_at": "2026-08-01T13:14:38.508Z",
       "alumnized_at": null,
@@ -7002,12 +6881,12 @@
       "correction_point": 14,
       "pool_month": "february",
       "pool_year": "2026",
-      "location": "c3r14s1",
+      "location": null,
       "wallet": 45,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T11:36:46.331Z",
-      "updated_at": "2026-08-01T21:23:39.767Z",
+      "updated_at": "2026-08-02T03:02:41.578Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -7140,105 +7019,6 @@
     ]
   },
   {
-    "id": 4978235,
-    "occurrence": 0,
-    "final_mark": 125,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7507778,
-    "project": {
-      "id": 2687,
-      "name": "push_swap",
-      "slug": "42next-push_swap",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T18:13:57.904Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T18:13:58.120Z",
-    "created_at": "2026-06-27T17:01:08.551Z",
-    "updated_at": "2026-07-18T18:13:58.134Z",
-    "user": {
-      "id": 253236,
-      "email": "twloskow@student.42warsaw.pl",
-      "login": "twloskow",
-      "first_name": "Tomasz",
-      "last_name": "Włoskowicz",
-      "usual_full_name": "Tomasz Włoskowicz",
-      "usual_first_name": "Tomasz",
-      "url": "https://api.intra.42.fr/v2/users/twloskow",
-      "phone": "hidden",
-      "displayname": "Tomasz Włoskowicz",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/118f7210319f427bf8d5910c928b85ca/twloskow.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/187dcbe67d387d83292d4ad83a525d34/large_twloskow.jpg",
-          "medium": "https://cdn.intra.42.fr/users/3650aadebd13037dedc0c7571ddb09dc/medium_twloskow.jpg",
-          "small": "https://cdn.intra.42.fr/users/9d468ea7f3b3992f360d9bbb576a6e9e/small_twloskow.jpg",
-          "micro": "https://cdn.intra.42.fr/users/3ac708d2867bca811a45cfcb3966a8c5/micro_twloskow.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 14,
-      "pool_month": "february",
-      "pool_year": "2026",
-      "location": "c3r14s1",
-      "wallet": 45,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
-      "created_at": "2026-01-16T11:36:46.331Z",
-      "updated_at": "2026-08-01T21:23:39.767Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7507778,
-        "name": "smilch's team",
-        "url": "https://api.intra.42.fr/v2/teams/7507778",
-        "final_mark": 125,
-        "project_id": 2687,
-        "created_at": "2026-07-07T16:16:18.111Z",
-        "updated_at": "2026-07-18T18:13:58.193Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 253236,
-            "login": "twloskow",
-            "url": "https://api.intra.42.fr/v2/users/twloskow",
-            "leader": false,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4978235
-          },
-          {
-            "id": 263881,
-            "login": "smilch",
-            "url": "https://api.intra.42.fr/v2/users/smilch",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4991554
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-bd2384d6-6e02-46eb-bb99-b57a080ce5a6-7507778-smilch",
-        "repo_uuid": "intra-uuid-bd2384d6-6e02-46eb-bb99-b57a080ce5a6-7507778-smilch",
-        "locked_at": "2026-07-07T16:17:14.583Z",
-        "closed_at": "2026-07-18T15:06:19.473Z",
-        "project_session_id": 15246,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
-      }
-    ]
-  },
-  {
     "id": 4978337,
     "occurrence": 0,
     "final_mark": 0,
@@ -7329,96 +7109,6 @@
     ]
   },
   {
-    "id": 4978637,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7491061,
-    "project": {
-      "id": 1316,
-      "name": "ft_printf",
-      "slug": "42cursus-ft_printf",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T14:55:58.091Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T14:55:58.277Z",
-    "created_at": "2026-06-28T13:40:43.935Z",
-    "updated_at": "2026-07-18T14:55:58.292Z",
-    "user": {
-      "id": 258693,
-      "email": "asuleime@student.42warsaw.pl",
-      "login": "asuleime",
-      "first_name": "Aman",
-      "last_name": "Suleimenov",
-      "usual_full_name": "Aman Suleimenov",
-      "usual_first_name": "Aman",
-      "url": "https://api.intra.42.fr/v2/users/asuleime",
-      "phone": "hidden",
-      "displayname": "Aman Suleimenov",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/bfc25557a28b8219066d16b0007962db/asuleime.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/ded1ab81921820d46f2dbfbda62a5b7e/large_asuleime.jpg",
-          "medium": "https://cdn.intra.42.fr/users/a22974ca2150f50d260dce61b38075d8/medium_asuleime.jpg",
-          "small": "https://cdn.intra.42.fr/users/f6671fb8666815c9b145b0d8d146242a/small_asuleime.jpg",
-          "micro": "https://cdn.intra.42.fr/users/7fea89e70e72d83a0710e2860e692a99/micro_asuleime.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 13,
-      "pool_month": "march",
-      "pool_year": "2026",
-      "location": null,
-      "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
-      "created_at": "2026-02-27T09:41:43.096Z",
-      "updated_at": "2026-08-01T15:11:04.050Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7491061,
-        "name": "asuleime's group",
-        "url": "https://api.intra.42.fr/v2/teams/7491061",
-        "final_mark": 100,
-        "project_id": 1316,
-        "created_at": "2026-06-28T13:40:43.955Z",
-        "updated_at": "2026-07-18T14:55:57.653Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 258693,
-            "login": "asuleime",
-            "url": "https://api.intra.42.fr/v2/users/asuleime",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4978637
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-24269331-7db4-4c51-b30c-ed00e50df283-7491061-asuleime",
-        "repo_uuid": "intra-uuid-24269331-7db4-4c51-b30c-ed00e50df283-7491061-asuleime",
-        "locked_at": "2026-06-28T13:40:43.986Z",
-        "closed_at": "2026-07-18T11:30:57.071Z",
-        "project_session_id": 11795,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/ft_printf"
-      }
-    ]
-  },
-  {
     "id": 4980230,
     "occurrence": 0,
     "final_mark": 125,
@@ -7466,8 +7156,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 250,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T12:20:23.429Z",
       "updated_at": "2026-08-01T10:29:39.209Z",
       "alumnized_at": null,
@@ -7556,8 +7246,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 250,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T12:20:23.429Z",
       "updated_at": "2026-08-01T10:29:39.209Z",
       "alumnized_at": null,
@@ -7646,8 +7336,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 250,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T12:20:23.429Z",
       "updated_at": "2026-08-01T10:29:39.209Z",
       "alumnized_at": null,
@@ -7828,6 +7518,186 @@
     ]
   },
   {
+    "id": 4984031,
+    "occurrence": 0,
+    "final_mark": 41,
+    "status": "finished",
+    "validated?": false,
+    "current_team_id": 7497974,
+    "project": {
+      "id": 1327,
+      "name": "get_next_line",
+      "slug": "42cursus-get_next_line",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T18:13:58.586Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T18:13:58.625Z",
+    "created_at": "2026-07-02T11:40:33.384Z",
+    "updated_at": "2026-08-01T18:13:58.639Z",
+    "user": {
+      "id": 263818,
+      "email": "aloiko@student.42warsaw.pl",
+      "login": "aloiko",
+      "first_name": "Andrii",
+      "last_name": "Loiko",
+      "usual_full_name": "Andrii Loiko",
+      "usual_first_name": "Andrii",
+      "url": "https://api.intra.42.fr/v2/users/aloiko",
+      "phone": "hidden",
+      "displayname": "Andrii Loiko",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/af4085638d14e4feeab8949dd699e2ad/aloiko.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/05104eb2ce0524e373483c74767f4866/large_aloiko.jpg",
+          "medium": "https://cdn.intra.42.fr/users/e394723717768a13bf620c89eb92e07f/medium_aloiko.jpg",
+          "small": "https://cdn.intra.42.fr/users/4b7105ecb735983b1f9998f54d61c3cc/small_aloiko.jpg",
+          "micro": "https://cdn.intra.42.fr/users/a06d215639444b786601f061862024ef/micro_aloiko.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 12,
+      "pool_month": "may",
+      "pool_year": "2026",
+      "location": null,
+      "wallet": 145,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-05-04T07:57:15.345Z",
+      "updated_at": "2026-08-01T19:08:39.694Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7497974,
+        "name": "aloiko's group",
+        "url": "https://api.intra.42.fr/v2/teams/7497974",
+        "final_mark": 41,
+        "project_id": 1327,
+        "created_at": "2026-07-02T11:40:33.425Z",
+        "updated_at": "2026-08-01T18:13:58.067Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 263818,
+            "login": "aloiko",
+            "url": "https://api.intra.42.fr/v2/users/aloiko",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 4984031
+          }
+        ],
+        "locked?": true,
+        "validated?": false,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-47bf76b1-7e5e-44cb-a7f6-ae9ed24e6f4a-7497974-aloiko",
+        "repo_uuid": "intra-uuid-47bf76b1-7e5e-44cb-a7f6-ae9ed24e6f4a-7497974-aloiko",
+        "locked_at": "2026-07-02T11:40:33.486Z",
+        "closed_at": "2026-08-01T14:20:58.480Z",
+        "project_session_id": 11794,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/get_next_line"
+      }
+    ]
+  },
+  {
+    "id": 4985497,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "current_team_id": 7499769,
+    "project": {
+      "id": 2309,
+      "name": "CPP Module 09",
+      "slug": "cpp-module-09",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T18:23:57.765Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T18:23:57.965Z",
+    "created_at": "2026-07-03T12:57:54.070Z",
+    "updated_at": "2026-08-01T18:23:57.981Z",
+    "user": {
+      "id": 174699,
+      "email": "rkobelie@student.42warsaw.pl",
+      "login": "rkobelie",
+      "first_name": "Rostyslav",
+      "last_name": "Kobeliev",
+      "usual_full_name": "Rostyslav Kobeliev",
+      "usual_first_name": "Rostyslav",
+      "url": "https://api.intra.42.fr/v2/users/rkobelie",
+      "phone": "hidden",
+      "displayname": "Rostyslav Kobeliev",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/1f91aa752469cf95fee9d56c7a1ecb14/rkobelie.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/b344721cf9c17ba7048507a3fdb534c0/large_rkobelie.jpg",
+          "medium": "https://cdn.intra.42.fr/users/a18a2279100bafccccb6bf0869777153/medium_rkobelie.jpg",
+          "small": "https://cdn.intra.42.fr/users/d45e9ee2cd38a993281efd05060b2ef6/small_rkobelie.jpg",
+          "micro": "https://cdn.intra.42.fr/users/34e09c42c1a3a32c42d00661c8cb01d9/micro_rkobelie.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 14,
+      "pool_month": "january",
+      "pool_year": "2024",
+      "location": null,
+      "wallet": 145,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2024-01-15T07:42:21.339Z",
+      "updated_at": "2026-08-01T18:26:39.058Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7499769,
+        "name": "rkobelie's group",
+        "url": "https://api.intra.42.fr/v2/teams/7499769",
+        "final_mark": 100,
+        "project_id": 2309,
+        "created_at": "2026-07-03T12:57:54.091Z",
+        "updated_at": "2026-08-01T18:23:58.019Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 174699,
+            "login": "rkobelie",
+            "url": "https://api.intra.42.fr/v2/users/rkobelie",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 4985497
+          }
+        ],
+        "locked?": true,
+        "validated?": true,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-14a5d9c7-a0a8-466f-98d3-d4de7a8c6a44-7499769-rkobelie",
+        "repo_uuid": "intra-uuid-14a5d9c7-a0a8-466f-98d3-d4de7a8c6a44-7499769-rkobelie",
+        "locked_at": "2026-07-03T12:57:54.125Z",
+        "closed_at": "2026-08-01T13:55:44.044Z",
+        "project_session_id": 11816,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/cpp-module-09"
+      }
+    ]
+  },
+  {
     "id": 4985730,
     "occurrence": 0,
     "final_mark": 125,
@@ -7977,7 +7847,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2026-01-16T11:42:24.581Z",
-      "updated_at": "2026-08-01T21:26:39.629Z",
+      "updated_at": "2026-08-02T03:09:13.670Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -8098,7 +7968,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2026-01-16T11:42:24.581Z",
-      "updated_at": "2026-08-01T21:26:39.629Z",
+      "updated_at": "2026-08-02T03:09:13.670Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -8913,96 +8783,6 @@
     ]
   },
   {
-    "id": 4987166,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7501892,
-    "project": {
-      "id": 2007,
-      "name": "NetPractice",
-      "slug": "netpractice",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T16:44:50.745Z",
-    "marked": true,
-    "retriable_at": "2026-07-21T16:44:50.949Z",
-    "created_at": "2026-07-06T00:47:07.324Z",
-    "updated_at": "2026-07-18T16:44:50.967Z",
-    "user": {
-      "id": 228044,
-      "email": "aasylbye@student.42warsaw.pl",
-      "login": "aasylbye",
-      "first_name": "Amin",
-      "last_name": "Asylbyek",
-      "usual_full_name": "Amin Asylbyek",
-      "usual_first_name": "Amin",
-      "url": "https://api.intra.42.fr/v2/users/aasylbye",
-      "phone": "hidden",
-      "displayname": "Amin Asylbyek",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/472db0b39154263fa1c211218fd11c05/aasylbye.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/febb671e16f51377d96a4267485f720e/large_aasylbye.jpg",
-          "medium": "https://cdn.intra.42.fr/users/56ac4643995f4bc510fb4369a0c97507/medium_aasylbye.jpg",
-          "small": "https://cdn.intra.42.fr/users/22808ad778d19d23b6395c46da54e796/small_aasylbye.jpg",
-          "micro": "https://cdn.intra.42.fr/users/4114db06f6a9f947c449a6604cd4ee85/micro_aasylbye.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 17,
-      "pool_month": "july",
-      "pool_year": "2025",
-      "location": null,
-      "wallet": 2705,
-      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
-      "created_at": "2025-06-16T10:37:02.793Z",
-      "updated_at": "2026-07-30T08:44:38.069Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7501892,
-        "name": "aasylbye's group",
-        "url": "https://api.intra.42.fr/v2/teams/7501892",
-        "final_mark": 100,
-        "project_id": 2007,
-        "created_at": "2026-07-06T00:47:07.342Z",
-        "updated_at": "2026-07-18T16:44:51.006Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 228044,
-            "login": "aasylbye",
-            "url": "https://api.intra.42.fr/v2/users/aasylbye",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4987166
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-f98e935e-d0f2-42b6-9f8a-7a58cbf3806a-7501892-aasylbye",
-        "repo_uuid": "intra-uuid-f98e935e-d0f2-42b6-9f8a-7a58cbf3806a-7501892-aasylbye",
-        "locked_at": "2026-07-06T00:47:07.410Z",
-        "closed_at": "2026-07-13T16:57:05.161Z",
-        "project_session_id": 11809,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/net_practice"
-      }
-    ]
-  },
-  {
     "id": 4989484,
     "occurrence": 0,
     "final_mark": 0,
@@ -9285,105 +9065,6 @@
         "repo_uuid": "intra-uuid-4eb10619-10d4-4f49-9cc7-337154961d9c-7506202-jasiuda",
         "locked_at": "2026-07-07T10:17:51.940Z",
         "closed_at": "2026-07-28T08:40:58.208Z",
-        "project_session_id": 15246,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
-      }
-    ]
-  },
-  {
-    "id": 4991554,
-    "occurrence": 0,
-    "final_mark": 125,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7507778,
-    "project": {
-      "id": 2687,
-      "name": "push_swap",
-      "slug": "42next-push_swap",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T18:13:57.574Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T18:13:57.815Z",
-    "created_at": "2026-07-07T16:16:02.039Z",
-    "updated_at": "2026-07-18T18:13:58.146Z",
-    "user": {
-      "id": 263881,
-      "email": "smilch@student.42warsaw.pl",
-      "login": "smilch",
-      "first_name": "Sonia",
-      "last_name": "Milch",
-      "usual_full_name": "Sonia Milch",
-      "usual_first_name": "Sonia",
-      "url": "https://api.intra.42.fr/v2/users/smilch",
-      "phone": "hidden",
-      "displayname": "Sonia Milch",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/4db44c42c18b7780491d84555c24ff92/smilch.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/70ed2dfb3ae75952a21d5f24de58218a/large_smilch.jpg",
-          "medium": "https://cdn.intra.42.fr/users/3d859d6cdb14890b547b3b8cb4805d84/medium_smilch.jpg",
-          "small": "https://cdn.intra.42.fr/users/b29e583d55e4ab4e0a94e1ba0cee69aa/small_smilch.jpg",
-          "micro": "https://cdn.intra.42.fr/users/9f60e2aed182f6a4360b7f15fc1aafa6/micro_smilch.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 10,
-      "pool_month": "may",
-      "pool_year": "2026",
-      "location": null,
-      "wallet": 185,
-      "anonymize_date": "2029-07-31T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-31T00:00:00.000+02:00",
-      "created_at": "2026-05-04T10:02:36.048Z",
-      "updated_at": "2026-08-01T17:50:38.668Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7507778,
-        "name": "smilch's team",
-        "url": "https://api.intra.42.fr/v2/teams/7507778",
-        "final_mark": 125,
-        "project_id": 2687,
-        "created_at": "2026-07-07T16:16:18.111Z",
-        "updated_at": "2026-07-18T18:13:58.193Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 253236,
-            "login": "twloskow",
-            "url": "https://api.intra.42.fr/v2/users/twloskow",
-            "leader": false,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4978235
-          },
-          {
-            "id": 263881,
-            "login": "smilch",
-            "url": "https://api.intra.42.fr/v2/users/smilch",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4991554
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-bd2384d6-6e02-46eb-bb99-b57a080ce5a6-7507778-smilch",
-        "repo_uuid": "intra-uuid-bd2384d6-6e02-46eb-bb99-b57a080ce5a6-7507778-smilch",
-        "locked_at": "2026-07-07T16:17:14.583Z",
-        "closed_at": "2026-07-18T15:06:19.473Z",
         "project_session_id": 15246,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
       }
@@ -10076,7 +9757,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2026-01-16T14:11:43.261Z",
-      "updated_at": "2026-08-01T17:18:04.390Z",
+      "updated_at": "2026-08-02T03:08:39.404Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -10516,96 +10197,6 @@
     ]
   },
   {
-    "id": 4999920,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7519286,
-    "project": {
-      "id": 1345,
-      "name": "CPP Module 07",
-      "slug": "cpp-module-07",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T16:20:02.594Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T16:20:02.670Z",
-    "created_at": "2026-07-12T22:00:58.153Z",
-    "updated_at": "2026-07-18T16:20:02.684Z",
-    "user": {
-      "id": 174434,
-      "email": "oostapen@student.42warsaw.pl",
-      "login": "oostapen",
-      "first_name": "Oleksiy",
-      "last_name": "Ostapenko",
-      "usual_full_name": "Oleksiy Ostapenko",
-      "usual_first_name": "Oleksiy",
-      "url": "https://api.intra.42.fr/v2/users/oostapen",
-      "phone": "hidden",
-      "displayname": "Oleksiy Ostapenko",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/bbe620b57b9a5573bf4c52a8bf718b9a/oostapen.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/7deec1b88c30350a118564667fd9d2ae/large_oostapen.jpg",
-          "medium": "https://cdn.intra.42.fr/users/4a1b5fd25564ed37ca6da9f24fa1eae1/medium_oostapen.jpg",
-          "small": "https://cdn.intra.42.fr/users/081e020e8abdcf24429342f34e95ff66/small_oostapen.jpg",
-          "micro": "https://cdn.intra.42.fr/users/0f9f53a2e08890971c3314e558b19cdf/micro_oostapen.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 32,
-      "pool_month": "january",
-      "pool_year": "2024",
-      "location": null,
-      "wallet": 110,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
-      "created_at": "2024-01-11T14:35:27.306Z",
-      "updated_at": "2026-08-01T13:32:39.059Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7519286,
-        "name": "oostapen's group",
-        "url": "https://api.intra.42.fr/v2/teams/7519286",
-        "final_mark": 100,
-        "project_id": 1345,
-        "created_at": "2026-07-12T22:00:58.181Z",
-        "updated_at": "2026-07-18T16:20:02.714Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 174434,
-            "login": "oostapen",
-            "url": "https://api.intra.42.fr/v2/users/oostapen",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 4999920
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-e528af20-4b4d-45bb-a2b8-30f50cf468c4-7519286-oostapen",
-        "repo_uuid": "intra-uuid-e528af20-4b4d-45bb-a2b8-30f50cf468c4-7519286-oostapen",
-        "locked_at": "2026-07-12T22:00:58.213Z",
-        "closed_at": "2026-07-18T13:19:48.015Z",
-        "project_session_id": 11815,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/cpp-07"
-      }
-    ]
-  },
-  {
     "id": 5002120,
     "occurrence": 1,
     "final_mark": 50,
@@ -10920,96 +10511,6 @@
         "locked_at": "2026-07-13T16:00:17.431Z",
         "closed_at": "2026-07-23T10:48:06.343Z",
         "project_session_id": 15246,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
-      }
-    ]
-  },
-  {
-    "id": 5002623,
-    "occurrence": 0,
-    "final_mark": 86,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7522683,
-    "project": {
-      "id": 1471,
-      "name": "push_swap",
-      "slug": "42cursus-push_swap",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T14:51:58.907Z",
-    "marked": true,
-    "retriable_at": "2026-07-20T14:51:59.141Z",
-    "created_at": "2026-07-13T17:03:28.181Z",
-    "updated_at": "2026-07-18T14:51:59.161Z",
-    "user": {
-      "id": 228730,
-      "email": "jwira@student.42warsaw.pl",
-      "login": "jwira",
-      "first_name": "Julianna",
-      "last_name": "Wira",
-      "usual_full_name": "Julianna Wira",
-      "usual_first_name": "Julianna",
-      "url": "https://api.intra.42.fr/v2/users/jwira",
-      "phone": "hidden",
-      "displayname": "Julianna Wira",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/1c086f5b2e1b64a8e392e4936044f628/jwira.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/a4034adbd34ecb7cb99cf3cfdb2afce5/large_jwira.jpg",
-          "medium": "https://cdn.intra.42.fr/users/14c379e5b30c0d02628eba751bfd6fe9/medium_jwira.jpg",
-          "small": "https://cdn.intra.42.fr/users/f9db60abc017c6c933763df24028f956/small_jwira.jpg",
-          "micro": "https://cdn.intra.42.fr/users/ddbaf7df29392f0c6d1c4190d9cfbca8/micro_jwira.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 4,
-      "pool_month": "july",
-      "pool_year": "2025",
-      "location": null,
-      "wallet": 15,
-      "anonymize_date": "2029-07-18T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-18T00:00:00.000+02:00",
-      "created_at": "2025-06-23T07:58:11.799Z",
-      "updated_at": "2026-07-18T15:35:40.900Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7522683,
-        "name": "jwira's group",
-        "url": "https://api.intra.42.fr/v2/teams/7522683",
-        "final_mark": 86,
-        "project_id": 1471,
-        "created_at": "2026-07-13T17:03:28.204Z",
-        "updated_at": "2026-07-18T14:51:59.230Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 228730,
-            "login": "jwira",
-            "url": "https://api.intra.42.fr/v2/users/jwira",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 5002623
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-a1025bec-a0aa-4a89-9455-0bea7917f7fd-7522683-jwira",
-        "repo_uuid": "intra-uuid-a1025bec-a0aa-4a89-9455-0bea7917f7fd-7522683-jwira",
-        "locked_at": "2026-07-13T17:03:28.241Z",
-        "closed_at": "2026-07-18T12:25:05.576Z",
-        "project_session_id": 11797,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/push_swap"
       }
     ]
@@ -11950,12 +11451,12 @@
       "correction_point": 3,
       "pool_month": "may",
       "pool_year": "2026",
-      "location": "c3r5s1",
+      "location": null,
       "wallet": 10,
       "anonymize_date": "2029-08-02T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-04-24T08:30:13.810Z",
-      "updated_at": "2026-08-01T23:20:40.466Z",
+      "updated_at": "2026-08-02T03:02:42.352Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -12081,186 +11582,6 @@
         "closed_at": "2026-07-20T12:29:40.331Z",
         "project_session_id": 15250,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-01"
-      }
-    ]
-  },
-  {
-    "id": 5012374,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7536310,
-    "project": {
-      "id": 2693,
-      "name": "Python Module 03",
-      "slug": "python-module-03",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T14:45:43.337Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T14:45:43.659Z",
-    "created_at": "2026-07-16T15:36:43.541Z",
-    "updated_at": "2026-07-18T14:45:43.673Z",
-    "user": {
-      "id": 228714,
-      "email": "ytumukun@student.42warsaw.pl",
-      "login": "ytumukun",
-      "first_name": "Yves",
-      "last_name": "Tumukunde",
-      "usual_full_name": "Yves Tumukunde",
-      "usual_first_name": "Yves",
-      "url": "https://api.intra.42.fr/v2/users/ytumukun",
-      "phone": "hidden",
-      "displayname": "Yves Tumukunde",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/71f764394e328eff57a899d67450ba07/ytumukun.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/917c406e347c3401a73a52d7f51a9627/large_ytumukun.jpg",
-          "medium": "https://cdn.intra.42.fr/users/d7659a420a4434df97243fab2a1cccb3/medium_ytumukun.jpg",
-          "small": "https://cdn.intra.42.fr/users/477bf053c852f2071b8ffb951e3a8acb/small_ytumukun.jpg",
-          "micro": "https://cdn.intra.42.fr/users/e7e233a1d011da894071e447074a5ea3/micro_ytumukun.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 9,
-      "pool_month": "july",
-      "pool_year": "2025",
-      "location": null,
-      "wallet": 280,
-      "anonymize_date": "2029-07-29T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-29T00:00:00.000+02:00",
-      "created_at": "2025-06-23T07:47:18.669Z",
-      "updated_at": "2026-07-29T17:41:39.188Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": true
-    },
-    "teams": [
-      {
-        "id": 7536310,
-        "name": "ytumukun's group",
-        "url": "https://api.intra.42.fr/v2/teams/7536310",
-        "final_mark": 100,
-        "project_id": 2693,
-        "created_at": "2026-07-16T15:36:43.560Z",
-        "updated_at": "2026-07-18T14:45:43.709Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 228714,
-            "login": "ytumukun",
-            "url": "https://api.intra.42.fr/v2/users/ytumukun",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 5012374
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-c7db5c8c-aefb-41fb-896a-3f56329679dc-7536310-ytumukun",
-        "repo_uuid": "intra-uuid-c7db5c8c-aefb-41fb-896a-3f56329679dc-7536310-ytumukun",
-        "locked_at": "2026-07-16T15:36:43.594Z",
-        "closed_at": "2026-07-18T11:20:15.781Z",
-        "project_session_id": 15252,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-03"
-      }
-    ]
-  },
-  {
-    "id": 5012597,
-    "occurrence": 0,
-    "final_mark": 100,
-    "status": "finished",
-    "validated?": true,
-    "current_team_id": 7536586,
-    "project": {
-      "id": 2692,
-      "name": "Python Module 02",
-      "slug": "python-module-02",
-      "parent_id": null
-    },
-    "cursus_ids": [
-      21
-    ],
-    "marked_at": "2026-07-18T16:22:38.588Z",
-    "marked": true,
-    "retriable_at": "2026-07-19T16:22:38.812Z",
-    "created_at": "2026-07-16T16:39:23.820Z",
-    "updated_at": "2026-07-18T16:22:38.828Z",
-    "user": {
-      "id": 228840,
-      "email": "kochniak@student.42warsaw.pl",
-      "login": "kochniak",
-      "first_name": "Karol",
-      "last_name": "Ochniak",
-      "usual_full_name": "Karol Ochniak",
-      "usual_first_name": "Karol",
-      "url": "https://api.intra.42.fr/v2/users/kochniak",
-      "phone": "hidden",
-      "displayname": "Karol Ochniak",
-      "kind": "student",
-      "image": {
-        "link": "https://cdn.intra.42.fr/users/ffc621e421cef43507de2b668182a9aa/kochniak.jpg",
-        "versions": {
-          "large": "https://cdn.intra.42.fr/users/0ca328815781f49be1f6e22dc7a025e3/large_kochniak.jpg",
-          "medium": "https://cdn.intra.42.fr/users/539edeeb6e00f5abf614b7c4982d331b/medium_kochniak.jpg",
-          "small": "https://cdn.intra.42.fr/users/c3b9a7b5305dadb74b6696de7b0d6ab8/small_kochniak.jpg",
-          "micro": "https://cdn.intra.42.fr/users/6a204552885817f656da4d1b2f12cd1d/micro_kochniak.jpg"
-        }
-      },
-      "staff?": false,
-      "correction_point": 22,
-      "pool_month": "july",
-      "pool_year": "2025",
-      "location": null,
-      "wallet": 35,
-      "anonymize_date": "2029-07-27T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-27T00:00:00.000+02:00",
-      "created_at": "2025-06-23T11:07:29.034Z",
-      "updated_at": "2026-07-21T19:20:39.944Z",
-      "alumnized_at": null,
-      "alumni?": false,
-      "active?": false
-    },
-    "teams": [
-      {
-        "id": 7536586,
-        "name": "kochniak's group",
-        "url": "https://api.intra.42.fr/v2/teams/7536586",
-        "final_mark": 100,
-        "project_id": 2692,
-        "created_at": "2026-07-16T16:39:23.843Z",
-        "updated_at": "2026-07-18T16:22:38.863Z",
-        "status": "finished",
-        "terminating_at": null,
-        "users": [
-          {
-            "id": 228840,
-            "login": "kochniak",
-            "url": "https://api.intra.42.fr/v2/users/kochniak",
-            "leader": true,
-            "occurrence": 0,
-            "validated": true,
-            "projects_user_id": 5012597
-          }
-        ],
-        "locked?": true,
-        "validated?": true,
-        "closed?": true,
-        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-bea91355-be9d-4e45-b85e-e2d174a86062-7536586-kochniak",
-        "repo_uuid": "intra-uuid-bea91355-be9d-4e45-b85e-e2d174a86062-7536586-kochniak",
-        "locked_at": "2026-07-16T16:39:23.876Z",
-        "closed_at": "2026-07-18T11:52:42.258Z",
-        "project_session_id": 15251,
-        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-02"
       }
     ]
   },
@@ -13151,12 +12472,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -13603,10 +12924,10 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 275,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-14T10:34:47.927Z",
-      "updated_at": "2026-08-01T23:08:39.796Z",
+      "updated_at": "2026-08-02T03:02:40.800Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -14152,10 +13473,10 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 275,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-14T10:34:47.927Z",
-      "updated_at": "2026-08-01T23:08:39.796Z",
+      "updated_at": "2026-08-02T03:02:40.800Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -14312,6 +13633,96 @@
         "closed_at": "2026-07-30T17:37:58.761Z",
         "project_session_id": 11795,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/ft_printf"
+      }
+    ]
+  },
+  {
+    "id": 5019215,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "current_team_id": 7546071,
+    "project": {
+      "id": 2692,
+      "name": "Python Module 02",
+      "slug": "python-module-02",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T15:40:55.310Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T15:40:55.604Z",
+    "created_at": "2026-07-20T16:55:00.383Z",
+    "updated_at": "2026-08-01T15:40:55.619Z",
+    "user": {
+      "id": 253214,
+      "email": "msowinsk@student.42warsaw.pl",
+      "login": "msowinsk",
+      "first_name": "Mateusz",
+      "last_name": "Sowiński",
+      "usual_full_name": "Mateusz Sowiński",
+      "usual_first_name": "Mateusz",
+      "url": "https://api.intra.42.fr/v2/users/msowinsk",
+      "phone": "hidden",
+      "displayname": "Mateusz Sowiński",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/5ee2607908c3502f2183bc2f9a855af4/msowinsk.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/fad58119e129378a60c5967b37afcdf7/large_msowinsk.jpg",
+          "medium": "https://cdn.intra.42.fr/users/788207a86a55e8ed5fd9dbf1eaaf46e3/medium_msowinsk.jpg",
+          "small": "https://cdn.intra.42.fr/users/caae7e185f26a61209412e5da1a68278/small_msowinsk.jpg",
+          "micro": "https://cdn.intra.42.fr/users/5687479270652da1ea1d41b151dc7db2/micro_msowinsk.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 13,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": null,
+      "wallet": 40,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:08:53.116Z",
+      "updated_at": "2026-08-01T17:35:41.313Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7546071,
+        "name": "msowinsk's group",
+        "url": "https://api.intra.42.fr/v2/teams/7546071",
+        "final_mark": 100,
+        "project_id": 2692,
+        "created_at": "2026-07-20T16:55:00.405Z",
+        "updated_at": "2026-08-01T15:40:55.662Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 253214,
+            "login": "msowinsk",
+            "url": "https://api.intra.42.fr/v2/users/msowinsk",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 5019215
+          }
+        ],
+        "locked?": true,
+        "validated?": true,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-721ca6b2-76c9-4167-a5c4-01579c165cae-7546071-msowinsk",
+        "repo_uuid": "intra-uuid-721ca6b2-76c9-4167-a5c4-01579c165cae-7546071-msowinsk",
+        "locked_at": "2026-07-20T16:55:00.439Z",
+        "closed_at": "2026-08-01T13:23:59.564Z",
+        "project_session_id": 15251,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-02"
       }
     ]
   },
@@ -14546,7 +13957,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2026-01-16T14:11:43.261Z",
-      "updated_at": "2026-08-01T17:18:04.390Z",
+      "updated_at": "2026-08-02T03:08:39.404Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -14811,12 +14222,12 @@
       "correction_point": 14,
       "pool_month": "february",
       "pool_year": "2026",
-      "location": "c3r14s1",
+      "location": null,
       "wallet": 45,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T11:36:46.331Z",
-      "updated_at": "2026-08-01T21:23:39.767Z",
+      "updated_at": "2026-08-02T03:02:41.578Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -14993,8 +14404,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T09:52:38.449Z",
       "updated_at": "2026-08-01T13:14:38.508Z",
       "alumnized_at": null,
@@ -15474,10 +14885,10 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 275,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-14T10:34:47.927Z",
-      "updated_at": "2026-08-01T23:08:39.796Z",
+      "updated_at": "2026-08-02T03:02:40.800Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -15564,8 +14975,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T09:52:38.449Z",
       "updated_at": "2026-08-01T13:14:38.508Z",
       "alumnized_at": null,
@@ -16194,10 +15605,10 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 275,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-14T10:34:47.927Z",
-      "updated_at": "2026-08-01T23:08:39.796Z",
+      "updated_at": "2026-08-02T03:02:40.800Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -16642,12 +16053,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -17652,6 +17063,96 @@
     ]
   },
   {
+    "id": 5039617,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "current_team_id": 7574873,
+    "project": {
+      "id": 1346,
+      "name": "CPP Module 08",
+      "slug": "cpp-module-08",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T17:40:35.071Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T17:40:35.132Z",
+    "created_at": "2026-07-29T14:38:39.367Z",
+    "updated_at": "2026-08-01T17:40:35.148Z",
+    "user": {
+      "id": 171473,
+      "email": "iskaraag@student.42warsaw.pl",
+      "login": "iskaraag",
+      "first_name": "Isshak",
+      "last_name": "Karaagac",
+      "usual_full_name": "Isshak Karaagac",
+      "usual_first_name": "Isshak",
+      "url": "https://api.intra.42.fr/v2/users/iskaraag",
+      "phone": "hidden",
+      "displayname": "Isshak Karaagac",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/21fa0e973699ce57c22fcc6cc34862cf/iskaraag.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/f8e01eaeffc8e7212075f65241a0cc30/large_iskaraag.jpg",
+          "medium": "https://cdn.intra.42.fr/users/a8c61f4de91bd90f4110fdaff7312ba9/medium_iskaraag.jpg",
+          "small": "https://cdn.intra.42.fr/users/aa354d4030f2b682225e99f45abbaedd/small_iskaraag.jpg",
+          "micro": "https://cdn.intra.42.fr/users/c6bf8b7746701483d62668cd330c0a5d/micro_iskaraag.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 7,
+      "pool_month": "december",
+      "pool_year": "2023",
+      "location": null,
+      "wallet": 395,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2023-11-16T10:18:59.433Z",
+      "updated_at": "2026-08-01T17:47:37.160Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7574873,
+        "name": "iskaraag's group",
+        "url": "https://api.intra.42.fr/v2/teams/7574873",
+        "final_mark": 100,
+        "project_id": 1346,
+        "created_at": "2026-07-29T14:38:39.387Z",
+        "updated_at": "2026-08-01T17:40:35.191Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 171473,
+            "login": "iskaraag",
+            "url": "https://api.intra.42.fr/v2/users/iskaraag",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 5039617
+          }
+        ],
+        "locked?": true,
+        "validated?": true,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-80aac48b-d082-4c28-aef8-4da312843fd0-7574873-iskaraag",
+        "repo_uuid": "intra-uuid-80aac48b-d082-4c28-aef8-4da312843fd0-7574873-iskaraag",
+        "locked_at": "2026-07-29T14:38:39.420Z",
+        "closed_at": "2026-08-01T14:53:26.866Z",
+        "project_session_id": 13360,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/cpp-08"
+      }
+    ]
+  },
+  {
     "id": 5039664,
     "occurrence": 0,
     "final_mark": 100,
@@ -18313,6 +17814,96 @@
     ]
   },
   {
+    "id": 5042645,
+    "occurrence": 0,
+    "final_mark": 90,
+    "status": "finished",
+    "validated?": false,
+    "current_team_id": 7579078,
+    "project": {
+      "id": 2696,
+      "name": "Python Module 06",
+      "slug": "python-module-06",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T17:10:25.501Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T17:10:25.566Z",
+    "created_at": "2026-07-30T16:42:16.829Z",
+    "updated_at": "2026-08-01T17:10:25.595Z",
+    "user": {
+      "id": 228728,
+      "email": "abrzoska@student.42warsaw.pl",
+      "login": "abrzoska",
+      "first_name": "Adrian",
+      "last_name": "Brzoska",
+      "usual_full_name": "Adrian Brzoska",
+      "usual_first_name": "Adrian",
+      "url": "https://api.intra.42.fr/v2/users/abrzoska",
+      "phone": "hidden",
+      "displayname": "Adrian Brzoska",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/f724f6d248843c55d5d4b4dc475c67a9/abrzoska.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/22d7a6d508d0e2ed684f56760d07cf9d/large_abrzoska.jpg",
+          "medium": "https://cdn.intra.42.fr/users/5c1d062b39ba43c473bb7ce8439fcda4/medium_abrzoska.jpg",
+          "small": "https://cdn.intra.42.fr/users/d5c42a2fb5840a2698033427721255cd/small_abrzoska.jpg",
+          "micro": "https://cdn.intra.42.fr/users/01235a28008dbc27d21f460f828c1bfb/micro_abrzoska.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 7,
+      "pool_month": "july",
+      "pool_year": "2025",
+      "location": null,
+      "wallet": 175,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2025-06-23T07:56:39.256Z",
+      "updated_at": "2026-08-01T18:02:39.694Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7579078,
+        "name": "abrzoska's group",
+        "url": "https://api.intra.42.fr/v2/teams/7579078",
+        "final_mark": 90,
+        "project_id": 2696,
+        "created_at": "2026-07-30T16:42:16.849Z",
+        "updated_at": "2026-08-01T17:10:25.663Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 228728,
+            "login": "abrzoska",
+            "url": "https://api.intra.42.fr/v2/users/abrzoska",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 5042645
+          }
+        ],
+        "locked?": true,
+        "validated?": false,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-7ee96c14-e6a0-49ef-86e4-c08db7f5c295-7579078-abrzoska",
+        "repo_uuid": "intra-uuid-7ee96c14-e6a0-49ef-86e4-c08db7f5c295-7579078-abrzoska",
+        "locked_at": "2026-07-30T16:42:16.892Z",
+        "closed_at": "2026-08-01T14:58:58.077Z",
+        "project_session_id": 15255,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-06"
+      }
+    ]
+  },
+  {
     "id": 5043638,
     "occurrence": 0,
     "final_mark": 100,
@@ -18399,6 +17990,186 @@
         "closed_at": "2026-07-31T11:53:02.039Z",
         "project_session_id": 15254,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-05"
+      }
+    ]
+  },
+  {
+    "id": 5043639,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "current_team_id": 7580514,
+    "project": {
+      "id": 2696,
+      "name": "Python Module 06",
+      "slug": "python-module-06",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T15:34:14.708Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T15:34:14.905Z",
+    "created_at": "2026-07-31T11:29:24.120Z",
+    "updated_at": "2026-08-01T15:34:14.921Z",
+    "user": {
+      "id": 253238,
+      "email": "szdanows@student.42warsaw.pl",
+      "login": "szdanows",
+      "first_name": "Stanisław",
+      "last_name": "Zdanowski",
+      "usual_full_name": "Stanisław Zdanowski",
+      "usual_first_name": "Stanisław",
+      "url": "https://api.intra.42.fr/v2/users/szdanows",
+      "phone": "hidden",
+      "displayname": "Stanisław Zdanowski",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/5890e7a5e981fa3a69bdc803415e193d/szdanows.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/140cfd432fc78bd83fa9f3bf944366a0/large_szdanows.jpg",
+          "medium": "https://cdn.intra.42.fr/users/8dce181b7723ceed85322e018866f479/medium_szdanows.jpg",
+          "small": "https://cdn.intra.42.fr/users/e335bc7d7b32f886abb06ad6dba87247/small_szdanows.jpg",
+          "micro": "https://cdn.intra.42.fr/users/605a958a0bb33fa5020beba888c14d74/micro_szdanows.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 6,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": null,
+      "wallet": 150,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:39:58.403Z",
+      "updated_at": "2026-08-01T17:38:41.194Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7580514,
+        "name": "szdanows's group",
+        "url": "https://api.intra.42.fr/v2/teams/7580514",
+        "final_mark": 100,
+        "project_id": 2696,
+        "created_at": "2026-07-31T11:29:24.149Z",
+        "updated_at": "2026-08-01T15:34:14.954Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 253238,
+            "login": "szdanows",
+            "url": "https://api.intra.42.fr/v2/users/szdanows",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 5043639
+          }
+        ],
+        "locked?": true,
+        "validated?": true,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-1aa36efa-3433-4ee4-b32a-b8c884addfdb-7580514-szdanows",
+        "repo_uuid": "intra-uuid-1aa36efa-3433-4ee4-b32a-b8c884addfdb-7580514-szdanows",
+        "locked_at": "2026-07-31T11:29:24.187Z",
+        "closed_at": "2026-07-31T12:39:24.654Z",
+        "project_session_id": 15255,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-06"
+      }
+    ]
+  },
+  {
+    "id": 5043641,
+    "occurrence": 0,
+    "final_mark": 100,
+    "status": "finished",
+    "validated?": true,
+    "current_team_id": 7580516,
+    "project": {
+      "id": 2697,
+      "name": "Python Module 07",
+      "slug": "python-module-07",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": "2026-08-01T17:20:55.317Z",
+    "marked": true,
+    "retriable_at": "2026-08-02T17:20:55.571Z",
+    "created_at": "2026-07-31T11:29:30.998Z",
+    "updated_at": "2026-08-01T17:20:55.587Z",
+    "user": {
+      "id": 253238,
+      "email": "szdanows@student.42warsaw.pl",
+      "login": "szdanows",
+      "first_name": "Stanisław",
+      "last_name": "Zdanowski",
+      "usual_full_name": "Stanisław Zdanowski",
+      "usual_first_name": "Stanisław",
+      "url": "https://api.intra.42.fr/v2/users/szdanows",
+      "phone": "hidden",
+      "displayname": "Stanisław Zdanowski",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/5890e7a5e981fa3a69bdc803415e193d/szdanows.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/140cfd432fc78bd83fa9f3bf944366a0/large_szdanows.jpg",
+          "medium": "https://cdn.intra.42.fr/users/8dce181b7723ceed85322e018866f479/medium_szdanows.jpg",
+          "small": "https://cdn.intra.42.fr/users/e335bc7d7b32f886abb06ad6dba87247/small_szdanows.jpg",
+          "micro": "https://cdn.intra.42.fr/users/605a958a0bb33fa5020beba888c14d74/micro_szdanows.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 6,
+      "pool_month": "february",
+      "pool_year": "2026",
+      "location": null,
+      "wallet": 150,
+      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "created_at": "2026-01-16T11:39:58.403Z",
+      "updated_at": "2026-08-01T17:38:41.194Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7580516,
+        "name": "szdanows's group",
+        "url": "https://api.intra.42.fr/v2/teams/7580516",
+        "final_mark": 100,
+        "project_id": 2697,
+        "created_at": "2026-07-31T11:29:31.017Z",
+        "updated_at": "2026-08-01T17:20:55.623Z",
+        "status": "finished",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 253238,
+            "login": "szdanows",
+            "url": "https://api.intra.42.fr/v2/users/szdanows",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 5043641
+          }
+        ],
+        "locked?": true,
+        "validated?": true,
+        "closed?": true,
+        "repo_url": "git@vogsphere.42warsaw.pl:vogsphere/intra-uuid-fdb3e929-f962-4afc-a4f0-f8559eb8538c-7580516-szdanows",
+        "repo_uuid": "intra-uuid-fdb3e929-f962-4afc-a4f0-f8559eb8538c-7580516-szdanows",
+        "locked_at": "2026-07-31T11:29:31.053Z",
+        "closed_at": "2026-07-31T12:40:28.903Z",
+        "project_session_id": 15256,
+        "project_gitlab_path": "pedago_world/42-cursus/inner-circle/piscine-python/module-07"
       }
     ]
   },
@@ -32319,12 +32090,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -35739,12 +35510,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -44649,12 +44420,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -52299,12 +52070,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -65687,7 +65458,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2023-11-16T12:20:33.908Z",
-      "updated_at": "2026-08-01T10:35:39.674Z",
+      "updated_at": "2026-08-02T03:05:38.975Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -71659,12 +71430,12 @@
       "correction_point": 7,
       "pool_month": "july",
       "pool_year": "2024",
-      "location": "c1r8s2",
+      "location": null,
       "wallet": 143,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-06-28T13:32:43.521Z",
-      "updated_at": "2026-08-01T21:26:42.246Z",
+      "updated_at": "2026-08-02T00:26:40.474Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -71991,12 +71762,12 @@
       "correction_point": 7,
       "pool_month": "july",
       "pool_year": "2024",
-      "location": "c1r8s2",
+      "location": null,
       "wallet": 143,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-06-28T13:32:43.521Z",
-      "updated_at": "2026-08-01T21:26:42.246Z",
+      "updated_at": "2026-08-02T00:26:40.474Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -72534,12 +72305,12 @@
       "correction_point": 7,
       "pool_month": "july",
       "pool_year": "2024",
-      "location": "c1r8s2",
+      "location": null,
       "wallet": 143,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-06-28T13:32:43.521Z",
-      "updated_at": "2026-08-01T21:26:42.246Z",
+      "updated_at": "2026-08-02T00:26:40.474Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -72894,12 +72665,12 @@
       "correction_point": 7,
       "pool_month": "july",
       "pool_year": "2024",
-      "location": "c1r8s2",
+      "location": null,
       "wallet": 143,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-06-28T13:32:43.521Z",
-      "updated_at": "2026-08-01T21:26:42.246Z",
+      "updated_at": "2026-08-02T00:26:40.474Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -73439,7 +73210,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2023-11-16T12:20:33.908Z",
-      "updated_at": "2026-08-01T10:35:39.674Z",
+      "updated_at": "2026-08-02T03:05:38.975Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -88013,12 +87784,12 @@
       "correction_point": 7,
       "pool_month": "july",
       "pool_year": "2024",
-      "location": "c1r8s2",
+      "location": null,
       "wallet": 143,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-06-28T13:32:43.521Z",
-      "updated_at": "2026-08-01T21:26:42.246Z",
+      "updated_at": "2026-08-02T00:26:40.474Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -91757,8 +91528,8 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 380,
-      "anonymize_date": "2029-07-18T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-18T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-19T07:55:51.377Z",
       "updated_at": "2026-06-17T17:02:19.000Z",
       "alumnized_at": null,
@@ -95039,10 +94810,10 @@
       "pool_year": "2025",
       "location": null,
       "wallet": 1543,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2025-06-16T10:46:51.866Z",
-      "updated_at": "2026-07-29T19:35:40.215Z",
+      "updated_at": "2026-08-02T02:50:39.290Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -95699,7 +95470,7 @@
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2026-01-16T11:42:24.581Z",
-      "updated_at": "2026-08-01T21:26:39.629Z",
+      "updated_at": "2026-08-02T03:09:13.670Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -96276,8 +96047,8 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 380,
-      "anonymize_date": "2029-07-18T00:00:00.000+02:00",
-      "data_erasure_date": "2029-07-18T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-19T07:55:51.377Z",
       "updated_at": "2026-06-17T17:02:19.000Z",
       "alumnized_at": null,
@@ -99447,7 +99218,7 @@
       "anonymize_date": "2029-08-02T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-05-04T09:40:31.092Z",
-      "updated_at": "2026-08-01T23:11:45.102Z",
+      "updated_at": "2026-08-02T01:35:40.678Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -102322,12 +102093,12 @@
       "correction_point": 14,
       "pool_month": "february",
       "pool_year": "2026",
-      "location": "c3r14s1",
+      "location": null,
       "wallet": 45,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T11:36:46.331Z",
-      "updated_at": "2026-08-01T21:23:39.767Z",
+      "updated_at": "2026-08-02T03:02:41.578Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -102997,12 +102768,12 @@
       "correction_point": 3,
       "pool_month": "may",
       "pool_year": "2026",
-      "location": "c3r5s1",
+      "location": null,
       "wallet": 10,
       "anonymize_date": "2029-08-02T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-04-24T08:30:13.810Z",
-      "updated_at": "2026-08-01T23:20:40.466Z",
+      "updated_at": "2026-08-02T03:02:42.352Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -103101,7 +102872,7 @@
       "anonymize_date": "2029-08-02T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-05-04T09:40:31.092Z",
-      "updated_at": "2026-08-01T23:11:45.102Z",
+      "updated_at": "2026-08-02T01:35:40.678Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -103557,8 +103328,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T09:52:38.449Z",
       "updated_at": "2026-08-01T13:14:38.508Z",
       "alumnized_at": null,
@@ -103647,8 +103418,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T09:52:38.449Z",
       "updated_at": "2026-08-01T13:14:38.508Z",
       "alumnized_at": null,
@@ -104916,8 +104687,8 @@
       "pool_year": "2025",
       "location": null,
       "wallet": 115,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2025-06-16T10:12:30.881Z",
       "updated_at": "2026-07-26T16:11:39.962Z",
       "alumnized_at": null,
@@ -105456,10 +105227,10 @@
       "pool_year": "2024",
       "location": null,
       "wallet": 275,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2024-08-14T10:34:47.927Z",
-      "updated_at": "2026-08-01T23:08:39.796Z",
+      "updated_at": "2026-08-02T03:02:40.800Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -107740,12 +107511,12 @@
       "correction_point": 18,
       "pool_month": "january",
       "pool_year": "2024",
-      "location": "c1r10s2",
+      "location": null,
       "wallet": 1552,
       "anonymize_date": "2029-08-01T00:00:00.000+02:00",
       "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
       "created_at": "2024-01-15T09:27:38.604Z",
-      "updated_at": "2026-08-01T19:47:40.739Z",
+      "updated_at": "2026-08-02T00:53:40.196Z",
       "alumnized_at": null,
       "alumni?": false,
       "active?": true
@@ -108282,8 +108053,8 @@
       "pool_year": "2026",
       "location": null,
       "wallet": 75,
-      "anonymize_date": "2029-08-01T00:00:00.000+02:00",
-      "data_erasure_date": "2029-08-01T00:00:00.000+02:00",
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
       "created_at": "2026-01-16T09:52:38.449Z",
       "updated_at": "2026-08-01T13:14:38.508Z",
       "alumnized_at": null,
@@ -110310,6 +110081,96 @@
         "closed_at": null,
         "project_session_id": 11816,
         "project_gitlab_path": "pedago_world/42-cursus/inner-circle/cpp-module-09"
+      }
+    ]
+  },
+  {
+    "id": 5045399,
+    "occurrence": 0,
+    "final_mark": null,
+    "status": "in_progress",
+    "validated?": null,
+    "current_team_id": 7583046,
+    "project": {
+      "id": 2708,
+      "name": "Exam Rank 02",
+      "slug": "42next-exam-rank-02",
+      "parent_id": null
+    },
+    "cursus_ids": [
+      21
+    ],
+    "marked_at": null,
+    "marked": false,
+    "retriable_at": null,
+    "created_at": "2026-08-02T00:19:38.833Z",
+    "updated_at": "2026-08-02T00:19:38.833Z",
+    "user": {
+      "id": 228038,
+      "email": "dmirkows@student.42warsaw.pl",
+      "login": "dmirkows",
+      "first_name": "Dariusz",
+      "last_name": "Mirkowski",
+      "usual_full_name": "Dariusz Mirkowski",
+      "usual_first_name": "Dariusz",
+      "url": "https://api.intra.42.fr/v2/users/dmirkows",
+      "phone": "hidden",
+      "displayname": "Dariusz Mirkowski",
+      "kind": "student",
+      "image": {
+        "link": "https://cdn.intra.42.fr/users/23e126159423aace1673d92ba93989e3/dmirkows.jpg",
+        "versions": {
+          "large": "https://cdn.intra.42.fr/users/5661b058abfeb0de268752bcbf3911da/large_dmirkows.jpg",
+          "medium": "https://cdn.intra.42.fr/users/4dd690e09dfbe910a92103dcd3807960/medium_dmirkows.jpg",
+          "small": "https://cdn.intra.42.fr/users/8ef759f928d14ca440cc9086b4bf301a/small_dmirkows.jpg",
+          "micro": "https://cdn.intra.42.fr/users/204cb2faeac1af7acfc2bdb06f3e77d7/micro_dmirkows.jpg"
+        }
+      },
+      "staff?": false,
+      "correction_point": 6,
+      "pool_month": "july",
+      "pool_year": "2025",
+      "location": null,
+      "wallet": 115,
+      "anonymize_date": "2029-08-02T00:00:00.000+02:00",
+      "data_erasure_date": "2029-08-02T00:00:00.000+02:00",
+      "created_at": "2025-06-16T10:12:30.881Z",
+      "updated_at": "2026-07-26T16:11:39.962Z",
+      "alumnized_at": null,
+      "alumni?": false,
+      "active?": true
+    },
+    "teams": [
+      {
+        "id": 7583046,
+        "name": "dmirkows's group",
+        "url": "https://api.intra.42.fr/v2/teams/7583046",
+        "final_mark": null,
+        "project_id": 2708,
+        "created_at": "2026-08-02T00:19:38.924Z",
+        "updated_at": "2026-08-02T00:19:39.031Z",
+        "status": "in_progress",
+        "terminating_at": null,
+        "users": [
+          {
+            "id": 228038,
+            "login": "dmirkows",
+            "url": "https://api.intra.42.fr/v2/users/dmirkows",
+            "leader": true,
+            "occurrence": 0,
+            "validated": true,
+            "projects_user_id": 5045399
+          }
+        ],
+        "locked?": true,
+        "validated?": null,
+        "closed?": false,
+        "repo_url": null,
+        "repo_uuid": "intra-uuid-4d8a780b-d942-45d6-adf6-340ca9e55129-7583046-dmirkows",
+        "locked_at": "2026-08-02T00:19:38.975Z",
+        "closed_at": null,
+        "project_session_id": 15267,
+        "project_gitlab_path": null
       }
     ]
   }

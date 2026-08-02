@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <meta name="viewport" content="width=1920, height=1080, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Intra-Vision — 42 Warsaw</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,27 +11,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   /* TV display: 1920x1080 @ 30Hz, viewed from across the room, no pointer.
-     Premium moody dark atmospheric canvas + multi-layered liquid glass system.
+     Patterned glass texture canvas + frosted liquid-glass panes.
      All motion is slow and transform-based (hardware-accelerated). */
 
   :root {
-    /* ── Soft warm-gray gradient canvas ────────────────────────────── */
-    --canvas-from: #D8DCE3;
-    --canvas-to: #C2C7D0;
+    /* ── Fallback canvas tint under the texture ───────────────────── */
+    --canvas-fallback: #E6F4FA;
 
-    /* ── Glass chassis (the unified floating board) ───────────────── */
-    --console-bg: rgba(255, 255, 255, 0.26);
-    --console-border: rgba(255, 255, 255, 0.58);
+    /* ── Shared stage / 2-column rail (header + Page 1 console) ──── */
+    --stage-inline: 2vw;
+    --rail-pad: 2rem;
+    --rail-gap: 1.5rem;
+    --rail-2col: 3fr 1.4fr;
 
     /* ── Liquid glass widget panes ───────────────────────────────── */
-    --shell-bg: rgba(255, 255, 255, 0.38);
-    --shell-border: rgba(255, 255, 255, 0.72);
+    --shell-bg: rgba(255, 255, 255, 0.65);
+    --shell-border: rgba(255, 255, 255, 0.82);
 
-    /* ── iOS Control Center–style continuous / squircle radii ─────── */
-    --radius-console: max(40px, 3.8vw);
-    --radius-pane: max(34px, 3.2vw);
-    --radius-tile: max(26px, 2.4vw);
-    --radius-chip: max(20px, 1.8vw);
+    /* ── Deep liquid / squircles radii ───────────────────────────── */
+    --radius-console: max(48px, 4.2vw);
+    --radius-pane: max(44px, 4.0vw);
+    --radius-tile: max(30px, 2.8vw);
+    --radius-chip: max(22px, 2.0vw);
     --radius-squircle: 38%;
 
     /* ── Typography on light backgrounds ──────────────────────────── */
@@ -48,24 +51,31 @@
     --accent-red: #FF453A;
     --accent-orange: #f97316;
 
-    /* ── Glass bevel shadow (per-widget floating effect) ──────────── */
+    /* ── Soft float elevation — glass above textured background ─── */
+    --float-glass: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    /* ── Glass bevel + float (Students / Clusters / all .glass panes) */
     --glass-bevel:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.92),
-      inset -1px -1px 0 rgba(0, 0, 0, 0.025),
-      0 18px 42px rgba(80, 90, 120, 0.16),
-      0 8px 16px rgba(80, 90, 120, 0.08);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.95),
+      inset -1px -1px 0 rgba(0, 0, 0, 0.02),
+      var(--float-glass);
 
     /* ── Floating title capsule shadow ────────────────────────────── */
     --title-float:
-      0 8px 18px rgba(80, 90, 120, 0.14),
-      0 3px 6px rgba(80, 90, 120, 0.08);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
+      var(--float-glass);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
     width: 100%; height: 100%;
-    background: linear-gradient(135deg, var(--canvas-from) 0%, var(--canvas-to) 100%);
+    background-color: var(--canvas-fallback);
+    background-image: url("/static/background-with-patterned-glass-texture.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--body);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
     overflow: hidden;
@@ -77,78 +87,46 @@
     user-select: none;
   }
 
-  /* ── High-Contrast Atmospheric Backplane ─────────────────────── */
-  /* Three massive blurred ambient glow circles for dynamic multi-tone depth */
-  .ambient {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-  }
-  .blob {
-    position: absolute; border-radius: 50%;
-    filter: blur(160px); -webkit-filter: blur(160px);
-    opacity: 0.45;
-    will-change: transform;
-  }
-  .blob-1 {
-    width: 80vh; height: 80vh;
-    background: #FFFFFF;
-    top: -25vh; left: -10vw;
-    animation: drift1 34s ease-in-out infinite;
-  }
-  .blob-2 {
-    width: 65vh; height: 65vh;
-    background: #A8C4E0;
-    top: 15vh; right: -8vw;
-    animation: drift2 40s ease-in-out infinite;
-  }
-  .blob-3 {
-    width: 75vh; height: 75vh;
-    background: #B8BEC8;
-    bottom: -28vh; left: 30vw;
-    animation: drift3 36s ease-in-out infinite;
-  }
-  @keyframes drift1 {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    33%      { transform: translate3d(5vw, 7vh, 0) scale(1.08); }
-    66%      { transform: translate3d(-4vw, 3vh, 0) scale(0.94); }
-  }
-  @keyframes drift2 {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    40%      { transform: translate3d(-7vw, -5vh, 0) scale(1.07); }
-    70%      { transform: translate3d(4vw, 4vh, 0) scale(0.95); }
-  }
-  @keyframes drift3 {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    50%      { transform: translate3d(5vw, -7vh, 0) scale(1.06); }
-  }
+  /* Ambient blobs disabled — textured asset is the sole backplane */
+  .ambient { display: none; }
 
-  /* ── Multi-Layered Floating Glass Chassis ────────────────────── */
+  /* ── Layout chassis — transparent so pane frost sees the texture ─ */
   .console {
-    background:
-      linear-gradient(155deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.18) 100%),
-      var(--console-bg);
-    backdrop-filter: blur(72px) saturate(1.15);
-    -webkit-backdrop-filter: blur(72px) saturate(1.15);
-    border: 1px solid var(--console-border);
+    background: transparent;
+    border: none;
     border-radius: var(--radius-console);
-    padding: 2rem;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.75),
-      0 24px 56px rgba(100, 110, 140, 0.14),
-      0 10px 20px rgba(100, 110, 140, 0.07);
-    display: flex; gap: 1.5rem;
+    padding: var(--rail-pad);
+    box-shadow: none;
+    display: flex;
+    gap: var(--rail-gap);
     flex: 1; height: 100%;
     min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* ── Floating Glass Widget Panes — each with independent shadow ─ */
+  /*
+   * Shared 2-column rail — identical tracks for header pills AND
+   * Page 1 cards so vertical gutters lock pixel-perfect.
+   */
+  .rail-2col {
+    display: grid !important;
+    grid-template-columns: var(--rail-2col);
+    column-gap: var(--rail-gap);
+    row-gap: var(--rail-gap);
+    padding-left: var(--rail-pad);
+    padding-right: var(--rail-pad);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ── Frosted glass widget panes — texture diffuse behind text ─── */
   .glass {
     position: relative;
     isolation: isolate;
-    background:
-      linear-gradient(150deg, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.22) 46%, rgba(255, 255, 255, 0.30) 100%),
-      var(--shell-bg);
-    backdrop-filter: blur(36px) saturate(1.2);
-    -webkit-backdrop-filter: blur(36px) saturate(1.2);
+    background: var(--shell-bg);
+    backdrop-filter: blur(15px) saturate(140%);
+    -webkit-backdrop-filter: blur(15px) saturate(140%);
     border: 1px solid var(--shell-border);
     box-shadow: var(--glass-bevel);
     border-radius: var(--radius-pane);
@@ -159,8 +137,8 @@
 
   /* ── Floating Title Capsules with Independent Elevation Shadows ─ */
   .pill-header {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #ffffff;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.95);
     border-radius: 999px;
     text-align: center;
     padding: 1.4vh 1.8vw;
@@ -171,56 +149,164 @@
     box-shadow: var(--title-float);
   }
 
-  /* ── Floating glass header strip (dark atmospheric) ──────────── */
-  header {
-    position: fixed; top: 1.8vh; left: 2vw; right: 2vw; height: 6.8vh;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5vw;
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.80);
+  /* ── Dual liquid-glass header pills — same rail as Page 1 ────── */
+  header.top-bar {
+    position: fixed;
+    top: 1.8vh;
+    left: var(--stage-inline);
+    right: var(--stage-inline);
+    height: 6.8vh;
+    z-index: 10;
+    display: block;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 0 !important;
+    overflow: visible;
+  }
+  .top-bar-inner.rail-2col {
+    height: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+  }
+  .header-pill {
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(15px) saturate(140%);
+    -webkit-backdrop-filter: blur(15px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: 999px;
     box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.80),
-      0 10px 30px rgba(100, 110, 140, 0.12);
+      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
+      var(--float-glass);
     color: var(--title);
+    box-sizing: border-box;
+  }
+  .header-brand {
+    position: relative;
+    justify-content: center;
+    overflow: visible;
+  }
+  /* Outer lock — centering only, never animated */
+  .logo-layout-anchor {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
     z-index: 10;
+    pointer-events: none;
+  }
+  /* Inner glass bubble — float physics only */
+  .brand-logo {
+    width: 4.6vh;
+    height: 4.6vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45vh;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      var(--float-glass);
+    will-change: transform;
+    animation: elegantFloat 4s ease-in-out infinite;
+  }
+  .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  @keyframes elegantFloat {
+    0%, 100% { transform: translateY(4px); }
+    50%      { transform: translateY(-4px); }
+  }
+  .header-telemetry {
+    justify-content: center;
+    gap: 0;
+    padding: 0 0.8vw;
   }
   .brand {
-    font-size: 2.2vh; font-weight: 700; letter-spacing: 0.25em;
-    color: var(--title); text-transform: uppercase;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: #0F172A;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 1.2vw;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    filter: none;
   }
-  .status-bar {
-    display: flex; align-items: center; gap: 1.2vw;
+  .telemetry-item {
+    font-size: 1.85vh;
+    font-weight: 700;
+    color: var(--body);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45vw;
   }
-  .sync-pill {
-    display: flex; align-items: center; gap: 0.7vw;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.95);
-    border-radius: 999px;
-    padding: 0.9vh 1.4vw;
-    font-size: 1.8vh; font-weight: 600; color: var(--dim);
-    box-shadow: var(--title-float);
-  }
-  .stamp { transition: color 1s ease; color: var(--body); }
-  .stamp.stale { color: var(--accent-orange); }
-  .sync-dot {
-    width: 1.3vh; height: 1.3vh; border-radius: 50%;
-    background: #34d399;
-    animation: syncPulse 3s ease-in-out infinite;
+  .telemetry-divider {
+    width: 1px;
+    height: 2.4vh;
+    margin: 0 0.75vw;
+    background: rgba(100, 116, 139, 0.35);
     flex-shrink: 0;
   }
-  .sync-dot.off { background: var(--accent-orange); animation: none; }
+  .telemetry-sync {
+    font-weight: 700;
+  }
+  .telemetry-sync.stale {
+    color: var(--accent-orange);
+  }
+  .sync-dot {
+    width: 1.25vh;
+    height: 1.25vh;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: syncPulse 3s ease-in-out infinite;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.55);
+  }
+  .sync-dot.off {
+    background: var(--accent-orange);
+    animation: none;
+    box-shadow: 0 0 6px rgba(249, 115, 22, 0.45);
+  }
   @keyframes syncPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.5; transform: scale(0.85); }
+    50%      { opacity: 0.55; transform: scale(0.88); }
   }
 
   /* ── Main layout ─────────────────────────────────────────────── */
   main {
     position: relative; z-index: 1;
-    height: 100%; padding: 10.5vh 2vw 9.5vh;
+    height: 100%;
+    padding: 10.5vh var(--stage-inline) 9.5vh;
+    box-sizing: border-box;
   }
   .view {
     display: none; height: 100%;
@@ -234,14 +320,14 @@
 
   /* ── Page 1: Active Students card ────────────────────────────── */
   .card-students {
-    flex: 3;
     display: flex; flex-direction: column; overflow: hidden;
+    min-width: 0;
     min-height: 0;
     position: relative;
   }
   .card-capacity {
-    flex: 1.4;
     display: flex; flex-direction: column; overflow: hidden;
+    min-width: 0;
     min-height: 0;
   }
 
@@ -266,49 +352,36 @@
   }
   .avatar-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3.2vh 1vw;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2.8vh 0.9vw;
     align-content: start;
-    padding-bottom: 3.2vh;
+    justify-content: start;
+    justify-items: center;
+    padding-bottom: 2.8vh;
   }
   .avatar-cell {
     display: flex; flex-direction: column; align-items: center;
     transition: transform 700ms ease-out, box-shadow 700ms ease-out;
     transform: translate3d(0, 0, 0);
+    min-width: 0;
+    width: 100%;
   }
   .avatar-frame {
     position: relative;
-    padding: 0.55vh;
+    padding: 0.65vh;
     border-radius: var(--radius-squircle);
     background:
       linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.70) 100%);
     border: 2px solid rgba(255, 255, 255, 0.95);
     box-shadow:
       inset 1px 1px 0 rgba(255, 255, 255, 0.95),
-      inset -1px -1px 0 rgba(0, 0, 0, 0.04),
-      0 12px 28px rgba(80, 90, 120, 0.20),
-      0 4px 10px rgba(80, 90, 120, 0.10);
+      inset -1px -1px 0 rgba(0, 0, 0, 0.04);
     transition: transform 700ms ease-out, box-shadow 700ms ease-out;
     transform: translate3d(0, 0, 0);
   }
-  .avatar-frame.hero {
-    box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.95),
-      0 0 0 3px #ffffff,
-      0 0 0 6px var(--accent-orange),
-      0 14px 32px rgba(249, 115, 22, 0.28),
-      0 6px 14px rgba(80, 90, 120, 0.16);
-  }
-  .avatar-frame.hero .avatar-wrap::after {
-    content: "🔥";
-    position: absolute; bottom: -0.4vh; right: -0.6vh;
-    font-size: 3.6vh; line-height: 1;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
-    z-index: 2;
-  }
   .avatar-wrap {
-    position: relative; width: 14vh; height: 14vh;
-    border-radius: var(--radius-squircle); overflow: visible;
+    position: relative; width: 16.5vh; height: 16.5vh;
+    border-radius: var(--radius-squircle); overflow: hidden;
     transition: transform 700ms ease-out;
   }
   .avatar-wrap img {
@@ -319,10 +392,10 @@
     display: block;
   }
   .avatar-name {
-    font-size: 2.3vh; font-weight: 800; color: var(--title);
+    font-size: 2.7vh; font-weight: 800; color: var(--title);
     letter-spacing: -0.02em; text-transform: lowercase;
-    text-align: center; max-width: 14vw;
-    margin-top: 1.4vh;
+    text-align: center; max-width: 100%;
+    margin-top: 1.5vh;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
 
@@ -346,7 +419,7 @@
     border: 1px solid rgba(255, 255, 255, 0.70);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.85),
-      0 10px 24px rgba(80, 90, 120, 0.12);
+      var(--float-glass);
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
@@ -380,8 +453,12 @@
     letter-spacing: 0.03em; text-transform: uppercase;
   }
   .gauge-sub-fraction {
-    font-size: 2.8vh; font-weight: 900; color: var(--title);
-    letter-spacing: -0.02em; margin-top: 1.4vh;
+    font-size: 2.8vh;
+    font-weight: 900;
+    color: #64748B;
+    letter-spacing: -0.02em;
+    margin-top: 1.4vh;
+    font-variant-numeric: tabular-nums;
   }
 
   .empty { font-size: 2.8vh; color: var(--dim); margin: auto; font-weight: 500; }
@@ -400,25 +477,53 @@
     display: flex; flex-direction: column; overflow: hidden;
   }
 
-  /* ── Page 2: Recent Submissions floating capsules ─────────────── */
+  /* ── Page 2: Recent Submissions — infinite vertical marquee ───── */
   .submissions-list {
-    display: flex; flex-direction: column; gap: 2vh;
-    padding: 0 1.2vw 2vh; flex: 1; justify-content: center;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 1.2vw 2vh;
+    position: relative;
+  }
+  .submissions-track {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    animation: submissionsMarquee 30s linear infinite;
+  }
+  .submissions-set {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6vh;
+    padding-bottom: 1.6vh;
+    flex-shrink: 0;
+  }
+  @keyframes submissionsMarquee {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(0, -50%, 0); }
+  }
+  /* FORCE translucent glass rows — beat any opaque cascade */
+  .fame-left.glass,
+  .fame-right.glass {
+    background: rgba(255, 255, 255, 0.40) !important;
+  }
+  .sub-card,
+  .zombie-row {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(15px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(140%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+      inset 1px 1px 0 rgba(255, 255, 255, 0.45),
+      0 6px 16px rgba(70, 120, 160, 0.06) !important;
   }
   .sub-card {
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.38) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.82);
     border-radius: var(--radius-tile);
-    padding: 2.2vh 1.4vw;
-    display: flex; align-items: center; gap: 1.2vw;
-    box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
-      0 10px 26px rgba(80, 90, 120, 0.12);
-    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+    padding: 1.8vh 1.3vw;
+    display: flex; align-items: center; gap: 1.1vw;
     transform: translate3d(0, 0, 0);
+    flex-shrink: 0;
   }
   .sub-avatar {
     width: 10vh; height: 10vh; border-radius: var(--radius-squircle); object-fit: cover;
@@ -446,57 +551,108 @@
     font-size: 2.2vh; font-weight: 500; color: var(--dim);
   }
 
-  /* ── Page 2: Campus Telemetry bento 2x2 ───────────────────────── */
-  .metric-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1.5vh 1.2vw;
-    padding: 0 1.2vw 2vh; flex: 1;
-    align-content: center;
+  /* ── Page 2: Campus Telemetry — clean 2×2 with centered crosshair ─ */
+  #metric-grid.metric-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 0 !important;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    align-content: stretch !important;
+    justify-content: stretch !important;
+    align-items: stretch;
+    padding: 2.5vh 2vw 3.5vh !important;
+    position: relative;
   }
-  .metric-tile {
-    background:
-      linear-gradient(150deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.36) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.82);
-    border-radius: var(--radius-tile);
-    padding: 3.5vh 1.2vw;
+  /* Continuous crosshair — geometric center, never fragmented by cell gap */
+  #metric-grid.metric-grid::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 8%;
+    bottom: 8%;
+    width: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 1px 0 0 rgba(71, 85, 105, 0.28);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  #metric-grid.metric-grid::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    right: 8%;
+    height: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 0 rgba(71, 85, 105, 0.28);
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  #metric-grid .metric-tile {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 2.2vh 1.4vw !important;
+    min-height: 0;
     text-align: center;
-    box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
-      0 10px 26px rgba(80, 90, 120, 0.12);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
   }
-  .metric-tile .mt-label {
-    font-size: 1.9vh; font-weight: 700; color: var(--dim);
-    text-transform: uppercase; letter-spacing: 0.08em;
-    margin-bottom: 1.5vh;
+  #metric-grid .metric-tile .mt-value {
+    font-size: 9.4vh;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    margin: 0;
+    background: linear-gradient(180deg, #0052D4 0%, #4364F7 48%, #6FB1FC 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
   }
-  .metric-tile .mt-value {
-    font-size: 7.5vh; font-weight: 900; line-height: 1;
-    color: var(--title); letter-spacing: -0.04em;
+  #metric-grid .metric-tile .mt-label {
+    font-size: max(0.75rem, 1.45vh);
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    max-width: 90%;
+    line-height: 1.4;
   }
 
   /* ── Page 2: Sleepless Zombies leaderboard ─────────────────────── */
   .zombie-list {
-    display: flex; flex-direction: column; gap: 1.6vh;
-    padding: 0 1.2vw 2vh; flex: 1; justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    flex: 1 1 auto;
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 0 1.2vw 20px;
+    margin: 0 0 24px 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
   .zombie-row {
     display: flex; align-items: center; gap: 1vw;
-    padding: 1.6vh 1.2vw;
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.38) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.82);
+    padding: 1.5vh 1.2vw;
     border-radius: var(--radius-tile);
-    box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
-      0 10px 26px rgba(80, 90, 120, 0.12);
-    transition: transform 700ms ease-out, box-shadow 700ms ease-out;
     transform: translate3d(0, 0, 0);
+    flex-shrink: 0;
   }
   .zombie-rank {
     width: 5.5vh; height: 5.5vh; border-radius: var(--radius-squircle);
@@ -619,17 +775,16 @@
     min-height: 7.2vh;
     padding: 0 1.5rem 0 0;
     overflow: hidden;
-    background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.28) 100%);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-    border: 1px solid rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(15px) saturate(140%);
+    -webkit-backdrop-filter: blur(15px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: var(--radius-tile);
     box-shadow:
-      inset 1px 1px 0 rgba(255, 255, 255, 0.88),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.90),
       inset -1px -1px 0 rgba(0, 0, 0, 0.03),
-      0 10px 24px rgba(80, 90, 120, 0.12),
-      0 2px 6px rgba(80, 90, 120, 0.06);
+      0 10px 24px rgba(70, 120, 160, 0.12),
+      0 2px 6px rgba(70, 120, 160, 0.06);
     transition: transform 500ms ease-out, background 500ms ease-out, box-shadow 500ms ease-out;
     transform: translate3d(0, 0, 0);
   }
@@ -845,34 +1000,69 @@
     text-align: center;
   }
 
-  /* ── Floating glass footer marquee (dark atmospheric) ────────── */
+  /* ── Floating glass footer — no edge-mask clipping ───────────── */
   footer {
     position: fixed; bottom: 1.8vh; left: 2vw; right: 2vw;
     height: 5.8vh;
-    display: flex; align-items: center;
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.70);
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    padding: 0 3.2vw;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(15px) saturate(140%);
+    -webkit-backdrop-filter: blur(15px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: 999px;
     box-shadow:
-      0 10px 30px rgba(80, 90, 120, 0.10),
-      inset 0 1px 0 rgba(255, 255, 255, 0.85);
+      inset 0 1px 0 rgba(255, 255, 255, 0.90),
+      var(--float-glass);
     overflow: hidden;
     z-index: 10;
+    /* Explicitly kill any prior edge masks that chopped copy */
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  .footer-viewport {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
   .marquee-track {
-    display: flex; white-space: nowrap;
-    animation: marqueeScroll 45s linear infinite;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+    height: 100%;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    animation: footerMarquee 55s linear infinite;
+  }
+  .marquee-set {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    height: 100%;
   }
   .marquee-text {
-    font-size: 2vh; font-weight: 500; color: var(--dim);
-    padding: 0 4vw;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    font-size: 2vh;
+    font-weight: 500;
+    color: var(--dim);
+    padding: 0 3.2vw;
     font-style: italic;
+    line-height: 1.2;
+    white-space: nowrap;
   }
-  @keyframes marqueeScroll {
-    0%   { transform: translate3d(100vw, 0, 0); }
-    100% { transform: translate3d(-200vw, 0, 0); }
+  @keyframes footerMarquee {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
   }
 
   /* ── Progress dots ───────────────────────────────────────────── */
@@ -901,13 +1091,28 @@
   <div class="blob blob-3"></div>
 </div>
 
-<!-- ── Floating glass header strip ────────────────────────────── -->
-<header>
-  <div class="brand">42 Warsaw Intra-Vision</div>
-  <div class="status-bar">
-    <div class="sync-pill">
-      <span class="stamp" id="stamp">—</span>
-      <span class="sync-dot" id="sync-dot"></span>
+<!-- ── Dual glass header pills — widths match Page 1 columns ──── -->
+<header class="top-bar">
+  <div class="top-bar-inner rail-2col">
+    <div class="header-pill header-brand">
+      <div class="logo-layout-anchor">
+        <div class="brand-logo" aria-hidden="true">
+          <img src="/static/42-logo.svg" alt="" width="48" height="48">
+        </div>
+      </div>
+      <div class="brand">INTRAVISION</div>
+    </div>
+    <div class="header-pill header-telemetry" id="header-telemetry">
+      <span class="telemetry-item" id="weather-temp">—°C</span>
+      <span class="telemetry-divider" aria-hidden="true"></span>
+      <span class="telemetry-item" id="weather-city">Warsaw</span>
+      <span class="telemetry-divider" aria-hidden="true"></span>
+      <span class="telemetry-item" id="live-clock">--:--</span>
+      <span class="telemetry-divider" aria-hidden="true"></span>
+      <span class="telemetry-item telemetry-sync" id="sync-status">
+        <span class="sync-dot" id="sync-dot"></span>
+        <span id="stamp">Synced (—)</span>
+      </span>
     </div>
   </div>
 </header>
@@ -917,7 +1122,7 @@
 
   <!-- View 1 — Page 1: Active Students + Clusters Capacity -->
   <section class="view active" data-view="validations">
-    <div class="console">
+    <div class="console rail-2col">
       <div class="card-students glass">
         <div class="pill-header">Current Active Students (<span id="active-count">0</span>)</div>
         <div class="avatar-mask" id="avatar-grid"></div>
@@ -972,12 +1177,10 @@
 <!-- ── Progress dots ──────────────────────────────────────────── -->
 <div class="dots" id="dots"></div>
 
-<!-- ── Floating glass footer marquee ──────────────────────────── -->
+<!-- ── Floating glass footer — daily vault, slide-synced ───────── -->
 <footer>
-  <div class="marquee-track" id="marquee">
-    <span class="marquee-text">"The answer to the great question… of Life, the Universe and Everything… is… forty-two." — Deep Thought</span>
-    <span class="marquee-text">42 Warsaw Hacks — 1-2 August 2026 — Social Space TV Dashboard</span>
-    <span class="marquee-text">Shoutout to the Bocals and building staff for keeping our campus running smoothly every day!</span>
+  <div class="footer-viewport">
+    <div class="marquee-track" id="marquee"></div>
   </div>
 </footer>
 
@@ -990,6 +1193,82 @@
   const DWELL = { validations: 30000, fame: 25000, analytics: 25000 };
   const POLL_MS = 30000;
   const STALE_MS = 30 * 60 * 1000;
+
+  /* ── Footer message vault — daily deterministic rotation ─────── */
+  const FOOTER_VAULT = {
+    appreciation: [
+      "With sincere thanks from the students — to the Bocal and building staff for caring for our campus every day. 💙",
+      "Z serdecznymi podziękowaniami od studentów — dla Bocala i personelu budynku za codzienną troskę o nasz kampus. 💙",
+      "We gratefully acknowledge the Bocal and facility team, whose quiet work keeps 42 Warsaw welcoming and orderly. 🌿",
+      "Z wdzięcznością dziękujemy Bocalowi i zespołowi obsługi — Wasza cicha praca sprawia, że 42 Warsaw jest przyjazne i zadbane. 🌿",
+      "Respectful thanks to the Bocal and campus staff for the care you give our spaces, and to our community. 🙌",
+      "Z szacunkiem dziękujemy Bocalowi i pracownikom kampusu za troskę o nasze przestrzenie i o naszą społeczność. 🙌",
+      "The students of 42 Warsaw offer warm gratitude to the Bocal and maintenance crew for your steadfast service. 🚀",
+      "Studenci 42 Warsaw składają ciepłe podziękowania Bocalowi oraz ekipie utrzymania za Waszą niezawodną służbę. 🚀",
+    ],
+    quotes: [
+      "It does not matter how slowly you go as long as you do not stop. — Confucius",
+      "Grit is sticking with your future, day in, day out—not just for the week, but for years, to make that future a reality. — Angela Duckworth",
+      "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time. — Thomas Edison",
+      "The only limit to our realization of tomorrow will be our doubts of today. — Franklin D. Roosevelt",
+      "Quality is not an act, it is a habit. Excellence is achieved through consistency, not coincidence. — Aristotle",
+    ],
+    facts: [
+      "Did you know? The first computer bug was a real moth trapped inside a Harvard Mark II relay in 1947, discovered by Grace Hopper.",
+      "Did you know? The first electronic computer, ENIAC, weighed over 27 tons and took up an entire 1,800 square foot room.",
+      "Did you know? The original concept of the internet was called ARPANET, created by the US Department of Defense in the late 1960s.",
+      "Did you know? The C programming language was created at Bell Labs between 1972 and 1973 to rewrite the Unix operating system.",
+    ],
+  };
+
+  /** Warsaw-local day-of-year (1–366). Stable across midnight local, not UTC. */
+  function warsawDayOfYear(now = new Date()) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Europe/Warsaw',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    }).formatToParts(now);
+    const get = (t) => Number(parts.find((p) => p.type === t).value);
+    const y = get('year');
+    const m = get('month');
+    const d = get('day');
+    const start = Date.UTC(y, 0, 0);
+    const today = Date.UTC(y, m - 1, d);
+    return Math.floor((today - start) / 86400000);
+  }
+
+  function pickDaily(messages, dayIndex, salt = 0) {
+    if (!messages || !messages.length) return '';
+    return messages[(dayIndex + salt) % messages.length];
+  }
+
+  /** Slide 0 → daily EN+PL appreciation pair; 1 → quotes; 2 → facts. */
+  function dailyFooterMessages(slideIndex) {
+    const day = warsawDayOfYear();
+    if (slideIndex === 0) {
+      const pair = (day % 4) * 2;
+      return [
+        FOOTER_VAULT.appreciation[pair],
+        FOOTER_VAULT.appreciation[pair + 1],
+      ];
+    }
+    if (slideIndex === 1) return [pickDaily(FOOTER_VAULT.quotes, day, 1)];
+    return [pickDaily(FOOTER_VAULT.facts, day, 2)];
+  }
+
+  function renderFooterForSlide(slideIndex) {
+    const track = document.getElementById('marquee');
+    if (!track) return;
+    const parts = dailyFooterMessages(slideIndex).filter(Boolean);
+    const spans = parts.map((t) => `<span class="marquee-text">${esc(t)}</span>`).join('');
+    track.style.animation = 'none';
+    track.innerHTML = `
+      <div class="marquee-set">${spans}</div>
+      <div class="marquee-set" aria-hidden="true">${spans}</div>`;
+    void track.offsetWidth;
+    track.style.animation = '';
+  }
 
   const RADIAL_R = 40;
   const RADIAL_CIRC = 251.2;
@@ -1021,7 +1300,7 @@
   }
 
   /* ── Page 1: Avatar orbital flow (full locations list) ────────── */
-  function avatarCell(u, isHero) {
+  function avatarCell(u) {
     const login = u.login || '?';
     const initial = (login[0] || '?').toUpperCase();
     const img = u.image
@@ -1029,7 +1308,7 @@
       : `<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
     return `
       <div class="avatar-cell">
-        <div class="avatar-frame ${isHero ? 'hero' : ''}">
+        <div class="avatar-frame">
           <div class="avatar-wrap">${img}</div>
         </div>
         <div class="avatar-name">${esc(login)}</div>
@@ -1048,7 +1327,7 @@
     }
 
     // Full locations payload — do not truncate the source array.
-    const cells = list.map((u, i) => avatarCell(u, i === 0)).join('');
+    const cells = list.map((u) => avatarCell(u)).join('');
 
     if (list.length > ORBITAL_THRESHOLD) {
       el.innerHTML = `
@@ -1089,21 +1368,30 @@
     }).join('');
   }
 
-  /* ── Page 2: Recent submissions ─────────────────────────────── */
+  /* Forced inline glass — survives any stylesheet race */
+  const GLASS_ROW_STYLE = [
+    'background:rgba(255,255,255,0.25) !important',
+    'border:1px solid rgba(255,255,255,0.35) !important',
+    'backdrop-filter:blur(15px) saturate(140%)',
+    '-webkit-backdrop-filter:blur(15px) saturate(140%)',
+  ].join(';');
+
+  /* ── Page 2: Recent submissions — duplicated track marquee ──── */
   function renderSubmissions(rows) {
     const el = document.getElementById('submissions');
     if (!rows.length) {
       el.innerHTML = '<div class="empty">No recent submissions.</div>';
       return;
     }
-    el.innerHTML = rows.slice(0, 4).map(r => {
+    const feed = rows.slice(0, 10);
+    const cards = feed.map(r => {
       const login = r.user.login || '?';
       const initial = (login[0] || '?').toUpperCase();
       const avatarImg = r.user.image
         ? `<img class="sub-avatar" src="${esc(r.user.image)}" alt="${esc(login)}" loading="lazy">`
         : `<img class="sub-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
       return `
-      <div class="sub-card">
+      <div class="sub-card" style="${GLASS_ROW_STYLE}">
         ${avatarImg}
         <div class="sub-info">
           <div class="sub-name">${esc(login)}</div>
@@ -1112,19 +1400,27 @@
         <div class="sub-mark">${r.mark ?? '—'}<span class="sub-max"> / 100</span></div>
       </div>`;
     }).join('');
+
+    // Duplicate the set so translateY(-50%) loops with no blank flash.
+    el.innerHTML = `
+      <div class="submissions-track" aria-hidden="false">
+        <div class="submissions-set">${cards}</div>
+        <div class="submissions-set" aria-hidden="true">${cards}</div>
+      </div>`;
   }
 
-  /* ── Page 2: Metric grid ────────────────────────────────────── */
+  /* ── Page 2: Metric grid — clean tiles; crosshair is CSS ::before/::after ─ */
   function renderMetricGrid(metrics) {
-    document.getElementById('metric-grid').innerHTML = [
+    const cells = [
       ['Average Milestone', metrics.average_milestone || 0],
       ['Average Login', (metrics.average_session || 0) + 'h'],
       ['Total Weekly Passed', metrics.weekly_passes || 0],
       ['Total Peer Evaluation', metrics.evals_completed || 0],
-    ].map(([label, val]) => `
+    ];
+    document.getElementById('metric-grid').innerHTML = cells.map(([label, val]) => `
       <div class="metric-tile">
-        <div class="mt-label">${label}</div>
         <div class="mt-value">${esc(val)}</div>
+        <div class="mt-label">${esc(label)}</div>
       </div>`).join('');
   }
 
@@ -1142,7 +1438,7 @@
         ? `<img class="zombie-avatar" src="${esc(z.user.image)}" alt="${esc(login)}" loading="lazy">`
         : `<img class="zombie-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23D1D5DB' width='96' height='96'/%3E%3Ctext x='48' y='58' text-anchor='middle' fill='%2364748b' font-size='34' font-family='system-ui' font-weight='700'%3E${esc(initial)}%3C/text%3E%3C/svg%3E" alt="${esc(login)}">`;
       return `
-      <div class="zombie-row">
+      <div class="zombie-row" style="${GLASS_ROW_STYLE}">
         <div class="zombie-rank r${z.rank}">${z.rank}</div>
         ${avatarImg}
         <div class="zombie-name">${esc(login)}</div>
@@ -1238,21 +1534,54 @@
     }).join('');
   }
 
-  /* ── Stamp / sync indicator ─────────────────────────────────── */
+  /* ── Header telemetry: weather / clock / sync age ───────────── */
+  function formatClock(d) {
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    return hh + ':' + mm;
+  }
+
+  function renderClock() {
+    const el = document.getElementById('live-clock');
+    if (el) el.textContent = formatClock(new Date());
+  }
+
+  function formatSyncAge(seconds) {
+    if (seconds < 60) return seconds + 's';
+    if (seconds < 3600) return Math.floor(seconds / 60) + 'm';
+    return Math.floor(seconds / 3600) + 'h';
+  }
+
   function renderStamp(iso) {
     const el = document.getElementById('stamp');
     const dot = document.getElementById('sync-dot');
+    const wrap = document.getElementById('sync-status');
+    if (!el || !dot) return;
     if (!iso) {
-      el.textContent = 'no data yet';
-      el.classList.add('stale');
+      el.textContent = 'No data';
+      wrap && wrap.classList.add('stale');
       dot.classList.add('off');
       return;
     }
-    const age = Date.now() - new Date(iso).getTime();
-    const stale = age > STALE_MS;
-    el.textContent = 'Synced · ' + ago(Math.floor(age / 1000));
-    el.classList.toggle('stale', stale);
+    const ageSec = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
+    const stale = ageSec * 1000 > STALE_MS;
+    el.textContent = 'Synced (' + formatSyncAge(ageSec) + ')';
+    wrap && wrap.classList.toggle('stale', stale);
     dot.classList.toggle('off', stale);
+  }
+
+  async function fetchWeather() {
+    const tempEl = document.getElementById('weather-temp');
+    const cityEl = document.getElementById('weather-city');
+    try {
+      const res = await fetch('/api/weather', { cache: 'no-store' });
+      const data = await res.json();
+      if (tempEl) tempEl.textContent = data.label || '—°C';
+      if (cityEl) cityEl.textContent = data.city || 'Warsaw';
+    } catch (e) {
+      console.warn('weather failed', e);
+      if (tempEl) tempEl.textContent = '—°C';
+    }
   }
 
   /* ── Orchestrator ───────────────────────────────────────────── */
@@ -1282,6 +1611,7 @@
     index = (index + 1) % views.length;
     views[index].classList.add('active');
     renderDots();
+    renderFooterForSlide(index);
     setTimeout(advance, DWELL[views[index].dataset.view] || 20000);
   }
 
@@ -1297,9 +1627,22 @@
 
   render(INITIAL, LAST_REFRESH);
   renderDots();
+  renderFooterForSlide(0);
+  renderClock();
+  fetchWeather();
   setTimeout(advance, DWELL[views[0].dataset.view]);
   setInterval(poll, POLL_MS);
-  setInterval(() => renderStamp(latestRefresh), 60000);
-</script>
+  setInterval(() => renderStamp(latestRefresh), 1000);
+  // Align clock ticks to the wall-clock minute boundary.
+  (function scheduleClock() {
+    const now = new Date();
+    const wait = ((60 - now.getSeconds()) * 1000) - now.getMilliseconds();
+    setTimeout(() => {
+      renderClock();
+      setInterval(renderClock, 60000);
+    }, Math.max(wait, 0));
+  })();
+  setInterval(fetchWeather, 10 * 60 * 1000);
+  </script>
 </body>
 </html>

@@ -17,10 +17,9 @@ FIXTURES = ROOT / "fixtures"
 random.seed(42)
 
 PROJECTS = [
-    "libft", "ft_printf", "get_next_line", "Born2beroot", "push_swap", "minitalk",
-    "so_long", "pipex", "FdF", "philosophers", "minishell", "NetPractice",
-    "cub3d", "miniRT", "CPP Module 00", "ft_irc", "webserv", "Inception",
-    "ft_transcendence",
+    "libft", "ft_printf", "get_next_line", "born2beroot", "push_swap", "pipex",
+    "philosophers", "minishell", "NetPractice", "cub3d", "CPP Module 00",
+    "ft_irc", "webserv", "Inception", "ft_transcendence",
 ]
 
 LOGINS = [
@@ -59,7 +58,12 @@ def main() -> None:
                 "status": status,
                 "validated?": validated,
                 "marked_at": marked.isoformat() if status == "finished" else None,
-                "project": {"id": i, "name": random.choice(PROJECTS)},
+                "project": {
+                    "id": i,
+                    "name": random.choice(PROJECTS),
+                    "slug": f"project-{i}",
+                },
+                "cursus_ids": [21],
                 "user": user(login),
             }
         )

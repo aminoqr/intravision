@@ -250,6 +250,7 @@ def refresh(cfg: Config, use_fixtures: bool = False, save_fixtures: bool = False
         locations_recent=raw.get("locations_recent", []),
         scale_teams=raw.get("scale_teams", []),
         previous_cursus_users=previous,
+        cursus_id=cfg.cursus_id,
     )
     metrics["source"] = source
     metrics["requests_used"] = requests_used

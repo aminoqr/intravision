@@ -25,14 +25,15 @@ NOW = datetime(2026, 8, 1, 12, 0, tzinfo=timezone.utc)
 
 
 def pu(login="alice", project="libft", validated=True, minutes_ago=10, mark=100,
-       occurrence=0, status="finished"):
+       occurrence=0, status="finished", cursus_ids=None):
     return {
         "occurrence": occurrence,
         "final_mark": mark,
         "status": status,
         "validated?": validated,
         "marked_at": (NOW - timedelta(minutes=minutes_ago)).isoformat(),
-        "project": {"name": project},
+        "project": {"name": project, "slug": project.lower().replace(" ", "-")},
+        "cursus_ids": [21] if cursus_ids is None else cursus_ids,
         "user": {"id": hash(login) % 1000, "login": login, "displayname": login.title()},
     }
 
@@ -186,6 +187,35 @@ class TestActiveProjectData:
 
     def test_empty_when_nothing_in_progress(self):
         assert active_project_data([pu(status="finished")]) == []
+
+    def test_drops_piscine_exams_and_other_cursus(self):
+        rows = [
+            pu(project="C Piscine Exam 00", status="in_progress", login="p1", cursus_ids=[9]),
+            pu(project="C Piscine Exam 01", status="in_progress", login="p2", cursus_ids=[9]),
+            pu(project="C Piscine Final Exam", status="in_progress", login="p3", cursus_ids=[9]),
+            pu(project="Exam Rank 02", status="in_progress", login="e1", cursus_ids=[21]),
+            pu(project="Libft", status="in_progress", login="a1", cursus_ids=[21]),
+            pu(project="ft_printf", status="in_progress", login="a2", cursus_ids=[21]),
+            pu(project="ft_printf", status="in_progress", login="a3", cursus_ids=[21]),
+            pu(project="minishell", status="in_progress", login="a4", cursus_ids=[21]),
+        ]
+        nodes = active_project_data(rows, cursus_id=21)
+        names = [n["name"] for n in nodes]
+        assert "C Piscine Exam 00" not in names
+        assert "C Piscine Final Exam" not in names
+        assert "Exam Rank 02" not in names
+        assert names == ["ft_printf", "libft", "minishell"]
+        assert nodes[0]["percentage"] == "50.0%"
+        assert sum(n["count"] for n in nodes) == 4
+
+    def test_normalizes_common_core_display_names(self):
+        rows = [
+            pu(project="Born2beroot", status="in_progress", login="b1"),
+            pu(project="Philosophers", status="in_progress", login="p1"),
+            pu(project="get_next_line", status="in_progress", login="g1"),
+        ]
+        nodes = active_project_data(rows)
+        assert {n["name"] for n in nodes} == {"born2beroot", "philosophers", "get_next_line"}
 
 
 class TestOther:

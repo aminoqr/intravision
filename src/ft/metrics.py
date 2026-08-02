@@ -56,24 +56,36 @@ def is_validated(pu: Json) -> bool:
 
 def recent_validations(
     projects_users: Iterable[Json],
-    limit: int = 12,
+    limit: int = 10,
     now: datetime | None = None,
+    cursus_id: int | None = None,
 ) -> list[Json]:
-    """The hero panel: who validated what, most recent first."""
+    """The hero panel: who validated what, most recent first.
+
+    Scoped to Common Core (cursus_id) and stripped of Piscine / Exam Rank noise
+    so the Page 2 marquee shows authentic curriculum submissions.
+    """
     now = now or datetime.now(timezone.utc)
+    target_cursus = DEFAULT_CURSUS_ID if cursus_id is None else cursus_id
     rows = []
 
     for pu in projects_users:
         if not is_validated(pu):
             continue
+        if not _belongs_to_cursus(pu, target_cursus):
+            continue
+        project = pu.get("project") or {}
+        if _is_piscine_or_exam_project(project):
+            continue
         marked = parse_dt(pu.get("marked_at"))
         if marked is None:
             continue
-        project = pu.get("project") or {}
         rows.append(
             {
                 "user": _user_card(pu.get("user")),
-                "project": project.get("name") or project.get("slug") or "?",
+                "project": _normalize_common_core_name(
+                    _project_label(project) or "?"
+                ),
                 "mark": pu.get("final_mark"),
                 # occurrence is 0-indexed; attempt 3 is a persistence story worth showing.
                 "attempt": (pu.get("occurrence") or 0) + 1,
@@ -404,27 +416,87 @@ DONUT_PALETTE = [
     "#64748b",  # slate — reserved for "Others"
 ]
 
+# Default Common Core cursus ("42cursus"). Piscine is typically cursus 9.
+DEFAULT_CURSUS_ID = 21
 
-def active_project_data(projects_users: Iterable[Json]) -> list[Json]:
-    """Truthful spectrum / pill nodes for live in-progress projects.
+# Display labels aligned with /v2/cursus/:id/projects naming for the core track.
+_COMMON_CORE_DISPLAY_NAMES: dict[str, str] = {
+    "libft": "libft",
+    "born2beroot": "born2beroot",
+    "ftprintf": "ft_printf",
+    "getnextline": "get_next_line",
+    "pipex": "pipex",
+    "minishell": "minishell",
+    "philosophers": "philosophers",
+}
 
-    Equivalent to: SELECT * FROM projects_users WHERE status = 'in_progress'
-    with NO LIMIT — every in_progress row in the fetched campus payload is counted.
+_PISCINE_OR_EXAM_RE = re.compile(
+    r"(piscine|exam\s*rank|\bexam\b|basecamp)",
+    re.IGNORECASE,
+)
+
+
+def _project_label(project: Json) -> str:
+    """Prefer Intra project name, fall back to slug."""
+    return (project.get("name") or project.get("slug") or "").strip()
+
+
+def _normalize_common_core_name(raw: str) -> str:
+    """Stable TV labels for high-frequency Common Core projects."""
+    key = re.sub(r"[^a-z0-9]+", "", raw.lower())
+    return _COMMON_CORE_DISPLAY_NAMES.get(key, raw)
+
+
+def _is_piscine_or_exam_project(project: Json) -> bool:
+    """True for C Piscine exams/shell/C days and Exam Rank slots — not Common Core work."""
+    label = f"{_project_label(project)} {project.get('slug') or ''}"
+    return bool(_PISCINE_OR_EXAM_RE.search(label))
+
+
+def _belongs_to_cursus(pu: Json, cursus_id: int) -> bool:
+    """projects_users.cursus_ids mirrors the cursus attachment on Intra."""
+    ids = pu.get("cursus_ids")
+    if not ids:
+        # Legacy / sparse fixtures: allow through; name filter still drops piscine.
+        return True
+    try:
+        return cursus_id in {int(x) for x in ids}
+    except (TypeError, ValueError):
+        return cursus_id in ids
+
+
+def active_project_data(
+    projects_users: Iterable[Json],
+    *,
+    cursus_id: int = DEFAULT_CURSUS_ID,
+) -> list[Json]:
+    """Truthful spectrum / pill nodes for live Common Core in-progress projects.
+
+    Mirrors a campus `projects_users` pull with `filter[status]=in_progress`, then
+    scopes to the main cursus (`/v2/cursus/:cursus_id/projects` world — default 21)
+    and drops Piscine / Exam Rank noise that otherwise dominates Warsaw fixtures
+    even when no piscine is running.
 
     Rules:
-    1. Count each project name with Counter among status == "in_progress".
-    2. Sort descending by active count (organic share — never uniform placeholders).
-    3. If more than 7 unique projects: keep top 7, fold the rest into "Others".
-    4. Percentage of each final node is (count / Total) * 100, one decimal, with "%".
+    1. Count each project among status == "in_progress" on the target cursus.
+    2. Exclude Piscine curriculum + Exam Rank rows entirely.
+    3. Sort descending by active count (organic share — never uniform placeholders).
+    4. If more than 7 unique projects: keep top 7, fold the rest into "Others".
+    5. Percentage of each final node is (count / Total) * 100, one decimal, with "%".
     """
     counts: Counter[str] = Counter()
     for pu in projects_users:
         if pu.get("status") != "in_progress":
             continue
+        if not _belongs_to_cursus(pu, cursus_id):
+            continue
         project = pu.get("project") or {}
-        name = project.get("name") or project.get("slug")
-        if name:
-            counts[name] += 1
+        if _is_piscine_or_exam_project(project):
+            continue
+        raw = _project_label(project)
+        if not raw:
+            continue
+        counts[_normalize_common_core_name(raw)] += 1
 
     total = sum(counts.values())
     if not total:
@@ -649,6 +721,7 @@ def build_metrics(
     scale_teams: list[Json] | None = None,
     previous_cursus_users: list[Json] | None = None,
     now: datetime | None = None,
+    cursus_id: int = DEFAULT_CURSUS_ID,
 ) -> Json:
     """Assembles everything the renderer needs into one JSON blob."""
     now = now or datetime.now(timezone.utc)
@@ -668,7 +741,9 @@ def build_metrics(
         },
         "active_on_campus": active_on_campus(locations),
         "cluster_capacity": cluster_capacity(locations),
-        "recent_validations": recent_validations(projects_users, limit=12, now=now),
+        "recent_validations": recent_validations(
+            projects_users, limit=10, now=now, cursus_id=cursus_id
+        ),
         "project_popularity": project_popularity(projects_users),
         "level_distribution": level_distribution(cursus_users),
         "coalitions": coalition_standings(coalitions),
@@ -680,7 +755,7 @@ def build_metrics(
         "evals_completed": evals_completed_count(projects_users, now=now),
         "zombies": sleepless_zombies(location_history, now=now),
         # Page 3 — Projects & Peer Analytics
-        "active_project_data": active_project_data(projects_users),
+        "active_project_data": active_project_data(projects_users, cursus_id=cursus_id),
         "top_evaluators": top_evaluators(
             projects_users, days=7, now=now, scale_teams=scale_rows
         ),
